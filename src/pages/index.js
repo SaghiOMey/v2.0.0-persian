@@ -6,7 +6,7 @@ import episodes from "../pages/api/episodes"
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import { Fragment, useCallback } from "react";
-import logo from "../assests/saghiomey.ico";
+import logo from "../assests/saghiomey.png";
 import profile from "../assests/profile.jpg";
 import Image from 'next/image'
 import Link from "next/link";
