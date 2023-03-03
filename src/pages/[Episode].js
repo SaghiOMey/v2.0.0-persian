@@ -73,6 +73,11 @@ export default function Episode(props) {
           content={result.describtion}
         />
         <meta property="og:image" key="og:image" itemprop="image" content={result.img} />
+        <meta property="og:image:secure_url" content={result.img} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="300" />
+        <meta property="og:image:alt" content={result.name}  />
     </Head>
       <div className="relative">
         <Image className="bg-cover h-96 md:h-auto xl:w-full" src={sky} alt="sky" />
