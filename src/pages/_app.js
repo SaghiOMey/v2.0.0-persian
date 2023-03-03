@@ -106,7 +106,6 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>saghiomey</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
-        <meta property="og:image" key="og:image" content={logo} />
       </Head>
       {pathname === "/" ? null :
       <Disclosure as="nav" style={{ backgroundColor: "#1f2022" }}>
