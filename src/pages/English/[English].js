@@ -38,7 +38,7 @@ import {
   EmailShareButton,
   EmailIcon,
 } from "react-share";
-import browse from "../browsePodcast.svg";
+import browse from "../../assests/browsePodcast.svg";
 import AudioPlayer from 'react-h5-audio-player';
 import Footer from "../../components/Footer";
 
