@@ -10,6 +10,7 @@ import logo from "../assests/saghiomey.png";
 import profile from "../assests/profile.jpg";
 import Image from 'next/image'
 import Link from "next/link";
+import Head from "next/head";
 // eslint-disable-next-line no-unused-vars
 // import { Routes, Route } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
@@ -102,7 +103,10 @@ export default function index() {
   }, []);
   return (
     <div>
-      
+      <Head>
+      <meta property="og:title" key="og:title" content="Podcast SaghiOMey Hosted By Milad" />
+      <meta property="og:image" key="og:image" content={logo} />
+      </Head>
       {pathname === "/" ? 
       <>
       <Disclosure as="nav" style={{ backgroundColor: "#1f2022" }}>
