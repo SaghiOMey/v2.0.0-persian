@@ -26,14 +26,21 @@ export default function Persian(props) {
     <>
     <Head>
       <title>{result.name}</title>
-      <meta name="description" content={result.describtion} />
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Podcast SaghiOMey Hosted By Milad" />
       <meta property="og:title" key="og:title" content={result.name} />
+      <meta name="description" content={result.describtion} />
         <meta
           property="og:description"
           key="og:description"
           content={result.describtion}
         />
-        <meta property="og:image" key="og:image" content={result.img} />
+        <meta property="og:image" key="og:image" itemprop="image" content={result.img} />
+        <meta property="og:image:secure_url" content={result.img} />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="400" />
+        <meta property="og:image:height" content="300" />
+        <meta property="og:image:alt" content={result.name}  />
     </Head>
       <div className="relative">
         <Image className="bg-cover h-96 md:h-auto xl:w-full" src={sky} alt="sky" />
