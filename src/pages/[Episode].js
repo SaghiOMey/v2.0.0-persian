@@ -62,15 +62,17 @@ export default function Episode(props) {
       <>
       <Head>
       <title>{result.name}</title>
+      <meta property="og:type" content="website" />
+      <meta property="og:site_name" content="Podcast SaghiOMey Hosted By Milad" />
+      <meta property="og:title" key="og:title" content={result.name} />
       <meta name="description" content={result.describtion} />
       <link rel="shortcut icon" href={result.img} />
-      <meta property="og:title" key="og:title" content={result.name} />
         <meta
           property="og:description"
           key="og:description"
           content={result.describtion}
         />
-        <meta property="og:image" key="og:image" content={result.img} />
+        <meta property="og:image" key="og:image" itemprop="image" content={result.img} />
     </Head>
       <div className="relative">
         <Image className="bg-cover h-96 md:h-auto xl:w-full" src={sky} alt="sky" />
