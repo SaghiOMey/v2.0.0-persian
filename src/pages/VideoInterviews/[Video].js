@@ -27,7 +27,6 @@ export default function Persian(props) {
     <Head>
       <title>{result.name}</title>
       <meta name="description" content={result.describtion} />
-      <link rel="shortcut icon" href={result.img} />
       <meta property="og:title" key="og:title" content={result.name} />
         <meta
           property="og:description"
