@@ -8,11 +8,11 @@ import spotify from "../assests/spotify.svg";
 import googlepodcast from "../assests/googlepodcast.svg";
 import castbox from "../assests/castbox.svg";
 import Link from "next/link";
-import Image from 'next/image'
-import { useRouter } from 'next/router';
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function Footer(lastepisode) {
-    const { pathname } = useRouter();
+  const { pathname } = useRouter();
   const navigation = [
     { name: "Home", href: "", current: false },
     { name: "Video Interviews", href: "VideoInterviews", current: false },
@@ -33,6 +33,11 @@ export default function Footer(lastepisode) {
   return (
     <>
       {pathname === "/About" ||
+      pathname === "/Profile" ||
+      pathname === "/[Episode]" ||
+      pathname === "/VideoInterviews/[Video]" ||
+      pathname === "/EnglishEpisodes/[English]" ||
+      pathname === "/PersianEpisodes/[Persian]" ||
       pathname === "/Contact" ||
       pathname === "/NFT" ? (
         <div className="md:flex mt-36 md:justify-between mx-auto text-center max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
