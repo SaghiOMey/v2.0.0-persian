@@ -105,8 +105,6 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <title>saghiomey</title>
-        <meta name="description" content="Podcast" />
-        <meta property="og:image" key="og:image" content={logo} />
         <link rel="shortcut icon" href="/saghiomey.ico" />
       </Head>
       {pathname === "/" ? null :
