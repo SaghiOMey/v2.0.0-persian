@@ -5,9 +5,9 @@ import nightsky from "../assests/nightsky.jpg";
 import Index from "./index";
 import Image from 'next/image'
 import Footer from "../components/Footer";
-import styles from "../Components/Contact.module.css";
+import styles from "../components/Contact.module.css";
 import { useState, useRef } from "react";
-import { useFormContact } from "../Components/useFromContact";
+import { useFormContact } from "../components/useFromContact";
 import emailjs from "@emailjs/browser";
 import Head from "next/head";
 
