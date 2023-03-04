@@ -40,6 +40,7 @@ import {
 } from "react-share";
 import browse from "../../assests/browsePodcast.svg";
 import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 import Footer from "../../components/Footer";
 
 export default function Persian(props) {
