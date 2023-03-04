@@ -107,6 +107,12 @@ export default function index() {
         
       <meta property="og:title" key="og:title" content="Podcast SaghiOMey Hosted By Milad" />
       <meta property="og:image" key="og:image" content="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" />
+      <meta name="description" content={result.describtion} />
+        {/* <meta
+          property="og:description"
+          key="og:description"
+          content="A conversation with dear Shaghayegh about the world of fashion"
+        /> */}
       </Head>
       {pathname === "/" ? 
       <>
