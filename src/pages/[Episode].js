@@ -53,7 +53,7 @@ export default function Episode(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/", "")
   );
-  // console.log(result);
+  console.log(result);
 
   return (
     <>
