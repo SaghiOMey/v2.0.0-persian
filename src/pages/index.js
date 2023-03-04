@@ -106,11 +106,6 @@ export default function index() {
       <Head>
       <meta property="og:title" key="og:title" content="Podcast SaghiOMey Hosted By Milad" />
       <meta property="og:image" key="og:image" content="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" />
-      <meta
-          property="og:description"
-          key="og:description"
-          content="ddssdff"
-        />
       </Head>
       {pathname === "/" ? 
       <>
