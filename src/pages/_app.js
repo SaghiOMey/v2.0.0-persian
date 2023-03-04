@@ -113,7 +113,7 @@ export default function App({ Component, pageProps }) {
   }, []);
   return (
     <>
-        <Script style={{ backgroundColor: "#1f2022" }} strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-TDX5733Y0L"/>
+        {/* <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-TDX5733Y0L"/>
           <Script
           id='google-analytics'
           strategy="afterInteractive"
@@ -127,7 +127,7 @@ export default function App({ Component, pageProps }) {
           });
         `,
         }}
-        />
+        /> */}
       <Head>
         <title>saghiomey</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
