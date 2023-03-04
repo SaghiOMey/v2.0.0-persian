@@ -113,10 +113,10 @@ export default function App({ Component, pageProps }) {
   }, []);
   return (
     <>
+        <div style={{ backgroundColor: "#1f2022" }}>
         <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-TDX5733Y0L"/>
           <Script
           id='google-analytics'
-          style={{ backgroundColor: "#1f2022" }}
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
           __html: `
@@ -129,6 +129,7 @@ export default function App({ Component, pageProps }) {
         `,
         }}
         />
+        </div>
       <Head>
         <title>saghiomey</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
