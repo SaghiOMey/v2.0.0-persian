@@ -11,8 +11,6 @@ export default function About(props) {
       <Index />
       <Head>
         <title>About</title>
-        <meta property="og:title" key="og:title" content="Podcast" />
-      <meta property="og:image" key="og:image" content="https://images.unsplash.com/photo-1677930378565-ec7c95293dde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" />
         <link rel="shortcut icon" href="/saghiomey.ico" />
       </Head>
       <div className="relative">
