@@ -929,5 +929,24 @@
     "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/ZWFiNDQ2NmQtZTU1NS00N2UzLWIxNjItMmI5ZTc2NzBmOGRl?",
     "apple": "#",
     "castbox": "https://castbox.fm/episode/Fashion-Design---Shaghayegh-Farokhpoor-(Episode-48)-id4931691-id573950654?"
+  },
+  {
+    "id": 50,
+    "ln": "pa",
+    "name": "New Year Goals - Roya Kiani",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg",
+    "eplink": "https://saghiomey.netlify.app/New-Year-Goals-Roya-Kiani",
+    "href": "New-Year-Goals-Roya-Kiani",
+    "describtion": "A conversation with dear Roya Kiani about the goals of the new year Read more about this topic: https://positivepsychology.com/ikigai/",
+    "date": "Mar 4, 2023",
+    "time": "1:05:35",
+    "voice": "https://d3ctxlq1ktw2nl.cloudfront.net/staging/2023-2-4/316064805-22050-1-55194ef21d206.m4a",
+    "video": "https://www.youtube.com/embed/j0E6weL2Vrg",
+    "youtube": "https://youtu.be/j0E6weL2Vrg",
+    "anchor": "https://spotifyanchor-web.app.link/e/Tijby0alTxb",
+    "spotify": "https://open.spotify.com/episode/3XLpkzyjoH5rMLJstJTen3?si=da251754a9f443b3",
+    "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/ZmY0YTE1OWYtN2RjOC00MjA3LWJlYjItY2E5Zjc1NWJlMzNl?",
+    "apple": "#",
+    "castbox": "https://castbox.fm/episode/New-Year-Goals---Roya-Kiani-(Episode-49)-id4931691-id575893301?"
   }
 ]
