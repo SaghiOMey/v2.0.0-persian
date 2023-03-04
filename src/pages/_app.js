@@ -4,9 +4,7 @@ import '@/styles/globals.css'
 import Head from "next/head";
 import episodes from './api/episodes'
 import Reviews from './api/reviews'
-
-
-
+import Script from 'next/script'
 import { Fragment, useCallback } from "react";
 import logo from "../assests/saghiomey.png";
 import profile from "../assests/profile.jpg";
@@ -35,6 +33,7 @@ import castbox from "../assests/castbox.svg";
 // import AudioPersianInterviews from "../Routes/AudioPersianInterviews";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import * as gtag from "../lib/gtag"
 // import Profile from "../Routes/Profile";
 // import Reviews from "../Routes/Reviews";
 // import NFT from "../Routes/NFT";
@@ -48,11 +47,22 @@ function classNames(...classes) {
 
 export default function App({ Component, pageProps }) {
   const form1 = useRef();
-
+  const router = useRouter();
   const { pathname } = useRouter();
   const [Open, setOpen] = useState(false);
   const [Search, setSearch] = useState(false);
   // const [audio, setAudio] = useState("");
+    useEffect(() => {
+        const handleRouteChange = (url) => {
+          gtag.pageview(url);
+        };
+     
+        router.events.on("routeChangeComplete", handleRouteChange);
+     
+        return () => {
+          router.events.off("routeChangeComplete", handleRouteChange);
+        };
+      }, [router.events]);
   let [Name, setName] = useState("");
   const handleChange = (e) => {
     setName(e.target.value);
@@ -103,6 +113,21 @@ export default function App({ Component, pageProps }) {
   }, []);
   return (
     <>
+        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-TDX5733Y0L"/>
+          <Script
+          id='google-analytics'
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+          __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-TDX5733Y0L', {
+          page_path: window.location.pathname,
+          });
+        `,
+        }}
+        />
       <Head>
         <title>saghiomey</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
