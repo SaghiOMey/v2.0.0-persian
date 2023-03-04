@@ -113,7 +113,7 @@ export default function App({ Component, pageProps }) {
   }, []);
   return (
     <>
-        <div style={{ backgroundColor: "#1f2022", height: "0px" }}>
+        <div style={{ height: "0px" }}>
         <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-TDX5733Y0L"/>
           <Script
           id='google-analytics'
