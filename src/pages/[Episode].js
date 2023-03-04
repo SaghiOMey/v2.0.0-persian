@@ -63,7 +63,7 @@ export default function Episode(props) {
       <Head>
       <title>{result.name}</title>
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Podcast SaghiOMey Hosted By Milad" />
+      <meta property="og:site_name" content={result.describtion} />
       <meta property="og:title" key="og:title" content={result.name} />
       <meta name="description" content={result.describtion} />
         <meta
