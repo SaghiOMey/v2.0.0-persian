@@ -273,14 +273,14 @@ export default function Episode(props) {
               </Dialog>
             </Transition.Root>
           </div>
-          <span className="flex justify-self-center -mt-20 mr-32 xl:mr-0 xl:-mt-44 xl:-ml-80 lg:mr-0 lg:-mt-44 lg:-ml-32 md:mr-0 md:-mt-32 md:-ml-12 text-gray-300 font-semibold">
+          <span className="flex justify-self-center -mt-20 mr-32 xl:mr-0 xl:-mt-44 xl:-ml-80 lg:mr-0 lg:-mt-36 lg:-ml-32 md:mr-0 md:-mt-32 md:-ml-12 text-gray-300 font-semibold">
             Hosted By
           </span>
           <br />
-          <span className="flex justify-self-center pt-2 xl:pt-0 lg:pt-0 md:pt-0 -mt-28 xl:-mt-40 xl:-ml-80 lg:-mt-44 lg:-ml-32 md:-mt-32 md:-ml-12 font-medium h-8">
+          <span className="flex justify-self-center pt-2 xl:pt-0 lg:pt-0 md:pt-0 -mt-28 xl:-mt-40 xl:-ml-80 lg:-mt-32 lg:-ml-32 md:-mt-32 md:-ml-12 font-medium h-8">
             Milad
           </span>
-          <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-36 lg:ml-64 md:-mt-28 md:ml-72">
+          <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-18 lg:ml-64 md:-mt-24 md:ml-72">
             <a
               href={result.youtube}
               className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
