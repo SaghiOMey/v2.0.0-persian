@@ -158,9 +158,9 @@ export default function NFT(props) {
                   key={category}
                   className={({ selected }) =>
                     classNames(
-                      "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-yellow-500",
+                      "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-white",
                       "ring-opacity-60 ring-offset-2 focus:outline-none",
-                      selected ? "shadow" : "text-blue-100 hover:text-white"
+                      selected ? "shadow text-yellow-500" : "text-blue-100 hover:text-yellow-500"
                     )
                   }
                 >
