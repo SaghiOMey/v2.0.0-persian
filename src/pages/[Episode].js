@@ -53,7 +53,7 @@ export default function Episode(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/", "")
   );
-  console.log(result);
+  // console.log(result);
 
   return (
     <>
@@ -66,6 +66,7 @@ export default function Episode(props) {
       <meta property="og:site_name" content="Podcast SaghiOMey Hosted By Milad" />
       <meta property="og:title" key="og:title" content={result.name} />
       <meta name="description" content={result.describtion} />
+      <meta name="keywords" content={`${result.name}, ${result.describtion}`} />
         <meta
           property="og:description"
           key="og:description"
