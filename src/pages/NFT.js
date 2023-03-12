@@ -55,17 +55,17 @@ export default function NFT(props) {
         expire: "May 28, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560900370012045313/",
       },
-      // {
-      //   id: 2,
-      //   name: "The most innovative things happening in coffee",
-      //   describtion: "Does drinking coffee make you smarter?",
-      //   price: "0.62 ETH, $992.79",
-      //   creator: "Milad",
-      //   img: logo,
-      //   date: "Feb 26",
-      //   expire: "March 5, 2023",
-      //   link: "#",
-      // },
+      {
+        id: 2,
+        name: "The first exclusive music of Saghi.O.Mey podcast",
+        describtion: "The first exclusive music of Saghi.O.Mey podcast, also 10% of sales goes to charity",
+        price: "0.014 WETH, $20.43",
+        creator: "Milad & Sadaf",
+        img: logo,
+        date: "Mar 19",
+        expire: "March 19, 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560902569035300865/",
+      },
     ],
     Video: [
       {
