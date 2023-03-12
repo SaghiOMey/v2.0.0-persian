@@ -59,7 +59,7 @@ export default function NFT(props) {
         id: 2,
         name: "The first exclusive music of Saghi.O.Mey podcast",
         describtion: "The first exclusive music of Saghi.O.Mey podcast, also 10% of sales goes to charity",
-        price: "0.014 WETH, $20.43",
+        price: "0.014 WETH, $20.45",
         creator: "Milad & Sadaf",
         img: logo,
         date: "Jun 10",
