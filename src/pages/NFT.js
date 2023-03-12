@@ -26,7 +26,6 @@ export default function NFT(props) {
         price: "0.0125 WETH, $20.45",
         creator: "Milad",
         img: "https://i.seadn.io/gcs/files/824a750c60cecdae055fe3a29704235d.png?auto=format&w=1000",
-        date: "May 28",
         expire: "May 28, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560899270500417537/",
       },
@@ -36,8 +35,7 @@ export default function NFT(props) {
       //   describtion: "Does drinking coffee make you smarter?",
       //   price: "0.62 ETH, $992.79",
       //   creator: "Milad",
-      //   img: logo,
-      //   date: "Mar 26",
+      //   img: "https://i.seadn.io/gcs/files/824a750c60cecdae055fe3a29704235d.png?auto=format&w=1000",
       //   expire: "March 5, 2023",
       //   link: "#",
       // },
@@ -51,18 +49,17 @@ export default function NFT(props) {
         price: "0.0125 WETH, $20.45",
         creator: "Milad & Dani",
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
-        date: "May 28",
         expire: "May 28, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560900370012045313/",
       },
       {
         id: 2,
         name: "The first exclusive music of Saghi.O.Mey podcast",
-        describtion: "The first exclusive music of Saghi.O.Mey podcast, also 10% of sales goes to charity",
+        describtion:
+         "The first exclusive music of Saghi.O.Mey podcast, also 10% of sales goes to charity",
         price: "0.014 WETH, $20.45",
         creator: "Milad & Sadaf",
-        img: logo,
-        date: "Jun 10",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
         expire: "June 10, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560903668546928641/",
       },
@@ -76,7 +73,6 @@ export default function NFT(props) {
         price: "0.0125 WETH, $20.45",
         creator: "Milad & Dani",
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
-        date: "May 28",
         expire: "May 28, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560901469523673089/",
       },
@@ -87,7 +83,6 @@ export default function NFT(props) {
       //   price: "0.62 ETH, $992.79",
       //   creator: "Milad",
       //   img: logo,
-      //   date: "Feb 26",
       //   expire: "March 5, 2023",
       //   link: "#",
       // },
@@ -172,16 +167,12 @@ export default function NFT(props) {
               {Object.values(categories).map((posts, idx) => (
                 <Tab.Panel
                   key={idx}
-                  className={classNames(
-                    "rounded-xl p-3",
-                    "ring-white ring-opacity-60 ring-offset-2 focus:outline-none focus:ring-2"
-                  )}
                 >
                   <ul className="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
                     {[...posts].reverse().map((post) => (
                       <>
-                        {post.date <=
-                        new Date().toString().slice(4, 10) ? null : (
+                        {new Date().toString().slice(4, 10) <=
+                        new Date().toString().slice(4, 10) ? (
                           <li
                             key={post.id}
                             className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -228,7 +219,7 @@ export default function NFT(props) {
                               )}
                             />
                           </li>
-                        )}
+                        ) : null}
                       </>
                     ))}
                   </ul>
