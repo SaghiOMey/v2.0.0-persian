@@ -62,9 +62,9 @@ export default function NFT(props) {
         price: "0.014 WETH, $20.43",
         creator: "Milad & Sadaf",
         img: logo,
-        date: "Mar 19",
-        expire: "March 19, 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560902569035300865/",
+        date: "Jun 10",
+        expire: "June 10, 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560903668546928641/",
       },
     ],
     Video: [
