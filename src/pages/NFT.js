@@ -49,7 +49,7 @@ export default function NFT(props) {
         describtion:
           "The first episode of Saghi.O.May podcast, which was unveiled in 2021, also 10% of sales goes to charity",
         price: "0.0125 WETH, $20.45",
-        creator: "Milad",
+        creator: "Milad & Dani",
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
         date: "May 28",
         expire: "May 28, 2023",
@@ -74,7 +74,7 @@ export default function NFT(props) {
         describtion:
           "The first video of Saghi.O.May podcast, which was unveiled in 2021, also 10% of sales goes to charity",
         price: "0.0125 WETH, $20.45",
-        creator: "Milad",
+        creator: "Milad & Dani",
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
         date: "May 28",
         expire: "May 28, 2023",
