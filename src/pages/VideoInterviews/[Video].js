@@ -89,7 +89,7 @@ export default function Persian(props) {
             <br />
             <br />
             {/* <span className="font-normal font-sans text-white lg:text-2xl">Spotify-</span><a href={result.spotify} className="font-normal font-sans text-yellow-500 lg:text-2xl">{result.spotify}</a><br /><br /> */}
-            <span className="font-normal font-sans text-white lg:text-2xl">
+            {/* <span className="font-normal font-sans text-white lg:text-2xl">
               ApplePodcast-
             </span>
             <a
@@ -99,7 +99,7 @@ export default function Persian(props) {
               {result.apple}
             </a>
             <br />
-            <br />
+            <br /> */}
             <span className="font-normal font-sans text-white lg:text-2xl">
               CastBox-
             </span>
