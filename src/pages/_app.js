@@ -51,7 +51,7 @@ function classNames(...classes) {
 //firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCX0QCbi91uyfR-FFoq6B6Ld955eknirfo",
-  authDomain: "https://saghiomey.netlify.app",
+  authDomain: "saghiomey-f6203.firebaseapp.com",
   projectId: "saghiomey-f6203",
   storageBucket: "saghiomey-f6203.appspot.com",
   messagingSenderId: "838247378490",
