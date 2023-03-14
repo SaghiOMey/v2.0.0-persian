@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import Voice from '@/components/voice';
 import '@/styles/globals.css'
@@ -38,6 +39,8 @@ import * as gtag from "../lib/gtag"
 // import Reviews from "../Routes/Reviews";
 // import NFT from "../Routes/NFT";
 import OneSignal from "react-onesignal";
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
 
@@ -45,13 +48,38 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+//firebase config
+const firebaseConfig = {
+  apiKey: "AIzaSyCX0QCbi91uyfR-FFoq6B6Ld955eknirfo",
+  authDomain: "saghiomey-f6203.firebaseapp.com",
+  projectId: "saghiomey-f6203",
+  storageBucket: "saghiomey-f6203.appspot.com",
+  messagingSenderId: "838247378490",
+  appId: "1:838247378490:web:a8bc732e73e69f42b14f03",
+  measurementId: "G-B3DNY6FW6W"
+};
+// Initialize firebase and google 
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+// Sign in and sign out functins
+const signIn = () => auth.signInWithPopup(provider);
+const signOut = () => auth.signOut();
+
 export default function App({ Component, pageProps }) {
   const form1 = useRef();
   const router = useRouter();
   const { pathname } = useRouter();
   const [Open, setOpen] = useState(false);
   const [Search, setSearch] = useState(false);
+  const [user, setUser] = useState(null);
   // const [audio, setAudio] = useState("");
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      setUser(user);
+    });
+  }, []);
     useEffect(() => {
         const handleRouteChange = (url) => {
           gtag.pageview(url);
@@ -111,6 +139,7 @@ export default function App({ Component, pageProps }) {
       appId: "62e0bd67-f20e-4491-b24f-a27b58d7cdfc",
     });
   }, []);
+
   return (
     <>
         <div style={{ height: "0px" }}>
@@ -200,6 +229,21 @@ export default function App({ Component, pageProps }) {
                       >
                         Subscribe
                       </button>
+                      {user ? 
+                      <button
+                      onClick={signOut}
+                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Sign Out
+                    </button>
+                     :
+                     <button
+                      onClick={signIn}
+                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Sign In
+                    </button>
+                     }
                       <Transition.Root show={Open} as={Fragment}>
                         <Dialog
                           as="div"
@@ -343,11 +387,19 @@ export default function App({ Component, pageProps }) {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
+                        {user ?
+                        <img
+                          className="h-16 w-16 rounded-full"
+                          src={user.photoURL}
+                          alt="profile"
+                        />
+                        :
                         <Image
                           className="h-16 w-16 rounded-full"
                           src={profile}
                           alt="profile"
                         />
+                        }
                       </Menu.Button>
                     </div>
                     <Transition
@@ -363,8 +415,12 @@ export default function App({ Component, pageProps }) {
                         <Menu.Item>
                           {({ active }) => (
                             // eslint-disable-next-line jsx-a11y/anchor-is-valid
+                            <>
+                            {user ?
+                            user.displayName
+                            :
                             <Link
-                              href="/Profile"
+                              href="Profile"
                               className={classNames(
                                 active ? "bg-gray-100" : "",
                                 "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
@@ -372,6 +428,8 @@ export default function App({ Component, pageProps }) {
                             >
                               Profile
                             </Link>
+                            }
+                            </>
                           )}
                         </Menu.Item>
                         <Menu.Item>
@@ -433,14 +491,29 @@ export default function App({ Component, pageProps }) {
                   className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Subscribe
-                </button>
+                </button><br />
+                {user ? 
+                      <button
+                      onClick={signOut}
+                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Sign Out
+                    </button>
+                     :
+                     <button
+                      onClick={signIn}
+                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Sign In
+                    </button>
+                     }
               </div>
             </Disclosure.Panel>
           </>
         )}
       </Disclosure>
       }
-  <Component {...pageProps} episode = {episodes} reviews={filterReviews} episodes={filterNames} />
+  <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={filterReviews} episodes={filterNames} />
   <Voice />
     </>
   )

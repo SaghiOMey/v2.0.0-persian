@@ -46,7 +46,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function index() {
+export default function index(props) {
   const form1 = useRef();
 
   const { pathname } = useRouter();
@@ -162,6 +162,21 @@ export default function index() {
                       >
                         Subscribe
                       </button>
+                      {props.user ? 
+                      <button
+                      onClick={props.signOut}
+                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Sign Out
+                    </button>
+                     :
+                     <button
+                      onClick={props.signIn}
+                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Sign In
+                    </button>
+                     }
                       <Transition.Root show={Open} as={Fragment}>
                         <Dialog
                           as="div"
@@ -305,11 +320,19 @@ export default function index() {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
+                        {props.user ?
+                        <img
+                          className="h-16 w-16 rounded-full"
+                          src={props.user.photoURL}
+                          alt="profile"
+                        />
+                        :
                         <Image
                           className="h-16 w-16 rounded-full"
                           src={profile}
                           alt="profile"
                         />
+                        }
                       </Menu.Button>
                     </div>
                     <Transition
@@ -325,6 +348,10 @@ export default function index() {
                         <Menu.Item>
                           {({ active }) => (
                             // eslint-disable-next-line jsx-a11y/anchor-is-valid
+                            <>
+                            {props.user ?
+                            props.user.displayName
+                            :
                             <Link
                               href="Profile"
                               className={classNames(
@@ -334,6 +361,8 @@ export default function index() {
                             >
                               Profile
                             </Link>
+                            }
+                            </>
                           )}
                         </Menu.Item>
                         <Menu.Item>
@@ -395,7 +424,22 @@ export default function index() {
                   className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Subscribe
-                </button>
+                </button><br />
+                {props.user ? 
+                      <button
+                      onClick={props.signOut}
+                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Sign Out
+                    </button>
+                     :
+                     <button
+                      onClick={props.signIn}
+                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
+                    >
+                      Sign In
+                    </button>
+                     }
               </div>
             </Disclosure.Panel>
           </>
