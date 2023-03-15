@@ -53,8 +53,8 @@ export default function Persian(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/EnglishEpisodes/", "")
   );
+  // const show = lastepisode.find((episode) => episode.href === router.asPath.replace("/EnglishEpisodes/", ""))
   // console.log(result);
-
   return (
 //     <>
 // <Index />
@@ -284,6 +284,7 @@ export default function Persian(props) {
 //           <span className="flex justify-self-center pt-2 xl:pt-0 lg:pt-0 md:pt-0 -mt-28 xl:-mt-40 xl:-ml-80 lg:-mt-32 lg:-ml-32 md:-mt-32 md:-ml-12 font-medium h-8">
 //             Milad
 //           </span>
+//           {show ?
 //           <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-18 lg:ml-64 md:-mt-24 md:ml-72">
 //             <a
 //               href={result.youtube}
@@ -320,6 +321,7 @@ export default function Persian(props) {
 //               </span>
 //             </a>
 //           </div>
+//           : null }
 //         </div>
 //         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
 //           <div className="mx-auto text-center md:text-justify max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -328,42 +330,56 @@ export default function Persian(props) {
 //             </span>
 //             <br />
 //             <br />
+//             {show ?
 //             <span className="font-normal font-sans text-white lg:text-2xl">
 //               Listen on
 //             </span>
+//             : null }
 //             <br />
 //             <br />
+//             {show ?
 //             <span className="font-normal font-sans text-white lg:text-2xl">
 //               Anchor-
 //             </span>
+//             : null }
+//             {show ?
 //             <a
 //               href={result.anchor}
 //               className="font-normal font-sans text-yellow-500 lg:text-2xl"
 //             >
 //               {result.anchor}
 //             </a>
+//             : null}
 //             <br />
 //             <br />
+//             {show ?
 //             <span className="font-normal font-sans text-white lg:text-2xl">
 //               CastBox-
 //             </span>
+//             : null }
+//             {show ?
 //             <a
 //               href={result.castbox}
 //               className="font-normal font-sans text-yellow-500 lg:text-2xl"
 //             >
 //               {result.castbox}
 //             </a>
+//             : null }
 //             <br />
 //             <br />
+//             {show ?
 //             <span className="font-normal font-sans text-white lg:text-2xl">
 //               You can watch this interview on YouTube
 //             </span>
+//             : null }
+//             {show ?
 //             <a
 //               href={result.youtube}
 //               className="font-normal font-sans text-yellow-500 lg:text-2xl"
 //             >
 //               {result.youtube}
 //             </a>
+//             : null }
 //             <br />
 //             <br />
 //             <span className="font-normal font-sans text-white lg:text-2xl">

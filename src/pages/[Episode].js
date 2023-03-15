@@ -53,8 +53,8 @@ export default function Episode(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/", "")
   );
+  // const show = lastepisode.find((episode) => episode.href === router.asPath.replace("/", ""))
   // console.log(result);
-
   return (
 //     <>
 //     {props.user ?
@@ -283,6 +283,7 @@ export default function Episode(props) {
 //           <span className="flex justify-self-center pt-2 xl:pt-0 lg:pt-0 md:pt-0 -mt-28 xl:-mt-40 xl:-ml-80 lg:-mt-32 lg:-ml-32 md:-mt-32 md:-ml-12 font-medium h-8">
 //             Milad
 //           </span>
+//           {show ?
 //           <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-18 lg:ml-64 md:-mt-24 md:ml-72">
 //             <a
 //               href={result.youtube}
@@ -319,6 +320,7 @@ export default function Episode(props) {
 //               </span>
 //             </a>
 //           </div>
+//           : null }
 //         </div>
 //         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
 //           <span className="flex justify-center mt-14">
@@ -338,16 +340,20 @@ export default function Episode(props) {
 //             </span>
 //             <br />
 //             <br />
+//             {show ?
 //             <span className="font-normal font-sans text-white lg:text-2xl">
 //               You can watch this interview on YouTube
 //             </span>
+//             : null }
 //             &nbsp;
+//             {show ? 
 //             <a
 //               href={result.youtube}
 //               className="font-normal font-sans text-yellow-500 lg:text-2xl"
 //             >
 //               {result.youtube}
 //             </a>
+//             : null }
 //             <br />
 //             <br />
 //             <span className="font-normal font-sans text-white lg:text-2xl">
@@ -398,7 +404,7 @@ export default function Episode(props) {
 //     : <h1 className="mt-44 bg-black text-yellow-500 text-center font-bold text-2xl">Please First Signin</h1>
 //     }
 //     </>
-<>
+ <>
 <Index />
   {router.isReady ?
   <>
@@ -461,7 +467,6 @@ export default function Episode(props) {
       <p className="-mt-48 xl:-mt-80 lg:-mt-72 md:-mt-60 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
         {result.name}
       </p>
-
       <div className="flex -mt-40 xl:-mt-64 lg:-mt-58 md:-mt-52 justify-self-center md:ml-56 h-0 w-9/12 md:w-5/12">
         <AudioPlayer
         style={{backgroundColor: "inherit"}}

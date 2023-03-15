@@ -18,8 +18,8 @@ export default function Persian(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/VideoInterviews/", "")
   );
+  // const show = lastepisode.find((episode) => episode.href === router.asPath.replace("/VideoInterviews/", ""))
   // console.log(result);
-
   return (
     // <>
     // {router.isReady ?
@@ -74,20 +74,26 @@ export default function Persian(props) {
     //         </span>
     //         <br />
     //         <br />
+    //         {show ?
     //         <span className="font-normal font-sans text-white lg:text-2xl">
     //           Listen on
     //         </span>
+    //         : null }
     //         <br />
     //         <br />
+    //         {show ?
     //         <span className="font-normal font-sans text-white lg:text-2xl">
     //           Anchor-
     //         </span>
+    //         : null }
+    //         {show ?
     //         <a
     //           href={result.anchor}
     //           className="font-normal font-sans text-yellow-500 lg:text-2xl"
     //         >
     //           {result.anchor}
     //         </a>
+    //         : null }
     //         <br />
     //         <br />
     //         {/* <span className="font-normal font-sans text-white lg:text-2xl">Spotify-</span><a href={result.spotify} className="font-normal font-sans text-yellow-500 lg:text-2xl">{result.spotify}</a><br /><br /> */}
@@ -102,15 +108,19 @@ export default function Persian(props) {
     //         </a>
     //         <br />
     //         <br /> */}
+    //         {show ?
     //         <span className="font-normal font-sans text-white lg:text-2xl">
     //           CastBox-
     //         </span>
+    //         : null }
+    //         {show ?
     //         <a
     //           href={result.castbox}
     //           className="font-normal font-sans text-yellow-500 lg:text-2xl"
     //         >
     //           {result.castbox}
     //         </a>
+    //         : null}
     //         <br />
     //         <br />
     //         <span className="font-normal font-sans text-white lg:text-2xl">
