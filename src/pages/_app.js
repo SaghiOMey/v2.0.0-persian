@@ -229,7 +229,7 @@ export default function App({ Component, pageProps }) {
                       >
                         Subscribe
                       </button>
-                      {user ? 
+                      {/* {user ? 
                       <button
                       onClick={signOut}
                       className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
@@ -243,7 +243,7 @@ export default function App({ Component, pageProps }) {
                     >
                       Sign In
                     </button>
-                     }
+                     } */}
                       <Transition.Root show={Open} as={Fragment}>
                         <Dialog
                           as="div"
@@ -387,7 +387,7 @@ export default function App({ Component, pageProps }) {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
-                        {user ?
+                        {/* {user ?
                         <img
                           className="h-16 w-16 rounded-full"
                           src={user.photoURL}
@@ -399,7 +399,12 @@ export default function App({ Component, pageProps }) {
                           src={profile}
                           alt="profile"
                         />
-                        }
+                        } */}
+                        <Image
+                          className="h-16 w-16 rounded-full"
+                          src={profile}
+                          alt="profile"
+                        />
                       </Menu.Button>
                     </div>
                     <Transition
@@ -492,7 +497,7 @@ export default function App({ Component, pageProps }) {
                 >
                   Subscribe
                 </button><br />
-                {user ? 
+                {/* {user ? 
                       <button
                       onClick={signOut}
                       className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
@@ -506,7 +511,7 @@ export default function App({ Component, pageProps }) {
                     >
                       Sign In
                     </button>
-                     }
+                     } */}
               </div>
             </Disclosure.Panel>
           </>
