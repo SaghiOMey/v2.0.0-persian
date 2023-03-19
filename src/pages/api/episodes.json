@@ -948,5 +948,24 @@
     "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/ZmY0YTE1OWYtN2RjOC00MjA3LWJlYjItY2E5Zjc1NWJlMzNl?",
     "apple": "#",
     "castbox": "https://castbox.fm/episode/New-Year-Goals---Roya-Kiani-(Episode-49)-id4931691-id575893301?"
+  },
+  {
+    "id": 51,
+    "ln": "pa",
+    "name": "Mental errors - Anoosheh",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_episode400/22745765/22745765-1679126531142-9528db558dc76.jpg",
+    "eplink": "https://saghiomey.netlify.app/Mental-errors-Anoosheh",
+    "href": "Mental-errors-Anoosheh",
+    "describtion": "A conversation with dear Anoosheh about mental errors",
+    "date": "Mar 19, 2023",
+    "time": "1:05:03",
+    "voice": "https://d3ctxlq1ktw2nl.cloudfront.net/staging/2023-2-9/316982597-22050-1-301f37bd31ccc.m4a",
+    "video": "https://www.youtube.com/embed/nm3NU5O2JLg",
+    "youtube": "https://youtu.be/nm3NU5O2JLg",
+    "anchor": "https://spotifyanchor-web.app.link/e/6R7In8RQhyb",
+    "spotify": "https://open.spotify.com/episode/4lhpVdP9ypEcsCPD4j0lpC?si=164cb56e74124e60",
+    "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/YTA4YTkwNGMtNDA5Ny00YzA5LWFhMjAtZTJmYzkxYzZiMjk5?",
+    "apple": "#",
+    "castbox": "https://castbox.fm/episode/Mental-errors---Anoosheh-(EP-50)-id4931691-id580038043?"
   }
 ]

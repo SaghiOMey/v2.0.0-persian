@@ -29,16 +29,16 @@ export default function NFT(props) {
         expire: "May 28, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560899270500417537/",
       },
-      // {
-      //   id: 2,
-      //   name: "So you've bought coffee... now what?",
-      //   describtion: "Does drinking coffee make you smarter?",
-      //   price: "0.62 ETH, $992.79",
-      //   creator: "Milad",
-      //   img: "https://i.seadn.io/gcs/files/824a750c60cecdae055fe3a29704235d.png?auto=format&w=1000",
-      //   expire: "March 5, 2023",
-      //   link: "#",
-      // },
+      {
+        id: 2,
+        name: "The cover of #ep50",
+        describtion: "The cover of #ep5, also 10% of sales goes to charity",
+        price: "0.0028 WETH, $5.01",
+        creator: "Maryam Karimi",
+        img: "https://i.seadn.io/gcs/files/96e1dc9c5208b063b6bfd9dfe10f2078.jpg?auto=format&w=1000",
+        expire: "Apr 18, 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560904768058556417",
+      },
     ],
     Audio: [
       {
@@ -63,6 +63,17 @@ export default function NFT(props) {
         expire: "June 10, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560903668546928641/",
       },
+      {
+        id: 3,
+        name: "The Audio of #ep50",
+        describtion:
+         "The Audio of #ep50, also 10% of sales goes to charity",
+        price: "0.0028 WETH, $5.01",
+        creator: "Milad & Anoosheh",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "Apr 18, 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560905867570184193",
+      },
     ],
     Video: [
       {
@@ -76,16 +87,16 @@ export default function NFT(props) {
         expire: "May 28, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560901469523673089/",
       },
-      // {
-      //   id: 2,
-      //   name: "The worst advice we've ever heard about coffee",
-      //   describtion: "Does drinking coffee make you smarter?",
-      //   price: "0.62 ETH, $992.79",
-      //   creator: "Milad",
-      //   img: logo,
-      //   expire: "March 5, 2023",
-      //   link: "#",
-      // },
+      {
+        id: 2,
+        name: "The Video of #ep50",
+        describtion: "The Video of #ep50, also 10% of sales goes to charity",
+        price: "0.0028 WETH, $5.01",
+        creator: "Milad & Anoosheh",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "Apr 18, 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560906967081811969",
+      },
     ],
   });
   const lastepisode = props.episodes.slice(-5).reverse();
