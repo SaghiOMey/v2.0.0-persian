@@ -333,11 +333,11 @@ export default function index(props) {
                           alt="profile"
                         />
                         }
-                        <Image
+                        {/* <Image
                           className="h-16 w-16 rounded-full"
                           src={profile}
                           alt="profile"
-                        />
+                        /> */}
                       </Menu.Button>
                     </div>
                     <Transition
