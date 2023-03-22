@@ -44,7 +44,7 @@ const metadata = {
   contentType: 'audio/mpeg',
 };
 // 'file' comes from the Blob or File API
-uploadBytes(storageRef, audio, metadata).then((snapshot) => {
+uploadBytes(storageRef, new File([audio], "file.mp3"), metadata).then((snapshot) => {
   console.log('Uploaded a blob or file!');
 });
     // axios({ url: audio, method: "GET", responseType: "blob" }).then(
