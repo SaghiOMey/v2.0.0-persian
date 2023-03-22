@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
 // import axios from "axios";
+import { getStorage, ref, uploadBytes } from "firebase/storage";
+
 
 export default function Voice() {
   const form1 = useRef();
@@ -36,6 +38,13 @@ export default function Voice() {
           console.log(error.text);
         }
       );
+      const storage = getStorage();
+const storageRef = ref(storage, 'some-child');
+
+// 'file' comes from the Blob or File API
+uploadBytes(storageRef, audio).then((snapshot) => {
+  console.log('Uploaded a blob or file!');
+});
     // axios({ url: audio, method: "GET", responseType: "blob" }).then(
     //   (response) => {
     //     const url = window.URL.createObjectURL(new Blob([response.data]));
