@@ -39,7 +39,7 @@ export default function Voice() {
         }
       );
       const storage = getStorage();
-const storageRef = ref(storage, 'some-child');
+const storageRef = ref(storage, 'Voice/file.mp3');
 
 // 'file' comes from the Blob or File API
 uploadBytes(storageRef, audio).then((snapshot) => {
