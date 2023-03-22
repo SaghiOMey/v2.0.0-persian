@@ -44,19 +44,19 @@ export default function Voice() {
       contentType: 'audio/mpeg',
       };
     // 'file' comes from the Blob or File API
-    uploadBytes(storageRef, window.URL.createObjectURL(new Blob([audio])), metadata).then((snapshot) => {
+    uploadBytes(storageRef, audio, metadata).then((snapshot) => {
     console.log('Uploaded a blob or file!');
     });
-    // axios({ url: audio, method: "GET", responseType: "blob" }).then(
-    //   (response) => {
-    //     const url = window.URL.createObjectURL(new Blob([response.data]));
-    //     const link = document.createElement("a");
-    //     link.href = url;
-    //     link.setAttribute("download", "file.mp3");
-    //     document.body.appendChild(link);
-    //     link.click();
-    //   }
-    // );
+    axios({ url: audio, method: "GET", responseType: "blob" }).then(
+      (response) => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "file.mp3");
+        document.body.appendChild(link);
+        link.click();
+      }
+    );
   };
   return (
     <div className="flex justify-end fixed top-3/4 mt-24 right-4">
