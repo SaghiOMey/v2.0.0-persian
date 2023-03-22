@@ -162,7 +162,7 @@ export default function index(props) {
                       >
                         Subscribe
                       </button>
-                      {/* {props.user ? 
+                      {props.user ? 
                       <button
                       onClick={props.signOut}
                       className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
@@ -176,7 +176,7 @@ export default function index(props) {
                     >
                       Sign In
                     </button>
-                     } */}
+                     }
                       <Transition.Root show={Open} as={Fragment}>
                         <Dialog
                           as="div"
@@ -320,7 +320,7 @@ export default function index(props) {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
-                        {/* {props.user ?
+                        {props.user ?
                         <img
                           className="h-16 w-16 rounded-full"
                           src={props.user.photoURL}
@@ -332,7 +332,7 @@ export default function index(props) {
                           src={profile}
                           alt="profile"
                         />
-                        } */}
+                        }
                         <Image
                           className="h-16 w-16 rounded-full"
                           src={profile}
