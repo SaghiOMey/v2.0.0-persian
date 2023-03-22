@@ -39,14 +39,14 @@ export default function Voice() {
         }
       );
       const storage = getStorage();
-const storageRef = ref(storage, 'Voice/file.mp3');
-const metadata = {
-  contentType: 'audio/mpeg',
-};
-// 'file' comes from the Blob or File API
-uploadBytes(storageRef, window.URL.createObjectURL(new Blob([audio])), metadata).then((snapshot) => {
-  console.log('Uploaded a blob or file!');
-});
+      const storageRef = ref(storage, 'Voice/file.mp3');
+      const metadata = {
+      contentType: 'audio/mpeg',
+      };
+    // 'file' comes from the Blob or File API
+    uploadBytes(storageRef, window.URL.createObjectURL(new Blob([audio])), metadata).then((snapshot) => {
+    console.log('Uploaded a blob or file!');
+    });
     // axios({ url: audio, method: "GET", responseType: "blob" }).then(
     //   (response) => {
     //     const url = window.URL.createObjectURL(new Blob([response.data]));

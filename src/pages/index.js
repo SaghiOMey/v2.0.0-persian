@@ -430,7 +430,7 @@ export default function index(props) {
                 >
                   Subscribe
                 </button><br />
-                {/* {props.user ? 
+                {props.user ? 
                       <button
                       onClick={props.signOut}
                       className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
@@ -444,7 +444,7 @@ export default function index(props) {
                     >
                       Sign In
                     </button>
-                     } */}
+                     }
               </div>
             </Disclosure.Panel>
           </>
