@@ -38,25 +38,33 @@ export default function Voice() {
           console.log(error.text);
         }
       );
-      const storage = getStorage();
-      const storageRef = ref(storage, 'Voice/file.mp3');
-      const metadata = {
-      contentType: 'audio/mpeg',
-      };
+      // const storage = getStorage();
+      // const storageRef = ref(storage, 'Voice/file.mp3');
+      // const metadata = {
+      // contentType: 'audio/mpeg',
+      // };
     // 'file' comes from the Blob or File API
-    uploadBytes(storageRef, audio, metadata).then((snapshot) => {
-    console.log(snapshot);
-    });
-    // axios({ url: audio, method: "GET", responseType: "blob" }).then(
-    //   (response) => {
-    //     const url = window.URL.createObjectURL(new Blob([response.data]));
-    //     const link = document.createElement("a");
-    //     link.href = url;
-    //     link.setAttribute("download", "file.mp3");
-    //     document.body.appendChild(link);
-    //     link.click();
-    //   }
-    // );
+    // uploadBytes(storageRef, audio, metadata).then((snapshot) => {
+    // console.log('Uploaded a blob or file!');
+    // });
+    axios({ url: audio, method: "GET", responseType: "blob" }).then(
+      (response) => {
+        const storage = getStorage();
+        const storageRef = ref(storage, 'Voice/file.mp3');
+        const metadata = {
+          contentType: 'audio/mpeg',
+          };
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        uploadBytes(storageRef, url, metadata).then((snapshot) => {
+          console.log('Uploaded a blob or file!');
+          });
+        // const link = document.createElement("a");
+        // link.href = url;
+        // link.setAttribute("download", "file.mp3");
+        // document.body.appendChild(link);
+        // link.click();
+      }
+    );
   };
   return (
     <div className="flex justify-end fixed top-3/4 mt-24 right-4">
