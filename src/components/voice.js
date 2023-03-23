@@ -44,8 +44,7 @@ export default function Voice() {
       contentType: 'audio/mpeg',
       };
     // 'file' comes from the Blob or File API
-    const url = window.URL.createObjectURL(new Blob([audio]));
-    uploadBytes(storageRef, url, metadata).then((snapshot) => {
+    uploadBytes(storageRef, audio, metadata).then((snapshot) => {
     console.log('Uploaded a blob or file!');
     });
     // axios({ url: audio, method: "GET", responseType: "blob" }).then(

@@ -69,7 +69,7 @@ export default function NFT(props) {
         describtion:
          "The Audio of #ep50, also 10% of sales goes to charity",
         price: "0.0028 WETH, $5.01",
-        creator: "Milad & Anoosheh",
+        creator: "Milad",
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
         expire: "Apr 18, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560905867570184193",
@@ -92,7 +92,7 @@ export default function NFT(props) {
         name: "The Video of #ep50",
         describtion: "The Video of #ep50, also 10% of sales goes to charity",
         price: "0.0028 WETH, $5.01",
-        creator: "Milad & Anoosheh",
+        creator: "Milad",
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
         expire: "Apr 18, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560906967081811969",
