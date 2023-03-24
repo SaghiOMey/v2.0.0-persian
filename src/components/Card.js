@@ -95,8 +95,8 @@ export default function Card(episodes) {
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
                   >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
-                      <Image
-                        src={logo}
+                      <img
+                        src={episode.img}
                         alt={episode.imageAlt}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
                       />
@@ -153,8 +153,8 @@ export default function Card(episodes) {
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
                   >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
-                      <Image
-                        src={logo}
+                      <img
+                        src={episode.img}
                         alt={episode.imageAlt}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
                       />
@@ -276,8 +276,8 @@ export default function Card(episodes) {
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
                   >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
-                      <Image
-                        src={logo}
+                      <img
+                        src={episode.img}
                         alt={episode.imageAlt}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
                       />
@@ -334,8 +334,8 @@ export default function Card(episodes) {
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
                   >
                     <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
-                      <Image
-                        src={logo}
+                      <img
+                        src={episode.img}
                         alt={episode.imageAlt}
                         className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
                       />
