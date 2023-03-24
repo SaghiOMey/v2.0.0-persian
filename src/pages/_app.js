@@ -400,11 +400,6 @@ export default function App({ Component, pageProps }) {
                           alt="profile"
                         />
                         }
-                        {/* <Image
-                          className="h-16 w-16 rounded-full"
-                          src={profile}
-                          alt="profile"
-                        /> */}
                       </Menu.Button>
                     </div>
                     <Transition

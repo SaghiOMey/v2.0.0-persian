@@ -23,30 +23,30 @@ export default function Voice() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_75ytjo7",
-        "template_7ek1l64",
-        form1.current,
-        "Lp5sE4yuq_l5oKBod"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-      const storage = getStorage();
-      const storageRef = ref(storage, 'Voice/file.mp3');
-      const metadata = {
-      contentType: 'audio/mpeg',
-      };
+    // emailjs
+    //   .sendForm(
+    //     "service_75ytjo7",
+    //     "template_7ek1l64",
+    //     form1.current,
+    //     "Lp5sE4yuq_l5oKBod"
+    //   )
+    //   .then(
+    //     (result) => {
+    //       console.log(result.text);
+    //     },
+    //     (error) => {
+    //       console.log(error.text);
+    //     }
+    //   );
+      // const storage = getStorage();
+      // const storageRef = ref(storage, 'Voice/file.mp3');
+      // const metadata = {
+      // contentType: 'audio/mpeg',
+      // };
     // 'file' comes from the Blob or File API
-    uploadBytes(storageRef, audio, metadata).then((snapshot) => {
-    console.log('Uploaded a blob or file!');
-    });
+    // uploadBytes(storageRef, audio, metadata).then((snapshot) => {
+    // console.log('Uploaded a blob or file!');
+    // });
     // axios({ url: audio, method: "GET", responseType: "blob" }).then(
     //   (response) => {
     //     const url = window.URL.createObjectURL(new Blob([response.data]));
