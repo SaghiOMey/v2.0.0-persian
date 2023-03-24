@@ -80,7 +80,7 @@ export default function Persian(props) {
         <meta property="og:image:alt" content={result.name}  />
     </Head>
     <>
-    {props.user ?
+    {props.user || show ?
       <div className="relative">
         <Image className="bg-cover h-96 md:h-auto xl:w-full" src={sky} alt="sky" />
         <div className="absolute grid justify-items-center md:justify-items-start xl:top-3/4 w-full text-white">

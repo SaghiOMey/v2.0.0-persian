@@ -57,7 +57,7 @@ export default function Episode(props) {
   // console.log(result);
   return (
     <>
-    {props.user ?
+    {props.user || show ?
     <>
 <Index />
       {router.isReady ?
