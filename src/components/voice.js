@@ -86,7 +86,9 @@ export default function Voice() {
       />
       {audio.length ? (
         <form ref={form1} onSubmit={sendEmail}>
+          {user ?
           <input className="hidden" name="audio" value={user.email} />
+          : null }
           <div
             className={`relative z-10 ${open === true ? "block" : "hidden"}`}
             aria-labelledby="modal-title"
