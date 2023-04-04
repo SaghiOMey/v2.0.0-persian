@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-key */
 import Navigation from "@/components/Navigation";
 import Link from "next/link";
-import { getDatabase, ref, onValue} from "firebase/database";
 
 
 export default function Men() {
@@ -129,17 +128,12 @@ export default function Men() {
             { name: 'Store', href: '/store' },
           ],
         }
-        const db = getDatabase();
-const starCountRef = ref(db, 'products/');
-onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
-  updateStarCount(postElement, data);
-});
+
     return(
         <>
       <Navigation />
       <div className="absolute inset-0 top-full bg-white shadow" aria-hidden="true" />
-      {products.map((category) => (      
+      {products.map((category) => (    
             <div className="relative bg-white">
               {category.id === 'men' ?
               <div className="max-w-7xl mx-auto px-4">
@@ -204,7 +198,7 @@ onValue(starCountRef, (snapshot) => {
                           {section.items.map((item) => (
                             <li key={item.name} className="flex">
                               <a href={item.href} className="hover:text-gray-800">
-                                {item.name === 'Tops' ? <Link href="/woman-tops">{item.name}</Link> : ''}
+                                {item.name === 'Tops' ? <Link href="/ManTops">{item.name}</Link> : ''}
                                 {item.name === 'Dresses' ? <Link href="/dresses">{item.name}</Link> : ''}
                                 {item.name === 'Pants' ? <Link href="/pants">{item.name}</Link> : ''}
                                 {item.name === 'Denim' ? <Link href="/denim">{item.name}</Link> : ''}
@@ -234,7 +228,7 @@ onValue(starCountRef, (snapshot) => {
                 </div>
               </div>
               : '' }
-            </div>
+            </div>   
           ))}  
         </>
     );
