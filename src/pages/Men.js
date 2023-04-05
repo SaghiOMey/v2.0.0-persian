@@ -4,7 +4,7 @@ import Navigation from "@/components/Navigation";
 import Link from "next/link";
 
 
-export default function Men() {
+export default function Men(props) {
     const products = [
         {
           id: "women",
@@ -131,7 +131,7 @@ export default function Men() {
 
     return(
         <>
-      <Navigation />
+      <Navigation props={props} />
       <div className="absolute inset-0 top-full bg-white shadow" aria-hidden="true" />
       {products.map((category) => (    
             <div className="relative bg-white">

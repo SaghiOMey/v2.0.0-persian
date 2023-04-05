@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-key */
 import Navigation from "@/components/Navigation";
@@ -6,7 +7,7 @@ import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, setDoc, doc } from "firebase/firestore";
 import { useState, Fragment } from "react";
 import { useRouter } from 'next/router';
 
@@ -14,7 +15,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function ManTops() {
+export default function ManTops(props) {
     const produc = {
         rating: 3.9,
         reviewCount: 117,
@@ -36,6 +37,7 @@ export default function ManTops() {
       }
   const [product, setProduct] = useState(null);
   const [open, setOpen] = useState(false)
+  const [notify, setNotify] = useState(false)
   const [selectedColor, setSelectedColor] = useState(produc.colors[0])
   const [selectedSize, setSelectedSize] = useState(produc.sizes[2])
   const router = useRouter();
@@ -46,10 +48,58 @@ export default function ManTops() {
           });
         }
         products()
-
+        function settimeout(){
+          setTimeout(() => {
+            setNotify(false)
+          },3000)
+        }
+        async function checkouts(){
+          const db = getFirestore();
+          const pr = product.items.find(item => {return item})
+          await setDoc(doc(db, "checkouts", props.user.displayName), {
+            username: props.user.displayName,
+            useremail: props.user.email,
+            name: pr.name,
+            price: pr.price,
+            quantity: 1,
+            color: selectedColor.name,
+            size: selectedSize.name,
+            imageAlt: pr.imageAlt,
+            catimageSrc: pr.catimageSrc
+          });
+        }
+        // console.log(pr.name);
     return(
         <>
-      <Navigation />
+        <Transition.Root show={notify} as={Fragment}>
+         <div class="absolute pr-16 pt-4 w-full flex justify-end">
+          <div class="bg-white rounded-lg border-gray-300 border p-3 shadow-lg">
+           <div class="flex flex-row">
+            <div class="px-2">
+             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+             </svg>
+            </div>
+            <div class="ml-2 mr-6">
+             <span class="font-semibold">Successfully Saved To Bag!</span>
+             <span class="block text-gray-500">Please check your's bag for continue shopping</span>
+            </div>
+           <div>
+            <button
+              type="button"
+              className="top-4 right-4 text-gray-400 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
+              onClick={() => setNotify(false)}
+             >
+             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+             </svg>
+            </button>
+           </div>
+          </div>
+         </div>
+        </div>
+        </Transition.Root>
+      <Navigation props={props} />
         {product === null ? "waiting" : 
         <>
         {router.asPath.slice(1) === product.title ?
@@ -273,7 +323,7 @@ export default function ManTops() {
                           type="submit"
                           className="mt-6 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                           // eslint-disable-next-line no-mixed-operators
-                          onClick={() => addToCard(this.state.top.id, this.state.selectedColor, this.state.selectedSize) && this.setClose() || this.setNotifyOpen() || this.setTimeout()}             
+                          onClick={() => setNotify(true) || settimeout() || setOpen(false) || checkouts()}             
                         >
                           Add to bag
                         </button>
