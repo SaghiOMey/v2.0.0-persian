@@ -7,8 +7,8 @@ import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, setDoc, doc } from "firebase/firestore";
-import { useState, Fragment } from "react";
+import { collection, getDocs, setDoc, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
+import { useState, Fragment, useEffect } from "react";
 import { useRouter } from 'next/router';
 
 function classNames(...classes) {
@@ -37,17 +37,25 @@ export default function ManTops(props) {
       }
   const [product, setProduct] = useState(null);
   const [open, setOpen] = useState(false)
+  const [name, setName] = useState()
+  const [price, setPrice] = useState()
+  const [imageAlt, setImageAlt] = useState()
+  const [catimageSrc, setCatimageSrc] = useState()
   const [notify, setNotify] = useState(false)
   const [selectedColor, setSelectedColor] = useState(produc.colors[0])
   const [selectedSize, setSelectedSize] = useState(produc.sizes[2])
   const router = useRouter();
-        async function products(){
-          const querySnapshot = await getDocs(collection(getFirestore(), "products"));
-          querySnapshot.forEach((doc) => {
-            setProduct(doc.data())
+        useEffect(() => {
+        const db = getFirestore();
+        getDoc(doc(db, "products", "JwpkvxX8BDAXkzJDbheW")).then(docSnap => {
+          if (docSnap.exists()) {
+            setProduct(docSnap.data())
+          } else {
+            // console.log("No such document!");
+          }
           });
-        }
-        products()
+        }, []);
+
         function settimeout(){
           setTimeout(() => {
             setNotify(false)
@@ -55,20 +63,75 @@ export default function ManTops(props) {
         }
         async function checkouts(){
           const db = getFirestore();
-          const pr = product.items.find(item => {return item})
-          await setDoc(doc(db, "checkouts", props.user.displayName), {
-            username: props.user.displayName,
-            useremail: props.user.email,
-            name: pr.name,
-            price: pr.price,
-            quantity: 1,
-            color: selectedColor.name,
-            size: selectedSize.name,
-            imageAlt: pr.imageAlt,
-            catimageSrc: pr.catimageSrc
-          });
+          const checkouts = doc(db, "checkouts", props.user.displayName)
+          await setDoc(checkouts, {
+            "ManTops" : arrayUnion(
+              {
+                username: props.user.displayName,
+                useremail: props.user.email,
+                name: name,
+                price: price,
+                quantity: 1,
+                color: selectedColor.name,
+                size: selectedSize.name,
+                imageAlt: imageAlt,
+                catimageSrc: catimageSrc
+                }
+            )
+          }, { merge: true });
         }
-        // console.log(pr.name);
+        async function products(){
+          const db = getFirestore();
+          const pr = product.items.find(item => {return item.name === name})
+          const products = doc(db, "products", "JwpkvxX8BDAXkzJDbheW")
+          await updateDoc(products, {
+            "items" : arrayUnion(
+              {
+                brand: pr.brand,
+                catimageSrc: pr.catimageSrc,
+                color: pr.color,
+                describtion: pr.describtion,
+                detail: pr.detail,
+                imageAlt: pr.imageAlt,
+                imageSrc: pr.imageSrc,
+                inventory: pr.inventory - 1,
+                message: pr.message,
+                name: pr.name,
+                price: pr.price,
+                rating: pr.rating,
+                reviewCount: pr.reviewCount,
+                shipping: pr.shipping,
+                size: pr.size,
+                subject: pr.subject,
+                title: pr.title
+                }
+            )
+          }, { merge: true });
+          await updateDoc(products, {
+            "items" : arrayRemove(
+              {
+                brand: pr.brand,
+                catimageSrc: pr.catimageSrc,
+                color: pr.color,
+                describtion: pr.describtion,
+                detail: pr.detail,
+                imageAlt: pr.imageAlt,
+                imageSrc: pr.imageSrc,
+                inventory: pr.inventory,
+                message: pr.message,
+                name: pr.name,
+                price: pr.price,
+                rating: pr.rating,
+                reviewCount: pr.reviewCount,
+                shipping: pr.shipping,
+                size: pr.size,
+                subject: pr.subject,
+                title: pr.title
+                }
+            )
+          }, { merge: true });
+        }
+        // console.log(product.items.find(item => {return item.name === name}));
     return(
         <>
         <Transition.Root show={notify} as={Fragment}>
@@ -120,7 +183,7 @@ export default function ManTops(props) {
                     className="w-full h-full object-center object-cover lg:w-full lg:h-full"
                   />
                 <div className="flex items-end p-4">
-                <button onClick={() => setOpen(true)} class="relative z-10 w-full bg-white bg-opacity-75 py-2 px-4 rounded-md text-sm text-gray-900 opacity-0 group-hover:opacity-100 focus:opacity-100">Quick View</button>
+                <button onClick={() => setOpen(true) || setName(top.name) || setPrice(top.price) || setImageAlt(top.imageAlt) || setCatimageSrc(top.catimageSrc)} class="relative z-10 w-full bg-white bg-opacity-75 py-2 px-4 rounded-md text-sm text-gray-900 opacity-0 group-hover:opacity-100 focus:opacity-100">Quick View</button>
                 </div>
                 </div>
                 <div className="mt-4 flex justify-between">
@@ -181,6 +244,8 @@ export default function ManTops(props) {
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
                 {product === null ? "waiting" : product.items.map((top) => (
+                  <>
+                  {top.name === name ?
                 <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
                   <div className="aspect-w-2 aspect-h-3 rounded-lg bg-gray-100 overflow-hidden sm:col-span-4 lg:col-span-5">
                     <img src={top.catimageSrc} alt={top.imageAlt} className="object-center object-cover" />
@@ -323,7 +388,7 @@ export default function ManTops(props) {
                           type="submit"
                           className="mt-6 w-full bg-indigo-600 border border-transparent rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                           // eslint-disable-next-line no-mixed-operators
-                          onClick={() => setNotify(true) || settimeout() || setOpen(false) || checkouts()}             
+                          onClick={() => setNotify(true) || settimeout() || setOpen(false) || products() && checkouts()}             
                         >
                           Add to bag
                         </button>
@@ -331,6 +396,8 @@ export default function ManTops(props) {
                     </section>
                   </div>
                 </div>
+                 : null }
+                </>
                 ))}
               </div>
             </div>

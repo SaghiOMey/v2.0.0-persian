@@ -5,9 +5,9 @@ import { Dialog, RadioGroup, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from "next/link";
 import { useRouter } from 'next/router';
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect } from "react";
 import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, deleteDoc, doc } from "firebase/firestore";
+import { collection, getDocs, deleteField, doc, getDoc, updateDoc, arrayRemove } from "firebase/firestore";
 
 
 
@@ -140,25 +140,49 @@ export default function Navigation(props) {
       }
       const router = useRouter();
       const [open, setOpen] = useState(false);
+      const [name, setName] = useState()
+      const [pricee, setPrice] = useState()
+      const [imageAlt, setImageAlt] = useState()
+      const [catimageSrc, setCatimageSrc] = useState()
+      const [quantiity, setqQuantity] = useState()
+      const [selectedColor, setSelectedColor] = useState()
+      const [selectedSize, setSelectedSize] = useState()
       const [checkout, setCheckout] = useState(null);
 
       async function remove(){
         const db = getFirestore();
-        await deleteDoc(doc(db, "checkouts", props.props.user.displayName));
+        const checkouts = doc(db, "checkouts", props.props.user.displayName)
+        await updateDoc(checkouts, {
+          "ManTops" : arrayRemove(
+            {
+              username: props.props.user.displayName,
+              useremail: props.props.user.email,
+              name: name,
+              price: pricee,
+              quantity: quantiity,
+              color: selectedColor,
+              size: selectedSize,
+              imageAlt: imageAlt,
+              catimageSrc: catimageSrc
+              }
+          )
+        }, { merge: true });
       }
-
-      async function checkouts(){
-        const querySnapshot = await getDocs(collection(getFirestore(), "checkouts"));
-        querySnapshot.forEach((doc) => {
-          setCheckout(doc.data())
-          // console.log(doc.data());
-        });
-      }
-      checkouts()
-      const quantity = checkout ? props.props.user.email === checkout.useremail ? checkout.quantity : 0 : null
-      const enable = checkout ? props.props.user.email === checkout.useremail ? '' : 'disabled' : null
-      const clas = checkout ? props.props.user.email === checkout.useremail ? "flex justify-center items-center w-full mt-12 px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700" : "flex cursor-not-allowed justify-center items-center w-full mt-12 px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700" : null
-      // console.log(checkout);
+        useEffect(() => {
+          const db = getFirestore();
+          getDoc(doc(db, "checkouts", props.props.user.displayName)).then(docSnap => {
+            if (docSnap.exists()) {
+              setCheckout(docSnap.data())
+            } else {
+              // console.log("No such document!");
+            }
+          })
+        }, []);
+      const quantity = checkout !== null ? checkout.ManTops.map(checkout => checkout.quantity) : 0
+      const count = quantity !== 0 ? quantity.reduce((accumulator, currentValue) => accumulator + currentValue, 0) : 0
+      const price = checkout !== null ? checkout.ManTops.map(checkout => checkout.price) : 0 
+      const total = price !== 0 ? price.reduce((accumulator, currentValue) => accumulator + currentValue, 0) : 0
+      // console.log(total);
     return(
         <>
         <nav aria-label="Top" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -229,7 +253,7 @@ export default function Navigation(props) {
                     className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
                     aria-hidden="true"
                   />
-                   <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{quantity}</span>
+                   <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">{count}</span>
                    <span className="sr-only">items in cart, view bag</span>
                   </button>
                   <Transition.Root show={open} as={Fragment}>
@@ -261,9 +285,10 @@ export default function Navigation(props) {
                   <div className="h-full flex flex-col bg-white shadow-xl overflow-y-scroll">
                     <div className="flex-1 py-6 overflow-y-auto px-4 sm:px-6">
                       <div className="flex items-start justify-between">
-                      {checkout === null ? "waiting" :
+                      {checkout === null ? <h3>Please add to the Shopping bag</h3> :
                         <Dialog.Title className="text-lg font-medium text-gray-900">
-                        <div className="mt-8">
+                          {checkout.ManTops.map((checkout) => (
+                        <div key={checkout.id} className="mt-8">
         <div className="flow-root">
         <ul role="list" className="-my-6 divide-y divide-gray-200">
             <li className="py-6 flex">
@@ -288,7 +313,7 @@ export default function Navigation(props) {
                   <p className="text-gray-500">Qty x {checkout.quantity}</p>
 
                   <div className="flex ml-px md:ml-32">
-                    <button type="button" onClick={() => remove() || setOpen(false)} className="font-medium text-indigo-600 hover:text-indigo-500">
+                    <button type="button" onClick={() => remove() && setqQuantity(checkout.quantity) || setSelectedSize(checkout.size) || setSelectedColor(checkout.color) || setName(checkout.name) || setPrice(checkout.price) || setImageAlt(checkout.imageAlt) || setCatimageSrc(checkout.catimageSrc) || setOpen(false)} className="font-medium text-indigo-600 hover:text-indigo-500">
                       Remove
                     </button>
                   </div>
@@ -298,6 +323,7 @@ export default function Navigation(props) {
           </ul> 
         </div>
                         </div>
+                        ))}
                         </Dialog.Title>
                         }
                         <div className="ml-3 h-7 flex items-center">
@@ -315,17 +341,16 @@ export default function Navigation(props) {
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">                   
                       <div className="flex justify-between text-base font-medium text-gray-900">
                         <p>Subtotal</p>
-                        <p>${checkout ? checkout.price : null}</p>
+                        <p>${checkout ? total : null}</p>
                       </div>
                       <p className="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                       <div className="mt-6">
-                      <Link href={checkout ? props.props.user.email === checkout.useremail ? "/checkout" : "/" : null}>
+                      <Link href={checkout ? "/checkout" : "/Shop"}>
                         <button
-                          disabled = {enable}
-                          className={clas}
+                          className="flex justify-center items-center w-full mt-12 px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                           onClick={() => setOpen(false)}
                         >
-                          Checkout
+                          {checkout ? "Checkout" : "Shop"}
                         </button>
                         </Link>
                       </div>
@@ -348,7 +373,7 @@ export default function Navigation(props) {
             </div>
           </div>
         </Dialog>
-      </Transition.Root>
+                  </Transition.Root>
                 </div>
               </div>
             </div>
