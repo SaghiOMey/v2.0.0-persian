@@ -177,6 +177,7 @@ export default function Navigation(props) {
               // console.log("No such document!");
             }
           })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
       const quantity = checkout !== null ? checkout.ManTops.map(checkout => checkout.quantity) : 0
       const count = quantity !== 0 ? quantity.reduce((accumulator, currentValue) => accumulator + currentValue, 0) : 0

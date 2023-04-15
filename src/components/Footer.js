@@ -29,6 +29,12 @@ export default function Footer(lastepisode) {
     { name: "About", href: "About", current: false },
     { name: "Contact", href: "Contact", current: false },
   ];
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
 
   return (
     <>
@@ -107,7 +113,7 @@ export default function Footer(lastepisode) {
               <ul className="md:list-disc">
                 {lastepisode.lastepisode.map((episode) => (
                   <li className="hover:text-white mt-2">
-                    <Link href={`/${episode.href}`}>{episode.name}</Link>
+                    <Link onClick={() => scrollToTop()} href={`/${episode.href}`}>{episode.name}</Link>
                   </li>
                 ))}
               </ul>
@@ -121,6 +127,7 @@ export default function Footer(lastepisode) {
                 {navigation.map((item) => (
                   <li className="hover:text-white mt-2">
                     <Link
+                      onClick={() => scrollToTop()}
                       href={`/${item.href}`}
                       key={item.name}
                       className="hover:text-white mt-2"

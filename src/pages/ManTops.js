@@ -189,7 +189,7 @@ export default function ManTops(props) {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700">
-                      <Link href={`/product/${top.id}`}>
+                      <Link href={`/Product/${top.name}`}>
                         <span aria-hidden="true" className="absolute inset-0" />
                         {top.name}
                       </Link>
@@ -269,7 +269,7 @@ export default function ManTops(props) {
                                 <StarIcon
                                   key={rating}
                                   className={classNames(
-                                    product.rating > rating ? 'text-gray-900' : 'text-gray-200',
+                                    produc.rating > rating ? 'text-gray-900' : 'text-gray-200',
                                     'h-5 w-5 flex-shrink-0'
                                   )}
                                   aria-hidden="true"

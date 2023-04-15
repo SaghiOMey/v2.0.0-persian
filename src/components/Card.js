@@ -30,6 +30,7 @@ provider.setCustomParameters({ prompt: "select_account" });
 
 
 export default function Card(episodes) {
+  const lastepisode = episodes.episodes.slice(0, 5);
   const { pathname } = useRouter();
   const [open, setOpen] = useState(false);
   const [ep, setEp] = useState(episodes.episodes.slice(0, 9));
@@ -39,6 +40,12 @@ export default function Card(episodes) {
       setUser(user);
     });
   }, []);
+  function settimeout(){
+    setTimeout(() => {
+      setOpen(false)
+    },3000)
+  }
+
   return (
     <>
     <div
@@ -88,7 +95,7 @@ export default function Card(episodes) {
             <>
               {episodes.episodes.slice(0, 9).map((episode) => (
                 <>
-                {user || episode.id == "51" || episode.id == "50" || episode.id == "49" || episode.id == "48" || episode.id == "47" ?
+                {user || lastepisode.find(({id}) => id === episode.id) ?
                 <Link href={`/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -147,7 +154,7 @@ export default function Card(episodes) {
                   </div>
                 </Link>
                 : 
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true) || settimeout()}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -212,7 +219,7 @@ export default function Card(episodes) {
             <>
               {ep.map((episode) => (
                 <>
-                {user || episode.id == "51" || episode.id == "50" || episode.id == "49" || episode.id == "48" || episode.id == "47" ?
+                {user || lastepisode.find(({id}) => id === episode.id) ?
                 <Link href={`/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -271,7 +278,7 @@ export default function Card(episodes) {
                   </div>
                 </Link>
                 :
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true) || settimeout()}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -342,7 +349,7 @@ export default function Card(episodes) {
                 <>
                 {pathname === "/VideoInterviews" ?
                 <>
-                 {user || episode.id == "51" || episode.id == "50" || episode.id == "49" || episode.id == "48" || episode.id == "47" ?
+                 {user || lastepisode.find(({id}) => id === episode.id) ?
                 <Link href={`/VideoInterviews/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -401,7 +408,7 @@ export default function Card(episodes) {
                   </div>
                 </Link>
                 :
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true) || settimeout()}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -463,7 +470,7 @@ export default function Card(episodes) {
                 : null }
                 {pathname === "/PersianEpisodes" ?
                 <>
-                {user || episode.id == "51" || episode.id == "50" || episode.id == "49" || episode.id == "48" || episode.id == "47" ? 
+                {user || lastepisode.find(({id}) => id === episode.id) ? 
                 <Link href={`/PersianEpisodes/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -522,7 +529,7 @@ export default function Card(episodes) {
                   </div>
                 </Link>
                 :
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true) || settimeout()}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -584,7 +591,7 @@ export default function Card(episodes) {
                 : null }
                 {pathname === "/EnglishEpisodes" ?
                 <> 
-                {user || episode.id == "51" || episode.id == "50" || episode.id == "49" || episode.id == "48" || episode.id == "47" ? 
+                {user || lastepisode.find(({id}) => id === episode.id) ? 
                 <Link href={`/EnglishEpisodes/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -643,7 +650,7 @@ export default function Card(episodes) {
                   </div>
                 </Link>
                 :
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true) || settimeout()}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -712,7 +719,7 @@ export default function Card(episodes) {
                 <>
                 {pathname === "/VideoInterviews" ?
                 <>
-                {user || episode.id == "51" || episode.id == "50" || episode.id == "49" || episode.id == "48" || episode.id == "47" ?  
+                {user || lastepisode.find(({id}) => id === episode.id) ?  
                 <Link href={`/VideoInterviews/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -771,7 +778,7 @@ export default function Card(episodes) {
                   </div>
                 </Link>
                 :
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true) || settimeout()}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -833,7 +840,7 @@ export default function Card(episodes) {
                 : null }
                 {pathname === "/PersianEpisodes" ? 
                 <>
-                {user || episode.id == "51" || episode.id == "50" || episode.id == "49" || episode.id == "48" || episode.id == "47" ?
+                {user || lastepisode.find(({id}) => id === episode.id) ?
                 <Link href={`/PersianEpisodes/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -892,7 +899,7 @@ export default function Card(episodes) {
                   </div>
                 </Link>
                 :
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true) || settimeout()}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -954,7 +961,7 @@ export default function Card(episodes) {
                 : null }
                 {pathname === "/EnglishEpisodes" ? 
                 <>
-                {user || episode.id == "51" || episode.id == "50" || episode.id == "49" || episode.id == "48" || episode.id == "47" ?
+                {user || lastepisode.find(({id}) => id === episode.id) ?
                 <Link href={`/EnglishEpisodes/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -1013,7 +1020,7 @@ export default function Card(episodes) {
                   </div>
                 </Link>
                 :
-                <button onClick={() => setOpen(true)}>
+                <button onClick={() => setOpen(true) || settimeout()}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
