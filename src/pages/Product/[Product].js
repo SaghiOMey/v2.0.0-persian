@@ -266,8 +266,8 @@ export default function Product(props) {
         <div className="flex gap-1 gap-2 text-xs font-extrabold tracking-tight text-gray-900 sm:text-base">
                   <Link href="/">Men</Link><span className="text-gray-400">\</span>
                   <Link href="/men">Clothing</Link><span className="text-gray-400">\</span>
-                  <Link href={`/${product.title}`}>{product.title}</Link><span className="text-gray-400">\</span>
-                  <Link href={`/product/${result.name}`} className="text-gray-400">{result.name}</Link>
+                  {/* <Link href={`/${product.title}`}>{product.title}</Link><span className="text-gray-400">\</span> */}
+                  {/* <Link href={`/product/${result.name}`} className="text-gray-400">{result.name}</Link> */}
         </div>
         <div class="mt-6 rounded-lg grid grid-cols-1 gap-1 md:grid-cols-3">
                   <div className="relative md:row-span-3">
