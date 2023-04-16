@@ -354,7 +354,7 @@ export default function Product(props) {
                             </div>
                           ))}
                           </>
-                        : ""}
+                        : ""} 
                           <div className="col-span-3">
                                 <h2 className="col-span-2 mt-8 text-base font-black text-gray-900 lg:text-lg md:text-lg">Share your thoughts</h2>
                                 <p className="mt-2 text-sm text-gray-500 lg:text-base md:text-base">
