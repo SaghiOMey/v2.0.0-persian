@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
 import { useRouter } from 'next/router';
@@ -35,6 +36,12 @@ export default function Product(props) {
         ],
       }
     const [product, setProduct] = useState(null);
+    const [reviews, setReviews] = useState(null);
+    const [form, setForm] = useState({
+      rating: null,
+      subject: "",
+      message: "",
+    });
     const [open, setOpen] = useState(false)
     const [notify, setNotify] = useState(false)
     const [selectedColor, setSelectedColor] = useState(produc.colors[0])
@@ -56,13 +63,33 @@ export default function Product(props) {
             // console.log("No such document!");
           }
           });
+          getDoc(doc(db, "reviews", "QF8EnWmvoYAG5rxSOysM")).then(docSnap => {
+            if (docSnap.exists()) {
+              setReviews(docSnap.data())
+            } else {
+              // console.log("No such document!");
+            }
+            });
         }, []);
-
+        const rv = reviews !== null ? reviews.items : 0
         function settimeout(){
             setTimeout(() => {
               setNotify(false)
             },3000)
           }
+
+          const onSubmitForm = (e) => {
+            e.preventDefault();
+          };
+
+          const onUpdateField = (e) => {
+            const field = e.target.name;
+            const nextFormState = {
+              ...form,
+              [field]: e.target.value,
+            };
+            setForm(nextFormState);
+          };
         
           async function checkouts(){
             const db = getFirestore();
@@ -134,8 +161,75 @@ export default function Product(props) {
                   }
               )
             }, { merge: true });
-          }  
-    // console.log(product);
+          }
+          
+          async function message(){
+            const db = getFirestore();
+            const pr = product.items.find(item => {return item.name === result.name})
+            const products = doc(db, "products", "JwpkvxX8BDAXkzJDbheW")
+            const reviews = doc(db, "reviews", "QF8EnWmvoYAG5rxSOysM")
+            await updateDoc(products, {
+              "items" : arrayUnion(
+                {
+                  brand: pr.brand,
+                  catimageSrc: pr.catimageSrc,
+                  color: pr.color,
+                  describtion: pr.describtion,
+                  detail: pr.detail,
+                  imageAlt: pr.imageAlt,
+                  imageSrc: pr.imageSrc,
+                  inventory: pr.inventory,
+                  message: form.message,
+                  name: pr.name,
+                  price: pr.price,
+                  rating: form.rating + pr.rating,
+                  reviewCount: pr.reviewCount + 1,
+                  shipping: pr.shipping,
+                  size: pr.size,
+                  subject: form.subject,
+                  title: pr.title
+                  }
+              )
+            }, { merge: true });
+            await updateDoc(products, {
+              "items" : arrayRemove(
+                {
+                  brand: pr.brand,
+                  catimageSrc: pr.catimageSrc,
+                  color: pr.color,
+                  describtion: pr.describtion,
+                  detail: pr.detail,
+                  imageAlt: pr.imageAlt,
+                  imageSrc: pr.imageSrc,
+                  inventory: pr.inventory,
+                  message: pr.message,
+                  name: pr.name,
+                  price: pr.price,
+                  rating: pr.rating,
+                  reviewCount: pr.reviewCount,
+                  shipping: pr.shipping,
+                  size: pr.size,
+                  subject: pr.subject,
+                  title: pr.title
+                  }
+              )
+            }, { merge: true });
+            await updateDoc(reviews, {
+              "items" : arrayUnion(
+                {
+                  username: props.user.displayName,
+                  useremail: props.user.email,
+                  image: props.user.photoURL,
+                  status: 0, 
+                  message: form.message,
+                  name: pr.name,
+                  subject: form.subject,
+                  rating: form.rating
+                  }
+              )
+            }, { merge: true });
+          }
+    console.log(product);
     return (
         <>
         <Transition.Root show={notify} as={Fragment}>
@@ -169,6 +263,12 @@ export default function Product(props) {
         <Navigation props={props} />
         {result === null ? "waiting" : 
         <>
+        <div className="flex gap-1 gap-2 text-xs font-extrabold tracking-tight text-gray-900 sm:text-base">
+                  <Link href="/">Men</Link><span className="text-gray-400">\</span>
+                  <Link href="/men">Clothing</Link><span className="text-gray-400">\</span>
+                  <Link href={`/${product.title}`}>{product.title}</Link><span className="text-gray-400">\</span>
+                  <Link href={`/product/${result.name}`} className="text-gray-400">{result.name}</Link>
+        </div>
         <div class="mt-6 rounded-lg grid grid-cols-1 gap-1 md:grid-cols-3">
                   <div className="relative md:row-span-3">
                     <img
@@ -216,22 +316,24 @@ export default function Product(props) {
                         <span className="text-base text-gray-800 md:text-lg">{result.detail}</span>
                       </div>
                         <>
-                          {/* {rv.map((review) => (
+                          {rv ? 
+                          <>
+                          {rv.map((review) => (
                             <div className="grid grid-cols-3 gap-1 mt-12 md:grid-cols-4">
-                              {review.product_id === product.id ?
+                              {review.name === result.name && review.status === 1 ?
                                 <div className="col-span-1 -space-x-1 overflow-hidden">
                                   <img
                                     className="inline-block w-12 h-12 rounded-full ring-2 ring-white"
-                                    src={user.currentUser === "undefined" ? user.currentUser.currentUser.image : userLogo}
+                                    src={review.image}
                                     alt=""
                                   />
-                                  <p className="mt-6 pl-0.5 text-sm lg:text-base md:text-base font-black text-gray-900">{review.name}</p>
+                                  <p className="mt-6 pl-0.5 text-sm lg:text-base md:text-base font-black text-gray-900">{review.username}</p>
                                   <div className="mt-2 pl-0.5 flex items-center">
                                     {[0, 1, 2, 3, 4].map((rating) => (
                                       <StarIcon
                                         key={rating}
                                         className={classNames(
-                                          review.rating > rating ? 'text-yellow-400' : 'text-gray-200',
+                                          review.rating ? 'text-yellow-400' : 'text-gray-200',
                                           'h-5 w-5 flex-shrink-0'
                                         )}
                                         aria-hidden="true"
@@ -240,7 +342,7 @@ export default function Product(props) {
                                   </div>
                                 </div>
                                 : ''}
-                              {review.product_id === product.id ?
+                              {review.name === result.name && review.status === 1 ?
                                 <div class="col-span-3">
                                   <h2 className="text-sm font-black text-gray-700 lg:text-base md:text-base">{review.subject}</h2>
                                   <p className="mt-4 text-xs text-gray-500 lg:text-sm md:text-sm">
@@ -250,7 +352,9 @@ export default function Product(props) {
                                 : ''}
 
                             </div>
-                          ))} */}
+                          ))}
+                          </>
+                        : ""}
                           <div className="col-span-3">
                                 <h2 className="col-span-2 mt-8 text-base font-black text-gray-900 lg:text-lg md:text-lg">Share your thoughts</h2>
                                 <p className="mt-2 text-sm text-gray-500 lg:text-base md:text-base">
@@ -306,18 +410,19 @@ export default function Product(props) {
                                 </button>
 
                                 <div className="grid items-start w-full grid-cols-1 cursor-pointer gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
-                                  <form className="sm:col-span-full lg:col-span-full" >
+                                  <form className="sm:col-span-full lg:col-span-full" onSubmit={onSubmitForm}>
                                     <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{result.name}</h2>
                                     <div className="mt-2 pl-0.5 flex items-center">
                                       {[0, 1, 2, 3, 4].map((rating) => (
                                         <StarIcon
                                           key={rating}
                                           className={classNames(
-                                            // this.state.star.rating > rating ? 'text-yellow-400' : 'text-gray-200',
+                                            form.rating > rating ? 'text-yellow-400' : 'text-gray-200',
                                             'h-5 w-5 flex-shrink-0'
                                           )}
                                           aria-hidden="true"
-                                        //   onClick={() => this.setproductId(product.id) || this.setStar()}
+                                          onClick={() => setForm({rating : rating + 1})} 
+                                          onChange={onUpdateField}
                                         />
                                       ))}
                                     </div>
@@ -329,9 +434,10 @@ export default function Product(props) {
                                       type="text"
                                       name="subject"
                                       id="subject"
+                                      value={form.subject}
                                       autoComplete="subject"
                                       className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                    //   onChange={this.handleChange}
+                                      onChange={onUpdateField}
                                     />
                                     <label htmlFor="message" className="block mt-4 text-sm font-medium text-gray-700">
                                       Message
@@ -341,13 +447,15 @@ export default function Product(props) {
                                       type="text"
                                       name="message"
                                       id="message"
+                                      value={form.message}
                                       autoComplete="address-level2"
                                       className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                                    //   onChange={this.handleChange}
+                                      onChange={onUpdateField}
                                     />
                                     <div className="mt-8">
                                       <button
                                         type="submit"
+                                        onClick={() => message()}
                                         // disabled={this.state.message.length <= 0 || this.state.subject.length <= 0 || this.state.star.length <= 0 ? 'disabled' : ''}
                                         // className={this.state.message.length <= 0 || this.state.subject.length <= 0 || this.state.star.length <= 0 ? "inline-flex cursor-not-allowed justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" : "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"}
                                         // onClick={this.state.message.length <= 0 || this.state.subject.length <= 0 || this.state.star.length <= 0 || this.state.errorMessage.length >= 0 ? '' : () => recieveReview(product.id, user.currentUser.currentUser.name, this.state.star.rating, this.state.star.reviewCount, this.state.message, this.state.subject) && this.setClose()}
@@ -373,16 +481,16 @@ export default function Product(props) {
                                 <StarIcon
                                   key={rating}
                                   className={classNames(
-                                    produc.rating > rating ? 'text-gray-900' : 'text-gray-200',
+                                    Math.ceil(result.rating / result.reviewCount) > rating ? 'text-yellow-400' : 'text-gray-200',
                                     'h-5 w-5 flex-shrink-0'
                                   )}
                                   aria-hidden="true"
                                 />
                               ))}
                             </div>
-                            <p className="sr-only">{produc.rating} out of 5 stars</p>
+                            <p className="sr-only">{Math.ceil(result.rating / result.reviewCount)} out of 5 stars</p>
                             <a href="#" className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500">
-                              {produc.reviewCount} reviews
+                              {result.reviewCount} reviews
                             </a>
                           </div>
                       </div>
