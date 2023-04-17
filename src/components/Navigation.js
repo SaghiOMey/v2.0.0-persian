@@ -145,6 +145,7 @@ export default function Navigation(props) {
       const [imageAlt, setImageAlt] = useState()
       const [catimageSrc, setCatimageSrc] = useState()
       const [quantiity, setqQuantity] = useState()
+      const [category, setCategory] = useState()
       const [selectedColor, setSelectedColor] = useState()
       const [selectedSize, setSelectedSize] = useState()
       const [checkout, setCheckout] = useState(null);
@@ -160,6 +161,7 @@ export default function Navigation(props) {
               name: name,
               price: pricee,
               quantity: quantiity,
+              category: category,
               color: selectedColor,
               size: selectedSize,
               imageAlt: imageAlt,
@@ -314,7 +316,7 @@ export default function Navigation(props) {
                   <p className="text-gray-500">Qty x {checkout.quantity}</p>
 
                   <div className="flex ml-px md:ml-32">
-                    <button type="button" onClick={() => remove() && setqQuantity(checkout.quantity) || setSelectedSize(checkout.size) || setSelectedColor(checkout.color) || setName(checkout.name) || setPrice(checkout.price) || setImageAlt(checkout.imageAlt) || setCatimageSrc(checkout.catimageSrc) || setOpen(false)} className="font-medium text-indigo-600 hover:text-indigo-500">
+                    <button type="button" onClick={() => remove() && setqQuantity(checkout.quantity) || setSelectedSize(checkout.size) || setSelectedColor(checkout.color) || setName(checkout.name) || setPrice(checkout.price) || setImageAlt(checkout.imageAlt) || setCatimageSrc(checkout.catimageSrc) || setCategory(checkout.category) || setOpen(false)} className="font-medium text-indigo-600 hover:text-indigo-500">
                       Remove
                     </button>
                   </div>
