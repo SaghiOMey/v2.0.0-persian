@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/jsx-key */
@@ -15,7 +16,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function ManTops(props) {
+export default function WomanTops(props) {
     const produc = {
         rating: 3.9,
         reviewCount: 117,
@@ -46,95 +47,104 @@ export default function ManTops(props) {
   const [selectedSize, setSelectedSize] = useState(produc.sizes[2])
   const router = useRouter();
         useEffect(() => {
-        const db = getFirestore();
-        getDoc(doc(db, "products", "JwpkvxX8BDAXkzJDbheW")).then(docSnap => {
-          if (docSnap.exists()) {
-            setProduct(docSnap.data())
-          } else {
-            // console.log("No such document!");
+            async function fetchData() {
+            const db = getFirestore();
+            const docId = [];
+            const querySnapshot = await getDocs(collection(db, "products"));
+            querySnapshot.forEach((doc) => {
+            //   console.log(doc.id, " => ", doc.data());
+            // setProduct(doc.id)
+            docId.push({docId : doc.id, items: doc.data()})
+            });
+            setProduct(docId)
           }
-          });
+            fetchData();
       }, []);
 
-        function settimeout(){
-          setTimeout(() => {
-            setNotify(false)
-          },3000)
-        }
-        async function checkouts(){
-          const db = getFirestore();
-          const checkouts = doc(db, "checkouts", props.user.displayName)
-          await setDoc(checkouts, {
-            "ManTops" : arrayUnion(
-              {
-                username: props.user.displayName,
-                useremail: props.user.email,
-                name: name,
-                price: price,
-                quantity: 1,
-                color: selectedColor.name,
-                size: selectedSize.name,
-                imageAlt: imageAlt,
-                catimageSrc: catimageSrc
-                }
-            )
-          }, { merge: true });
-        }
-        async function products(){
-          const db = getFirestore();
-          const pr = product.items.find(item => {return item.name === name})
-          const products = doc(db, "products", "JwpkvxX8BDAXkzJDbheW")
-          await updateDoc(products, {
-            "items" : arrayUnion(
-              {
-                brand: pr.brand,
-                catimageSrc: pr.catimageSrc,
-                color: pr.color,
-                describtion: pr.describtion,
-                detail: pr.detail,
-                imageAlt: pr.imageAlt,
-                imageSrc: pr.imageSrc,
-                inventory: pr.inventory - 1,
-                message: pr.message,
-                name: pr.name,
-                price: pr.price,
-                rating: pr.rating,
-                reviewCount: pr.reviewCount,
-                shipping: pr.shipping,
-                size: pr.size,
-                subject: pr.subject,
-                title: pr.title
-                }
-            )
-          }, { merge: true });
-          await updateDoc(products, {
-            "items" : arrayRemove(
-              {
-                brand: pr.brand,
-                catimageSrc: pr.catimageSrc,
-                color: pr.color,
-                describtion: pr.describtion,
-                detail: pr.detail,
-                imageAlt: pr.imageAlt,
-                imageSrc: pr.imageSrc,
-                inventory: pr.inventory,
-                message: pr.message,
-                name: pr.name,
-                price: pr.price,
-                rating: pr.rating,
-                reviewCount: pr.reviewCount,
-                shipping: pr.shipping,
-                size: pr.size,
-                subject: pr.subject,
-                title: pr.title
-                }
-            )
-          }, { merge: true });
-        }
-        // console.log(product);
+      const result = product !== null ? product.find((item) => item.items.title === router.asPath.replace("/Category/", "")) : 0
+
+      function settimeout(){
+        setTimeout(() => {
+          setNotify(false)
+        },3000)
+      }
+
+      async function checkouts(){
+        const db = getFirestore();
+        const checkouts = doc(db, "checkouts", props.user.displayName)
+        await updateDoc(checkouts, {
+          "Products" : arrayUnion(
+            {
+              username: props.user.displayName,
+              useremail: props.user.email,
+              name: name,
+              price: price,
+              quantity: 1,
+              category: result.items.title,
+              color: selectedColor.name,
+              size: selectedSize.name,
+              imageAlt: imageAlt,
+              catimageSrc: catimageSrc
+              }
+          )
+        }, { merge: true });
+      }
+      async function products(){
+        const db = getFirestore();
+        const pr = result.items.items.find(item => {return item.name === name})
+        const docs = result.docId
+        const products = doc(db, "products", docs)
+        await updateDoc(products, {
+          "items" : arrayUnion(
+            {
+              brand: pr.brand,
+              catimageSrc: pr.catimageSrc,
+              color: pr.color,
+              describtion: pr.describtion,
+              detail: pr.detail,
+              imageAlt: pr.imageAlt,
+              imageSrc: pr.imageSrc,
+              inventory: pr.inventory - 1,
+              message: pr.message,
+              name: pr.name,
+              price: pr.price,
+              rating: pr.rating,
+              reviewCount: pr.reviewCount,
+              shipping: pr.shipping,
+              size: pr.size,
+              subject: pr.subject,
+              title: pr.title
+              }
+          )
+        }, { merge: true });
+        await updateDoc(products, {
+          "items" : arrayRemove(
+            {
+              brand: pr.brand,
+              catimageSrc: pr.catimageSrc,
+              color: pr.color,
+              describtion: pr.describtion,
+              detail: pr.detail,
+              imageAlt: pr.imageAlt,
+              imageSrc: pr.imageSrc,
+              inventory: pr.inventory,
+              message: pr.message,
+              name: pr.name,
+              price: pr.price,
+              rating: pr.rating,
+              reviewCount: pr.reviewCount,
+              shipping: pr.shipping,
+              size: pr.size,
+              subject: pr.subject,
+              title: pr.title
+              }
+          )
+        }, { merge: true });
+      }
+        // console.log(result.docId);
     return(
         <>
-        <Transition.Root show={notify} as={Fragment}>
+                <Transition.Root show={notify} as={Fragment}>
          <div class="absolute pr-16 pt-4 w-full flex justify-end">
           <div class="bg-white rounded-lg border-gray-300 border p-3 shadow-lg">
            <div class="flex flex-row">
@@ -163,18 +173,16 @@ export default function ManTops(props) {
         </div>
         </Transition.Root>
       <Navigation props={props} />
-        {product === null ? "waiting" : 
-        <>
-        {router.asPath.slice(1) === product.title ?
-        <>  
+      {product === null ? "waiting" :
+      <>
         <div className="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
         <div className="flex gap-2 text-base font-extrabold tracking-tight text-gray-900 sm:gap-5">
           <Link href="/">Men</Link><span className="text-gray-400">\</span>
           <Link href="/men">Clothing</Link><span className="text-gray-400">\</span>
-          <Link href="/men-tops" className="text-gray-400">Tops</Link>
+          {/* <Link href="/men-tops" className="text-gray-400">Tops</Link> */}
         </div>
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-            {product === null ? "waiting" : product.items.map((top) => (
+            {product === null ? "waiting" : result.items.items.map((top) => (
               <div key={top.id} className="group relative">
                 <div className="w-full min-h-80 bg-gray-200 aspect-w-1 aspect-h-1 rounded-md overflow-hidden lg:h-80">
                   <img
@@ -243,7 +251,7 @@ export default function ManTops(props) {
                   <span className="sr-only">Close</span>
                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                 </button>
-                {product === null ? "waiting" : product.items.map((top) => (
+                {product === null ? "waiting" : result.items.items.map((top) => (
                   <>
                   {top.name === name ?
                 <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
@@ -405,10 +413,9 @@ export default function ManTops(props) {
         </div>
       </Dialog>
     </Transition.Root>
-    </> 
-    : null}
-        </>
-        }
+    
+    </>
+    }
         </>
     );
 

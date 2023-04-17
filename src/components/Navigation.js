@@ -153,7 +153,7 @@ export default function Navigation(props) {
         const db = getFirestore();
         const checkouts = doc(db, "checkouts", props.props.user.displayName)
         await updateDoc(checkouts, {
-          "ManTops" : arrayRemove(
+          "Products" : arrayRemove(
             {
               username: props.props.user.displayName,
               useremail: props.props.user.email,
@@ -179,9 +179,9 @@ export default function Navigation(props) {
           })
         // eslint-disable-next-line react-hooks/exhaustive-deps
         }, []);
-      const quantity = checkout !== null ? checkout.ManTops.map(checkout => checkout.quantity) : 0
+      const quantity = checkout !== null ? checkout.Products.map(checkout => checkout.quantity) : 0
       const count = quantity !== 0 ? quantity.reduce((accumulator, currentValue) => accumulator + currentValue, 0) : 0
-      const price = checkout !== null ? checkout.ManTops.map(checkout => checkout.price) : 0 
+      const price = checkout !== null ? checkout.Products.map(checkout => checkout.price) : 0 
       const total = price !== 0 ? price.reduce((accumulator, currentValue) => accumulator + currentValue, 0) : 0
       // console.log(total);
     return(
@@ -288,7 +288,7 @@ export default function Navigation(props) {
                       <div className="flex items-start justify-between">
                       {checkout === null ? <h3>Please add to the Shopping bag</h3> :
                         <Dialog.Title className="text-lg font-medium text-gray-900">
-                          {checkout.ManTops.map((checkout) => (
+                          {checkout.Products.map((checkout) => (
                         <div key={checkout.id} className="mt-8">
         <div className="flow-root">
         <ul role="list" className="-my-6 divide-y divide-gray-200">

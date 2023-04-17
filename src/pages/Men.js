@@ -198,7 +198,7 @@ export default function Men(props) {
                           {section.items.map((item) => (
                             <li key={item.name} className="flex">
                               <a href={item.href} className="hover:text-gray-800">
-                                {item.name === 'Tops' ? <Link href="/ManTops">{item.name}</Link> : ''}
+                                {item.name === 'Tops' ? <Link href="/Category/ManTops">{item.name}</Link> : ''}
                                 {item.name === 'Dresses' ? <Link href="/dresses">{item.name}</Link> : ''}
                                 {item.name === 'Pants' ? <Link href="/pants">{item.name}</Link> : ''}
                                 {item.name === 'Denim' ? <Link href="/denim">{item.name}</Link> : ''}
