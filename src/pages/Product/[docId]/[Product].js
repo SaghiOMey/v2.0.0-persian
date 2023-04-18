@@ -53,17 +53,21 @@ export default function Product(props) {
           behavior: 'smooth'
         });
       }
-    const result = product !== null ? product.items.find((item) => item.name === router.asPath.replace("/Product/", "")) : 0
     useEffect(() => {
-        const db = getFirestore();
-        getDoc(doc(db, "products", "JwpkvxX8BDAXkzJDbheW")).then(docSnap => {
-          if (docSnap.exists()) {
-            setProduct(docSnap.data())
-          } else {
-            // console.log("No such document!");
-          }
+        async function fetchData() {
+          const db = getFirestore();
+          const docId = [];
+          const querySnapshot = await getDocs(collection(db, "products"));
+          querySnapshot.forEach((doc) => {
+          //   console.log(doc.id, " => ", doc.data());
+          // setProduct(doc.id)
+          docId.push({docId : doc.id, items: doc.data()})
           });
-          getDoc(doc(db, "reviews", "QF8EnWmvoYAG5rxSOysM")).then(docSnap => {
+          setProduct(docId)
+        }
+          fetchData();
+
+          getDoc(doc(getFirestore(), "reviews", "QF8EnWmvoYAG5rxSOysM")).then(docSnap => {
             if (docSnap.exists()) {
               setReviews(docSnap.data())
             } else {
@@ -72,6 +76,8 @@ export default function Product(props) {
             });
         }, []);
         const rv = reviews !== null ? reviews.items : 0
+        const items = product !== null ? product.find((item) => item.docId === router.asPath.replace("/Product/", "").slice(0, 20)) : 0
+        const result = items !== 0 ? items.items.items.find(item => {return item.name === router.asPath.replace("/Product/", "").slice(21)}) : 0
         function settimeout(){
             setTimeout(() => {
               setNotify(false)
@@ -94,14 +100,15 @@ export default function Product(props) {
           async function checkouts(){
             const db = getFirestore();
             const checkouts = doc(db, "checkouts", props.user.displayName)
-            await setDoc(checkouts, {
-              "ManTops" : arrayUnion(
+            await updateDoc(checkouts, {
+              "Products" : arrayUnion(
                 {
                   username: props.user.displayName,
                   useremail: props.user.email,
                   name: result.name,
                   price: result.price,
                   quantity: 1,
+                  category: items.items.title,
                   color: selectedColor.name,
                   size: selectedSize.name,
                   imageAlt: result.imageAlt,
@@ -113,51 +120,52 @@ export default function Product(props) {
           
           async function products(){
             const db = getFirestore();
-            const pr = product.items.find(item => {return item.name === result.name})
-            const products = doc(db, "products", "JwpkvxX8BDAXkzJDbheW")
+            // const pr = result
+            const docs = items.docId
+            const products = doc(db, "products", docs)
             await updateDoc(products, {
               "items" : arrayUnion(
                 {
-                  brand: pr.brand,
-                  catimageSrc: pr.catimageSrc,
-                  color: pr.color,
-                  describtion: pr.describtion,
-                  detail: pr.detail,
-                  imageAlt: pr.imageAlt,
-                  imageSrc: pr.imageSrc,
-                  inventory: pr.inventory - 1,
-                  message: pr.message,
-                  name: pr.name,
-                  price: pr.price,
-                  rating: pr.rating,
-                  reviewCount: pr.reviewCount,
-                  shipping: pr.shipping,
-                  size: pr.size,
-                  subject: pr.subject,
-                  title: pr.title
+                  brand: result.brand,
+                  catimageSrc: result.catimageSrc,
+                  color: result.color,
+                  describtion: result.describtion,
+                  detail: result.detail,
+                  imageAlt: result.imageAlt,
+                  imageSrc: result.imageSrc,
+                  inventory: result.inventory - 1,
+                  message: result.message,
+                  name: result.name,
+                  price: result.price,
+                  rating: result.rating,
+                  reviewCount: result.reviewCount,
+                  shipping: result.shipping,
+                  size: result.size,
+                  subject: result.subject,
+                  title: result.title
                   }
               )
             }, { merge: true });
             await updateDoc(products, {
               "items" : arrayRemove(
                 {
-                  brand: pr.brand,
-                  catimageSrc: pr.catimageSrc,
-                  color: pr.color,
-                  describtion: pr.describtion,
-                  detail: pr.detail,
-                  imageAlt: pr.imageAlt,
-                  imageSrc: pr.imageSrc,
-                  inventory: pr.inventory,
-                  message: pr.message,
-                  name: pr.name,
-                  price: pr.price,
-                  rating: pr.rating,
-                  reviewCount: pr.reviewCount,
-                  shipping: pr.shipping,
-                  size: pr.size,
-                  subject: pr.subject,
-                  title: pr.title
+                  brand: result.brand,
+                  catimageSrc: result.catimageSrc,
+                  color: result.color,
+                  describtion: result.describtion,
+                  detail: result.detail,
+                  imageAlt: result.imageAlt,
+                  imageSrc: result.imageSrc,
+                  inventory: result.inventory,
+                  message: result.message,
+                  name: result.name,
+                  price: result.price,
+                  rating: result.rating,
+                  reviewCount: result.reviewCount,
+                  shipping: result.shipping,
+                  size: result.size,
+                  subject: result.subject,
+                  title: result.title
                   }
               )
             }, { merge: true });
@@ -165,52 +173,52 @@ export default function Product(props) {
           
           async function message(){
             const db = getFirestore();
-            const pr = product.items.find(item => {return item.name === result.name})
-            const products = doc(db, "products", "JwpkvxX8BDAXkzJDbheW")
+            const docs = items.docId
+            const products = doc(db, "products", docs)
             const reviews = doc(db, "reviews", "QF8EnWmvoYAG5rxSOysM")
             await updateDoc(products, {
               "items" : arrayUnion(
                 {
-                  brand: pr.brand,
-                  catimageSrc: pr.catimageSrc,
-                  color: pr.color,
-                  describtion: pr.describtion,
-                  detail: pr.detail,
-                  imageAlt: pr.imageAlt,
-                  imageSrc: pr.imageSrc,
-                  inventory: pr.inventory,
+                  brand: result.brand,
+                  catimageSrc: result.catimageSrc,
+                  color: result.color,
+                  describtion: result.describtion,
+                  detail: result.detail,
+                  imageAlt: result.imageAlt,
+                  imageSrc: result.imageSrc,
+                  inventory: result.inventory,
                   message: form.message,
-                  name: pr.name,
-                  price: pr.price,
-                  rating: form.rating + pr.rating,
-                  reviewCount: pr.reviewCount + 1,
-                  shipping: pr.shipping,
-                  size: pr.size,
+                  name: result.name,
+                  price: result.price,
+                  rating: form.rating + result.rating,
+                  reviewCount: result.reviewCount + 1,
+                  shipping: result.shipping,
+                  size: result.size,
                   subject: form.subject,
-                  title: pr.title
+                  title: result.title
                   }
               )
             }, { merge: true });
             await updateDoc(products, {
               "items" : arrayRemove(
                 {
-                  brand: pr.brand,
-                  catimageSrc: pr.catimageSrc,
-                  color: pr.color,
-                  describtion: pr.describtion,
-                  detail: pr.detail,
-                  imageAlt: pr.imageAlt,
-                  imageSrc: pr.imageSrc,
-                  inventory: pr.inventory,
-                  message: pr.message,
-                  name: pr.name,
-                  price: pr.price,
-                  rating: pr.rating,
-                  reviewCount: pr.reviewCount,
-                  shipping: pr.shipping,
-                  size: pr.size,
-                  subject: pr.subject,
-                  title: pr.title
+                  brand: result.brand,
+                  catimageSrc: result.catimageSrc,
+                  color: result.color,
+                  describtion: result.describtion,
+                  detail: result.detail,
+                  imageAlt: result.imageAlt,
+                  imageSrc: result.imageSrc,
+                  inventory: result.inventory,
+                  message: result.message,
+                  name: result.name,
+                  price: result.price,
+                  rating: result.rating,
+                  reviewCount: result.reviewCount,
+                  shipping: result.shipping,
+                  size: result.size,
+                  subject: result.subject,
+                  title: result.title
                   }
               )
             }, { merge: true });
@@ -222,14 +230,14 @@ export default function Product(props) {
                   image: props.user.photoURL,
                   status: 0, 
                   message: form.message,
-                  name: pr.name,
+                  name: result.name,
                   subject: form.subject,
                   rating: form.rating
                   }
               )
             }, { merge: true });
           }
-    console.log(product);
+    console.log(items);
     return (
         <>
         <Transition.Root show={notify} as={Fragment}>
@@ -266,8 +274,8 @@ export default function Product(props) {
         <div className="flex gap-1 gap-2 text-xs font-extrabold tracking-tight text-gray-900 sm:text-base">
                   <Link href="/">Men</Link><span className="text-gray-400">\</span>
                   <Link href="/men">Clothing</Link><span className="text-gray-400">\</span>
-                  {/* <Link href={`/${product.title}`}>{product.title}</Link><span className="text-gray-400">\</span> */}
-                  {/* <Link href={`/product/${result.name}`} className="text-gray-400">{result.name}</Link> */}
+                  <Link href={`/Category/${items.items.title}`}>{items.items.title}</Link><span className="text-gray-400">\</span>
+                  <Link href={`/Product/${items.docId}/${result.name}`} className="text-gray-400">{result.name}</Link>
         </div>
         <div class="mt-6 rounded-lg grid grid-cols-1 gap-1 md:grid-cols-3">
                   <div className="relative md:row-span-3">
@@ -333,7 +341,7 @@ export default function Product(props) {
                                       <StarIcon
                                         key={rating}
                                         className={classNames(
-                                          review.rating ? 'text-yellow-400' : 'text-gray-200',
+                                          Math.ceil(result.rating / result.reviewCount) > rating ? 'text-yellow-400' : 'text-gray-200',
                                           'h-5 w-5 flex-shrink-0'
                                         )}
                                         aria-hidden="true"
@@ -598,10 +606,10 @@ export default function Product(props) {
                 <div className="bg-white">
                   <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
                     <h2 className="text-lg font-extrabold tracking-tight text-gray-900 md:text-2xl">Customers also purchased</h2>
-                    {product === null ? "waiting" : 
+                    {items === null ? "waiting" : 
                     <>
                     <div className="grid grid-cols-1 mt-6 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                      {product.items.map((suggest) => (
+                      {items.items.items.map((suggest) => (
                         <>
                         {suggest.name === result.name ? "" :
                         <div key={suggest.name} className="relative group">

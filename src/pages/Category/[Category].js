@@ -141,7 +141,7 @@ export default function WomanTops(props) {
           )
         }, { merge: true });
       }
-        // console.log(result.docId);
+        // console.log(result.items.title);
     return(
         <>
                 <Transition.Root show={notify} as={Fragment}>
@@ -179,7 +179,7 @@ export default function WomanTops(props) {
         <div className="flex gap-2 text-base font-extrabold tracking-tight text-gray-900 sm:gap-5">
           <Link href="/">Men</Link><span className="text-gray-400">\</span>
           <Link href="/men">Clothing</Link><span className="text-gray-400">\</span>
-          {/* <Link href="/men-tops" className="text-gray-400">Tops</Link> */}
+          <Link href={`/Category/${result.items.title}`} className="text-gray-400">{result.items.title}</Link>
         </div>
         <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
             {product === null ? "waiting" : result.items.items.map((top) => (
@@ -197,7 +197,7 @@ export default function WomanTops(props) {
                 <div className="mt-4 flex justify-between">
                   <div>
                     <h3 className="text-sm text-gray-700">
-                      <Link href={`/Product/${top.name}`}>
+                      <Link href={`/Product/${result.docId}/${top.name}`}>
                         <span aria-hidden="true" className="absolute inset-0" />
                         {top.name}
                       </Link>
