@@ -175,7 +175,7 @@ export default function NFT(props) {
                   <ul className="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
                     {[...posts].reverse().map((post) => (
                       <>
-                        {new Date().toString().slice(4, 10) <=
+                        {post.expire.slice(0, 6) >=
                         new Date().toString().slice(4, 10) ? (
                           <li
                             key={post.id}
