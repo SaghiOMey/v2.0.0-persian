@@ -144,7 +144,7 @@ export default function WomanTops(props) {
         // console.log(result.items.title);
     return(
         <>
-                <Transition.Root show={notify} as={Fragment}>
+        <Transition.Root show={notify} as={Fragment}>
          <div class="absolute pr-16 pt-4 w-full flex justify-end">
           <div class="bg-white rounded-lg border-gray-300 border p-3 shadow-lg">
            <div class="flex flex-row">

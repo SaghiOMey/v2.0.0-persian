@@ -172,7 +172,8 @@ export default function Navigation(props) {
       }
         useEffect(() => {
           const db = getFirestore();
-          getDoc(doc(db, "checkouts", props.props.user.displayName)).then(docSnap => {
+          const user = props.props.user ? props.props.user.displayName : "waiting"
+          getDoc(doc(db, "checkouts", user)).then(docSnap => {
             if (docSnap.exists()) {
               setCheckout(docSnap.data())
             } else {

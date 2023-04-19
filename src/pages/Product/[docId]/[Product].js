@@ -628,7 +628,7 @@ export default function Product(props) {
                           <div className="flex justify-between mt-4">
                             <div>
                               <h3 className="text-sm text-gray-700">
-                                <Link href={`/Product/${suggest.name}`} onClick={() => scrollToTop()}>
+                                <Link href={`/Product/${items.docId}/${suggest.name}`} onClick={() => scrollToTop()}>
                                   <span aria-hidden="true" className="absolute inset-0" />
                                   {suggest.name}
                                 </Link>
