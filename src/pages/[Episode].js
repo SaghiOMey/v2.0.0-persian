@@ -53,8 +53,8 @@ export default function Episode(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/", "")
   );
-  const show = lastepisode.find((episode) => episode.href === router.asPath.replace("/", ""))
-  // console.log(result.voice);
+  const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/", ""))
+  // console.log(props.episodes.slice(-4).reverse());
   return (
     <>
     {props.user || show ?

@@ -53,7 +53,7 @@ export default function Persian(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/PersianEpisodes/", "")
   );
-  const show = lastepisode.find((episode) => episode.href === router.asPath.replace("/PersianEpisodes/", ""))
+  const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/PersianEpisodes/", ""))
   // console.log(result);
   return (
     <>

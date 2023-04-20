@@ -30,7 +30,7 @@ provider.setCustomParameters({ prompt: "select_account" });
 
 
 export default function Card(episodes) {
-  const lastepisode = episodes.episodes.slice(0, 5);
+  const lastepisode = episodes.episodes.slice(0, 4);
   const { pathname } = useRouter();
   const [open, setOpen] = useState(false);
   const [ep, setEp] = useState(episodes.episodes.slice(0, 9));
