@@ -223,12 +223,12 @@ export default function App({ Component, pageProps }) {
                         </Link>
                         </>
                       ))}
-                      <button
+                      {/* <button
                         onClick={() => setOpen(true)}
                         className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                       >
                         Subscribe
-                      </button>
+                      </button> */}
                       {user ? 
                       <button
                       onClick={signOut}
@@ -486,12 +486,12 @@ export default function App({ Component, pageProps }) {
                     {item.name}
                   </Disclosure.Button>
                 ))}
-                <button
+                {/* <button
                   onClick={() => setOpen(true)}
                   className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Subscribe
-                </button><br />
+                </button><br /> */}
                 {user ? 
                       <button
                       onClick={signOut}

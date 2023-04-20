@@ -156,12 +156,12 @@ export default function index(props) {
                         </Link>
                         </>
                       ))}
-                      <button
+                      {/* <button
                         onClick={() => setOpen(true)}
                         className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                       >
                         Subscribe
-                      </button>
+                      </button> */}
                       {props.user ? 
                       <button
                       onClick={props.signOut}
@@ -419,12 +419,12 @@ export default function index(props) {
                     {item.name}
                   </Disclosure.Button>
                 ))}
-                <button
+                {/* <button
                   onClick={() => setOpen(true)}
                   className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Subscribe
-                </button><br />
+                </button><br /> */}
                 {props.user ? 
                       <button
                       onClick={props.signOut}
