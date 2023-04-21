@@ -358,7 +358,7 @@ export default function App({ Component, pageProps }) {
                       type="search"
                       onChange={handleChange}
                       value={Name}
-                      className={pathname === "/" || pathname === "/VideoInterviews" || pathname === "/PersianEpisodes" || pathname === "/EnglishEpisodes" || pathname === "/Reviews" ? "form-control relative flex-auto min-w-0 block w-32 px-3 py-1.5 text-base font-normal bg-inherit text-gray-200 bg-clip-padding border-b border-solid border-b-yellow-500 transition ease-in-out m-0 focus:text-gray-200 focus:border-b-yellow-600	 focus:outline-none" : "hidden"}
+                      className={pathname === "/" || pathname === "/VideoInterviews" || pathname === "/AudioInterviews" || pathname === "/Reviews" ? "form-control relative flex-auto min-w-0 block w-32 px-3 py-1.5 text-base font-normal bg-inherit text-gray-200 bg-clip-padding border-b border-solid border-b-yellow-500 transition ease-in-out m-0 focus:text-gray-200 focus:border-b-yellow-600	 focus:outline-none" : "hidden"}
                       placeholder="Search"
                       aria-label="Search"
                       aria-describedby="button-addon2"
@@ -367,7 +367,7 @@ export default function App({ Component, pageProps }) {
                   <button
                     onClick={() => setSearch(!Search)}
                     type="button"
-                    className={pathname === "/" || pathname === "/VideoInterviews" || pathname === "/PersianEpisodes" || pathname === "/EnglishEpisodes" || pathname === "/Reviews" ? "rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800" : "hidden"}
+                    className={pathname === "/" || pathname === "/VideoInterviews" || pathname === "/AudioInterviews" || pathname === "/Reviews" ? "rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800" : "hidden"}
                   >
                     <span className="sr-only">View notifications</span>
                     {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
