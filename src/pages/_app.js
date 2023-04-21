@@ -106,14 +106,19 @@ export default function App({ Component, pageProps }) {
   let navigation = [
     { name: "Home", href: "/", current: false },
     { name: "Video Interviews", href: "/VideoInterviews", current: false },
+    // {
+    //   name: "Audio English Interviews",
+    //   href: "/EnglishEpisodes",
+    //   current: false,
+    // },
+    // {
+    //   name: "Audio Persian Interviews",
+    //   href: "/PersianEpisodes",
+    //   current: false,
+    // },
     {
-      name: "Audio English Interviews",
-      href: "/EnglishEpisodes",
-      current: false,
-    },
-    {
-      name: "Audio Persian Interviews",
-      href: "/PersianEpisodes",
+      name: "Audio Interviews",
+      href: "/AudioInterviews",
       current: false,
     },
     { name: "About", href: "/About", current: false },

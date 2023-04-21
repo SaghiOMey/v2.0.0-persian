@@ -468,10 +468,10 @@ export default function Card(episodes) {
                  }
                 </>
                 : null }
-                {pathname === "/PersianEpisodes" ?
+                {pathname === "/AudioInterviews" ?
                 <>
                 {user || lastepisode.find(({id}) => id === episode.id) ? 
-                <Link href={`/PersianEpisodes/${episode.href}`}>
+                <Link href={`/AudioInterviews/${episode.href}`}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -589,7 +589,7 @@ export default function Card(episodes) {
                 }
                 </>
                 : null }
-                {pathname === "/EnglishEpisodes" ?
+                {/* {pathname === "/EnglishEpisodes" ?
                 <> 
                 {user || lastepisode.find(({id}) => id === episode.id) ? 
                 <Link href={`/EnglishEpisodes/${episode.href}`}>
@@ -709,7 +709,7 @@ export default function Card(episodes) {
                 </button>
                 }
                 </>
-                : null }
+                : null } */}
                 </>
               ))}
             </>
@@ -838,10 +838,10 @@ export default function Card(episodes) {
                 }
                 </>
                 : null }
-                {pathname === "/PersianEpisodes" ? 
+                {pathname === "/AudioInterviews" ? 
                 <>
                 {user || lastepisode.find(({id}) => id === episode.id) ?
-                <Link href={`/PersianEpisodes/${episode.href}`}>
+                <Link href={`/AudioInterviews/${episode.href}`}>
                   <div
                     key={episode.id}
                     className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -959,7 +959,7 @@ export default function Card(episodes) {
                 }
                 </>
                 : null }
-                {pathname === "/EnglishEpisodes" ? 
+                {/* {pathname === "/EnglishEpisodes" ? 
                 <>
                 {user || lastepisode.find(({id}) => id === episode.id) ?
                 <Link href={`/EnglishEpisodes/${episode.href}`}>
@@ -1079,7 +1079,7 @@ export default function Card(episodes) {
                 </button>
                 }
                 </>
-                : null }
+                : null } */}
                 </>
               ))}
             </>

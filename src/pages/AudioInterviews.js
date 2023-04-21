@@ -8,21 +8,21 @@ import Image from 'next/image'
 import Card from "../components/Card";
 import Head from "next/head";
 
-export default function PersianEpisodes(props) {
+export default function AudioInterviews(props) {
   const episodes = [...props.episodes].reverse().filter((p) => p.ln === "pa");
   const lastepisode = props.episodes.slice(-5).reverse();
   return (
     <>
     <Index />
     <Head>
-        <title>PersianEpisodes</title>
+        <title>AudioEpisodes</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
       </Head>
       <div className="relative">
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
         <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">
-            Persian Episodes
+          Audio Interviews
           </span>
         </div>
         <div className="absolute -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">

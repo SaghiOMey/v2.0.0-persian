@@ -16,14 +16,19 @@ export default function Footer(lastepisode) {
   const navigation = [
     { name: "Home", href: "", current: false },
     { name: "Video Interviews", href: "VideoInterviews", current: false },
+    // {
+    //   name: "Audio English Interviews",
+    //   href: "/EnglishEpisodes",
+    //   current: false,
+    // },
+    // {
+    //   name: "Audio Persian Interviews",
+    //   href: "/PersianEpisodes",
+    //   current: false,
+    // },
     {
-      name: "Audio English Interviews",
-      href: "EnglishEpisodes",
-      current: false,
-    },
-    {
-      name: "Audio Persian Interviews",
-      href: "PersianEpisodes",
+      name: "Audio Interviews",
+      href: "/AudioInterviews",
       current: false,
     },
     { name: "About", href: "About", current: false },
@@ -42,8 +47,8 @@ export default function Footer(lastepisode) {
       pathname === "/Profile" ||
       pathname === "/[Episode]" ||
       pathname === "/VideoInterviews/[Video]" ||
-      pathname === "/EnglishEpisodes/[English]" ||
-      pathname === "/PersianEpisodes/[Persian]" ||
+      // pathname === "/EnglishEpisodes/[English]" ||
+      pathname === "/AudioInterviews/[Audio]" ||
       pathname === "/Contact" ||
       pathname === "/NFT" ? (
         <div className="md:flex mt-36 md:justify-between mx-auto text-center max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
