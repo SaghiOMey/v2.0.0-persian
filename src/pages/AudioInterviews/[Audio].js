@@ -72,15 +72,7 @@ export default function Persian(props) {
     (episode) => episode.href === router.asPath.replace("/AudioInterviews/", "")
   );
 
-  const [form, setForm] = useState({
-    rating: 0,
-    // name: props.user.displayName,
-    // message: "",
-    // status: 0,
-    // Date: Date().slice(4,10)+','+Date().slice(10,15),
-    nameep: result.name,
-    ep: result.href
-  });
+
   const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
 
