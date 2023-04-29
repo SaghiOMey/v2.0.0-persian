@@ -81,7 +81,7 @@ export default function Persian(props) {
     nameep: result.name,
     ep: result.href
   });
-  // const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
+  const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
 
   useEffect(() => {
@@ -105,75 +105,75 @@ export default function Persian(props) {
     fetchData();
 }, []);
 
-// async function flike(){
-//   const db = getFirestore();
-//   const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
+async function flike(){
+  const db = getFirestore();
+  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
 
-//   const c = re !== undefined ? !like === true ? re.like + 1 : re.like === 0 ? re.like : re.like - 1 : 1
+  const c = re !== undefined ? !like === true ? re.like + 1 : re.like === 0 ? re.like : re.like - 1 : 1
 
-//   await updateDoc(com, 
-//     {
-//       "Comments" : arrayUnion(
-//         {
-//           like: c,
-//           dislike: re !== undefined ? re.dislike : 0,
-//           name: result.href
-//         }
-//       )
-//     }, { merge: true });
-//     await updateDoc(com, 
-//       {
-//         "Comments" : arrayRemove(
-//           {
-//             like: re !== undefined ? re.like : 0,
-//             dislike: re !== undefined ? re.dislike : 0,
-//             name: result.href
-//           }
-//         )
-//       }, { merge: true });
-//       getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
-//         if (docSnap.exists()) {
-//           setComments(docSnap.data())
-//         } else {
-//           // console.log("No such document!");
-//         }
-//         });    
-// }
+  await updateDoc(com, 
+    {
+      "Comments" : arrayUnion(
+        {
+          like: c,
+          dislike: re !== undefined ? re.dislike : 0,
+          name: result.href
+        }
+      )
+    }, { merge: true });
+    await updateDoc(com, 
+      {
+        "Comments" : arrayRemove(
+          {
+            like: re !== undefined ? re.like : 0,
+            dislike: re !== undefined ? re.dislike : 0,
+            name: result.href
+          }
+        )
+      }, { merge: true });
+      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
+        if (docSnap.exists()) {
+          setComments(docSnap.data())
+        } else {
+          // console.log("No such document!");
+        }
+        });    
+}
 
-// async function fdislike(){
-//   const db = getFirestore();
-//   const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
+async function fdislike(){
+  const db = getFirestore();
+  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
 
-//   const d = re !== undefined ? !dislike === true ? re.dislike + 1 : re.dislike === 0 ? re.dislike : re.dislike - 1 : 1
+  const d = re !== undefined ? !dislike === true ? re.dislike + 1 : re.dislike === 0 ? re.dislike : re.dislike - 1 : 1
 
-//   await updateDoc(com, 
-//     {
-//       "Comments" : arrayUnion(
-//         {
-//           like: re !== undefined ? re.like : 0,
-//           dislike: d,
-//           name: result.href
-//         }
-//       )
-//     }, { merge: true });
-//     await updateDoc(com, 
-//       {
-//         "Comments" : arrayRemove(
-//           {
-//             like: re !== undefined ? re.like : 0,
-//             dislike: re !== undefined ? re.dislike : 0,
-//             name: result.href
-//           }
-//         )
-//       }, { merge: true });
-//       getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
-//         if (docSnap.exists()) {
-//           setComments(docSnap.data())
-//         } else {
-//           // console.log("No such document!");
-//         }
-//         });    
-// }
+  await updateDoc(com, 
+    {
+      "Comments" : arrayUnion(
+        {
+          like: re !== undefined ? re.like : 0,
+          dislike: d,
+          name: result.href
+        }
+      )
+    }, { merge: true });
+    await updateDoc(com, 
+      {
+        "Comments" : arrayRemove(
+          {
+            like: re !== undefined ? re.like : 0,
+            dislike: re !== undefined ? re.dislike : 0,
+            name: result.href
+          }
+        )
+      }, { merge: true });
+      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
+        if (docSnap.exists()) {
+          setComments(docSnap.data())
+        } else {
+          // console.log("No such document!");
+        }
+        });    
+}
 
 const onSubmitForm = (e) => {
   e.preventDefault();
@@ -514,7 +514,7 @@ function settimeout(){
             Milad
           </span>
           <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-18 lg:ml-64 md:-mt-24 md:ml-72">
-            <button
+            {/* <button
               onClick={() => flike() && setLike(!like) || setCountlike(like === false ? countlike + 1 : countlike - 1)}
               className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
             >
@@ -531,7 +531,7 @@ function settimeout(){
                 </div>)
                  : 0}
               </span>
-            </button>
+            </button> */}
             <button
               onClick={() => setopenreview(true)}
               className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
@@ -654,7 +654,7 @@ function settimeout(){
                         </div>
                       </Dialog>
                     </Transition.Root>
-            <button
+            {/* <button
               onClick={() => fdislike() && setDislike(!dislike) || setCountdislike(dislike === false ? countdislike + 1 : countdislike - 1)}
               className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
             >
@@ -671,7 +671,7 @@ function settimeout(){
                 </div>)
                 : 0}
               </span>
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
