@@ -95,7 +95,8 @@ export default function Card(episodes) {
             <>
               {episodes.episodes.slice(0, 9).map((episode) => (
                 <>
-                {user || lastepisode.find(({id}) => id === episode.id) ?
+                {/* {user || lastepisode.find(({id}) => id === episode.id) ? */}
+                {user ?
                 <Link href={`/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -219,7 +220,8 @@ export default function Card(episodes) {
             <>
               {ep.map((episode) => (
                 <>
-                {user || lastepisode.find(({id}) => id === episode.id) ?
+                {/* {user || lastepisode.find(({id}) => id === episode.id) ? */}
+                {user ?
                 <Link href={`/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -349,7 +351,8 @@ export default function Card(episodes) {
                 <>
                 {pathname === "/VideoInterviews" ?
                 <>
-                 {user || lastepisode.find(({id}) => id === episode.id) ?
+                 {/* {user || lastepisode.find(({id}) => id === episode.id) ? */}
+                 {user ?
                 <Link href={`/VideoInterviews/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -470,7 +473,8 @@ export default function Card(episodes) {
                 : null }
                 {pathname === "/AudioInterviews" ?
                 <>
-                {user || lastepisode.find(({id}) => id === episode.id) ? 
+                {/* {user || lastepisode.find(({id}) => id === episode.id) ?  */}
+                {user ?
                 <Link href={`/AudioInterviews/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -719,7 +723,8 @@ export default function Card(episodes) {
                 <>
                 {pathname === "/VideoInterviews" ?
                 <>
-                {user || lastepisode.find(({id}) => id === episode.id) ?  
+                {/* {user || lastepisode.find(({id}) => id === episode.id) ?   */}
+                {user ?
                 <Link href={`/VideoInterviews/${episode.href}`}>
                   <div
                     key={episode.id}
@@ -840,7 +845,8 @@ export default function Card(episodes) {
                 : null }
                 {pathname === "/AudioInterviews" ? 
                 <>
-                {user || lastepisode.find(({id}) => id === episode.id) ?
+                {/* {user || lastepisode.find(({id}) => id === episode.id) ? */}
+                {user ?
                 <Link href={`/AudioInterviews/${episode.href}`}>
                   <div
                     key={episode.id}

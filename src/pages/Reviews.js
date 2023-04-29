@@ -6,6 +6,9 @@ import nightsky from "../assests/nightsky.jpg";
 import Image from 'next/image'
 import person from "../assests/person.svg";
 import calendar from "../assests/calendar.svg";
+import { getFirestore } from "firebase/firestore";
+import { StarIcon } from '@heroicons/react/20/solid'
+import { doc, getDoc } from "firebase/firestore";
 import Head from "next/head";
 import {
   TwitterShareButton,
@@ -13,13 +16,33 @@ import {
   FacebookShareButton,
   FacebookIcon,
 } from "react-share";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
 
+function classNames(...classes) {
+  return classes.filter(Boolean).join(' ')
+}
 
 export default function Reviews(props) {
-  const reviews = [...props.reviews].reverse();
-  const [ep, setEp] = useState(reviews.slice(0, 9));
+  const [messages, setMessages] = useState(false);
+  const reviews = messages !== false ? messages.Message : [] ; 
+  const [ep, setEp] = useState([]);
   const lastepisode = props.episodes.slice(-5).reverse();
+
+  useEffect(() => {
+    async function fetchData() {
+    const db = getFirestore();
+    const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
+    if (Snap.exists()) {
+      setMessages(Snap.data())
+      setEp(Snap.data().Message.reverse().slice(0, 9))
+    } else {
+      // console.log("No such document!");
+    }
+  }
+    fetchData();
+}, []);
+console.log(ep);
   return (
     <>
     <Index />
@@ -47,117 +70,48 @@ export default function Reviews(props) {
               {ep.length > reviews.length ? (
                 <>
                   {reviews.slice(0, 9).map((review) => (
-                    <div
-                      key={review.id}
+                    <>
+                    {review.ep === result.href && review.status === 1 ? (
+                      <div
+                      key={review.ep}
                       className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
                     >
                       <div className="h-20 aspect-w-1 w-full overflow-hidden rounded-md bg-zinc-900 lg:aspect-none lg:h-90">
                         <span className="absolute flex w-full justify-center font-medium text-sm text-gray-400">
-                          {review.platform}
+                          SaghiOMey
                         </span>
-                        <span className="ml-4 text-yellow-500 mt-8 lg:mt-4 flex fill-current">
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-                        </span>
+                        <div className="flex items-center">
+                              {[0, 1, 2, 3, 4].map((rating) => (
+                                <StarIcon
+                                  key={rating}
+                                  className={classNames(
+                                    review.rating > rating ? 'text-yellow-400' : 'text-gray-200',
+                                    'h-5 w-5 flex-shrink-0'
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              ))}
+                            </div>
                       </div>
                       <div className="mt-4">
-                        <div>
-                          <p className=" lg:mt-6 ml-4 mr-1 font-bold text-base text-white">
-                            {review.epname}
-                          </p>
-                        </div>
+                          <Link href={`/${review.ep}`} className="lg:mt-6 ml-4 mr-1 font-bold text-base text-white hover:text-yellow-500">
+                            {review.nameep}
+                          </Link>
                         <p className="text-lg lg:text-2xl mt-4 ml-4 mr-1 font-medium text-gray-200">
-                          {review.describtion}
+                          {review.message}
                         </p>
                       </div>
                       <div className="flex place-content-between items-end">
                         <span className="flex ml-4 font-semibold text-xs lg:text-base">
                           <Image className="text-white" src={person} />
                           <span style={{ color: "#5b5454" }}>
-                            {review.username}
+                            {review.name}
                           </span>
                         </span>
                         <span className="flex mr-4 font-semibold text-xs lg:text-base">
                           <Image className="text-white mr-1" src={calendar} />
                           <span style={{ color: "#5b5454" }}>
-                            {review.date}
+                            {review.Date}
                           </span>
                         </span>
                       </div>
@@ -174,138 +128,73 @@ export default function Reviews(props) {
                         </div>
                       </div>
                     </div>
+                    ) : null}
+                    </>
                   ))}
                 </>
               ) : (
                 <>
-                  {ep.map((review) => (
-                    <div
-                      key={review.id}
+                  {ep.map((review)  => (
+                    <>
+                    {review.status === 1 ? (
+                      <div
+                      key={review.ep}
                       className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
                     >
                       <div className="h-20 aspect-w-1 w-full overflow-hidden rounded-md bg-zinc-900 lg:aspect-none lg:h-90">
                         <span className="absolute flex w-full justify-center font-medium text-sm text-gray-400">
-                          {review.platform}
+                          SaghiOMey
                         </span>
-                        <span className="ml-4 text-yellow-500 mt-8 lg:mt-4 flex fill-current">
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-
-                          <svg
-                            clip-rule="evenodd"
-                            fill-rule="evenodd"
-                            stroke-linejoin="round"
-                            stroke-miterlimit="2"
-                            width="36"
-                            height="36"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m11.322 2.923c.126-.259.39-.423.678-.423.289 0 .552.164.678.423.974 1.998 2.65 5.44 2.65 5.44s3.811.524 6.022.829c.403.055.65.396.65.747 0 .19-.072.383-.231.536-1.61 1.538-4.382 4.191-4.382 4.191s.677 3.767 1.069 5.952c.083.462-.275.882-.742.882-.122 0-.244-.029-.355-.089-1.968-1.048-5.359-2.851-5.359-2.851s-3.391 1.803-5.359 2.851c-.111.06-.234.089-.356.089-.465 0-.825-.421-.741-.882.393-2.185 1.07-5.952 1.07-5.952s-2.773-2.653-4.382-4.191c-.16-.153-.232-.346-.232-.535 0-.352.249-.694.651-.748 2.211-.305 6.021-.829 6.021-.829s1.677-3.442 2.65-5.44z"
-                              fill-rule="nonzero"
-                            />
-                          </svg>
-                        </span>
+                        <div className="flex items-center">
+                              {[0, 1, 2, 3, 4].map((rating) => (
+                                <StarIcon
+                                  key={rating}
+                                  className={classNames(
+                                    review.rating > rating ? 'text-yellow-400' : 'text-gray-200',
+                                    'h-5 w-5 flex-shrink-0'
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              ))}
+                            </div>
                       </div>
                       <div className="mt-4">
-                        <div>
-                          <p className=" lg:mt-6 ml-4 mr-1 font-bold text-base text-white">
-                            {review.epname}
-                          </p>
-                        </div>
+                          <Link href={`/${review.ep}`} className="lg:mt-6 ml-4 mr-1 font-bold text-base text-white hover:text-yellow-500">
+                            {review.nameep}
+                          </Link>
                         <p className="text-lg lg:text-2xl mt-4 ml-4 mr-1 font-medium text-gray-200">
-                          {review.describtion}
+                          {review.message}
                         </p>
                       </div>
                       <div className="flex place-content-between items-end">
                         <span className="flex ml-4 font-semibold text-xs lg:text-base">
                           <Image className="text-white" src={person} />
                           <span style={{ color: "#5b5454" }}>
-                            {review.username}
+                            {review.name}
                           </span>
                         </span>
                         <span className="flex mr-4 font-semibold text-xs lg:text-base">
                           <Image className="text-white mr-1" src={calendar} />
                           <span style={{ color: "#5b5454" }}>
-                            {review.date}
+                            {review.Date}
                           </span>
                         </span>
                       </div>
                       <div className="flex place-content-between items-end">
                         <div className="flex ml-4 font-semibold text-base">
-                          <TwitterShareButton url={"/"}>
+                          <TwitterShareButton url="https://saghiomey.netlify.app/#/Reviews">
                             <TwitterIcon size={40} round={true} />
                           </TwitterShareButton>
                         </div>
                         <div className="flex mr-4 font-semibold text-base">
-                          <FacebookShareButton url={"/"}>
+                          <FacebookShareButton url="https://saghiomey.netlify.app/#/Reviews">
                             <FacebookIcon size={40} round={true} />
                           </FacebookShareButton>
                         </div>
                       </div>
                     </div>
+                    ) : null}
+                    </>
                   ))}
                 </>
               )}
@@ -314,7 +203,7 @@ export default function Reviews(props) {
               <div className="mt-16 md:mr-80">
                 <button
                   onClick={() =>
-                    setEp([...props.reviews].reverse().slice(0, ep.length + 9))
+                    setEp(messages.Message.reverse().slice(0, ep.length + 9))
                   }
                   class="bg-yellow-500 text-white h-12 w-28 lg:w-1/6 lg:h-16 lg:ml-80 md:ml-60 rounded-full hover:bg-white hover:text-black"
                 >
@@ -322,9 +211,10 @@ export default function Reviews(props) {
                 </button>
               </div>
             ) : (
-              <span className="flex text-gray-200 justify-center text-xl font-semibold">
-                Your search returned no results, please try again
-              </span>
+              <div role="status" className="absolute -mt-72 lg:-mt-24 md:-mt-24 -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
+              <svg aria-hidden="true" className="w-12 h-12 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-yellow-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
+              <span className="sr-only">Loading...</span>
+              </div>
             )}
             <Footer lastepisode={lastepisode} />
           </div>
