@@ -72,153 +72,153 @@ export default function Persian(props) {
     (episode) => episode.href === router.asPath.replace("/AudioInterviews/", "")
   );
 
-  const [form, setForm] = useState({
-    rating: 0,
-    name: props.user.displayName,
-    message: "",
-    status: 0,
-    Date: Date().slice(4,10)+','+Date().slice(10,15),
-    nameep: result.name,
-    ep: result.href
-  });
-  const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
-  // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
+//   const [form, setForm] = useState({
+//     rating: 0,
+//     name: props.user.displayName,
+//     message: "",
+//     status: 0,
+//     Date: Date().slice(4,10)+','+Date().slice(10,15),
+//     nameep: result.name,
+//     ep: result.href
+//   });
+//   const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
+//   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
 
-  useEffect(() => {
-    async function fetchData() {
-    const db = getFirestore();
-    const docSnap = await getDoc(doc(db ,"comments", "w44wc6XwYePlrsl3f3Ll"));
-    const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
-    if (docSnap.exists()) {
-      // console.log("Document data:", docSnap.data());
-      setComments(docSnap.data())
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
-    }
-    if (Snap.exists()) {
-      setMessages(Snap.data())
-    } else {
-      // console.log("No such document!");
-    }
-  }
-    fetchData();
-}, []);
+//   useEffect(() => {
+//     async function fetchData() {
+//     const db = getFirestore();
+//     const docSnap = await getDoc(doc(db ,"comments", "w44wc6XwYePlrsl3f3Ll"));
+//     const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
+//     if (docSnap.exists()) {
+//       // console.log("Document data:", docSnap.data());
+//       setComments(docSnap.data())
+//     } else {
+//       // docSnap.data() will be undefined in this case
+//       console.log("No such document!");
+//     }
+//     if (Snap.exists()) {
+//       setMessages(Snap.data())
+//     } else {
+//       // console.log("No such document!");
+//     }
+//   }
+//     fetchData();
+// }, []);
 
-async function flike(){
-  const db = getFirestore();
-  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
+// async function flike(){
+//   const db = getFirestore();
+//   const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
 
-  const c = re !== undefined ? !like === true ? re.like + 1 : re.like === 0 ? re.like : re.like - 1 : 1
+//   const c = re !== undefined ? !like === true ? re.like + 1 : re.like === 0 ? re.like : re.like - 1 : 1
 
-  await updateDoc(com, 
-    {
-      "Comments" : arrayUnion(
-        {
-          like: c,
-          dislike: re !== undefined ? re.dislike : 0,
-          name: result.href
-        }
-      )
-    }, { merge: true });
-    await updateDoc(com, 
-      {
-        "Comments" : arrayRemove(
-          {
-            like: re !== undefined ? re.like : 0,
-            dislike: re !== undefined ? re.dislike : 0,
-            name: result.href
-          }
-        )
-      }, { merge: true });
-      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
-        if (docSnap.exists()) {
-          setComments(docSnap.data())
-        } else {
-          // console.log("No such document!");
-        }
-        });    
-}
+//   await updateDoc(com, 
+//     {
+//       "Comments" : arrayUnion(
+//         {
+//           like: c,
+//           dislike: re !== undefined ? re.dislike : 0,
+//           name: result.href
+//         }
+//       )
+//     }, { merge: true });
+//     await updateDoc(com, 
+//       {
+//         "Comments" : arrayRemove(
+//           {
+//             like: re !== undefined ? re.like : 0,
+//             dislike: re !== undefined ? re.dislike : 0,
+//             name: result.href
+//           }
+//         )
+//       }, { merge: true });
+//       getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
+//         if (docSnap.exists()) {
+//           setComments(docSnap.data())
+//         } else {
+//           // console.log("No such document!");
+//         }
+//         });    
+// }
 
-async function fdislike(){
-  const db = getFirestore();
-  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
+// async function fdislike(){
+//   const db = getFirestore();
+//   const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
 
-  const d = re !== undefined ? !dislike === true ? re.dislike + 1 : re.dislike === 0 ? re.dislike : re.dislike - 1 : 1
+//   const d = re !== undefined ? !dislike === true ? re.dislike + 1 : re.dislike === 0 ? re.dislike : re.dislike - 1 : 1
 
-  await updateDoc(com, 
-    {
-      "Comments" : arrayUnion(
-        {
-          like: re !== undefined ? re.like : 0,
-          dislike: d,
-          name: result.href
-        }
-      )
-    }, { merge: true });
-    await updateDoc(com, 
-      {
-        "Comments" : arrayRemove(
-          {
-            like: re !== undefined ? re.like : 0,
-            dislike: re !== undefined ? re.dislike : 0,
-            name: result.href
-          }
-        )
-      }, { merge: true });
-      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
-        if (docSnap.exists()) {
-          setComments(docSnap.data())
-        } else {
-          // console.log("No such document!");
-        }
-        });    
-}
+//   await updateDoc(com, 
+//     {
+//       "Comments" : arrayUnion(
+//         {
+//           like: re !== undefined ? re.like : 0,
+//           dislike: d,
+//           name: result.href
+//         }
+//       )
+//     }, { merge: true });
+//     await updateDoc(com, 
+//       {
+//         "Comments" : arrayRemove(
+//           {
+//             like: re !== undefined ? re.like : 0,
+//             dislike: re !== undefined ? re.dislike : 0,
+//             name: result.href
+//           }
+//         )
+//       }, { merge: true });
+//       getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
+//         if (docSnap.exists()) {
+//           setComments(docSnap.data())
+//         } else {
+//           // console.log("No such document!");
+//         }
+//         });    
+// }
 
-const onSubmitForm = (e) => {
-  e.preventDefault();
-};
+// const onSubmitForm = (e) => {
+//   e.preventDefault();
+// };
 
-const onUpdateField = (e) => {
-  const field = e.target.name;
-  const nextFormState = {
-    ...form,
-    [field]: e.target.value,
-  };
-  setForm(nextFormState);
-};
+// const onUpdateField = (e) => {
+//   const field = e.target.name;
+//   const nextFormState = {
+//     ...form,
+//     [field]: e.target.value,
+//   };
+//   setForm(nextFormState);
+// };
 
-async function message(){
-  const db = getFirestore();
-  const com = doc(db,"comments", "CmH4vduV6PMnqShozQJU")
+// async function message(){
+//   const db = getFirestore();
+//   const com = doc(db,"comments", "CmH4vduV6PMnqShozQJU")
 
-  await updateDoc(com, 
-    {
-      "Message" : arrayUnion(
-        {
-            rating: form.rating,
-            name: form.name,
-            message: form.message,
-            status: form.status,
-            Date: form.Date,
-            ep: form.ep,
-            nameep: form.nameep
-        }
-      )
-    }, { merge: true });
-      getDoc(doc(getFirestore(), "comments", "CmH4vduV6PMnqShozQJU")).then(docSnap => {
-        if (docSnap.exists()) {
-          setMessages(docSnap.data())
-        } else {
-          // console.log("No such document!");
-        }
-        });    
-}
-function settimeout(){
-  setTimeout(() => {
-    setSubmit(false)
-  },3000)
-}
+//   await updateDoc(com, 
+//     {
+//       "Message" : arrayUnion(
+//         {
+//             rating: form.rating,
+//             name: form.name,
+//             message: form.message,
+//             status: form.status,
+//             Date: form.Date,
+//             ep: form.ep,
+//             nameep: form.nameep
+//         }
+//       )
+//     }, { merge: true });
+//       getDoc(doc(getFirestore(), "comments", "CmH4vduV6PMnqShozQJU")).then(docSnap => {
+//         if (docSnap.exists()) {
+//           setMessages(docSnap.data())
+//         } else {
+//           // console.log("No such document!");
+//         }
+//         });    
+// }
+// function settimeout(){
+//   setTimeout(() => {
+//     setSubmit(false)
+//   },3000)
+// }
   // const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/AudioInterviews/", ""))
   // console.log(result);
   return (
