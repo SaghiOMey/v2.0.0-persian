@@ -70,13 +70,12 @@ export default function Episode(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/", "")
   );
-  const dname = props.user ? props.user.displayName : ""
   const [form, setForm] = useState({
     rating: 0,
-    name: dname,
-    message: "",
-    status: 0,
-    Date: Date().slice(4,10)+','+Date().slice(10,15),
+    // name: props.user.displayName,
+    // message: "",
+    // status: 0,
+    // Date: Date().slice(4,10)+','+Date().slice(10,15),
     nameep: result.name,
     ep: result.href
   });
