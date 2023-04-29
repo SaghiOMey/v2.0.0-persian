@@ -42,7 +42,7 @@ export default function Reviews(props) {
   }
     fetchData();
 }, []);
-console.log(ep);
+// console.log(ep);
   return (
     <>
     <Index />

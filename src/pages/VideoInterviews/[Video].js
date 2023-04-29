@@ -85,9 +85,9 @@ export default function Video(props) {
             alt="logo"
             className="-mt-96 w-40 md:w-1/4 xl:-mt-96 lg:-mt-80 md:-mt-64 md:ml-20 rounded"
           />
-          <p className="-mt-56 xl:-mt-96 lg:-mt-96 md:-mt-72 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
+          <span className="-mt-56 xl:-mt-96 lg:-mt-96 md:-mt-72 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
             {result.name}
-          </p>
+          </span>
           <div className="justify-self-center -mt-48 w-72 md:-mt-64 md:ml-56 md:h-60 md:w-1/2 lg:-mt-80 lg:ml-80 lg:w-3/5 lg:h-72 xl:ml-96 aspect-video">
             <iframe
               className="w-full h-36 md:h-60 lg:h-72"
@@ -134,12 +134,12 @@ export default function Video(props) {
                             </div>
                       </div>
                       <div className="mt-4">
-                          <p className=" lg:mt-6 ml-4 mr-1 font-bold text-base text-white">
+                          <span className=" lg:mt-6 ml-4 mr-1 font-bold text-base text-white">
                             {review.nameep}
-                          </p>
-                        <p className="text-lg lg:text-2xl mt-4 ml-4 mr-1 font-medium text-gray-200">
+                          </span>
+                        <span className="text-lg lg:text-2xl mt-4 ml-4 mr-1 font-medium text-gray-200">
                           {review.message}
-                        </p>
+                        </span>
                       </div>
                       <div className="flex place-content-between items-end">
                         <span className="flex ml-4 font-semibold text-xs lg:text-base">

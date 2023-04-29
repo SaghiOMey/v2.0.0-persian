@@ -45,12 +45,12 @@ export default function App(props) {
               ”Everyone Has A Story” from the world.
               <br />
               <br />
-              <p className="font-mono flex font-bold lg:ml-56 lg:text-lg text-gray-100">
+              <div className="font-mono flex font-bold lg:ml-56 lg:text-lg text-gray-100">
                 NFT: &nbsp;
                 <Link href="/NFT" className="flex text-yellow-500 hover:text-gray-100">
                 <h1>I</h1>&nbsp;<h1>A</h1>&nbsp;<h1>V</h1>
                 </Link>
-              </p>
+              </div>
               <br />
               <br />
               <p className="font-mono flex font-bold lg:ml-56 lg:text-lg text-gray-100">

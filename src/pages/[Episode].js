@@ -343,9 +343,9 @@ function settimeout(){
             &nbsp;
             <span className="text-xs">{result.time}</span>
           </div>
-          <p className="-mt-48 xl:-mt-80 lg:-mt-72 md:-mt-60 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
+          <span className="-mt-48 xl:-mt-80 lg:-mt-72 md:-mt-60 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
             {result.name}
-          </p>
+          </span>
 
           <div className="flex -mt-40 xl:-mt-64 lg:-mt-58 md:-mt-52 justify-self-center md:ml-56 h-0 w-9/12 md:w-5/12">
             <AudioPlayer
@@ -715,12 +715,12 @@ function settimeout(){
                             </div>
                       </div>
                       <div className="mt-4">
-                          <p className=" lg:mt-6 ml-4 mr-1 font-bold text-base text-white">
+                          <span className=" lg:mt-6 ml-4 mr-1 font-bold text-base text-white">
                             {review.nameep}
-                          </p>
-                        <p className="text-lg lg:text-2xl mt-4 ml-4 mr-1 font-medium text-gray-200">
+                          </span>
+                        <span className="text-lg lg:text-2xl mt-4 ml-4 mr-1 font-medium text-gray-200">
                           {review.message}
-                        </p>
+                        </span>
                       </div>
                       <div className="flex place-content-between items-end">
                         <span className="flex ml-4 font-semibold text-xs lg:text-base">
