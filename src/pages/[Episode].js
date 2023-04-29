@@ -71,6 +71,7 @@ export default function Episode(props) {
     (episode) => episode.href === router.asPath.replace("/", "")
   );
 
+  const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
 
   useEffect(() => {
@@ -94,7 +95,75 @@ export default function Episode(props) {
     fetchData();
 }, []);
 
+async function flike(){
+  const db = getFirestore();
+  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
 
+  const c = re !== undefined ? !like === true ? re.like + 1 : re.like === 0 ? re.like : re.like - 1 : 1
+
+  await updateDoc(com, 
+    {
+      "Comments" : arrayUnion(
+        {
+          like: c,
+          dislike: re !== undefined ? re.dislike : 0,
+          name: result.href
+        }
+      )
+    }, { merge: true });
+    await updateDoc(com, 
+      {
+        "Comments" : arrayRemove(
+          {
+            like: re !== undefined ? re.like : 0,
+            dislike: re !== undefined ? re.dislike : 0,
+            name: result.href
+          }
+        )
+      }, { merge: true });
+      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
+        if (docSnap.exists()) {
+          setComments(docSnap.data())
+        } else {
+          // console.log("No such document!");
+        }
+        });    
+}
+
+async function fdislike(){
+  const db = getFirestore();
+  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
+
+  const d = re !== undefined ? !dislike === true ? re.dislike + 1 : re.dislike === 0 ? re.dislike : re.dislike - 1 : 1
+
+  await updateDoc(com, 
+    {
+      "Comments" : arrayUnion(
+        {
+          like: re !== undefined ? re.like : 0,
+          dislike: d,
+          name: result.href
+        }
+      )
+    }, { merge: true });
+    await updateDoc(com, 
+      {
+        "Comments" : arrayRemove(
+          {
+            like: re !== undefined ? re.like : 0,
+            dislike: re !== undefined ? re.dislike : 0,
+            name: result.href
+          }
+        )
+      }, { merge: true });
+      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
+        if (docSnap.exists()) {
+          setComments(docSnap.data())
+        } else {
+          // console.log("No such document!");
+        }
+        });    
+}
 
 const onSubmitForm = (e) => {
   e.preventDefault();
