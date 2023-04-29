@@ -79,6 +79,7 @@ export default function Episode(props) {
     nameep: result.name,
     ep: result.href
   });
+  const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
 
   useEffect(() => {
@@ -102,7 +103,75 @@ export default function Episode(props) {
     fetchData();
 }, []);
 
+async function flike(){
+  const db = getFirestore();
+  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
 
+  const c = re !== undefined ? !like === true ? re.like + 1 : re.like === 0 ? re.like : re.like - 1 : 1
+
+  await updateDoc(com, 
+    {
+      "Comments" : arrayUnion(
+        {
+          like: c,
+          dislike: re !== undefined ? re.dislike : 0,
+          name: result.href
+        }
+      )
+    }, { merge: true });
+    await updateDoc(com, 
+      {
+        "Comments" : arrayRemove(
+          {
+            like: re !== undefined ? re.like : 0,
+            dislike: re !== undefined ? re.dislike : 0,
+            name: result.href
+          }
+        )
+      }, { merge: true });
+      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
+        if (docSnap.exists()) {
+          setComments(docSnap.data())
+        } else {
+          // console.log("No such document!");
+        }
+        });    
+}
+
+async function fdislike(){
+  const db = getFirestore();
+  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
+
+  const d = re !== undefined ? !dislike === true ? re.dislike + 1 : re.dislike === 0 ? re.dislike : re.dislike - 1 : 1
+
+  await updateDoc(com, 
+    {
+      "Comments" : arrayUnion(
+        {
+          like: re !== undefined ? re.like : 0,
+          dislike: d,
+          name: result.href
+        }
+      )
+    }, { merge: true });
+    await updateDoc(com, 
+      {
+        "Comments" : arrayRemove(
+          {
+            like: re !== undefined ? re.like : 0,
+            dislike: re !== undefined ? re.dislike : 0,
+            name: result.href
+          }
+        )
+      }, { merge: true });
+      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
+        if (docSnap.exists()) {
+          setComments(docSnap.data())
+        } else {
+          // console.log("No such document!");
+        }
+        });    
+}
 
 const onSubmitForm = (e) => {
   e.preventDefault();
@@ -239,333 +308,7 @@ function settimeout(){
             )}
       <div className="relative">
         <Image className="bg-cover h-96 md:h-auto xl:w-full" src={sky} alt="sky" />
-        <div className="absolute grid justify-items-center md:justify-items-start xl:top-3/4 w-full text-white">
-          <img
-            src={result.img}
-            alt="logo"
-            className="-mt-96 w-40 md:w-1/4 xl:-mt-96 lg:-mt-80 md:-mt-64 md:ml-20 rounded"
-          />
-          <div className="flex -mt-52 xl:-mt-96 lg:-mt-80 md:-mt-64 xl:-ml-36 lg:ml-16 md:ml-36 justify-self-center">
-            <Image src={browse} className=" h-4 w-4 rounded-full text-white" />
-            <br />
-            <span className="text-xs">Podcast SaghiOMey</span>&nbsp;&nbsp;
-            <a className="text-zinc-100 fill-current">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-              >
-                <path d="M20 20h-4v-4h4v4zm-6-10h-4v4h4v-4zm6 0h-4v4h4v-4zm-12 6h-4v4h4v-4zm6 0h-4v4h4v-4zm-6-6h-4v4h4v-4zm16-8v22h-24v-22h3v1c0 1.103.897 2 2 2s2-.897 2-2v-1h10v1c0 1.103.897 2 2 2s2-.897 2-2v-1h3zm-2 6h-20v14h20v-14zm-2-7c0-.552-.447-1-1-1s-1 .448-1 1v2c0 .552.447 1 1 1s1-.448 1-1v-2zm-14 2c0 .552-.447 1-1 1s-1-.448-1-1v-2c0-.552.447-1 1-1s1 .448 1 1v2z" />
-              </svg>
-            </a>
-            &nbsp;
-            <span className="text-xs">{result.date}</span>&nbsp;&nbsp;
-            <a className="text-zinc-100 fill-current">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="13"
-                height="13"
-                viewBox="0 0 24 24"
-              >
-                <path d="M13 12l-.688-4h-.609l-.703 4c-.596.347-1 .984-1 1.723 0 1.104.896 2 2 2s2-.896 2-2c0-.739-.404-1.376-1-1.723zm-1-8c-5.522 0-10 4.477-10 10s4.478 10 10 10 10-4.477 10-10-4.478-10-10-10zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm-2-19.819v-2.181h4v2.181c-1.438-.243-2.592-.238-4 0zm9.179 2.226l1.407-1.407 1.414 1.414-1.321 1.321c-.462-.484-.964-.926-1.5-1.328z" />
-              </svg>
-            </a>
-            &nbsp;
-            <span className="text-xs">{result.time}</span>
-          </div>
-          <span className="-mt-48 xl:-mt-80 lg:-mt-72 md:-mt-60 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
-            {result.name}
-          </span>
-
-          <div className="flex -mt-40 xl:-mt-64 lg:-mt-58 md:-mt-52 justify-self-center md:ml-56 h-0 w-9/12 md:w-5/12">
-            <AudioPlayer
-            style={{backgroundColor: "inherit"}}
-            className="h-20"
-            src={result.voice}
-            onPlay={e => console.log("onPlay")}
-            />
-            <button onClick={() => setOpen(true)}>
-              <Image src={share} className="mt-1 ml-4 h-10 w-10" />
-            </button>
-            <Transition.Root show={Open} as={Fragment}>
-              <Dialog
-                as="div"
-                className="relative z-10"
-                initialFocus={cancelButtonRef}
-                onClose={setOpen}
-              >
-                <Transition.Child
-                  as={Fragment}
-                  enter="ease-out duration-300"
-                  enterFrom="opacity-0"
-                  enterTo="opacity-100"
-                  leave="ease-in duration-200"
-                  leaveFrom="opacity-100"
-                  leaveTo="opacity-0"
-                >
-                  <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-                </Transition.Child>
-
-                <div className="fixed inset-0 z-10 overflow-y-auto">
-                  <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                    <Transition.Child
-                      as={Fragment}
-                      enter="ease-out duration-300"
-                      enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                      enterTo="opacity-100 translate-y-0 sm:scale-100"
-                      leave="ease-in duration-200"
-                      leaveFrom="opacity-100 translate-y-0 sm:scale-100"
-                      leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
-                    >
-                      <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-black text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                        <div className="bg-black px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                          <div className="sm:flex sm:items-start">
-                            <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
-                              <Dialog.Title
-                                as="h3"
-                                className="text-lg flex font-semibold leading-6 text-gray-200"
-                              >
-                                <img
-                                  src={result.img}
-                                  alt="logo"
-                                  className="w-1/4 rounded"
-                                />
-                                <span className="ml-4">{result.name}</span>
-                              </Dialog.Title>
-                              <div className="flex justify-between mt-8">
-                                <TwitterShareButton
-                                  url={result.eplink}
-                                  title={result.name}
-                                >
-                                  <TwitterIcon size={40} round={true} />
-                                </TwitterShareButton>
-                                <FacebookShareButton
-                                  url={result.eplink}
-                                  quote={result.name}
-                                >
-                                  <FacebookIcon size={40} round={true} />
-                                </FacebookShareButton>
-                                <LinkedinShareButton
-                                  url={result.eplink}
-                                  title={result.name}
-                                  summary={result.describtion}
-                                >
-                                  <LinkedinIcon size={40} round={true} />
-                                </LinkedinShareButton>
-                                <PinterestShareButton
-                                  url={result.eplink}
-                                  media={result.img}
-                                  description={result.describtion}
-                                >
-                                  <PinterestIcon size={40} round={true} />
-                                </PinterestShareButton>
-                              </div>
-                              <div className="flex justify-between mt-8">
-                                <WhatsappShareButton url={result.eplink}>
-                                  <WhatsappIcon size={40} round={true} />
-                                </WhatsappShareButton>
-                                <TelegramShareButton
-                                  url={result.eplink}
-                                  title={result.name}
-                                >
-                                  <TelegramIcon size={40} round={true} />
-                                </TelegramShareButton>
-                                <RedditShareButton
-                                  url={result.eplink}
-                                  title={result.name}
-                                >
-                                  <RedditIcon size={40} round={true} />
-                                </RedditShareButton>
-                                <EmailShareButton
-                                  url={result.eplink}
-                                  subject={result.name}
-                                >
-                                  <EmailIcon size={40} round={true} />
-                                </EmailShareButton>
-                              </div>
-                              <div className="flex mt-8 items-center">
-                                <div class="relative w-full">
-                                  <input
-                                    value={result.eplink}
-                                    type="text"
-                                    id="simple-search"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    disabled
-                                  />
-                                </div>
-                                <button
-                                  onClick={() =>
-                                    setIsCopied(
-                                      navigator.clipboard.writeText(
-                                        result.eplink
-                                      )
-                                    )
-                                  }
-                                  type="submit"
-                                  class="p-2.5 ml-2 bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                >
-                                  {isCopied ? (
-                                    <Image src={done} />
-                                  ) : (
-                                    <Image src={copy} />
-                                  )}
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="bg-black px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                          <button
-                            type="button"
-                            className="mt-3 inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm"
-                            onClick={() => setOpen(false)}
-                            ref={cancelButtonRef}
-                          >
-                            Cancel
-                          </button>
-                        </div>
-                      </Dialog.Panel>
-                    </Transition.Child>
-                  </div>
-                </div>
-              </Dialog>
-            </Transition.Root>
-          </div>
-          <span className="flex justify-self-center -mt-20 mr-32 xl:mr-0 xl:-mt-44 xl:-ml-80 lg:mr-0 lg:-mt-36 lg:-ml-32 md:mr-0 md:-mt-32 md:-ml-12 text-gray-300 font-semibold">
-            Hosted By
-          </span>
-          <br />
-          <span className="flex justify-self-center pt-2 xl:pt-0 lg:pt-0 md:pt-0 -mt-28 xl:-mt-40 xl:-ml-80 lg:-mt-32 lg:-ml-32 md:-mt-32 md:-ml-12 font-medium h-8">
-            Milad
-          </span>
-          <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-18 lg:ml-64 md:-mt-24 md:ml-72">
-            
-            <button
-              onClick={() => setopenreview(true)}
-              className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
-            >
-              <svg className="ml-2 mt-1 text-yellow-500 animate-ping" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 36 36" id="comment"><path fill="currentColor" d="M5.078 24.482A19.813 19.813 0 0 1 1.812 30c3.198 0 7.312-.42 10.482-2.364A19.52 19.52 0 0 0 16 28c8.836 0 16-5.82 16-13S24.836 2 16 2 0 7.82 0 15c0 3.744 1.96 7.11 5.078 9.482z"></path></svg>
-              <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
-                Comment
-              </span>
-            </button>
-            <Transition.Root show={openreview} as={Fragment}>
-                      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={setopenreview}>
-                        <div className="flex min-h-screen text-center md:block md:px-2 lg:px-4" style={{ fontSize: 0 }}>
-                          <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0"
-                            enterTo="opacity-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
-                          >
-                            <Dialog.Overlay className="fixed inset-0 hidden transition-opacity bg-gray-500 bg-opacity-75 md:block" />
-                          </Transition.Child>
-
-                          {/* This element is to trick the browser into centering the modal contents. */}
-                          <span className="hidden md:inline-block md:align-middle md:h-screen" aria-hidden="true">
-                            &#8203;
-                          </span>
-                          <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-                            enterTo="opacity-100 translate-y-0 md:scale-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100 translate-y-0 md:scale-100"
-                            leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-                          >
-                            <div className="flex w-full text-base text-left transition transform md:inline-block md:max-w-2xl md:px-4 md:my-8 md:align-middle lg:max-w-4xl">
-                              <div className="relative bg-black flex items-center w-full px-4 pb-8 overflow-hidden shadow-2xl pt-14 sm:px-6 sm:pt-8 md:p-6 lg:p-8">
-                                <button
-                                  type="button"
-                                  className="absolute text-gray-400 top-4 right-4 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
-                                  onClick={() => setopenreview(false)}
-                                >
-                                  <span className="sr-only">Close</span>
-                                  <XMarkIcon className="w-6 h-6" aria-hidden="true" />
-                                </button>
-
-                                <div className="grid items-start w-full grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
-                                  <form className="sm:col-span-full lg:col-span-full" onSubmit={onSubmitForm}>
-                                    {/* <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{result.name}</h2> */}
-                                    <Dialog.Title
-                                as="h3"
-                                className="text-lg flex font-semibold leading-6 text-gray-200"
-                              >
-                                <img
-                                  src={result.img}
-                                  alt="logo"
-                                  className="w-1/4 rounded"
-                                />
-                                <span className="ml-4">{result.name}</span>
-                              </Dialog.Title>
-                                    <div className="mt-2 pl-0.5 cursor-pointer flex items-center">
-                                      {[0, 1, 2, 3, 4].map((rating) => (
-                                        <StarIcon
-                                          key={rating}
-                                          className={classNames(
-                                            form.rating > rating ? 'text-yellow-400' : 'text-gray-200',
-                                            'h-5 w-5 flex-shrink-0'
-                                          )}
-                                          aria-hidden="true"
-                                          name="rating"
-                                          onClick={() => setForm({rating: rating + 1, name: form.name, nameep: result.name, message: form.message, status: 0, Date: Date().slice(4,10)+','+Date().slice(10,15), ep: form.ep})}
-                                        />
-                                      ))}
-                                    </div>
-                                    <label htmlFor="street-address" className="block mt-4 text-sm font-medium text-gray-300">
-                                      Name
-                                    </label>
-                                    <input
-                                      type="text"
-                                      name="name"
-                                      id="name"
-                                      disabled ="disabled"
-                                      value={form.name}
-                                      autoComplete="name"
-                                      className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border shadow-sm text-gray-300 border-yellow-500 sm:text-medium cursor-not-allowed"
-                                      required
-                                    />
-                                    <label htmlFor="message" className="block mt-4 text-sm font-medium text-gray-300">
-                                      Message
-                                    </label>
-                                    {/* {this.state.errorMessage.message ? <p className="text-red-500">{this.state.errorMessage.message[0]}</p> : <p className="text-red-500">{this.state.errorMessage.data}</p>} */}
-                                    <textarea
-                                      type="text"
-                                      name="message"
-                                      id="message"
-                                      value={form.message}
-                                      autoComplete="address-level2"
-                                      className="mt-1 h-32 w-72 md:w-96 bg-black block text-gray-300 rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
-                                      onChange={onUpdateField}
-                                      required
-                                    />
-                                    <div className="mt-8">
-                                    <div className="flex justify-center mt-5">
-                                   <button
-                                      onClick={() => message() && setopenreview(false) || setSubmit(true) || settimeout()}
-                                      type="submit"
-                                      className="bg-yellow-500 text-white w-32 h-16 rounded-full hover:bg-white hover:text-black"
-                                  >
-                                    Submit
-                                  </button>
-                                  </div>
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                          </Transition.Child>
-                        </div>
-                      </Dialog>
-                    </Transition.Root>
-            
-          </div>
-        </div>
+        
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
           <span className="flex justify-center mt-14">
             <iframe
