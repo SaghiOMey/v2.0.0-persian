@@ -245,7 +245,66 @@ function settimeout(){
         <meta property="og:image:height" content="300" />
         <meta property="og:image:alt" content={result.name}  />
     </Head>
-    
+    {submit ? (
+              <Transition.Root show={submit} as={Fragment}>
+              <Dialog
+                as="div"
+                className="relative z-10"
+                initialFocus={cancelButtonRef}
+                onClose={settimeout}
+              >
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0"
+                  enterTo="opacity-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100"
+                  leaveTo="opacity-0"
+                >
+                  <div
+                class="flex w-72 -mt-36 ml-4 xl:-mt-72 lg:-mt-44 md:-mt-36 xl:ml-96 lg:ml-96 md:ml-52 md:w-96 shadow-lg rounded-lg"
+              >
+                <div class="bg-green-600 py-4 px-6 rounded-l-lg flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="text-white fill-current"
+                    viewBox="0 0 16 16"
+                    width="20"
+                    height="20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 01-1.06 0L2.22 9.28a.75.75 0 011.06-1.06L6 10.94l6.72-6.72a.75.75 0 011.06 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="px-4 py-6 bg-white rounded-r-lg flex justify-between items-center w-full border border-l-transparent border-gray-200">
+                  <div className="text-lg md:text-xl font-bold text-black">
+                    Submitted successfully, We will check your comment and show
+                  </div>
+                  <button onClick={() => setSubmit(false)}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="fill-current text-gray-700"
+                      viewBox="0 0 16 16"
+                      width="20"
+                      height="20"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M3.72 3.72a.75.75 0 011.06 0L8 6.94l3.22-3.22a.75.75 0 111.06 1.06L9.06 8l3.22 3.22a.75.75 0 11-1.06 1.06L8 9.06l-3.22 3.22a.75.75 0 01-1.06-1.06L6.94 8 3.72 4.78a.75.75 0 010-1.06z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+                </Transition.Child>
+              </Dialog>
+            </Transition.Root>
+            ) : (
+              ""
+            )}
     <>
     {props.user ?
       <div className="relative">
