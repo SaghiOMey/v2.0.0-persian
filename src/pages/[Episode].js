@@ -77,7 +77,7 @@ export default function Episode(props) {
     status: 0,
     Date: Date().slice(4,10)+','+Date().slice(10,15),
     // nameep: result.name,
-    ep: result.href
+    ep: result.href ? result.href : ""
   });
   const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
