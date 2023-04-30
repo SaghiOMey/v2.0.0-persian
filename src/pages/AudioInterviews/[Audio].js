@@ -74,12 +74,12 @@ export default function Persian(props) {
 
   const [form, setForm] = useState({
     rating: 0,
-    name: props.user.displayName,
+    // name: props.user.displayName,
     message: "",
     status: 0,
     Date: Date().slice(4,10)+','+Date().slice(10,15),
-    nameep: result.name,
-    ep: result.href
+    // nameep: result.name,
+    // ep: result.href
   });
   const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
@@ -604,7 +604,7 @@ function settimeout(){
                                           )}
                                           aria-hidden="true"
                                           name="rating"
-                                          // onClick={() => setForm({rating: rating + 1, name: form.name, nameep: result.name, message: form.message, status: 0, Date: Date().slice(4,10)+','+Date().slice(10,15), ep: form.ep})}
+                                          onClick={() => setForm({rating: rating + 1, name: form.name, nameep: result.name, message: form.message, status: 0, Date: Date().slice(4,10)+','+Date().slice(10,15), ep: form.ep})}
                                         />
                                       ))}
                                     </div>
