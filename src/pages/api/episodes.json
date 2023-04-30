@@ -986,5 +986,24 @@
     "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/OGQwOGIwOTAtZmI4NS00NTQ5LWE0ZTItNmMxMmI5NjRjMGJj?",
     "apple": "#",
     "castbox": "https://castbox.fm/episode/Ballet-dance---Shadi-(EP-51)-id4931691-id589304769?"
+  },
+  {
+    "id": 53,
+    "ln": "pa",
+    "name": "Entrepreneurship - Bahar Sadeghi",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg",
+    "eplink": "https://saghiomey.netlify.app/Entrepreneurship-Bahar-Sadeghi",
+    "href": "Entrepreneurship-Bahar-Sadeghi",
+    "describtion": "A conversation with Dear Bahar Sadeghi about entrepreneurship",
+    "date": "Apr 30, 2023",
+    "time": "58:36",
+    "voice": "https://d3ctxlq1ktw2nl.cloudfront.net/staging/2023-3-27/326311862-22050-1-5ad7cdde1e689.m4a",
+    "video": "https://www.youtube.com/embed/jSNvVcefR3s",
+    "youtube": "https://youtu.be/jSNvVcefR3s",
+    "anchor": "https://spotifyanchor-web.app.link/e/uDBj1QQX8yb",
+    "spotify": "https://open.spotify.com/episode/7dsKSX3xyJvL32UI0ZRVQm?si=3f041ada7c784a05",
+    "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/OGQwOGIwOTAtZmI4NS00NTQ5LWE0ZTItNmMxMmI5NjRjMGJj?",
+    "apple": "#",
+    "castbox": "https://castbox.fm/episode/Ballet-dance---Shadi-(EP-51)-id4931691-id589304769?"
   }
 ]
