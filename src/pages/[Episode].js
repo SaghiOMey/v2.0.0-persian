@@ -70,15 +70,15 @@ export default function Episode(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/", "")
   );
-  // const [form, setForm] = useState({
-  //   rating: 0,
-  //   name: props.user.displayName,
-  //   message: "",
-  //   status: 0,
-  //   Date: Date().slice(4,10)+','+Date().slice(10,15),
-  //   nameep: result.name,
-  //   ep: result.href
-  // });
+  const [form, setForm] = useState({
+    rating: 0,
+    name: "",
+    message: "",
+    status: 0,
+    Date: Date().slice(4,10)+','+Date().slice(10,15),
+    nameep: "",
+    ep: ""
+  });
   const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
 
@@ -102,16 +102,6 @@ export default function Episode(props) {
   }
     fetchData();
 }, []);
-
-const [form, setForm] = useState({
-  rating: 0,
-  name: props.user.displayName,
-  message: "",
-  status: 0,
-  Date: Date().slice(4,10)+','+Date().slice(10,15),
-  nameep: result.name,
-  ep: result.href
-});
 
 async function flike(){
   const db = getFirestore();
@@ -229,7 +219,7 @@ function settimeout(){
 }
 
   // const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/", ""))
-  // console.log(!like === true || re === undefined ? re.like + 1 : re.like === 0 ? re.like : re.like - 1);
+  console.log(form);
   return (
     <>
     {props.user ?
@@ -538,7 +528,7 @@ function settimeout(){
               </span>
             </button>
             <button
-              onClick={() => setopenreview(true)}
+              onClick={() => setopenreview(true) || setForm({rating: 0, name: props.user.displayName, nameep: result.name, message: form.message, status: 0, Date: Date().slice(4,10)+','+Date().slice(10,15), ep: result.href})}
               className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
             >
               <svg className="ml-2 mt-1 text-yellow-500 animate-ping" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 36 36" id="comment"><path fill="currentColor" d="M5.078 24.482A19.813 19.813 0 0 1 1.812 30c3.198 0 7.312-.42 10.482-2.364A19.52 19.52 0 0 0 16 28c8.836 0 16-5.82 16-13S24.836 2 16 2 0 7.82 0 15c0 3.744 1.96 7.11 5.078 9.482z"></path></svg>
@@ -609,7 +599,7 @@ function settimeout(){
                                           )}
                                           aria-hidden="true"
                                           name="rating"
-                                          onClick={() => setForm({rating: rating + 1, name: form.name, nameep: result.name, message: form.message, status: 0, Date: Date().slice(4,10)+','+Date().slice(10,15), ep: form.ep})}
+                                          onClick={() => setForm({rating: rating + 1, name: props.user.displayName, nameep: result.name, message: form.message, status: 0, Date: Date().slice(4,10)+','+Date().slice(10,15), ep: result.href})}
                                         />
                                       ))}
                                     </div>
