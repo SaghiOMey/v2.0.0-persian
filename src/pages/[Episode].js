@@ -72,10 +72,10 @@ export default function Episode(props) {
   );
   const [form, setForm] = useState({
     rating: 0,
-    // name: props.user.displayName,
+    name: props.user.displayName,
     message: "",
     status: 0,
-    // Date: Date().slice(4,10)+','+Date().slice(10,15),
+    Date: Date().slice(4,10)+','+Date().slice(10,15),
     // nameep: result.name,
     // ep: result.href
   });
