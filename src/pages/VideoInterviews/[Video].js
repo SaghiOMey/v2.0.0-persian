@@ -89,14 +89,26 @@ export default function Video(props) {
             {result.name}
           </span>
           <div className="justify-self-center -mt-48 w-72 md:-mt-64 md:ml-56 md:h-60 md:w-1/2 lg:-mt-80 lg:ml-80 lg:w-3/5 lg:h-72 xl:ml-96 aspect-video">
-            <iframe
+            {/* <iframe
               className="w-full h-36 md:h-60 lg:h-72"
               src={result.video}
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
+            ></iframe> */}
+            {result.id > 53 ? 
+            <video className="w-full h-36 md:h-60 lg:h-72" controlslist="nodownload" src="https://storage.googleapis.com/anchor_exclusive_media_upload_production/322db782-d194-3a41-7129-e426a8e70458/ep53--1-.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=taxi-media-admin%40anchor-f74b9.iam.gserviceaccount.com%2F20230501%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20230501T082649Z&X-Goog-Expires=86401&X-Goog-SignedHeaders=host&X-Goog-Signature=478dabc517927b4f49721b0e79356a2f98f5148032175f3ab4fab486332cd11b8a2dc8a55649cd3addb82780c11cba5ff36ccf966ef7e3d5a79d70029a5658c22b34c809dc712c8c2b93ce329078eb886694e622ce0871319287a4a02d0151043daf24ff819d344f171a03608f53ca093aff5367e6a18840d43583a9131c6d7a074d65c3fa819abf014d26a7e86bdf67033b35f10ebc0c38c9c35237ed1c91809f32d3b7eae645f65ce12fc7afe92ec13229bd4560b0615eec6cbb763827e7888a48f91bc4a4a58566e4e66ef88bbf42d30bab13e49bbbff9eb50d7b0918365eb2c0a42cd729e0f7ed1d5044e2310d2d02419f8b9c31436e62d88c7e9d4e8ae9" controls={true} />
+            :
+              <iframe
+              className="w-full h-36 md:h-60 lg:h-72"
+              src={result.video}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
             ></iframe>
+            }
           </div>
         </div>
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
