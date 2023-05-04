@@ -209,7 +209,7 @@ export default function Women(props) {
                                 {item.name === 'Jackets' ? <Link href="/jackets">{item.name}</Link> : ''}
                                 {item.name === 'Activewear' ? <Link href="/activewear">{item.name}</Link> : ''}
                                 {item.name === 'Browse All' ? <Link href="/browseall">{item.name}</Link> : ''}
-                                {item.name === 'Watches' ? <Link href="/watches">{item.name}</Link> : ''}
+                                {item.name === 'Watches' ? <Link href="/Category/Watches">{item.name}</Link> : ''}
                                 {item.name === 'Wallets' ? <Link href="/wallets">{item.name}</Link> : ''}
                                 {item.name === 'Bags' ? <Link href="/bags">{item.name}</Link> : ''}
                                 {item.name === 'Sunglasses' ? <Link href="/sunglasses">{item.name}</Link> : ''}

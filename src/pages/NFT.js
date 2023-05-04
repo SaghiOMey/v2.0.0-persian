@@ -39,6 +39,16 @@ export default function NFT(props) {
         expire: "May 30, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560911365128323073",
       },
+      {
+        id: 3,
+        name: "The cover of #ep53",
+        describtion: "The cover of #ep53, also 10% of sales goes to charity",
+        price: "0.0125 ETH, $23.81",
+        creator: "Maryam Karimi",
+        img: "https://i.seadn.io/gcs/files/c5c52c11711606846f1dd5c18f833c1c.jpg?auto=format&w=1000",
+        expire: "June 4, 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560912464639950849",
+      },
     ],
     Audio: [
       {
@@ -74,6 +84,17 @@ export default function NFT(props) {
         expire: "May 30, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560909166105067521",
       },
+      {
+        id: 4,
+        name: "The Audio of #ep53",
+        describtion:
+         "The Audio of #ep53, also 10% of sales goes to charity",
+        price: "0.0027 WETH, $5.14",
+        creator: "Dani",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "June 4, 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560914663663206401",
+      },
     ],
     Video: [
       {
@@ -97,9 +118,21 @@ export default function NFT(props) {
         expire: "May 30, 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560910265616695297",
       },
+      {
+        id: 3,
+        name: "The Video of #ep53",
+        describtion: "The Video of #ep53, also 10% of sales goes to charity",
+        price: "0.0125 ETH, $23.81",
+        creator: "Dani",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "June 4, 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560913564151578625",
+      },
     ],
   });
   const lastepisode = props.episodes.slice(-5).reverse();
+  // console.log("June 4, 2023".slice(0, 6) >=
+  // new Date().toString().slice(4, 10));
   return (
     <>
     <Index />
@@ -174,57 +207,103 @@ export default function NFT(props) {
                 >
                   <ul className="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
                     {[...posts].reverse().map((post) => (
-                      <>
-                        {post.expire.slice(0, 6) >=
-                        new Date().toString().slice(4, 10) ? (
-                          <li
-                            key={post.id}
-                            className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
-                          >
-                            <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
-                              <img
-                                src={post.img}
-                                className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
-                              />
-                            </div>
-                            <h1 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                              {post.name}
-                            </h1>
-                            <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                              {post.describtion}
-                            </h3>
-                            <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                              <span className="font-semibold text-gray-500">
-                                Creator:
-                              </span>
-                              &nbsp; {post.creator}
-                            </h3>
+                      // <>
+                      //   {post.expire.slice(0, 6) >=
+                      //   new Date().toString().slice(4, 10) ? (
+                      //     <li
+                      //       key={post.id}
+                      //       className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
+                      //     >
+                      //       <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
+                      //         <img
+                      //           src={post.img}
+                      //           className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
+                      //         />
+                      //       </div>
+                      //       <h1 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                      //         {post.name}
+                      //       </h1>
+                      //       <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                      //         {post.describtion}
+                      //       </h3>
+                      //       <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                      //         <span className="font-semibold text-gray-500">
+                      //           Creator:
+                      //         </span>
+                      //         &nbsp; {post.creator}
+                      //       </h3>
 
-                            <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
-                              <li>
-                                <span className="font-semibold text-gray-500">
-                                  Current price:
-                                </span>
-                                &nbsp;{post.price}
-                              </li>
-                              <li>
-                                <span className="font-semibold text-gray-500">
-                                  Expire date:
-                                </span>
-                                &nbsp;{post.expire}
-                              </li>
-                            </ul>
+                      //       <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
+                      //         <li>
+                      //           <span className="font-semibold text-gray-500">
+                      //             Current price:
+                      //           </span>
+                      //           &nbsp;{post.price}
+                      //         </li>
+                      //         <li>
+                      //           <span className="font-semibold text-gray-500">
+                      //             Expire date:
+                      //           </span>
+                      //           &nbsp;{post.expire}
+                      //         </li>
+                      //       </ul>
 
-                            <a
-                              href={post.link}
-                              className={classNames(
-                                "absolute inset-0 rounded-md",
-                                "ring-yellow-500 focus:z-10 focus:outline-none focus:ring-2"
-                              )}
-                            />
-                          </li>
-                        ) : null}
-                      </>
+                      //       <a
+                      //         href={post.link}
+                      //         className={classNames(
+                      //           "absolute inset-0 rounded-md",
+                      //           "ring-yellow-500 focus:z-10 focus:outline-none focus:ring-2"
+                      //         )}
+                      //       />
+                      //     </li>
+                      //   ) : null}
+                      // </>
+                      <li
+                      key={post.id}
+                      className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
+                    >
+                      <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
+                        <img
+                          src={post.img}
+                          className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
+                        />
+                      </div>
+                      <h1 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                        {post.name}
+                      </h1>
+                      <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                        {post.describtion}
+                      </h3>
+                      <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                        <span className="font-semibold text-gray-500">
+                          Creator:
+                        </span>
+                        &nbsp; {post.creator}
+                      </h3>
+
+                      <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
+                        <li>
+                          <span className="font-semibold text-gray-500">
+                            Current price:
+                          </span>
+                          &nbsp;{post.price}
+                        </li>
+                        <li>
+                          <span className="font-semibold text-gray-500">
+                            Expire date:
+                          </span>
+                          &nbsp;{post.expire}
+                        </li>
+                      </ul>
+
+                      <a
+                        href={post.link}
+                        className={classNames(
+                          "absolute inset-0 rounded-md",
+                          "ring-yellow-500 focus:z-10 focus:outline-none focus:ring-2"
+                        )}
+                      />
+                      </li>
                     ))}
                   </ul>
                 </Tab.Panel>

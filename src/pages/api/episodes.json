@@ -1005,5 +1005,24 @@
     "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/OGQwOGIwOTAtZmI4NS00NTQ5LWE0ZTItNmMxMmI5NjRjMGJj?",
     "apple": "#",
     "castbox": "https://castbox.fm/episode/Ballet-dance---Shadi-(EP-51)-id4931691-id589304769?"
+  },
+  {
+    "id": 54,
+    "ln": "pa",
+    "name": "Game industry - Dani Part I",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1682933277967-6b6f0dfee5b86.jpg",
+    "eplink": "https://saghiomey.netlify.app/Game-industry-Dani-PartI",
+    "href": "Game-industry-Dani-PartI",
+    "describtion": "A conversation with Dear Dani about Game industry",
+    "date": "Apr 30, 2023",
+    "time": "32:32",
+    "voice": "https://d3ctxlq1ktw2nl.cloudfront.net/staging/2023-4-1/327000858-22050-1-42eb30d4ddc64.m4a",
+    "video": "https://storage.googleapis.com/anchor_exclusive_media_upload_production/322db782-d194-3a41-7129-e426a8e70458/ep53--1-.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=taxi-media-admin%40anchor-f74b9.iam.gserviceaccount.com%2F20230504%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20230504T051532Z&X-Goog-Expires=86401&X-Goog-SignedHeaders=host&X-Goog-Signature=65f754260bb37372eb07360fc7ebd73293fd6a3e85265e16ab448d1e84146af283ab98c4c597b3f8b4d6470a460e92001c2b4f402ae95efe3b83f7b04d7db6f9bbcf62530ad68c94cf420d1399e5f7219e5874ce48a74f019b4081469f1fca0f986f06e195ee7c4a91ac981c6909dea7b25ba7a64150878a72d24bbd905ae9a1a41dabab15dfb9f416d7a385dca945875d964498f72cef40098bc63df7c30baebe6168b7b804faea279fa663b001e04395477ebb157cfd4c9031cb24f7353fcd1ac0c687c462315039a31cd6b4060a7167396cec457eb82c31fbe6eeddfb625c218afaf9609f1c17011e6e523e273f1be31b4e335149c962b471bb01e657974e",
+    "youtube": "https://youtu.be/jSNvVcefR3s",
+    "anchor": "https://spotifyanchor-web.app.link/e/uDBj1QQX8yb",
+    "spotify": "https://open.spotify.com/episode/7dsKSX3xyJvL32UI0ZRVQm?si=3f041ada7c784a05",
+    "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/OGQwOGIwOTAtZmI4NS00NTQ5LWE0ZTItNmMxMmI5NjRjMGJj?",
+    "apple": "#",
+    "castbox": "https://castbox.fm/episode/Ballet-dance---Shadi-(EP-51)-id4931691-id589304769?"
   }
 ]

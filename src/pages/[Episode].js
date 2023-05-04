@@ -672,7 +672,7 @@ function settimeout(){
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
           <span className="flex justify-center mt-14">
             {result.id > 53 ? 
-            <video controlslist="nodownload" src="https://storage.googleapis.com/anchor_exclusive_media_upload_production/322db782-d194-3a41-7129-e426a8e70458/ep53--1-.mp4?X-Goog-Algorithm=GOOG4-RSA-SHA256&X-Goog-Credential=taxi-media-admin%40anchor-f74b9.iam.gserviceaccount.com%2F20230501%2Fauto%2Fstorage%2Fgoog4_request&X-Goog-Date=20230501T082649Z&X-Goog-Expires=86401&X-Goog-SignedHeaders=host&X-Goog-Signature=478dabc517927b4f49721b0e79356a2f98f5148032175f3ab4fab486332cd11b8a2dc8a55649cd3addb82780c11cba5ff36ccf966ef7e3d5a79d70029a5658c22b34c809dc712c8c2b93ce329078eb886694e622ce0871319287a4a02d0151043daf24ff819d344f171a03608f53ca093aff5367e6a18840d43583a9131c6d7a074d65c3fa819abf014d26a7e86bdf67033b35f10ebc0c38c9c35237ed1c91809f32d3b7eae645f65ce12fc7afe92ec13229bd4560b0615eec6cbb763827e7888a48f91bc4a4a58566e4e66ef88bbf42d30bab13e49bbbff9eb50d7b0918365eb2c0a42cd729e0f7ed1d5044e2310d2d02419f8b9c31436e62d88c7e9d4e8ae9" controls={true} />
+            <video controlslist="nodownload" src={result.video} controls={true} />
             :
               <iframe
               width="560"
