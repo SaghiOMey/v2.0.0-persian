@@ -55,7 +55,7 @@ export default function NFT(props) {
         describtion: "The cover of #ep54, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.82",
         creator: "Maryam Karimi",
-        img: "https://i.seadn.io/gcs/files/2cb1ae9465d56cba6720e1ce85708d75.jpg?auto=format&w=1000",
+        img: "https://i.seadn.io/gcs/files/2b8f04f3f6fb3315855d7d2553d931d9.jpg?auto=format&w=1000",
         expire: "June 07 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560916862686461953",
       },
