@@ -49,6 +49,16 @@ export default function NFT(props) {
         expire: "June 04 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560912464639950849",
       },
+      {
+        id: 4,
+        name: "The cover of #ep54",
+        describtion: "The cover of #ep54, also 10% of sales goes to charity",
+        price: "0.0125 ETH, $23.82",
+        creator: "Maryam Karimi",
+        img: "https://i.seadn.io/gcs/files/2cb1ae9465d56cba6720e1ce85708d75.jpg?auto=format&w=1000",
+        expire: "June 07 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560916862686461953",
+      },
     ],
     Audio: [
       {
@@ -95,6 +105,17 @@ export default function NFT(props) {
         expire: "June 04 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560914663663206401",
       },
+      {
+        id: 5,
+        name: "The Audio of #ep54",
+        describtion:
+         "The Audio of #ep54, also 10% of sales goes to charity",
+        price: "0.0027 WETH, $5.15",
+        creator: "Milad",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "June 07 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560915763174834177",
+      },
     ],
     Video: [
       {
@@ -127,6 +148,16 @@ export default function NFT(props) {
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
         expire: "June 04 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560913564151578625",
+      },
+      {
+        id: 4,
+        name: "The Video of #ep54",
+        describtion: "The Video of #ep54, also 10% of sales goes to charity",
+        price: "0.0125 ETH, $23.82",
+        creator: "Milad",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "June 07 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560917962198089729",
       },
     ],
   });

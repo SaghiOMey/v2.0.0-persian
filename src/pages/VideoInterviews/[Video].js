@@ -97,7 +97,7 @@ export default function Video(props) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe> */}
-            {result.id > 53 ? 
+            {result.id === 54 ? 
             <video className="w-full h-36 md:h-60 lg:h-72" controlslist="nodownload" src={result.video} controls={true} />
             :
               <iframe

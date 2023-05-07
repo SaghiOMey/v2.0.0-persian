@@ -671,7 +671,7 @@ function settimeout(){
         </div>
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
           <span className="flex justify-center mt-14">
-            {result.id > 53 ? 
+            {result.id === 54 ? 
             <video controlslist="nodownload" src={result.video} controls={true} />
             :
               <iframe
