@@ -64,7 +64,7 @@ export default function NFT(props) {
         name: "identity",
         describtion: "Preservation of historical and national identity",
         price: "0.11 ETH, $202.51",
-        creator: "Sahar Ko",
+        creator: "Sahar Kooshkestani",
         img: "https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg?auto=format&w=1000",
         expire: "Aug 07 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560919061709717505",
