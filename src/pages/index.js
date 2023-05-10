@@ -106,6 +106,9 @@ export default function index(props) {
       appId: "62e0bd67-f20e-4491-b24f-a27b58d7cdfc",
     });
   }, []);
+  const date = episodes.slice(-5).reverse().map((item) => (new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "New" : item.date))
+  const counts = {}
+  date.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; })
   return (
     <div>
       <Head>
@@ -279,13 +282,66 @@ export default function index(props) {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 pt-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <Menu as="div" className="relative ml-3">
+                    <div>
+                      <Menu.Button className="flex rounded-full bg-gray-800 text-sm">
+                        <span className="sr-only">Open user menu</span>
+                        <button
+                    type="button"
+                    className= "rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white"
+                  >
+                    <div className="flex">
+                    <span className="text-yellow-500">{counts.New}</span>  
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 34 34" id="message-box"><path fill="currentColor" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path><circle fill="currentColor" cx="22.167" cy="13.682" r="1"></circle><circle fill="currentColor" cx="9.833" cy="13.682" r="1"></circle><circle fill="currentColor" cx="16" cy="13.682" r="1"></circle></svg>
+                    </div>
+                  </button>
+                      </Menu.Button>
+                    </div>
+                    <Transition
+                      as={Fragment}
+                      enter="transition ease-out duration-100"
+                      enterFrom="transform opacity-0 scale-95"
+                      enterTo="transform opacity-100 scale-100"
+                      leave="transition ease-in duration-75"
+                      leaveFrom="transform opacity-100 scale-100"
+                      leaveTo="transform opacity-0 scale-95"
+                    >
+                      <Menu.Items className="absolute min-w-max min-h-max right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-neutral-800 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Menu.Item>
+                          {({ active }) => (
+                            // eslint-disable-next-line jsx-a11y/anchor-is-valid
+                            <>
+                              {episodes.slice(-5).reverse().map((item) => (
+                                <>
+                                <Link href={item.eplink} className={classNames(
+                                active ? "flex bg-neutral-900" : "",
+                                "flex block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
+                              )}>
+                                <Image
+                                className="h-12 w-12 rounded-full"
+                                src={profile}
+                                alt="profile"
+                                />
+                                <div className="p-2 text-gray-200 hover:text-yellow-500 hover:cursor-pointer">Recommended: {item.name}<br /><span>{new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "New" : item.date}</span></div>
+                                <img
+                                className="h-12 w-12 rounded"
+                                src={item.img} />
+                                </Link>
+                                </>
+                              ))}
+                            </>
+                          )}
+                        </Menu.Item>
+                      </Menu.Items>
+                    </Transition>
+                  </Menu>&nbsp;
                   <button
                     onClick={Sub}
                     type="button"
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
+                  </button>&nbsp;
                   {Search ? (
                     <input
                       type="search"
