@@ -5,8 +5,8 @@
 // import apple from "../apple.svg";
 import youtube from "../assests/youtube.svg";
 import spotify from "../assests/spotify.svg";
-import googlepodcast from "../assests/googlepodcast.svg";
-import castbox from "../assests/castbox.svg";
+import Maryam from "../assests/Maryam.svg";
+import Sahar from "../assests/Sahar.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -66,6 +66,14 @@ export default function Footer(lastepisode) {
           </span>
           <br />
           <span className="text-gray-300 text-lg font-medium">
+            Our Colleagues
+            <div className="flex justify-center gap-3 mt-4">
+                <Image src={Maryam} className="h-16 w-16 bg-white" />
+                <Image src={Sahar} className="h-16 w-16 bg-white" />
+            </div>
+          </span>
+          <br />
+          <span className="text-gray-300 text-lg font-medium">
             Pages
             <div className="mt-4 text-base font-normal">
               <ul>
@@ -96,6 +104,14 @@ export default function Footer(lastepisode) {
                   </li>
                 ))}
               </ul>
+            </div>
+          </span>
+          <br />
+          <span className="text-gray-300 text-lg font-medium">
+            Our Colleagues
+            <div className="flex justify-center gap-3 mt-4">
+                <Image src={Maryam} className="h-16 w-16 bg-white" />
+                <Image src={Sahar} className="h-16 w-16 bg-white" />
             </div>
           </span>
           <br />
