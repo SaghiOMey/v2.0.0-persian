@@ -3,7 +3,7 @@ import  getAllPosts  from "../pages/api/posts";
 import RSS from "rss";
 export default async function getRSS() {
   const siteURL = "https://saghiomey.netlify.app/";
-  const allBlogs = getAllPosts;
+  const allBlogs = getAllPosts.reverse();
  
   const feed = new RSS({
     title: "Podcast SaghiOMey",
