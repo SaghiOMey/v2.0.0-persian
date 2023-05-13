@@ -22,7 +22,7 @@ export default async function getRSS() {
       date: post.date,
       description: post.describtion,
       enclosure: {
-        'url'  : post.img,
+        'file'  : post.img,
         'type' : 'image/jpeg'
       },
     });
