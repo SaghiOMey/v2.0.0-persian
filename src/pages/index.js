@@ -47,10 +47,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export async function getStaticProps() {
-  await generateRSS();
-}
-
+generateRSS();
 export default function index(props) {
   const form1 = useRef();
 
