@@ -41,11 +41,16 @@ import * as gtag from "../lib/gtag"
 import OneSignal from "react-onesignal";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import generateRSS from "../lib/generateRssFeed";
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
+}
+
+export async function getStaticProps() {
+  await generateRSS();
 }
 
 //firebase config
