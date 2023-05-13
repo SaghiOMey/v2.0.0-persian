@@ -1,5 +1,5 @@
 import { writeFileSync } from "fs";
-import { getAllPosts } from "../pages/api/posts";
+import  getAllPosts  from "../pages/api/posts";
 import RSS from "rss";
 export default async function getRSS() {
   const siteURL = "https://saghiomey.netlify.app/";
