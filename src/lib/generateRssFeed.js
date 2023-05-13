@@ -18,12 +18,10 @@ export default async function getRSS() {
   allBlogs.map((post) => {
     feed.item({
       title: post.title,
-      image: {url: post.img, title:post.title, link:siteURL},
-      content: post.describtion,
-      // url: `${siteURL}/blogs/${post.slug}`,
       url: post.url,
       date: post.date,
       description: post.describtion,
+      image: post.img,
     });
   });
  
