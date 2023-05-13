@@ -21,7 +21,11 @@ export default async function getRSS() {
       url: post.url,
       date: post.date,
       description: post.describtion,
-      image: post.img,
+      enclosure: {
+        'url'  : post.img,
+        'size' : 1668, //
+        'type' : 'image/jpeg'
+      },
     });
   });
  
