@@ -23,7 +23,6 @@ export default async function getRSS() {
       description: post.describtion,
       enclosure: {
         'url'  : post.img,
-        'size' : 1668, //
         'type' : 'image/jpeg'
       },
     });
