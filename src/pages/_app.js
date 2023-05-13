@@ -49,6 +49,10 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+export async function getStaticProps() {
+  await generateRSS();
+}
+
 //firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCX0QCbi91uyfR-FFoq6B6Ld955eknirfo",
@@ -67,7 +71,6 @@ provider.setCustomParameters({ prompt: "select_account" });
 // Sign in and sign out functins
 const signIn = () => auth.signInWithPopup(provider);
 const signOut = () => auth.signOut();
-generateRSS()
 
 export default function App({ Component, pageProps }) {
   const form1 = useRef();

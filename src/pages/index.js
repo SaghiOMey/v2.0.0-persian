@@ -46,7 +46,10 @@ import generateRSS from "../lib/generateRssFeed";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-generateRSS()
+
+export async function getStaticProps() {
+  await generateRSS();
+}
 
 export default function index(props) {
   const form1 = useRef();
