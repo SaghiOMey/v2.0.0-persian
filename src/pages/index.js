@@ -39,11 +39,16 @@ import Voice from '@/components/voice';
 // import Reviews from "../Routes/Reviews";
 // import NFT from "../Routes/NFT";
 import OneSignal from "react-onesignal";
+import generateRSS from "../lib/generateRssFeed";
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
+}
+
+export async function getStaticProps() {
+  await generateRSS();
 }
 
 export default function index(props) {
