@@ -15,7 +15,7 @@ export default async function getRSS() {
     copyright: `All rights reserved ${new Date().getFullYear()}, Podcast SaghiOMey`,
   });
  
-  allBlogs.map((post) => {
+  allBlogs.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date))).map((post) => {
     feed.item({
       title: post.title,
       url: post.url,
