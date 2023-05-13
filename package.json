@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@date-io/date-fns": "^1.3.13",
     "@emailjs/browser": "^3.10.0",
     "@headlessui/react": "^1.7.12",
     "@heroicons/react": "^2.0.17",
     "@moralisweb3/next": "^2.16.1",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "date-fns": "^2.30.0",
     "emailjs": "^4.0.1",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
