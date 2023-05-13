@@ -9,7 +9,7 @@ export default async function getRSS() {
     title: "Podcast SaghiOMey",
     description: "Podcast SaghiOMey Hosted By Milad",
     site_url: siteURL,
-    feed_url: `${siteURL}/feed.xml`,
+    feed_url: `${siteURL}feed.xml`,
     language: "en",
     pubDate: new Date(),
     copyright: `All rights reserved ${new Date().getFullYear()}, Podcast SaghiOMey`,
