@@ -19,6 +19,7 @@ export default async function getRSS() {
     feed.item({
       title: post.title,
       image: post.img,
+      content: post.describtion,
       // url: `${siteURL}/blogs/${post.slug}`,
       url: post.url,
       date: post.date,
