@@ -21,7 +21,7 @@ export default async function getRSS() {
       image: post.img,
       content: post.describtion,
       // url: `${siteURL}/blogs/${post.slug}`,
-      // url: post.url,
+      url: post.url,
       date: post.date,
       description: post.describtion,
     });
