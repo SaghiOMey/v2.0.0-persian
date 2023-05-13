@@ -8,6 +8,7 @@ export default async function getRSS() {
   const feed = new RSS({
     title: "Podcast SaghiOMey",
     description: "Podcast SaghiOMey Hosted By Milad",
+    image: "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded400/22745765/22745765-1673944614296-37120c17a1189.jpg",
     site_url: siteURL,
     feed_url: `${siteURL}/feed.xml`,
     language: "en",
