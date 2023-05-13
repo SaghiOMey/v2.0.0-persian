@@ -18,6 +18,7 @@ export default async function getRSS() {
   allBlogs.map((post) => {
     feed.item({
       title: post.title,
+      img: post.img,
       // url: `${siteURL}/blogs/${post.slug}`,
       url: post.url,
       date: post.date,
