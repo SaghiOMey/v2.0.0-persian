@@ -16,8 +16,8 @@ export default function Contact(props) {
   const lastepisode = props.episodes.slice(-5).reverse();
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({
-    name: props.user ? props.user.displayName : "",
-    email: props.user ? props.user.email : "",
+    name: "",
+    email: "",
     message: "",
   });
 
@@ -141,12 +141,11 @@ export default function Contact(props) {
                   name="name"
                   id="name"
                   value={form.name}
-                  disabled = {(form.name)? "disabled" : ""}
                   onChange={onUpdateField}
                   autoComplete="family-name"
                   placeholder=" Your Name"
                   onBlur={onBlurField}
-                  className={(form.name) ? "mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-yellow-500 shadow-sm cursor-not-allowed" : "mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"}
+                  className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
                 />
                 {errors.name.dirty && errors.name.error ? (
                   <p className={styles.formFieldErrorMessage}>
@@ -160,12 +159,11 @@ export default function Contact(props) {
                   name="email"
                   id="email"
                   value={form.email}
-                  disabled = {(form.email)? "disabled" : ""}
                   onChange={onUpdateField}
                   autoComplete="email"
                   placeholder=" Your Email"
                   onBlur={onBlurField}
-                  className={(form.email) ? "mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border shadow-sm border-yellow-500 sm:text-medium cursor-not-allowed" : "mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"}
+                  className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
                 />
                 {errors.email.dirty && errors.email.error ? (
                   <p className={styles.formFieldErrorMessage}>

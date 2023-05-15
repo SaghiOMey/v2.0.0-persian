@@ -50,7 +50,6 @@ function classNames(...classes) {
 generateRSS();
 export default function index(props) {
   const form1 = useRef();
-
   const { pathname } = useRouter();
   const [Open, setOpen] = useState(false);
   const [Search, setSearch] = useState(false);
