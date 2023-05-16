@@ -21,6 +21,7 @@
     "eslint-config-next": "13.2.1",
     "firebase": "^9.17.2",
     "firebase-admin": "^11.8.0",
+    "fs": "^0.0.1-security",
     "localforage": "^1.10.0",
     "moralis": "^2.16.1",
     "net": "^1.0.2",
