@@ -29,5 +29,5 @@ export default async function getRSS() {
     });
   });
  
-  writeFileSync("./public/feed.xml", feed.xml({ indent: true }));
+  // writeFileSync("./public/feed.xml", feed.xml({ indent: true }));
 }
