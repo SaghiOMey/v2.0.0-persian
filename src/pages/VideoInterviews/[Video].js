@@ -89,17 +89,6 @@ export default function Video(props) {
             {result.name}
           </span>
           <div className="justify-self-center -mt-48 w-72 md:-mt-64 md:ml-56 md:h-60 md:w-1/2 lg:-mt-80 lg:ml-80 lg:w-3/5 lg:h-72 xl:ml-96 aspect-video">
-            {/* <iframe
-              className="w-full h-36 md:h-60 lg:h-72"
-              src={result.video}
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe> */}
-            {result.id === 54 ? 
-            <video className="w-full h-36 md:h-60 lg:h-72" controlslist="nodownload" src={result.video} controls={true} />
-            :
               <iframe
               className="w-full h-36 md:h-60 lg:h-72"
               src={result.video}
@@ -108,7 +97,6 @@ export default function Video(props) {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe>
-            }
           </div>
         </div>
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">

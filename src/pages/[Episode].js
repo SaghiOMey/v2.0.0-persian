@@ -671,9 +671,6 @@ function settimeout(){
         </div>
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
           <span className="flex justify-center mt-14">
-            {result.id === 54 ? 
-            <video controlslist="nodownload" src={result.video} controls={true} />
-            :
               <iframe
               width="560"
               height="315"
@@ -683,7 +680,6 @@ function settimeout(){
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
             ></iframe>
-            }
           </span>
           <div className="mx-auto text-center md:text-justify max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <span className="font-normal font-sans text-white lg:text-2xl">
