@@ -75,9 +75,7 @@ export default function Video(props) {
         <meta property="og:image:height" content="300" />
         <meta property="og:image:alt" content={result.name}  />
     </Head>
-    <>
-    {props.user ?
-      <div className="relative">
+    <div className="relative">
         <Image className="bg-cover h-96 md:h-auto xl:w-full" src={sky} alt="sky" />
         <div className="absolute grid justify-items-center md:justify-items-start xl:top-3/4 w-full text-white">
           <img
@@ -223,10 +221,7 @@ export default function Video(props) {
             <Footer lastepisode={lastepisode} />
           </div>
         </div>
-      </div>
-    : <h1 className="mt-44 bg-black text-yellow-500 text-center font-bold text-2xl">Please First Signin</h1>
-    }
-    </>  
+    </div> 
      </> 
       : false}
     </>

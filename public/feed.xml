@@ -4,32 +4,32 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 17 May 2023 06:49:29 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 18 May 2023 09:33:01 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 17 May 2023 06:49:29 GMT</pubDate>
+        <pubDate>Thu, 18 May 2023 09:33:01 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
             <title><![CDATA[Dorsa Ashineh - Blockchain]]></title>
             <description><![CDATA[A conversation with dear Dorsa Ashineh about blockchain]]></description>
-            <link>https://saghiomey.netlify.app/Dorsa-Ashineh-Blockchain</link>
-            <guid isPermaLink="true">https://saghiomey.netlify.app/Dorsa-Ashineh-Blockchain</guid>
+            <link>https://saghiomey.netlify.app/VideoInterviews/Dorsa-Ashineh-Blockchain</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Dorsa-Ashineh-Blockchain</guid>
             <pubDate>Thu, 11 May 2023 19:30:00 GMT</pubDate>
             <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1683913534551-34326cbf32b4c.jpg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[Pure Chemistry - Pardis Panahi]]></title>
             <description><![CDATA[A conversation with dear Pardis about pure chemistry]]></description>
-            <link>https://saghiomey.netlify.app/Pure-Chemistry-Pardis-Panahi</link>
-            <guid isPermaLink="true">https://saghiomey.netlify.app/Pure-Chemistry-Pardis-Panahi</guid>
+            <link>https://saghiomey.netlify.app/VideoInterviews/Pure-Chemistry-Pardis-Panahi</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Pure-Chemistry-Pardis-Panahi</guid>
             <pubDate>Sat, 06 May 2023 19:30:00 GMT</pubDate>
             <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1683474036354-70773a91234c8.jpg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[Game industry - Dani Part I]]></title>
             <description><![CDATA[A conversation with Dear Dani about Game industry]]></description>
-            <link>https://saghiomey.netlify.app/Game-industry-Dani-PartI</link>
-            <guid isPermaLink="true">https://saghiomey.netlify.app/Game-industry-Dani-PartI</guid>
+            <link>https://saghiomey.netlify.app/VideoInterviews/Game-industry-Dani-PartI</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Game-industry-Dani-PartI</guid>
             <pubDate>Wed, 03 May 2023 19:30:00 GMT</pubDate>
             <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1682933277967-6b6f0dfee5b86.jpg" length="0" type="image/jpeg"/>
         </item>
