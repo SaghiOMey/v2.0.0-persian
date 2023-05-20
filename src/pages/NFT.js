@@ -79,6 +79,16 @@ export default function NFT(props) {
         expire: "June 11 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560920161221345281",
       },
+      {
+        id: 7,
+        name: "The cover of #ep56",
+        describtion: "The cover of #ep56, also 10% of sales goes to charity",
+        price: "0.0125  WETH, $22.62",
+        creator: "Maryam Karimi",
+        img: "https://i.seadn.io/gcs/files/a645dcf7db4f1ce469f8a652430f02d6.jpg?auto=format&dpr=1&w=1000",
+        expire: "June 19 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560923459756228609",
+      },
     ],
     Audio: [
       {
@@ -147,6 +157,17 @@ export default function NFT(props) {
         expire: "June 11 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560922360244600833",
       },
+      {
+        id: 7,
+        name: "The Audio of #ep56",
+        describtion:
+         "The Audio of #ep56, also 10% of sales goes to charity",
+        price: "0.0027 WETH, $4.89",
+        creator: "Dani",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "June 19 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560924559267856385",
+      },
     ],
     Video: [
       {
@@ -199,6 +220,16 @@ export default function NFT(props) {
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
         expire: "June 11 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560921260732973057",
+      },
+      {
+        id: 6,
+        name: "The Video of #ep56",
+        describtion: "The Video of #ep56, also 10% of sales goes to charity",
+        price: "0.0125 ETH, $22.62",
+        creator: "Dani",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "June 19 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560925658779484161",
       },
     ],
   });
