@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[NFT SaghiOMey]]></title>
+        <description><![CDATA[NFT SaghiOMey Hosted By Milad]]></description>
+        <link>https://saghiomey.netlify.app/</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Sun, 21 May 2023 08:23:26 GMT</lastBuildDate>
+        <atom:link href="https://saghiomey.netlify.app//NFT.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Sun, 21 May 2023 08:23:26 GMT</pubDate>
+        <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
+        <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[identity]]></title>
+            <description><![CDATA[Preservation of historical and national identity]]></description>
+            <link>https://saghiomey.netlify.app/NFT</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/NFT</guid>
+            <pubDate>Sat, 20 May 2023 19:30:00 GMT</pubDate>
+            <enclosure url="https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560919061709717505" length="0" type="image/jpeg"/>
+        </item>
+    </channel>
+</rss>

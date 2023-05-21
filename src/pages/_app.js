@@ -42,6 +42,7 @@ import OneSignal from "react-onesignal";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import generateRSS from "../lib/generateRssFeed";
+import NFTRSS from "../lib/NFTRssFeed";
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
 
@@ -68,6 +69,7 @@ provider.setCustomParameters({ prompt: "select_account" });
 const signIn = () => auth.signInWithPopup(provider);
 const signOut = () => auth.signOut();
 generateRSS();
+NFTRSS();
 
 export default function App({ Component, pageProps }) {
   const form1 = useRef();
