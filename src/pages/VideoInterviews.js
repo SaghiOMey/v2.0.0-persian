@@ -17,6 +17,7 @@ export default function VideoInterviews(props) {
     <Head>
         <title>VideoInterviews</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
+        <link href="https://saghiomey.netlify.app/feed.xml" rel="alternate" type="application/rss+xml"/>
       </Head>
       <div className="relative">
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />

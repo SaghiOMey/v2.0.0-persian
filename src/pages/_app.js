@@ -178,6 +178,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>saghiomey</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
+        <link href="https://saghiomey.netlify.app/feed.xml" rel="alternate" type="application/rss+xml"/>
         <meta name="author" content="Milad" />
         <meta name="google-site-verification" content="QpBWZ37FwTOQtW_1NPVKstxLBeO_7Y__NPqCx9vZla4" />
         <meta name="keywords"

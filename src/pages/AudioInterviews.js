@@ -17,6 +17,7 @@ export default function AudioInterviews(props) {
     <Head>
         <title>AudioEpisodes</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
+        <link href="https://saghiomey.netlify.app/feed.xml" rel="alternate" type="application/rss+xml"/>
       </Head>
       <div className="relative">
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />

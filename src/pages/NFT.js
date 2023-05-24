@@ -241,6 +241,7 @@ export default function NFT(props) {
     <Head>
         <title>NFT</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
+        <link href="https://saghiomey.netlify.app//NFT.xml" rel="alternate" type="application/rss+xml"/>
       </Head>
       <div className="relative">
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />

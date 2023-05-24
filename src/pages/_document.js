@@ -21,6 +21,7 @@ export default function Document() {
       }}
       />
       <link rel="shortcut icon" href="/saghiomey.ico" />
+      <link href="https://saghiomey.netlify.app/feed.xml" rel="alternate" type="application/rss+xml"/>
       </Head>
       <body>
         <Main />
