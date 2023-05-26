@@ -9,11 +9,19 @@
   },
   {
     "id": 2,
-    "url": "https://saghiomey.netlify.app/Mental-errors-Anoosheh",
+    "url": "https://saghiomey.netlify.app/VideoInterviews/Mental-errors-Anoosheh",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_episode400/22745765/22745765-1679126531142-9528db558dc76.jpg",
     "title": "Mental errors - Anoosheh",
     "describtion": "A conversation with dear Anoosheh about mental errors",
-    "date": "Mar 19, 2022"
+    "date": "Mar 19, 2023"
+  },
+  {
+    "id": 3,
+    "url": "https://saghiomey.netlify.app/VideoInterviews/Ballet-dance-Shadi",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg",
+    "title": "Ballet-dance-Shadi",
+    "describtion": "A conversation with dear Shadi about Ballet dance",
+    "date": "Apr 20, 2023"
   }
 ]
   
