@@ -4,11 +4,19 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 26 May 2023 16:40:22 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 26 May 2023 16:47:47 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 26 May 2023 16:40:22 GMT</pubDate>
+        <pubDate>Fri, 26 May 2023 16:47:47 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Game industry - Dani Part I]]></title>
+            <description><![CDATA[A conversation with Dear Dani about Game industry]]></description>
+            <link>https://saghiomey.netlify.app/VideoInterviews/Game-industry-Dani-PartI</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Game-industry-Dani-PartI</guid>
+            <pubDate>Wed, 03 May 2023 19:30:00 GMT</pubDate>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1682933277967-6b6f0dfee5b86.jpg" length="0" type="image/jpeg"/>
+        </item>
         <item>
             <title><![CDATA[Entrepreneurship - Bahar Sadeghi]]></title>
             <description><![CDATA[A conversation with Dear Bahar Sadeghi about entrepreneurship]]></description>
