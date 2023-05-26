@@ -19,9 +19,17 @@
     "id": 3,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Ballet-dance-Shadi",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg",
-    "title": "Ballet-dance-Shadi",
+    "title": "Ballet dance - Shadi",
     "describtion": "A conversation with dear Shadi about Ballet dance",
     "date": "Apr 20, 2023"
+  },
+  {
+    "id": 4,
+    "url": "https://saghiomey.netlify.app/VideoInterviews/Entrepreneurship-Bahar-Sadeghi",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1682835189662-41f377b810b1.jpg",
+    "title": "Entrepreneurship - Bahar Sadeghi",
+    "describtion": "A conversation with Dear Bahar Sadeghi about entrepreneurship",
+    "date": "Apr 30, 2023"
   }
 ]
   
