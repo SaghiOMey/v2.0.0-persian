@@ -4,9 +4,9 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 26 May 2023 16:09:32 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 26 May 2023 16:22:46 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 26 May 2023 16:09:32 GMT</pubDate>
+        <pubDate>Fri, 26 May 2023 16:22:46 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
@@ -15,7 +15,15 @@
             <link>https://saghiomey.netlify.app/</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/</guid>
             <pubDate>Wed, 20 Apr 2022 19:30:00 GMT</pubDate>
-            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1682933277967-6b6f0dfee5b86.jpg" length="0" type="image/jpeg"/>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[Mental errors - Anoosheh]]></title>
+            <description><![CDATA[A conversation with dear Anoosheh about mental errors]]></description>
+            <link>https://saghiomey.netlify.app/Mental-errors-Anoosheh</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/Mental-errors-Anoosheh</guid>
+            <pubDate>Fri, 18 Mar 2022 20:30:00 GMT</pubDate>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_episode400/22745765/22745765-1679126531142-9528db558dc76.jpg" length="0" type="image/jpeg"/>
         </item>
     </channel>
 </rss>

@@ -2,10 +2,18 @@
   {
     "id": 1,
     "url": "https://saghiomey.netlify.app/",
-    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1682933277967-6b6f0dfee5b86.jpg",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg",
     "title": "Podcast SaghiOMey",
     "describtion": "Join Host Milad as he talks to various guests each week where ”Everyone Has A Story” from the world",
     "date": "Apr 21, 2022"
+  },
+  {
+    "id": 2,
+    "url": "https://saghiomey.netlify.app/Mental-errors-Anoosheh",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_episode400/22745765/22745765-1679126531142-9528db558dc76.jpg",
+    "title": "Mental errors - Anoosheh",
+    "describtion": "A conversation with dear Anoosheh about mental errors",
+    "date": "Mar 19, 2022"
   }
 ]
   
