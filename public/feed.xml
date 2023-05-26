@@ -4,11 +4,19 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 26 May 2023 16:55:28 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 26 May 2023 17:00:29 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 26 May 2023 16:55:28 GMT</pubDate>
+        <pubDate>Fri, 26 May 2023 17:00:29 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Dorsa Ashineh - Blockchain]]></title>
+            <description><![CDATA[A conversation with dear Dorsa Ashineh about blockchain]]></description>
+            <link>https://saghiomey.netlify.app/VideoInterviews/Dorsa-Ashineh-Blockchain</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Dorsa-Ashineh-Blockchain</guid>
+            <pubDate>Thu, 11 May 2023 19:30:00 GMT</pubDate>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1683913534551-34326cbf32b4c.jpg" length="0" type="image/jpeg"/>
+        </item>
         <item>
             <title><![CDATA[Pure Chemistry - Pardis Panahi]]></title>
             <description><![CDATA[A conversation with dear Pardis about pure chemistry]]></description>
