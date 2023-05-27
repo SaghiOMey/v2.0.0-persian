@@ -29,5 +29,5 @@ export default async function getRSS() {
     });
   });
  
-  // writeFileSync("./public/NFT.xml", feed.xml({ indent: true }));
+  writeFileSync("./public/NFT.xml", feed.xml({ indent: true }));
 }
