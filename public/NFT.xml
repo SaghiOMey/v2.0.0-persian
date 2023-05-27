@@ -4,14 +4,22 @@
         <description><![CDATA[NFT SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 22 May 2023 05:33:43 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 27 May 2023 07:32:14 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app//NFT.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 22 May 2023 05:33:43 GMT</pubDate>
+        <pubDate>Sat, 27 May 2023 07:32:14 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
             <title><![CDATA[identity]]></title>
             <description><![CDATA[Preservation of historical and national identity]]></description>
+            <link>https://saghiomey.netlify.app/NFT</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/NFT</guid>
+            <pubDate>Fri, 26 May 2023 19:30:00 GMT</pubDate>
+            <enclosure url="https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg?auto=format&amp;w=1000" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[NFT]]></title>
+            <description><![CDATA[10% of sales goes to charity]]></description>
             <link>https://saghiomey.netlify.app/NFT</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/NFT</guid>
             <pubDate>Sat, 20 May 2023 19:30:00 GMT</pubDate>
