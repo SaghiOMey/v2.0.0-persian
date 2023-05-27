@@ -4,9 +4,9 @@
         <description><![CDATA[NFT SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 27 May 2023 07:32:14 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 27 May 2023 07:34:58 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app//NFT.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 27 May 2023 07:32:14 GMT</pubDate>
+        <pubDate>Sat, 27 May 2023 07:34:58 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
@@ -23,7 +23,7 @@
             <link>https://saghiomey.netlify.app/NFT</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/NFT</guid>
             <pubDate>Sat, 20 May 2023 19:30:00 GMT</pubDate>
-            <enclosure url="https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg" length="0" type="image/jpeg"/>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" length="0" type="image/jpeg"/>
         </item>
     </channel>
 </rss>
