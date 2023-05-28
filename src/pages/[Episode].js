@@ -80,6 +80,7 @@ export default function Episode(props) {
     ep: ""
   });
   const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
+  const fe = messages ? messages.Message.filter((review) => review.ep === result.href && review.status === 1 ).length : false
   // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
 
   useEffect(() => {
@@ -219,7 +220,7 @@ function settimeout(){
 }
 
   // const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/", ""))
-  // console.log(form);
+  // console.log(fe);
   return (
     <>
     {props.user ?
@@ -534,6 +535,9 @@ function settimeout(){
               <svg className="ml-2 mt-1 text-yellow-500 animate-ping" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 36 36" id="comment"><path fill="currentColor" d="M5.078 24.482A19.813 19.813 0 0 1 1.812 30c3.198 0 7.312-.42 10.482-2.364A19.52 19.52 0 0 0 16 28c8.836 0 16-5.82 16-13S24.836 2 16 2 0 7.82 0 15c0 3.744 1.96 7.11 5.078 9.482z"></path></svg>
               <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
                 Comment
+              </span>&nbsp;
+              <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
+              {fe}
               </span>
             </button>
             <Transition.Root show={openreview} as={Fragment}>
