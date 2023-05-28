@@ -716,7 +716,7 @@ function settimeout(){
                       <div className="mt-4">
                           <span className=" lg:mt-6 ml-4 mr-1 font-bold text-base text-white">
                             {review.nameep}
-                          </span>
+                          </span><br /><br />
                         <span className="text-lg lg:text-2xl mt-4 ml-4 mr-1 font-medium text-gray-200">
                           {review.message}
                         </span>
