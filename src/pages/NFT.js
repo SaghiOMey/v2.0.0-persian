@@ -359,7 +359,9 @@ export default function NFT(props) {
                             />
                           </li>
                         ) : post.expire.slice(4,7) <= new Date().toString().slice(8, 10) ? 
-                        <li
+                        null
+                          : 
+                          <li
                             key={post.id}
                             className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
                           >
@@ -405,7 +407,6 @@ export default function NFT(props) {
                               )}
                             />
                           </li>
-                          : null
                         }
                       </>
                     ))}
