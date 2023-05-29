@@ -22,6 +22,7 @@ import {
   FacebookShareButton,
   FacebookIcon,
 } from "react-share";
+import Link from 'next/link';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
@@ -51,7 +52,7 @@ export default function Video(props) {
     fetchData();
 }, []);
   // const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/VideoInterviews/", ""))
-  // console.log(result);
+  console.log(result);
   return (
     <>
     {router.isReady ?
@@ -86,7 +87,7 @@ export default function Video(props) {
           <span className="-mt-56 xl:-mt-96 lg:-mt-96 md:-mt-72 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
             {result.name}
           </span>
-          <div className="justify-self-center -mt-48 w-72 md:-mt-64 md:ml-56 md:h-60 md:w-1/2 lg:-mt-80 lg:ml-80 lg:w-3/5 lg:h-72 xl:ml-96 aspect-video">
+          <div className="justify-self-center -mt-40 w-72 md:-mt-64 md:ml-56 md:h-60 md:w-1/2 lg:-mt-80 lg:ml-80 lg:w-3/5 lg:h-72 xl:ml-96 aspect-video">
               <iframe
               className="w-full h-36 md:h-60 lg:h-72"
               src={result.video}
@@ -98,7 +99,13 @@ export default function Video(props) {
           </div>
         </div>
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
-          <div className="mx-auto text-center md:text-justify max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
+          <div className="mx-auto text-center md:text-justify max-w-2xl py-4 px-6 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
+              <div className="text-center text-white font-bold text-xs md:text-base mt-3">
+              <svg class="w-6 h-6 mx-auto text-yellow-500 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+              </svg>
+                <Link href={router.asPath.replace("/VideoInterviews/", "/AudioInterviews/")} className="mx-auto font-normal font-sans text-white lg:text-2xl animate-pulse">Like | Comment | Dislike</Link>
+              </div><br />
             <span className="font-normal font-sans text-white lg:text-2xl">
               {result.describtion}.
             </span>
