@@ -790,10 +790,10 @@ function settimeout(){
             <br />
             <br />
             <a
-              href="https://saghiomey.netlify.app"
+              href="https://news.google.com/s/CBIw6YXAwrEB?sceid=US:en&sceid=US:en&r=0&oc=1"
               className="font-normal font-sans text-yellow-500 lg:text-2xl"
             >
-              SaghiOMey
+              GoogleNews
             </a>
             <br />
             <br />
