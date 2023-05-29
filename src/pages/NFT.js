@@ -20,17 +20,6 @@ export default function NFT(props) {
     Image: [
       {
         id: 1,
-        name: "The first cover of Saghi.O.May podcast",
-        describtion:
-          "The first cover of Saghi.O.May podcast, which was unveiled in 2021, also 10% of sales goes to charity",
-        price: "0.0125 WETH, $20.45",
-        creator: "Milad",
-        img: "https://i.seadn.io/gcs/files/824a750c60cecdae055fe3a29704235d.png?auto=format&w=1000",
-        expire: "May 28 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560899270500417537/",
-      },
-      {
-        id: 2,
         name: "The cover of #ep52",
         describtion: "The cover of #ep52, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.78",
@@ -40,7 +29,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560911365128323073",
       },
       {
-        id: 3,
+        id: 2,
         name: "The cover of #ep53",
         describtion: "The cover of #ep53, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.81",
@@ -50,7 +39,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560912464639950849",
       },
       {
-        id: 4,
+        id: 3,
         name: "The cover of #ep54",
         describtion: "The cover of #ep54, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.82",
@@ -60,7 +49,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560916862686461953",
       },
       {
-        id: 5,
+        id: 4,
         name: "identity",
         describtion: "Preservation of historical and national identity",
         price: "0.11 ETH, $202.51",
@@ -70,7 +59,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560919061709717505",
       },
       {
-        id: 6,
+        id: 5,
         name: "The cover of #ep55",
         describtion: "The cover of #ep55, also 10% of sales goes to charity",
         price: "0.0125  WETH, $22.14",
@@ -80,7 +69,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560920161221345281",
       },
       {
-        id: 7,
+        id: 6,
         name: "The cover of #ep57",
         describtion: "The cover of #ep57, also 10% of sales goes to charity",
         price: "0.0125  WETH, $22.93",
@@ -93,17 +82,6 @@ export default function NFT(props) {
     Audio: [
       {
         id: 1,
-        name: "The first episode of Saghi.O.May podcast",
-        describtion:
-          "The first episode of Saghi.O.May podcast, which was unveiled in 2021, also 10% of sales goes to charity",
-        price: "0.0125 WETH, $20.45",
-        creator: "Milad & Dani",
-        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
-        expire: "May 28 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560900370012045313/",
-      },
-      {
-        id: 2,
         name: "The first exclusive music of Saghi.O.Mey podcast",
         describtion:
          "The first exclusive music of Saghi.O.Mey podcast, also 10% of sales goes to charity",
@@ -114,7 +92,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560903668546928641/",
       },
       {
-        id: 3,
+        id: 2,
         name: "The Audio of #ep52",
         describtion:
          "The Audio of #ep52, also 10% of sales goes to charity",
@@ -125,7 +103,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560909166105067521",
       },
       {
-        id: 4,
+        id: 3,
         name: "The Audio of #ep54",
         describtion:
          "The Audio of #ep54, also 10% of sales goes to charity",
@@ -136,7 +114,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560915763174834177",
       },
       {
-        id: 5,
+        id: 4,
         name: "The Audio of #ep55",
         describtion:
          "The Audio of #ep55, also 10% of sales goes to charity",
@@ -147,7 +125,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560922360244600833",
       },
       {
-        id: 6,
+        id: 5,
         name: "The Audio of #ep56",
         describtion:
          "The Audio of #ep56, also 10% of sales goes to charity",
@@ -158,7 +136,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560924559267856385",
       },
       {
-        id: 7,
+        id: 6,
         name: "The Audio of #ep57",
         describtion:
          "The Audio of #ep57, also 10% of sales goes to charity",
@@ -172,17 +150,6 @@ export default function NFT(props) {
     Video: [
       {
         id: 1,
-        name: "The first video of Saghi.O.May podcast",
-        describtion:
-          "The first video of Saghi.O.May podcast, which was unveiled in 2021, also 10% of sales goes to charity",
-        price: "0.0125 WETH, $20.45",
-        creator: "Milad & Dani",
-        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
-        expire: "May 28 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560901469523673089/",
-      },
-      {
-        id: 2,
         name: "The Video of #ep52",
         describtion: "The Video of #ep52, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.74",
@@ -192,7 +159,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560910265616695297",
       },
       {
-        id: 3,
+        id: 2,
         name: "The Video of #ep53",
         describtion: "The Video of #ep53, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.81",
@@ -202,7 +169,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560913564151578625",
       },
       {
-        id: 4,
+        id: 3,
         name: "The Video of #ep54",
         describtion: "The Video of #ep54, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.82",
@@ -212,7 +179,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560917962198089729",
       },
       {
-        id: 5,
+        id: 4,
         name: "The Video of #ep55",
         describtion: "The Video of #ep55, also 10% of sales goes to charity",
         price: "0.0125 ETH, $22.14",
@@ -222,7 +189,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560921260732973057",
       },
       {
-        id: 6,
+        id: 5,
         name: "The Video of #ep57",
         describtion: "The Video of #ep57, also 10% of sales goes to charity",
         price: "0.0125 ETH, $22.93",
