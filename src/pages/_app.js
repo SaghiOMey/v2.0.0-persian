@@ -101,9 +101,9 @@ export default function App({ Component, pageProps }) {
   const filterNames = episodes.filter((episodes) =>
     episodes.name.toLowerCase().includes(Name.toLowerCase())
   );
-  const filterReviews = Reviews.filter((reviews) =>
-    reviews.epname.toLowerCase().includes(Name.toLowerCase())
-  );
+  // const filterReviews = Reviews.filter((reviews) =>
+  //   reviews.epname.toLowerCase().includes(Name.toLowerCase())
+  // );
   const cancelButtonRef = useRef(null);
 
   let navigation = [
@@ -430,7 +430,7 @@ export default function App({ Component, pageProps }) {
         )}
       </Disclosure>
       }
-  <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={filterReviews} episodes={filterNames} />
+  <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={Reviews} episodes={filterNames} />
   <Voice />
     </>
   )

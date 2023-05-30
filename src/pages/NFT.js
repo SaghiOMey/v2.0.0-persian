@@ -10,6 +10,7 @@ import { useState } from "react";
 import Footer from "../components/Footer";
 import Image from 'next/image'
 import Head from "next/head";
+import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -20,63 +21,69 @@ export default function NFT(props) {
     Image: [
       {
         id: 1,
+        ln: "img",
         name: "The cover of #ep52",
         describtion: "The cover of #ep52, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.78",
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/22b4d7d1d9c4889c712a6a9dfa5c4756.jpg?auto=format&w=1000",
         expire: "May 30 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560911365128323073",
+        link: "Entrepreneurship-Bahar-Sadeghi",
       },
       {
         id: 2,
+        ln: "img",
         name: "The cover of #ep53",
         describtion: "The cover of #ep53, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.81",
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/c5c52c11711606846f1dd5c18f833c1c.jpg?auto=format&w=1000",
         expire: "June 04 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560912464639950849",
+        link: "Game-industry-Dani-PartI",
       },
       {
         id: 3,
+        ln: "img",
         name: "The cover of #ep54",
         describtion: "The cover of #ep54, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.82",
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/2b8f04f3f6fb3315855d7d2553d931d9.jpg?auto=format&w=1000",
         expire: "June 07 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560916862686461953",
+        link: "Pure-Chemistry-Pardis-Panahi",
       },
       {
         id: 4,
-        name: "identity",
+        ln: "img",
+        name: "Identity",
         describtion: "Preservation of historical and national identity",
         price: "0.11 ETH, $202.51",
         creator: "Sahar Kooshkestani",
         img: "https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg?auto=format&w=1000",
         expire: "Aug 07 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560919061709717505",
+        link: "Identify-Sahar-Kooshkestani",
       },
       {
         id: 5,
+        ln: "img",
         name: "The cover of #ep55",
         describtion: "The cover of #ep55, also 10% of sales goes to charity",
         price: "0.0125  WETH, $22.14",
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/7b97414f6b6b68eedcc6012d0493ea6b.jpg?auto=format&dpr=1&w=1000",
         expire: "June 11 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560920161221345281",
+        link: "Dorsa-Ashineh-Blockchain",
       },
       {
         id: 6,
+        ln: "img",
         name: "The cover of #ep57",
         describtion: "The cover of #ep57, also 10% of sales goes to charity",
         price: "0.0125  WETH, $22.93",
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/d3ba73d0d943fb7dd344ee3fbdb9bb9a.jpg?auto=format&dpr=1&w=1000",
         expire: "June 26 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560926758291111937",
+        link: "mahsa-ahmadi-&-sheida-hashemi-Gene's-free-travel",
       },
     ],
     Audio: [
@@ -279,6 +286,42 @@ export default function NFT(props) {
                     {[...posts].reverse().map((post) => (
                       <>
                         {new Date(post.expire).getMonth() > new Date().getMonth() ? (
+                          <>
+                          {post.ln ?  
+                          <Link
+                          href={`/NFT/${post.link}`}
+                          key={post.id}
+                          className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
+                        >
+                          <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
+                            <img
+                              src={post.img}
+                              className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
+                            />
+                          </div>
+                          <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                            <span className="font-semibold text-gray-500">
+                              Creator:
+                            </span>
+                            &nbsp; {post.creator}
+                          </h3>
+
+                          <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
+                            <li>
+                              <span className="font-semibold text-gray-500">
+                                Current price:
+                              </span>
+                              &nbsp;{post.price}
+                            </li>
+                            <li>
+                              <span className="font-semibold text-gray-500">
+                                Expire date:
+                              </span>
+                              &nbsp;{post.expire}
+                            </li>
+                          </ul>
+                        </Link>
+                          :
                           <li
                             key={post.id}
                             className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -289,12 +332,6 @@ export default function NFT(props) {
                                 className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
                               />
                             </div>
-                            <h1 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                              {post.name}
-                            </h1>
-                            <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                              {post.describtion}
-                            </h3>
                             <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
                               <span className="font-semibold text-gray-500">
                                 Creator:
@@ -325,9 +362,47 @@ export default function NFT(props) {
                               )}
                             />
                           </li>
+                          }
+                          </>
                         ) : post.expire.slice(4,7) <= new Date().toString().slice(8, 10) ? 
                         null
                           : 
+                          <>
+                          {post.ln ?  
+                          <Link
+                          href={`/NFT/${post.link}`}
+                          key={post.id}
+                          className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
+                        >
+                          <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
+                            <img
+                              src={post.img}
+                              className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
+                            />
+                          </div>
+                          <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                            <span className="font-semibold text-gray-500">
+                              Creator:
+                            </span>
+                            &nbsp; {post.creator}
+                          </h3>
+
+                          <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
+                            <li>
+                              <span className="font-semibold text-gray-500">
+                                Current price:
+                              </span>
+                              &nbsp;{post.price}
+                            </li>
+                            <li>
+                              <span className="font-semibold text-gray-500">
+                                Expire date:
+                              </span>
+                              &nbsp;{post.expire}
+                            </li>
+                          </ul>
+                        </Link>
+                          :
                           <li
                             key={post.id}
                             className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -338,12 +413,6 @@ export default function NFT(props) {
                                 className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
                               />
                             </div>
-                            <h1 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                              {post.name}
-                            </h1>
-                            <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                              {post.describtion}
-                            </h3>
                             <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
                               <span className="font-semibold text-gray-500">
                                 Creator:
@@ -374,6 +443,8 @@ export default function NFT(props) {
                               )}
                             />
                           </li>
+                          }
+                          </>
                         }
                       </>
                     ))}
