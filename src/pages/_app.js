@@ -243,14 +243,14 @@ export default function App({ Component, pageProps }) {
                       onClick={signOut}
                       className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Sign Out
+                      SignOut
                     </button>
                      :
                      <button
                       onClick={signIn}
                       className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Sign In
+                      SignIn
                     </button>
                      }
                     </div>
@@ -414,14 +414,14 @@ export default function App({ Component, pageProps }) {
                       onClick={signOut}
                       className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Sign Out
+                      SignOut
                     </button>
                      :
                      <button
                       onClick={signIn}
                       className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
                     >
-                      Sign In
+                      SignIn
                     </button>
                      }
               </div>
