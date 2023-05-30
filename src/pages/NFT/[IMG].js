@@ -1,20 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable jsx-a11y/alt-text */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import nightsky from "../../assests/nightsky.jpg";
-import Index from "../index";
-import { Tab } from "@headlessui/react";
-import { useState } from "react";
 import { useRouter } from 'next/router';
 import sky from "../../assests/sky.jpg";
 import Footer from "../../components/Footer";
 import Image from 'next/image'
 import Head from "next/head";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 export default function IMG(props) {
   const router = useRouter();
@@ -104,9 +93,6 @@ export default function IMG(props) {
         </div>
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
           <div className="mx-auto text-center md:text-justify max-w-2xl py-4 px-6 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            {/* <span className="font-normal font-sans text-white lg:text-2xl">
-              {result.describtion}.
-            </span> */}
             <br />
             <br />
             <span className="font-normal font-sans text-white lg:text-2xl">
@@ -114,7 +100,6 @@ export default function IMG(props) {
             </span>
             <br />
             <br />
-            {/* <a href="#" className="font-normal font-sans text-yellow-500 lg:text-2xl">Twitter</a><br /><br /> */}
             <a
               href="https://www.instagram.com/milad_podcast/"
               className="font-normal font-sans text-yellow-500 lg:text-2xl"
