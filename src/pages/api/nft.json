@@ -1,11 +1,27 @@
 [
     {
         "id": 1,
-        "url": "https://saghiomey.netlify.app/NFT",
+        "url": "https://saghiomey.netlify.app/NFT/Identify-Sahar-Kooshkestani",
         "img": "https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg?auto=format&w=1000",
         "title": "Identity",
         "describtion": "Preservation of historical and national identity",
         "date": "May 27, 2023"
+    },
+    {
+        "id": 2,
+        "url": "https://saghiomey.netlify.app/NFT/Dorsa-Ashineh-Blockchain",
+        "img": "https://i.seadn.io/gcs/files/7b97414f6b6b68eedcc6012d0493ea6b.jpg?auto=format&dpr=1&w=1000",
+        "title": "The cover of #ep55",
+        "describtion": "The cover of #ep55, also 10% of sales goes to charity.",
+        "date": "May 30, 2023"
+    },
+    {
+        "id": 3,
+        "url": "https://saghiomey.netlify.app/NFT//mahsa-ahmadi-&-sheida-hashemi-Gene's-free-travel",
+        "img": "https://i.seadn.io/gcs/files/d3ba73d0d943fb7dd344ee3fbdb9bb9a.jpg?auto=format&dpr=1&w=1000",
+        "title": "The cover of #ep57",
+        "describtion": "The cover of #ep57, also 10% of sales goes to charity.",
+        "date": "May 30, 2023"
     }
   ]
   
