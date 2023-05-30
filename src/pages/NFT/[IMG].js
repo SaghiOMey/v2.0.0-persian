@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router';
 import sky from "../../assests/sky.jpg";
 import Footer from "../../components/Footer";
