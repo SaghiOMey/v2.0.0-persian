@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
-import logo from "../assests/saghimey.jpg";
+import logo from "../assests/saghimey.png";
 import { useRouter } from 'next/router';
 import Image from 'next/image'
 import Link from "next/link";

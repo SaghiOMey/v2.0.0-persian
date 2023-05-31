@@ -2,11 +2,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useRef, useState } from "react";
-import Desert from "../assests/Desert.jpg";
+import Desert2 from "../assests/Desert.jpg";
 import youtube from "../assests/youtube.svg";
 import spotify from "../assests/spotify.svg";
 import googlepodcast from "../assests/googlepodcast.svg";
-import castbox from "../assests/castbox.svg";
+import logo from "../assests/saghimey.png";
 import Link from "next/link";
 import Image from 'next/image'
 import Card from "./Card";
@@ -20,7 +20,7 @@ export default function App(props) {
     return (
         <>
         <div className="relative">
-        <Image className="bg-cover xl:w-full" src={Desert} alt="Desert" />
+        <Image className="bg-cover xl:w-full" src={Desert2} alt="Desert" />
         <div className="absolute top-44 left-20 lg:top-36 md:top-12 md:left-1/2">
           <div className="font-mono font-bold text-xs md:text-4xl text-white">
             Podcast SaghiOMey{" "}
@@ -34,9 +34,9 @@ export default function App(props) {
           </span>
         </div>
         <div className="absolute md:flex md:justify-between top-4 left-20 xl:top-80 lg:top-60 md:top-44">
-          <img
+          <Image
             className="h-40 md:h-1/4 md:w-1/4 rounded"
-            src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg"
+            src={logo}
             alt="logo"
           />
           <div className="mt-16 -ml-20 h-72 lg:h-auto md:h-44 md:m-0 md:flex md:flex-1 md:items-start md:justify-center bg-black">
