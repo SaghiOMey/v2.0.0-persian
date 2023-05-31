@@ -22,17 +22,6 @@ export default function NFT(props) {
       {
         id: 1,
         ln: "img",
-        name: "The cover of #ep52",
-        describtion: "The cover of #ep52, also 10% of sales goes to charity",
-        price: "0.0125 ETH, $23.78",
-        creator: "Maryam Karimi",
-        img: "https://i.seadn.io/gcs/files/22b4d7d1d9c4889c712a6a9dfa5c4756.jpg?auto=format&w=1000",
-        expire: "May 30 , 2023",
-        link: "Entrepreneurship-Bahar-Sadeghi",
-      },
-      {
-        id: 2,
-        ln: "img",
         name: "The cover of #ep53",
         describtion: "The cover of #ep53, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.81",
@@ -42,7 +31,7 @@ export default function NFT(props) {
         link: "Game-industry-Dani-PartI",
       },
       {
-        id: 3,
+        id: 2,
         ln: "img",
         name: "The cover of #ep54",
         describtion: "The cover of #ep54, also 10% of sales goes to charity",
@@ -53,7 +42,7 @@ export default function NFT(props) {
         link: "Pure-Chemistry-Pardis-Panahi",
       },
       {
-        id: 4,
+        id: 3,
         ln: "img",
         name: "Identity",
         describtion: "Preservation of historical and national identity",
@@ -64,7 +53,7 @@ export default function NFT(props) {
         link: "Identify-Sahar-Kooshkestani",
       },
       {
-        id: 5,
+        id: 4,
         ln: "img",
         name: "The cover of #ep55",
         describtion: "The cover of #ep55, also 10% of sales goes to charity",
@@ -75,7 +64,7 @@ export default function NFT(props) {
         link: "Dorsa-Ashineh-Blockchain",
       },
       {
-        id: 6,
+        id: 5,
         ln: "img",
         name: "The cover of #ep57",
         describtion: "The cover of #ep57, also 10% of sales goes to charity",
@@ -100,17 +89,6 @@ export default function NFT(props) {
       },
       {
         id: 2,
-        name: "The Audio of #ep52",
-        describtion:
-         "The Audio of #ep52, also 10% of sales goes to charity",
-        price: "0.0027 WETH, $5.13",
-        creator: "Milad",
-        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
-        expire: "May 30 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560909166105067521",
-      },
-      {
-        id: 3,
         name: "The Audio of #ep54",
         describtion:
          "The Audio of #ep54, also 10% of sales goes to charity",
@@ -121,7 +99,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560915763174834177",
       },
       {
-        id: 4,
+        id: 3,
         name: "The Audio of #ep55",
         describtion:
          "The Audio of #ep55, also 10% of sales goes to charity",
@@ -132,7 +110,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560922360244600833",
       },
       {
-        id: 5,
+        id: 4,
         name: "The Audio of #ep56",
         describtion:
          "The Audio of #ep56, also 10% of sales goes to charity",
@@ -143,7 +121,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560924559267856385",
       },
       {
-        id: 6,
+        id: 5,
         name: "The Audio of #ep57",
         describtion:
          "The Audio of #ep57, also 10% of sales goes to charity",
@@ -157,16 +135,6 @@ export default function NFT(props) {
     Video: [
       {
         id: 1,
-        name: "The Video of #ep52",
-        describtion: "The Video of #ep52, also 10% of sales goes to charity",
-        price: "0.0125 ETH, $23.74",
-        creator: "Milad",
-        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
-        expire: "May 30 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560910265616695297",
-      },
-      {
-        id: 2,
         name: "The Video of #ep53",
         describtion: "The Video of #ep53, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.81",
@@ -176,7 +144,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560913564151578625",
       },
       {
-        id: 3,
+        id: 2,
         name: "The Video of #ep54",
         describtion: "The Video of #ep54, also 10% of sales goes to charity",
         price: "0.0125 ETH, $23.82",
@@ -186,7 +154,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560917962198089729",
       },
       {
-        id: 4,
+        id: 3,
         name: "The Video of #ep55",
         describtion: "The Video of #ep55, also 10% of sales goes to charity",
         price: "0.0125 ETH, $22.14",
@@ -196,7 +164,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560921260732973057",
       },
       {
-        id: 5,
+        id: 4,
         name: "The Video of #ep57",
         describtion: "The Video of #ep57, also 10% of sales goes to charity",
         price: "0.0125 ETH, $22.93",
@@ -332,6 +300,12 @@ export default function NFT(props) {
                                 className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
                               />
                             </div>
+                            <h1 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                              {post.name}
+                            </h1>
+                            <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                              {post.describtion}
+                            </h3>
                             <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
                               <span className="font-semibold text-gray-500">
                                 Creator:
@@ -413,6 +387,12 @@ export default function NFT(props) {
                                 className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
                               />
                             </div>
+                            <h1 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                              {post.name}
+                            </h1>
+                            <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
+                              {post.describtion}
+                            </h3>
                             <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
                               <span className="font-semibold text-gray-500">
                                 Creator:
