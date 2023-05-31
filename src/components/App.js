@@ -34,9 +34,9 @@ export default function App(props) {
           </span>
         </div>
         <div className="absolute md:flex md:justify-between top-4 left-20 xl:top-80 lg:top-60 md:top-44">
-          <Image
+          <img
             className="h-40 md:h-1/4 md:w-1/4 rounded"
-            src={logo}
+            src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg"
             alt="logo"
           />
           <div className="mt-16 -ml-20 h-72 lg:h-auto md:h-44 md:m-0 md:flex md:flex-1 md:items-start md:justify-center bg-black">
