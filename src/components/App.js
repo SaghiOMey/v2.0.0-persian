@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useRef, useState } from "react";
-import Desert2 from "../assests/Desert.jpg";
+import Desert from "../assests/Desert.jpg";
 import youtube from "../assests/youtube.svg";
 import spotify from "../assests/spotify.svg";
 import googlepodcast from "../assests/googlepodcast.svg";
@@ -20,7 +20,7 @@ export default function App(props) {
     return (
         <>
         <div className="relative">
-        <Image className="bg-cover xl:w-full" src={Desert2} alt="Desert" />
+        <Image className="bg-cover xl:w-full" src={Desert} alt="Desert" />
         <div className="absolute top-44 left-20 lg:top-36 md:top-12 md:left-1/2">
           <div className="font-mono font-bold text-xs md:text-4xl text-white">
             Podcast SaghiOMey{" "}
