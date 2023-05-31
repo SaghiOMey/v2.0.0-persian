@@ -321,15 +321,16 @@ export default function index(props) {
                             {props.user ?
                             props.user.displayName
                             :
-                            <Link
-                              href="Profile"
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
-                              )}
-                            >
-                              Profile
-                            </Link>
+                            // <Link
+                            //   href="Profile"
+                            //   className={classNames(
+                            //     active ? "bg-gray-100" : "",
+                            //     "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
+                            //   )}
+                            // >
+                            //   Profile
+                            // </Link>
+                            null
                             }
                             </>
                           )}
