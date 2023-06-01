@@ -176,7 +176,7 @@ export default function NFT(props) {
     ],
   });
   const lastepisode = props.episodes.slice(-5).reverse();
-  // console.log(new Date("May 28, 2023").getMonth() > new Date().getMonth() ? "y" : "May 28 , 2023".slice(4,7) <= new Date().toString().slice(8, 10) ? "n" : "y" );
+  // console.log(new Date("May 28, 2023").getMonth() > new Date().getMonth() ? "y" : "May 28 , 2023".slice(5,7) <= new Date().toString().slice(8, 10) ? "n" : "y" );
   return (
     <>
     <Index />
@@ -338,7 +338,7 @@ export default function NFT(props) {
                           </li>
                           }
                           </>
-                        ) : post.expire.slice(4,7) <= new Date().toString().slice(8, 10) ? 
+                        ) : post.expire.slice(5,7) <= new Date().toString().slice(8, 10) ? 
                         null
                           : 
                           <>
