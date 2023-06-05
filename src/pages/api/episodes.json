@@ -1100,5 +1100,24 @@
     "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/OGQwOGIwOTAtZmI4NS00NTQ5LWE0ZTItNmMxMmI5NjRjMGJj?",
     "apple": "#",
     "castbox": "https://castbox.fm/episode/Ballet-dance---Shadi-(EP-51)-id4931691-id589304769?"
+  },
+  {
+    "id": 59,
+    "ln": "pa",
+    "name": "Motion graphic - Niloofar alimohammadi",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1685967794557-a5c24cd1c8036.jpg",
+    "eplink": "https://saghiomey.netlify.app/Motion-graphic-Niloofar-alimohammadi",
+    "href": "Motion-graphic-Niloofar-alimohammadi",
+    "describtion": "A conversation with Dear Niloofar alimohammadi about Motion graphic",
+    "date": "Jun 05, 2023",
+    "time": "47:55",
+    "voice": "https://d3ctxlq1ktw2nl.cloudfront.net/staging/2023-5-5/333480687-22050-1-8d4035671fd74.m4a",
+    "video": "https://www.youtube.com/embed/ZKNZLC1Rkk8",
+    "youtube": "https://youtu.be/jSNvVcefR3s",
+    "anchor": "https://spotifyanchor-web.app.link/e/uDBj1QQX8yb",
+    "spotify": "https://open.spotify.com/episode/7dsKSX3xyJvL32UI0ZRVQm?si=3f041ada7c784a05",
+    "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/OGQwOGIwOTAtZmI4NS00NTQ5LWE0ZTItNmMxMmI5NjRjMGJj?",
+    "apple": "#",
+    "castbox": "https://castbox.fm/episode/Ballet-dance---Shadi-(EP-51)-id4931691-id589304769?"
   }
 ]
