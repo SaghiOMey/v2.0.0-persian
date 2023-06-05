@@ -180,8 +180,7 @@ export default function Video(props) {
                   )}
                 </>
             </div>
-            <br />
-            <br />
+            </div>
             <br />
             <br />
             <div className="text-center text-white font-bold text-xs md:text-base mt-3">
@@ -190,7 +189,6 @@ export default function Video(props) {
               </svg>
                 <Link href={router.asPath.replace("/VideoInterviews/", "/AudioInterviews/")} className="mx-auto font-normal font-sans text-white lg:text-2xl animate-pulse">Like | Comment | Dislike</Link>
               </div>
-          </div>
             <br />
             <br />
             <span className="font-normal font-sans text-white lg:text-2xl">
