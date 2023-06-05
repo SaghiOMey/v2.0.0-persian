@@ -101,14 +101,10 @@ export default function Video(props) {
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
           <div className="mx-auto text-center md:text-justify max-w-2xl py-4 px-6 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
               <div className="text-center text-white font-bold text-xs md:text-base mt-3">
-              <svg class="w-6 h-6 mx-auto text-yellow-500 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
-              </svg>
-                <Link href={router.asPath.replace("/VideoInterviews/", "/AudioInterviews/")} className="mx-auto font-normal font-sans text-white lg:text-2xl animate-pulse">Like | Comment | Dislike</Link>
-              </div><br />
-            <span className="font-normal font-sans text-white lg:text-2xl">
+              <span className="font-normal font-sans text-white lg:text-2xl">
               {result.describtion}.
-            </span>
+              </span>
+              </div>
             <br />
             <br />
             <div className="mx-auto text-center max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
@@ -184,6 +180,14 @@ export default function Video(props) {
                   )}
                 </>
             </div>
+            <br />
+            <br />
+            <div className="text-center text-white font-bold text-xs md:text-base mt-3">
+              <svg class="w-6 h-6 mx-auto text-yellow-500 animate-bounce" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+              </svg>
+                <Link href={router.asPath.replace("/VideoInterviews/", "/AudioInterviews/")} className="mx-auto font-normal font-sans text-white lg:text-2xl animate-pulse">Like | Comment | Dislike</Link>
+              </div>
           </div>
             <br />
             <br />
