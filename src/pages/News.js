@@ -29,7 +29,7 @@ export default function NFT(props) {
       </Head>
       <div className="relative">
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
-        <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
+        <div className="absolute grid justify-items-center top-4 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">News</span>
           <div className="flex">
             <span className="mr-1 lg:mt-8 lg:mr-2 md:mt-0 md:mr-2 text-xs md:text-base font-sans font-medium">

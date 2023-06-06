@@ -125,6 +125,7 @@ export default function App({ Component, pageProps }) {
       current: false,
     },
     { name: "About", href: "/About", current: false },
+    { name: "News", href: "/News", current: false },
     { name: "Contact", href: "/Contact", current: false },
   ];
   function current() {

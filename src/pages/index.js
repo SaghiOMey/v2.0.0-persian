@@ -85,6 +85,7 @@ export default function index(props) {
       current: false,
     },
     { name: "About", href: "About", current: false },
+    { name: "News", href: "News", current: false },
     { name: "Contact", href: "Contact", current: false },
   ];
   function current() {
