@@ -28,7 +28,7 @@ export default function NFT(props) {
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/2b8f04f3f6fb3315855d7d2553d931d9.jpg?auto=format&w=1000",
         expire: "June 07 , 2023",
-        link: "Pure-Chemistry-Pardis-Panahi",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560916862686461953",
       },
       {
         id: 2,
@@ -39,7 +39,7 @@ export default function NFT(props) {
         creator: "Sahar Kooshkestani",
         img: "https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg?auto=format&w=1000",
         expire: "Aug 07 , 2023",
-        link: "Identify-Sahar-Kooshkestani",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560919061709717505",
       },
       {
         id: 3,
@@ -50,7 +50,7 @@ export default function NFT(props) {
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/7b97414f6b6b68eedcc6012d0493ea6b.jpg?auto=format&dpr=1&w=1000",
         expire: "June 11 , 2023",
-        link: "Dorsa-Ashineh-Blockchain",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560920161221345281",
       },
       {
         id: 4,
@@ -61,7 +61,7 @@ export default function NFT(props) {
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/d3ba73d0d943fb7dd344ee3fbdb9bb9a.jpg?auto=format&dpr=1&w=1000",
         expire: "June 26 , 2023",
-        link: "mahsa-ahmadi-&-sheida-hashemi-Gene's-free-travel",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560926758291111937",
       },
       {
         id: 5,
@@ -72,7 +72,7 @@ export default function NFT(props) {
         creator: "Maryam Karimi",
         img: "https://i.seadn.io/gcs/files/edadc720555a0cc5fd31b01076d3fb20.jpg?auto=format&dpr=1&w=1000",
         expire: "July 05 , 2023",
-        link: "Motion-graphic-Niloofar-alimohammadi",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560930056825995265",
       },
     ],
     Audio: [
@@ -266,41 +266,6 @@ export default function NFT(props) {
                       <>
                         {new Date(post.expire).getMonth() > new Date().getMonth() ? (
                           <>
-                          {post.ln ?  
-                          <Link
-                          href={`/NFT/${post.link}`}
-                          key={post.id}
-                          className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
-                        >
-                          <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
-                            <img
-                              src={post.img}
-                              className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
-                            />
-                          </div>
-                          <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                            <span className="font-semibold text-gray-500">
-                              Creator:
-                            </span>
-                            &nbsp; {post.creator}
-                          </h3>
-
-                          <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
-                            <li>
-                              <span className="font-semibold text-gray-500">
-                                Current price:
-                              </span>
-                              &nbsp;{post.price}
-                            </li>
-                            <li>
-                              <span className="font-semibold text-gray-500">
-                                Expire date:
-                              </span>
-                              &nbsp;{post.expire}
-                            </li>
-                          </ul>
-                        </Link>
-                          :
                           <li
                             key={post.id}
                             className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -347,47 +312,11 @@ export default function NFT(props) {
                               )}
                             />
                           </li>
-                          }
                           </>
                         ) : post.expire.slice(5,7) <= new Date().toString().slice(8, 10) ? 
                         null
                           : 
                           <>
-                          {post.ln ?  
-                          <Link
-                          href={`/NFT/${post.link}`}
-                          key={post.id}
-                          className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
-                        >
-                          <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
-                            <img
-                              src={post.img}
-                              className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
-                            />
-                          </div>
-                          <h3 className="flex justify-center text-sm font-medium leading-7 text-gray-200">
-                            <span className="font-semibold text-gray-500">
-                              Creator:
-                            </span>
-                            &nbsp; {post.creator}
-                          </h3>
-
-                          <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
-                            <li>
-                              <span className="font-semibold text-gray-500">
-                                Current price:
-                              </span>
-                              &nbsp;{post.price}
-                            </li>
-                            <li>
-                              <span className="font-semibold text-gray-500">
-                                Expire date:
-                              </span>
-                              &nbsp;{post.expire}
-                            </li>
-                          </ul>
-                        </Link>
-                          :
                           <li
                             key={post.id}
                             className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
@@ -434,7 +363,6 @@ export default function NFT(props) {
                               )}
                             />
                           </li>
-                          }
                           </>
                         }
                       </>

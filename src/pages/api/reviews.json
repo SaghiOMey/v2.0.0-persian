@@ -1,79 +1,14 @@
 [
   {
     "id": 1,
-    "href": "Entrepreneurship-Bahar-Sadeghi",
-    "name": "The cover of #ep52",
-    "describtion": "The cover of #ep52, also 10% of sales goes to charity",
-    "price": "0.0125 ETH, $23.78",
-    "creator": "Maryam Karimi",
-    "img": "https://i.seadn.io/gcs/files/22b4d7d1d9c4889c712a6a9dfa5c4756.jpg?auto=format&w=1000",
-    "expire": "May 30 , 2023",
-    "link": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560911365128323073"
-  },
-  {
-    "id": 2,
-    "href": "Game-industry-Dani-PartI",
-    "name": "The cover of #ep53",
-    "describtion": "The cover of #ep53, also 10% of sales goes to charity",
-    "price": "0.0125 ETH, $23.81",
-    "creator": "Maryam Karimi",
-    "img": "https://i.seadn.io/gcs/files/c5c52c11711606846f1dd5c18f833c1c.jpg?auto=format&w=1000",
-    "expire": "June 04 , 2023",
-    "link": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560912464639950849"
-  },
-  {
-    "id": 3,
-    "href": "Pure-Chemistry-Pardis-Panahi",
-    "name": "The cover of #ep54",
-    "describtion": "The cover of #ep54, also 10% of sales goes to charity",
-    "price": "0.0125 ETH, $23.82",
-    "creator": "Maryam Karimi",
-    "img": "https://i.seadn.io/gcs/files/2b8f04f3f6fb3315855d7d2553d931d9.jpg?auto=format&w=1000",
-    "expire": "June 07 , 2023",
-    "link": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560916862686461953"
-  },
-  {
-    "id": 4,
     "href": "Identify-Sahar-Kooshkestani",
     "name": "Identity",
-    "describtion": "Preservation of historical and national identity",
+    "title": "Preservation of historical and national identity",
+    "describtion": "Identity created by sahar kooshkestani, she is a M.A Graphic also her activity is in the theater & painting, she has said about this art: Preservation of historical and national identity",
     "price": "0.11 ETH, $202.51",
     "creator": "Sahar Kooshkestani",
     "img": "https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg?auto=format&w=1000",
     "expire": "Aug 07 , 2023",
-    "link": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560919061709717505"
-  },
-  {
-    "id": 5,
-    "href": "Dorsa-Ashineh-Blockchain",
-    "name": "The cover of #ep55",
-    "describtion": "The cover of #ep55, also 10% of sales goes to charity",
-    "price": "0.0125  WETH, $22.14",
-    "creator": "Maryam Karimi",
-    "img": "https://i.seadn.io/gcs/files/7b97414f6b6b68eedcc6012d0493ea6b.jpg?auto=format&dpr=1&w=1000",
-    "expire": "June 11 , 2023",
-    "link": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560920161221345281"
-  },
-  {
-    "id": 6,
-    "href": "mahsa-ahmadi-&-sheida-hashemi-Gene's-free-travel",
-    "name": "The cover of #ep57",
-    "describtion": "The cover of #ep57, also 10% of sales goes to charity",
-    "price": "0.0125  WETH, $22.93",
-    "creator": "Maryam Karimi",
-    "img": "https://i.seadn.io/gcs/files/d3ba73d0d943fb7dd344ee3fbdb9bb9a.jpg?auto=format&dpr=1&w=1000",
-    "expire": "June 26 , 2023",
-    "link": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560926758291111937"
-  },
-  {
-    "id": 7,
-    "href": "Motion-graphic-Niloofar-alimohammadi",
-    "name": "The cover of #ep58",
-    "describtion": "The cover of #ep58, also 10% of sales goes to charity",
-    "price": "0.0125  ETH, $22.60",
-    "creator": "Maryam Karimi",
-    "img": "https://i.seadn.io/gcs/files/edadc720555a0cc5fd31b01076d3fb20.jpg?auto=format&dpr=1&w=1000",
-    "expire": "July 05 , 2023",
-    "link": "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560930056825995265"
+    "url": "https://saghiomey.netlify.app/News/Identify-Sahar-Kooshkestani"
   }
 ]
