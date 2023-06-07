@@ -11,7 +11,7 @@ export default function IMG(props) {
   const result = props.reviews.find(
     (review) => review.href === router.asPath.replace("/News/", "")
   );
-  console.log(result);
+
   return (
     <>
       {router.isReady ? (

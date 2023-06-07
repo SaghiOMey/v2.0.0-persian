@@ -19,6 +19,7 @@ function classNames(...classes) {
 export default function NFT(props) {
   const reviews = props.reviews.slice(-6).reverse();
   const lastepisode = props.episodes.slice(-5).reverse();
+  console.log(reviews);
   return (
     <>
       <Index />
@@ -60,7 +61,7 @@ export default function NFT(props) {
             <Tab.Panels>
               <Tab.Panel>
                 <ul className="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
-                  {reviews.map((post) => (
+                  {reviews.reverse().map((post) => (
                     <>
                       <Link
                         href={`/News/${post.href}`}
