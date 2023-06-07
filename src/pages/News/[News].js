@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import sky from "../../assests/sky.jpg";
-import News from "../../assests/News.jpg";
 import Footer from "../../components/Footer";
 import Image from "next/image";
 import Head from "next/head";
@@ -54,19 +53,11 @@ export default function IMG(props) {
               alt="sky"
             />
             <div className="absolute grid justify-items-center md:justify-items-start xl:top-3/4 w-full text-white">
-              {result.img ? (
                 <img
                   src={result.img}
                   alt="logo"
                   className="-mt-96 w-40 md:w-1/4 xl:-mt-96 lg:-mt-80 md:-mt-64 md:ml-20 rounded"
                 />
-              ) : (
-                <Image
-                  className="-mt-96 w-40 md:w-1/4 xl:-mt-96 lg:-mt-80 md:-mt-64 md:ml-20 rounded"
-                  src={News}
-                  alt="News"
-                />
-              )}
               <span className="-mt-56 xl:-mt-96 lg:-mt-96 md:-mt-72 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
                 {result.name}
               </span>

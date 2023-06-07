@@ -3,7 +3,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import nightsky from "../assests/nightsky.jpg";
-import News from "../assests/News.jpg";
 import Index from "./index";
 import { Tab } from "@headlessui/react";
 import { useState } from "react";
@@ -69,23 +68,10 @@ export default function NFT(props) {
                         className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
                       >
                         <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
-                          {/* <img
+                          <img
                             src={post.img}
                             className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
-                          /> */}
-                          {post.img ? (
-                            <img
-                              src={post.img}
-                              alt="logo"
-                              className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
-                            />
-                          ) : (
-                            <Image
-                            className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
-                              src={News}
-                              alt="News"
-                            />
-                          )}
+                          />
                         </div>
 
                         <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
