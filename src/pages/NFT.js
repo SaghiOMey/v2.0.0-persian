@@ -22,17 +22,6 @@ export default function NFT(props) {
       {
         id: 1,
         ln: "img",
-        name: "The cover of #ep54",
-        describtion: "The cover of #ep54, also 10% of sales goes to charity",
-        price: "0.0125 ETH, $23.82",
-        creator: "Maryam Karimi",
-        img: "https://i.seadn.io/gcs/files/2b8f04f3f6fb3315855d7d2553d931d9.jpg?auto=format&w=1000",
-        expire: "June 07 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560916862686461953",
-      },
-      {
-        id: 2,
-        ln: "img",
         name: "Identity",
         describtion: "Preservation of historical and national identity",
         price: "0.11 ETH, $202.51",
@@ -42,7 +31,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560919061709717505",
       },
       {
-        id: 3,
+        id: 2,
         ln: "img",
         name: "The cover of #ep55",
         describtion: "The cover of #ep55, also 10% of sales goes to charity",
@@ -53,7 +42,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560920161221345281",
       },
       {
-        id: 4,
+        id: 3,
         ln: "img",
         name: "The cover of #ep57",
         describtion: "The cover of #ep57, also 10% of sales goes to charity",
@@ -64,7 +53,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560926758291111937",
       },
       {
-        id: 5,
+        id: 4,
         ln: "img",
         name: "The cover of #ep58",
         describtion: "The cover of #ep58, also 10% of sales goes to charity",
@@ -111,17 +100,6 @@ export default function NFT(props) {
       },
       {
         id: 4,
-        name: "The Audio of #ep56",
-        describtion:
-         "The Audio of #ep56, also 10% of sales goes to charity",
-        price: "0.0027 WETH, $4.89",
-        creator: "Dani",
-        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
-        expire: "June 19 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560924559267856385",
-      },
-      {
-        id: 5,
         name: "The Audio of #ep57",
         describtion:
          "The Audio of #ep57, also 10% of sales goes to charity",
@@ -132,7 +110,7 @@ export default function NFT(props) {
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560928957314367489",
       },
       {
-        id: 6,
+        id: 5,
         name: "The Audio of #ep58",
         describtion:
          "The Audio of #ep58, also 10% of sales goes to charity",

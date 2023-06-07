@@ -4,9 +4,9 @@
         <description><![CDATA[NFT SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 06 Jun 2023 06:40:34 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 07 Jun 2023 09:42:33 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app//News.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 06 Jun 2023 06:40:34 GMT</pubDate>
+        <pubDate>Wed, 07 Jun 2023 09:42:33 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
@@ -15,6 +15,12 @@
             <link>https://saghiomey.netlify.app/News/Identify-Sahar-Kooshkestani</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/News/Identify-Sahar-Kooshkestani</guid>
             <enclosure url="https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg?auto=format&amp;w=1000" length="0" type="image/jpeg"/>
+        </item>
+        <item>
+            <title><![CDATA[#ep59]]></title>
+            <description><![CDATA[SaghiOMey #ep59]]></description>
+            <link>https://saghiomey.netlify.app/News/ep59</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/News/ep59</guid>
         </item>
     </channel>
 </rss>
