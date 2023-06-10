@@ -120,6 +120,17 @@ export default function NFT(props) {
         expire: "July 05 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560931156337623041",
       },
+      {
+        id: 6,
+        name: "The Audio of #ep59",
+        describtion:
+         "The Audio of #ep59, also 10% of sales goes to charity",
+        price: "0.0125 ETH, $22.46",
+        creator: "Milad",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "July 10 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560934454872506369",
+      },
     ],
     Video: [
       {
@@ -161,6 +172,16 @@ export default function NFT(props) {
         img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
         expire: "July 05 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560932255849250817",
+      },
+      {
+        id: 5,
+        name: "The Video of #ep59",
+        describtion: "The Video of #ep59, also 10% of sales goes to charity",
+        price: "0.0125 ETH, $22.45",
+        creator: "Milad",
+        img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
+        expire: "July 10 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560933355360878593",
       },
     ],
   });

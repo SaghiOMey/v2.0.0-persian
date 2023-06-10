@@ -4,11 +4,19 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Mon, 05 Jun 2023 19:02:25 GMT</lastBuildDate>
+        <lastBuildDate>Sat, 10 Jun 2023 05:29:02 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Mon, 05 Jun 2023 19:02:25 GMT</pubDate>
+        <pubDate>Sat, 10 Jun 2023 05:29:02 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Society of Dentists - Dr.Mina Nowrouzi]]></title>
+            <description><![CDATA[A conversation with Dear Dr.Mina Nowrouzi about Society of Dentists]]></description>
+            <link>https://saghiomey.netlify.app/VideoInterviews/Society-of-Dentists-Dr.Mina-Nowrouzi</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Society-of-Dentists-Dr.Mina-Nowrouzi</guid>
+            <pubDate>Fri, 09 Jun 2023 19:30:00 GMT</pubDate>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" length="0" type="image/jpeg"/>
+        </item>
         <item>
             <title><![CDATA[Motion graphic - Niloofar alimohammadi]]></title>
             <description><![CDATA[A conversation with Dear Niloofar alimohammadi about Motion graphic]]></description>
