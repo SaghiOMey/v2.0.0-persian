@@ -4,9 +4,9 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sat, 10 Jun 2023 05:29:02 GMT</lastBuildDate>
+        <lastBuildDate>Sun, 11 Jun 2023 05:22:19 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sat, 10 Jun 2023 05:29:02 GMT</pubDate>
+        <pubDate>Sun, 11 Jun 2023 05:22:19 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
@@ -15,7 +15,7 @@
             <link>https://saghiomey.netlify.app/VideoInterviews/Society-of-Dentists-Dr.Mina-Nowrouzi</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Society-of-Dentists-Dr.Mina-Nowrouzi</guid>
             <pubDate>Fri, 09 Jun 2023 19:30:00 GMT</pubDate>
-            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" length="0" type="image/jpeg"/>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1686460744819-10c550aca0d2d.jpg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[Motion graphic - Niloofar alimohammadi]]></title>
