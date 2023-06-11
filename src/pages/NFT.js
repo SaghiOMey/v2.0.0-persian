@@ -63,6 +63,17 @@ export default function NFT(props) {
         expire: "July 05 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560930056825995265",
       },
+      {
+        id: 5,
+        ln: "img",
+        name: "The cover of #ep59",
+        describtion: "The cover of #ep59, also 10% of sales goes to charity",
+        price: "0.0125  ETH, $21.95",
+        creator: "Maryam Karimi",
+        img: "https://i.seadn.io/gcs/files/a4495a3ba35f4a4d43a2f82bd505a4d2.jpg?auto=format&dpr=1&w=1000",
+        expire: "July 18 , 2023",
+        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560935554384134145",
+      },
     ],
     Audio: [
       {
