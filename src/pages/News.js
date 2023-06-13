@@ -86,7 +86,7 @@ export default function NFT(props) {
                             <span className="font-semibold text-gray-500">
                               Publish date:
                             </span>
-                            &nbsp;{post.expire}
+                            &nbsp;{post.date}
                           </li>
                         </ul>
                       </Link>
