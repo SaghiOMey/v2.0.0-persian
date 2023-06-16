@@ -231,7 +231,7 @@ export default function index(props) {
                                 src={profile}
                                 alt="profile"
                                 />
-                                <div className="p-2 text-gray-200 hover:text-yellow-500 hover:cursor-pointer">Recommended: {item.name}<br /><span>{new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "New" : item.date}</span></div>
+                                <div className="p-2 text-gray-200 hover:text-yellow-500 hover:cursor-pointer">Recommended: {item.name}<br /><span className={new Date(item.date).getMonth() < new Date().getMonth() ? null : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "text-yellow-500" : null}>{new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "New" : item.date}</span></div>
                                 <img
                                 className="h-12 w-12 rounded"
                                 src={item.img} />
