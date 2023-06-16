@@ -4,11 +4,19 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Sun, 11 Jun 2023 05:22:19 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 16 Jun 2023 13:19:52 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 11 Jun 2023 05:22:19 GMT</pubDate>
+        <pubDate>Fri, 16 Jun 2023 13:19:52 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Editorial Styling - Yekta Noorollahi]]></title>
+            <description><![CDATA[A conversation with Dear Yekta Noorollahi about Editorial Styling]]></description>
+            <link>https://saghiomey.netlify.app/VideoInterviews/Editorial-Styling-Yekta-Noorollahi</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Editorial-Styling-Yekta-Noorollahi</guid>
+            <pubDate>Thu, 15 Jun 2023 19:30:00 GMT</pubDate>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1686917959463-d3ec54ffd0ea3.jpg" length="0" type="image/jpeg"/>
+        </item>
         <item>
             <title><![CDATA[Society of Dentists - Dr.Mina Nowrouzi]]></title>
             <description><![CDATA[A conversation with Dear Dr.Mina Nowrouzi about Society of Dentists]]></description>

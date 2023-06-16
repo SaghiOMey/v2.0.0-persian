@@ -1138,5 +1138,18 @@
     "googlepodcast": "https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy84ODJiZGVmNC9wb2RjYXN0L3Jzcw/episode/OGQwOGIwOTAtZmI4NS00NTQ5LWE0ZTItNmMxMmI5NjRjMGJj?",
     "apple": "#",
     "castbox": "https://castbox.fm/episode/Ballet-dance---Shadi-(EP-51)-id4931691-id589304769?"
+  },
+  {
+    "id": 61,
+    "ln": "pa",
+    "name": "Editorial Styling - Yekta Noorollahi",
+    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1686917959463-d3ec54ffd0ea3.jpg",
+    "eplink": "https://saghiomey.netlify.app/Editorial-Styling-Yekta-Noorollahi",
+    "href": "Editorial-Styling-Yekta-Noorollahi",
+    "describtion": "A conversation with Dear Yekta Noorollahi about Editorial Styling",
+    "date": "Jun 16, 2023",
+    "time": "18:56",
+    "voice": "https://d3ctxlq1ktw2nl.cloudfront.net/staging/2023-5-16/335396858-22050-1-f64fe1469a713.m4a",
+    "video": "https://www.youtube.com/embed/aHpM0GLBvo8"
   }
 ]
