@@ -4,11 +4,19 @@
         <description><![CDATA[NFT SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 16 Jun 2023 13:17:34 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 20 Jun 2023 08:49:20 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app//News.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 16 Jun 2023 13:17:34 GMT</pubDate>
+        <pubDate>Tue, 20 Jun 2023 08:49:20 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[#ep61(Last persian episode)]]></title>
+            <description><![CDATA[SaghiOMey #ep61]]></description>
+            <link>https://saghiomey.netlify.app/News/ep61</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/News/ep61</guid>
+            <pubDate>Mon, 19 Jun 2023 19:30:00 GMT</pubDate>
+            <enclosure url="https://images.unsplash.com/photo-1686133550621-6cabc07df71f?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=580&amp;q=80" length="0" type="image/jpeg"/>
+        </item>
         <item>
             <title><![CDATA[#ep60]]></title>
             <description><![CDATA[SaghiOMey #ep60]]></description>
