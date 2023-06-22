@@ -7,8 +7,8 @@ export default async function getRSS() {
   const allBlogs = getAllPosts;
  
   const feed = new RSS({
-    title: "NFT SaghiOMey",
-    description: "NFT SaghiOMey Hosted By Milad",
+    title: "TopNews SaghiOMey",
+    description: "TopNews SaghiOMey Hosted By Milad",
     site_url: siteURL,
     feed_url: `${siteURL}/News.xml`,
     language: "en",

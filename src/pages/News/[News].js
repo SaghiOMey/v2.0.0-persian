@@ -4,6 +4,7 @@ import sky from "../../assests/sky.jpg";
 import Footer from "../../components/Footer";
 import Image from "next/image";
 import Head from "next/head";
+import Script from "next/script";
 
 export default function IMG(props) {
   const router = useRouter();
@@ -14,6 +15,23 @@ export default function IMG(props) {
 
   return (
     <>
+      <Script
+        async
+        type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"
+      ></Script>
+      <Script id="google-news">
+        {`
+      (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+        basicSubscriptions.init({
+        type: "NewsArticle",
+        isPartOfType: ["Product"],
+        isPartOfProductId: "CAowqe_OCw:openaccess",
+        clientOptions: { theme: "light", lang: "en" },
+        });
+      });
+      `}
+      </Script>
       {router.isReady ? (
         <>
           <Head>
@@ -53,11 +71,11 @@ export default function IMG(props) {
               alt="sky"
             />
             <div className="absolute grid justify-items-center md:justify-items-start xl:top-3/4 w-full text-white">
-                <img
-                  src={result.img}
-                  alt="logo"
-                  className="-mt-96 w-40 md:w-1/4 xl:-mt-96 lg:-mt-80 md:-mt-64 md:ml-20 rounded"
-                />
+              <img
+                src={result.img}
+                alt="logo"
+                className="-mt-96 w-40 md:w-1/4 xl:-mt-96 lg:-mt-80 md:-mt-64 md:ml-20 rounded"
+              />
               <span className="-mt-56 xl:-mt-96 lg:-mt-96 md:-mt-72 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
                 {result.name}
               </span>
