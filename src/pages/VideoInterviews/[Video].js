@@ -246,7 +246,7 @@ export default function Video(props) {
                 </div>
                 <br />
                 <br />
-                <div className="text-center text-white font-bold text-xs md:text-base mt-3">
+                <div className="text-center text-white font-bold text-xs md:mt-16 md:text-base mt-3">
                   <svg
                     class="w-6 h-6 mx-auto text-yellow-500 animate-bounce"
                     xmlns="http://www.w3.org/2000/svg"
