@@ -71,8 +71,12 @@ export default function Footer(lastepisode) {
           <span className="text-gray-300 text-lg font-medium">
             Our Colleagues
             <div className="flex justify-center gap-3 mt-4">
+                <Link href='https://www.linkedin.com/in/maryamkarimii/'>
                 <Image src={Maryam} className="h-16 w-16 bg-white" />
+                </Link>
+                <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
                 <Image src={Sahar} className="h-16 w-16 bg-white" />
+                </Link>
             </div>
           </span>
           <br />
@@ -113,8 +117,12 @@ export default function Footer(lastepisode) {
           <span className="text-gray-300 text-lg font-medium">
             Our Colleagues
             <div className="flex justify-center gap-3 mt-4">
+                <Link href='https://www.linkedin.com/in/maryamkarimii/'>
                 <Image src={Maryam} className="h-16 w-16 bg-white" />
+                </Link>
+                <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
                 <Image src={Sahar} className="h-16 w-16 bg-white" />
+                </Link>
             </div>
           </span>
           <br />

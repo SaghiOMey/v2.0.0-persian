@@ -194,8 +194,12 @@ export default function About(props) {
             in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems;<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(5) </span>
             otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.<br/><br/><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">(6) </span>
+            All users on Home page & Voice section & Audio Interviews must sign in, Because the comments section is stored in the database Then it will be reviewed and published in the comments section also all of comments must be english language.<br/><br/><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">(7) </span>
+            All episodes( Audio Interviews & Videos Interviews) before #ep61 are persian episodes.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">PRIVACY POLICY</span><br/>
-            We care about data privacy and security. Please review our Privacy Policy <Link href="/PrivacyPolicy" className="text-blue-900">CLICK HERE</Link> By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms and Conditions. Please be advised the Site is hosted in the United States.<br/><br/><br/>
+            We care about data privacy and security. Please review our Privacy Policy <Link href="https://saghiomey.netlify.app/PrivacyPolicy" className="text-blue-900">CLICK HERE</Link> By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms and Conditions. Please be advised the Site is hosted in the United States.<br/><br/><br/>
             If you access the Site from the European Union, Asia, or any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Site, you are transferring your data to the United States, and you expressly consent to have your data transferred to and processed in the United States.<br/><br/><br/>
             Further, we do not knowingly accept, request, or solicit information from children or knowingly market to children. Therefore, in accordance with the U.S. Children’s Online Privacy Protection Act, if we receive actual knowledge that anyone under the age of 13 has provided personal information to us without the requisite and verifiable parental consent, we will delete that information from the Site as quickly as is reasonably practical.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">DIGITAL MILLENNIUM COPYRIGHT ACT (DMCA) NOTICE AND POLICY</span><br/>
@@ -265,8 +269,8 @@ export default function About(props) {
             You hereby waive any and all defenses you may have based on the electronic form of these Terms and Conditions and the lack of signing by the parties hereto to execute these Terms and Conditions.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">CONTACT US</span><br/>
             In order to resolve a complaint regarding the Site or to receive further information regarding use of the Site, please contact us at:<br/><br/><br/>
-            <span className="text-xl md:text-2xl font-sans font-bold text-white">SaghiOMey</span><br/>
-            <span className="text-xl md:text-2xl font-sans font-bold text-white">mohammadrezakhorrami9<br/>@gmail.com</span><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white"><Link href="https://saghiomey.netlify.app" className="text-blue-900">SaghiOMey</Link></span><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white"><Link href="https://saghiomey.netlify.app/Contact" className="text-blue-900">Contact Us</Link></span><br/>
             </span>
           </div>
           <Footer lastepisode = {lastepisode} />
