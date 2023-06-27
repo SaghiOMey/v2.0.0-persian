@@ -5,6 +5,7 @@ import Footer from "../../components/Footer";
 import Image from "next/image";
 import Head from "next/head";
 import Script from "next/script";
+import Link from "next/link";
 
 export default function IMG(props) {
   const router = useRouter();
@@ -85,6 +86,7 @@ export default function IMG(props) {
             </div>
             <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
               <div className="mx-auto text-center md:text-justify max-w-2xl py-4 px-6 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
+                <span className="font-normal font-sans text-white lg:text-2xl">Contact With <Link href={result.eplink} className="text-blue-900">{result.epname}</Link></span>
                 <br />
                 <br />
                 <span className="font-normal font-sans text-white lg:text-2xl">

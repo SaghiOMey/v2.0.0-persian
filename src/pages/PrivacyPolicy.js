@@ -18,7 +18,7 @@ export default function About(props) {
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
         <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">Privacy</span>
-          <span className="text-sm md:text-xl md:mt-1 font-sans font-bold">Last Updated: June 25, 2023</span>
+          <span className="text-sm md:text-xl md:mt-1 font-sans font-bold">Last Updated: June 27, 2023</span>
         </div>
         <div className="absolute text-center -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">
           <div className="lg:mb-56 mt-12 lg:ml-20 leading-8 text-gray-200">
@@ -27,7 +27,7 @@ export default function About(props) {
             <span className="text-xl md:text-2xl font-sans font-bold text-white">1.</span> Visit our website at <span className="text-xl md:text-2xl font-sans font-bold text-white">https://saghiomey.netlify.app</span>, or any website of ours that links to this privacy notice.<br /><br /><br />
             <span className="text-xl md:text-2xl font-sans font-bold text-white">2.</span> Engage with us in other related ways ― including any sales, marketing, or events.<br /><br /><br />  
             <span className="text-xl md:text-2xl font-sans font-bold text-white">Questions or concerns?</span> Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at <Link href="https://saghiomey.netlify.app/Contact" className="text-blue-900">Contact Us</Link>.<br/><br/><br/>
-            This privacy policy was created by <span className="text-xl md:text-2xl font-sans font-bold text-white">MohammadReza Khorrami(Milad).</span><br /><br /><br />
+            This privacy policy was created by <span className="text-xl md:text-2xl font-sans font-bold text-white">Milad(MohammadReza Khorrami).</span><br /><br /><br />
             <span className="text-2xl md:text-4xl font-sans font-bold text-white">SUMMARY OF KEY POINTS</span><br /><br /><br />
             <span className="text-xl md:text-2xl font-sans font-bold text-white">This summary provides key points from our privacy notice, but you can find out more details about any of these topics by using our table of contents below to find the section you are looking for.</span><br /><br /><br />
             <span className="text-xl md:text-2xl font-sans font-bold text-white">What personal information do we process?</span> When you visit, use, or navigate our Services, we may process personal information depending on how you interact with <span className="text-xl md:text-2xl font-sans font-bold text-white">SaghiOMey</span> and the Services, the choices you make, and the products and features you use.<br /><br /><br />

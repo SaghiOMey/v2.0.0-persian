@@ -78,6 +78,10 @@ export default function Footer(lastepisode) {
                 <Image src={Sahar} className="h-16 w-16 bg-white" />
                 </Link>
             </div>
+            <div className="flex justify-center gap-3 mt-4">
+            <Link className="text-gray-300 text-lg font-medium hover:text-white" href='/TermsofService'>Terms</Link>
+            <Link className="text-gray-300 text-lg font-medium hover:text-white" href='/PrivacyPolicy'>Policy</Link>
+            </div>
           </span>
           <br />
           <span className="text-gray-300 text-lg font-medium">
@@ -123,6 +127,10 @@ export default function Footer(lastepisode) {
                 <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
                 <Image src={Sahar} className="h-16 w-16 bg-white" />
                 </Link>
+            </div>
+            <div className="flex justify-center gap-3 mt-4">
+            <Link className="text-gray-300 text-lg font-medium hover:text-white" href='/TermsofService'>Terms</Link>
+            <Link className="text-gray-300 text-lg font-medium hover:text-white" href='/PrivacyPolicy'>Policy</Link>
             </div>
           </span>
           <br />

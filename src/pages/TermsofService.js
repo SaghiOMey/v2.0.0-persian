@@ -18,7 +18,7 @@ export default function About(props) {
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
         <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">Terms</span>
-          <span className="text-sm md:text-xl font-sans font-bold">Last Updated: June 25, 2023</span>
+          <span className="text-sm md:text-xl font-sans font-bold">Last Updated: June 27, 2023</span>
         </div>
         <div className="absolute text-center -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">
           <div className="lg:mb-56 mt-12 lg:ml-20 leading-8 text-gray-200">
@@ -30,7 +30,7 @@ export default function About(props) {
             It is your responsibility to periodically review these Terms and Conditions to stay informed of updates. You will be subject to, and will be deemed to have been made aware of and to have accepted, the changes in any revised Terms and Conditions by your continued use of the Site after the date such revised Terms and Conditions are posted.<br/><br/><br/>
             The information provided on the Site is not intended for distribution to or use by any person or entity in any jurisdiction or country where such distribution or use would be contrary to law or regulation or which would subject us to any registration requirement within such jurisdiction or country.<br/><br/><br/>
             Accordingly, those persons who choose to access the Site from other locations do so on their own initiative and are solely responsible for compliance with local laws, if and to the extent local laws are applicable.<br/><br/><br/>
-            These terms and conditions were created by <span className="text-xl md:text-2xl font-sans font-bold text-white">MohammadReza Khorrami(Milad)</span>.<br/><br/><br/>
+            These terms and conditions were created by <span className="text-xl md:text-2xl font-sans font-bold text-white">Milad(MohammadReza Khorrami)</span>.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">Option 1:</span> The Site is intended for users who are at least 18 years old. Persons under the age of 18 are not permitted to register for the Site.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">Option 2:</span> All users who are minors in the jurisdiction in which they reside (generally under the age of 18) must have the permission of, and be directly supervised by, their parent or guardian to use the Site. If you are a minor, you must have your parent or guardian read and agree to these Terms and Conditions prior to you using the Site.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">INTELLECTUAL PROPERTY RIGHTS</span><br/><br/><br/>
@@ -198,6 +198,12 @@ export default function About(props) {
             All users on Home page & Voice section & Audio Interviews must sign in, Because the comments section is stored in the database Then it will be reviewed and published in the comments section also all of comments must be english language.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(7) </span>
             All episodes( Audio Interviews & Videos Interviews) before #ep61 are persian episodes.<br/><br/><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">(8) </span>
+            From #ep59 all of episodes has been introduced their source on News section, Also Milad(MohammadReza Khorrami) offer to them from Linkedin.<br/><br/><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">(9) </span>
+            When each NFT is sold, 10% of its proceeds will be donated to the needy by <Link href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAABKNYaYBlggeHvBWekKdyS8LMdLsx8p3tec&keywords=maral%20jarolahi&origin=RICH_QUERY_SUGGESTION&position=0&searchId=36755f5c-edf9-446c-ba3f-4af9143e0617&sid=LrC" className="text-blue-900">Maral Jarolahi</Link> she is an Executive coach after that 90% will be donated to the creators, we will do it only at the end of each year, also we do not pay any amount in advance to the creators, and we wont be responsible for that NFT after purchasing the NFT.<br/><br/><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">(10) </span>
+            In order to fight money laundering, the sale of NFTs will be deposited into the Milad(MohammadReza Khorrami) account in an exchange authorized by the government.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">PRIVACY POLICY</span><br/>
             We care about data privacy and security. Please review our Privacy Policy <Link href="https://saghiomey.netlify.app/PrivacyPolicy" className="text-blue-900">CLICK HERE</Link> By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms and Conditions. Please be advised the Site is hosted in the United States.<br/><br/><br/>
             If you access the Site from the European Union, Asia, or any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Site, you are transferring your data to the United States, and you expressly consent to have your data transferred to and processed in the United States.<br/><br/><br/>
