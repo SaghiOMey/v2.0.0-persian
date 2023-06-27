@@ -199,7 +199,7 @@ export default function About(props) {
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(7) </span>
             All episodes( Audio Interviews & Videos Interviews) before #ep61 are persian episodes.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(8) </span>
-            From #ep59 all of episodes has been introduced their source on News section, Also Milad(MohammadReza Khorrami) offer to them from Linkedin.<br/><br/><br/>
+            From #ep59 all of episodes has been introduced on News section, Also Milad(MohammadReza Khorrami) offer to them from Linkedin.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(9) </span>
             When each NFT is sold, 10% of its proceeds will be donated to the needy by <Link href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAABKNYaYBlggeHvBWekKdyS8LMdLsx8p3tec&keywords=maral%20jarolahi&origin=RICH_QUERY_SUGGESTION&position=0&searchId=36755f5c-edf9-446c-ba3f-4af9143e0617&sid=LrC" className="text-blue-900">Maral Jarolahi</Link> she is an Executive coach after that 90% will be donated to the creators, we will do it only at the end of each year, also we do not pay any amount in advance to the creators, and we wont be responsible for that NFT after purchasing the NFT.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(10) </span>
