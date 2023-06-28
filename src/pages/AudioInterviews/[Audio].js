@@ -346,7 +346,7 @@ function settimeout(){
             &nbsp;
             <span className="text-xs">{result.time}</span>
           </div>
-          <span className="-mt-48 xl:-mt-80 lg:-mt-72 md:-mt-60 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-4xl lg:text-2xl md:text-xl font-bold">
+          <span className="-mt-48 xl:-mt-80 lg:-mt-72 md:-mt-60 xl:ml-56 lg:ml-56 md:ml-56 justify-self-center xl:text-2xl lg:text-xl md:text-base font-bold">
             {result.name}
           </span>
 
