@@ -4,11 +4,19 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Fri, 16 Jun 2023 13:19:52 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 28 Jun 2023 12:35:06 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Fri, 16 Jun 2023 13:19:52 GMT</pubDate>
+        <pubDate>Wed, 28 Jun 2023 12:35:06 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
+        <item>
+            <title><![CDATA[Classification Of Brain Needs - Dr.Sonia Dadseresht(Last persian episode)]]></title>
+            <description><![CDATA[A conversation with Dear Dr.Sonia Dadseresht about Classification Of Brain Needs]]></description>
+            <link>https://saghiomey.netlify.app/VideoInterviews/Dr.Sonia-Dadseresht(Last-persian-episode)</link>
+            <guid isPermaLink="true">https://saghiomey.netlify.app/VideoInterviews/Dr.Sonia-Dadseresht(Last-persian-episode)</guid>
+            <pubDate>Tue, 27 Jun 2023 19:30:00 GMT</pubDate>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1687953156158-f85cb10aa5584.jpg" length="0" type="image/jpeg"/>
+        </item>
         <item>
             <title><![CDATA[Editorial Styling - Yekta Noorollahi]]></title>
             <description><![CDATA[A conversation with Dear Yekta Noorollahi about Editorial Styling]]></description>
