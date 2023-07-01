@@ -110,7 +110,7 @@ export default function Video(props) {
               src={sky}
               alt="sky"
             />
-            <div className="absolute grid justify-items-center md:justify-items-start 2xl:top-1/2 xl:top-3/4 w-full text-white">
+            <div className="absolute grid justify-items-center md:justify-items-start xl:top-3/4 w-full text-white">
               <img
                 src={result.img}
                 alt="logo"
@@ -121,7 +121,7 @@ export default function Video(props) {
               </span>
               <div className="justify-self-center -mt-40 w-72 md:-mt-64 md:ml-56 md:h-60 md:w-1/2 lg:-mt-80 lg:ml-80 lg:w-3/5 lg:h-72 xl:ml-96 aspect-video">
                 <iframe
-                  className="w-full h-36 md:h-60 lg:h-72 2xl:h-96"
+                  className="w-full h-36 md:h-60 lg:h-72"
                   src={result.video}
                   title="YouTube video player"
                   frameborder="0"
