@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable jsx-a11y/alt-text */
 import Voice from '@/components/voice';
+import dynamic from 'next/dynamic'
 import '@/styles/globals.css'
 import Head from "next/head";
 import episodes from './api/episodes'
@@ -43,6 +44,7 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import generateRSS from "../lib/generateRssFeed";
 import NFTRSS from "../lib/NFTRssFeed";
+import 'nprogress/nprogress.css'
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
 
@@ -70,6 +72,13 @@ const signIn = () => auth.signInWithPopup(provider);
 const signOut = () => auth.signOut();
 generateRSS();
 NFTRSS();
+
+const TopProgressBar = dynamic(
+  () => {
+    return import("@/components/TopProgressBar");
+  },
+  { ssr: false },
+);
 
 export default function App({ Component, pageProps }) {
   const form1 = useRef();
@@ -432,6 +441,7 @@ export default function App({ Component, pageProps }) {
         )}
       </Disclosure>
       }
+  {/* <TopProgressBar />     */}
   <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={Reviews} episodes={filterNames} />
   <Voice />
     </>

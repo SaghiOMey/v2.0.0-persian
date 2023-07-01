@@ -310,7 +310,7 @@ function settimeout(){
     {props.user ?
       <div className="relative">
         <Image className="bg-cover h-96 md:h-auto xl:w-full" src={sky} alt="sky" />
-        <div className="absolute grid justify-items-center md:justify-items-start xl:top-3/4 w-full text-white">
+        <div className="absolute grid justify-items-center md:justify-items-start xl:top-3/4 2xl:top-1/2 w-full text-white">
           <img
             src={result.img}
             alt="logo"
