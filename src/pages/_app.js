@@ -42,6 +42,7 @@ import * as gtag from "../lib/gtag"
 import OneSignal from "react-onesignal";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
+import "firebase/compat/performance";
 import generateRSS from "../lib/generateRssFeed";
 import NFTRSS from "../lib/NFTRssFeed";
 import 'nprogress/nprogress.css'
@@ -65,6 +66,7 @@ const firebaseConfig = {
 // Initialize firebase and google 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
+// const perf = firebase.performance();
 const provider = new firebase.auth.GoogleAuthProvider();
 provider.setCustomParameters({ prompt: "select_account" });
 // Sign in and sign out functins
@@ -73,12 +75,12 @@ const signOut = () => auth.signOut();
 generateRSS();
 NFTRSS();
 
-const TopProgressBar = dynamic(
-  () => {
-    return import("@/components/TopProgressBar");
-  },
-  { ssr: false },
-);
+// const TopProgressBar = dynamic(
+//   () => {
+//     return import("@/components/TopProgressBar");
+//   },
+//   { ssr: false },
+// );
 
 export default function App({ Component, pageProps }) {
   const form1 = useRef();
