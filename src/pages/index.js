@@ -11,6 +11,7 @@ import profile from "../assests/saghimey.png";
 import Image from 'next/image'
 import Link from "next/link";
 import Head from "next/head";
+import Script from 'next/script'
 // eslint-disable-next-line no-unused-vars
 // import { Routes, Route } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
@@ -34,12 +35,16 @@ import castbox from "../assests/castbox.svg";
 // import AudioPersianInterviews from "../Routes/AudioPersianInterviews";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { db, doc, deleteDoc, getDocs, collection } from "firebase/firestore";
+import { getStorage, ref, deleteObject } from "firebase/storage";
+import { getFirestore } from "firebase/firestore";
 import Voice from '@/components/voice';
 // import Profile from "../Routes/Profile";
 // import Reviews from "../Routes/Reviews";
 // import NFT from "../Routes/NFT";
 import OneSignal from "react-onesignal";
 import generateRSS from "../lib/generateRssFeed";
+import { parse } from 'date-fns';
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
 
@@ -53,7 +58,8 @@ export default function index(props) {
   const { pathname } = useRouter();
   const [Open, setOpen] = useState(false);
   const [Search, setSearch] = useState(false);
-  // const [audio, setAudio] = useState("");
+  const [Reviews, setReviews] = useState(null);
+  const [Img, setImg] = useState(null);
   let [Name, setName] = useState("");
   const handleChange = (e) => {
     setName(e.target.value);
@@ -65,6 +71,7 @@ export default function index(props) {
   // //   reviews.epname.toLowerCase().includes(Name.toLowerCase())
   // // );
   const cancelButtonRef = useRef(null);
+  let rand = (Math.random() + 1).toString(36);
 
   let navigation = [
     { name: "Home", href: "/", current: false },
@@ -108,11 +115,44 @@ export default function index(props) {
       appId: "62e0bd67-f20e-4491-b24f-a27b58d7cdfc",
     });
   }, []);
+  useEffect(() => {
+    async function fetchData() {
+      const db = getFirestore();
+      const last = episodes.slice(-5).reverse().map((item) => item.name)
+      const querySnapshot = await getDocs(collection(db, "guests"));
+      querySnapshot.forEach((doc) => {
+      last.find(element => element.includes(doc.id)) ? 
+      setReviews(doc.id) || setImg(doc.data().img)
+      : ""
+      });
+    }
+      fetchData();
+    }, []);
+    async function deleteData(){
+      const db = getFirestore();
+      const storage = getStorage();
+      const desertRef = ref(storage, Img);
+      await deleteDoc(doc(db, "guests", Reviews));
+      deleteObject(desertRef).then(() => {
+        // console.log("deleted");
+      }).catch((error) => {
+        // Uh-oh, an error occurred!
+      });
+    }
+
   const date = episodes.slice(-5).reverse().map((item) => (new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "New" : item.date))
   const counts = {}
   date.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; })
+  const guests = ['mohammadreza.khorrami21@gmail.com'];
+  const user = props.user ? props.user.email : null;
+  const time = props.user ? new Date(props.user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === new Date().getMonth() || new Date(props.user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === parseInt(new Date().getMonth() + 1) ? (parseInt(props.user.multiFactor.user.metadata.creationTime.slice(5,8)) + 5).toString() <= new Date().toString().slice(8, 10) ? null : "confirm" : null : null;
+  // const found = guests.find(element => element !== null && element === user && time === "confirm");
+  const found = guests.find(element => element !== null && element === user);
+  // console.log(Img, Reviews);
   return (
     <div>
+      <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9848331502386282"
+          crossorigin="anonymous"></Script>
       <Head>
       <meta property="og:title" key="og:title" content="Podcast SaghiOMey Hosted By Milad" />
       <meta property="og:image" key="og:image" content="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" />
@@ -196,6 +236,7 @@ export default function index(props) {
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm">
                         <span className="sr-only">Open user menu</span>
                         <button
+                        onClick={deleteData}
                     type="button"
                     className= "rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white"
                   >
@@ -320,7 +361,8 @@ export default function index(props) {
                             // eslint-disable-next-line jsx-a11y/anchor-is-valid
                             <>
                             {props.user ?
-                            props.user.displayName
+                            // props.user.displayName
+                            found ? <Link href={`/Guest/${props.user.uid}`} className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500")}>{props.user.displayName}</Link> : <span className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700")}>{props.user.displayName}</span>
                             :
                             // <Link
                             //   href="Profile"

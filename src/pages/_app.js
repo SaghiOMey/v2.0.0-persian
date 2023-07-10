@@ -159,9 +159,17 @@ export default function App({ Component, pageProps }) {
       appId: "62e0bd67-f20e-4491-b24f-a27b58d7cdfc",
     });
   }, []);
+  const guests = ['mohammadreza.khorrami21@gmail.com'];
+  const email = user ? user.email : null;
+  const time = user ? new Date(user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === new Date().getMonth() || new Date(user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === parseInt(new Date().getMonth() + 1) ? (parseInt(user.multiFactor.user.metadata.creationTime.slice(5,8)) + 5).toString() <= new Date().toString().slice(8, 10) ? null : "confirm" : null : null;
+  // const found = guests.find(element => element !== null && element === email && time === "confirm");
+  const found = guests.find(element => element !== null && element === email);
+  // console.log(time);
   return (
     <>
         <div style={{ height: "0px" }}>
+        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9848331502386282"
+          crossorigin="anonymous"></Script>
         <Script id="google-tag-manager" strategy="afterInteractive">
       {`
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -345,7 +353,8 @@ export default function App({ Component, pageProps }) {
                             <>
                             {user ?
                             <>
-                            {user.displayName}
+                            {/* {user.displayName} */}
+                            {found ? <Link href={`/Guest/${user.uid}`} className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500")}>{user.displayName}</Link> : <span className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700")}>{user.displayName}</span>}
                             </>
                             :
                             // <Link

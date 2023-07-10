@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { nameValidator, emailValidator, messageValidator } from "./validators";
+import { nameValidator, emailValidator, messageValidator, subjectValidator, imageValidator } from "./validators";
 
 const touchErrors = (errors) => {
   return Object.entries(errors).reduce((acc, [field, fieldError]) => {
@@ -29,6 +29,11 @@ export const useFormContact = (form) => {
       error: false,
       message: "",
     },
+    subject: {
+      dirty: false,
+      error: false,
+      subject: "",
+    },
   });
 
   const validateForm = ({ form, field, errors, forceTouchErrors = false }) => {
@@ -42,7 +47,7 @@ export const useFormContact = (form) => {
       nextErrors = touchErrors(errors);
     }
 
-    const { name, email, message } = form;
+    const { name, email, message, subject } = form;
 
     if (nextErrors.name.dirty && (field ? field === "name" : true)) {
       const nameMessage = nameValidator(name, form);
@@ -63,6 +68,13 @@ export const useFormContact = (form) => {
       nextErrors.message.error = !!messageMessage;
       nextErrors.message.message = messageMessage;
       if (!!messageMessage) isValid = false;
+    }
+
+    if (nextErrors.subject.dirty && (field ? field === "subject" : true)) {
+      const subjectMessage = subjectValidator(subject, form);
+      nextErrors.subject.error = !!subjectMessage;
+      nextErrors.subject.message = subjectMessage;
+      if (!!subjectMessage) isValid = false;
     }
 
     setErrors(nextErrors);
