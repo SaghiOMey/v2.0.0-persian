@@ -246,33 +246,6 @@ export default function Video(props) {
                 </div>
                 <br />
                 <br />
-                <div className="text-center text-white font-bold text-xs md:mt-16 md:text-base mt-3">
-                  <svg
-                    class="w-6 h-6 mx-auto text-yellow-500 animate-bounce"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M19 13l-7 7-7-7m14-8l-7 7-7-7"
-                    />
-                  </svg>
-                  <Link
-                    href={router.asPath.replace(
-                      "/VideoInterviews/",
-                      "/AudioInterviews/"
-                    )}
-                    className="mx-auto font-normal font-sans text-white lg:text-2xl animate-pulse"
-                  >
-                    Like | Comment | Dislike
-                  </Link>
-                </div>
-                <br />
-                <br />
                 <span className="font-normal font-sans text-white lg:text-2xl">
                   Follow us on Social Media for the latest show updates
                 </span>
