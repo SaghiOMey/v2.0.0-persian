@@ -45,6 +45,8 @@ import Voice from '@/components/voice';
 import OneSignal from "react-onesignal";
 import generateRSS from "../lib/generateRssFeed";
 import { parse } from 'date-fns';
+import "../../firebase-messaging-sw";
+
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
 
@@ -61,15 +63,16 @@ export default function index(props) {
   const [Reviews, setReviews] = useState(null);
   const [Img, setImg] = useState(null);
   let [Name, setName] = useState("");
+
   const handleChange = (e) => {
     setName(e.target.value);
   };
   const filterNames = episodes.filter((episodes) =>
     episodes.name.toLowerCase().includes(Name.toLowerCase())
   );
-  // // const filterReviews = props.reviews.filter((reviews) =>
-  // //   reviews.epname.toLowerCase().includes(Name.toLowerCase())
-  // // );
+  // const filterReviews = props.reviews.filter((reviews) =>
+  //   reviews.epname.toLowerCase().includes(Name.toLowerCase())
+  // );
   const cancelButtonRef = useRef(null);
   let rand = (Math.random() + 1).toString(36);
 
