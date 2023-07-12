@@ -30,10 +30,10 @@ const firebaseConfig = {
               //   console.log('An error occurred while retrieving token. ', err);
               //   // ...
               // });
-              messaging.onMessage((payload) => {
-                console.log('Message received. ', payload);
-                // ...
-              });
+              // messaging.onMessage((payload) => {
+              //   console.log('Message received. ', payload);
+              //   // ...
+              // });
             } else {
               console.log("don't have permission");
             }
