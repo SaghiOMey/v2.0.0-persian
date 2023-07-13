@@ -8,7 +8,8 @@ import episodes from './api/episodes'
 import Reviews from './api/reviews'
 import Script from 'next/script'
 import { Fragment, useCallback } from "react";
-import logo from "../assests/saghiomey.png";
+// import logo from "../assests/saghiomey.png";
+import logo from "../assests/SM.svg";
 import profile from "../assests/saghimey.png";
 import Image from 'next/image'
 import Link from "next/link";
@@ -198,7 +199,7 @@ export default function App({ Component, pageProps }) {
         </div>
       <Head>
         <title>saghiomey</title>
-        <link rel="shortcut icon" href="/saghiomey.ico" />
+        <link rel="shortcut icon" href="/SM.ico" />
         <link href="https://saghiomey.netlify.app/feed.xml" rel="alternate" type="application/rss+xml"/>
         <meta name="author" content="Milad" />
         <meta name="google-site-verification" content="QpBWZ37FwTOQtW_1NPVKstxLBeO_7Y__NPqCx9vZla4" />
@@ -225,12 +226,12 @@ export default function App({ Component, pageProps }) {
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
                     <Image
-                      className="block h-16 mb-20 w-auto lg:hidden"
+                      className="block h-20 mb-20 w-auto lg:hidden"
                       src={logo}
                       alt="SaghiOMey"
                     />
                     <Image
-                      className="hidden h-16 w-auto lg:block"
+                      className="hidden h-28 w-auto lg:block"
                       src={logo}
                       alt="SaghiOMey"
                     />

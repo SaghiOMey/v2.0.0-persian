@@ -121,7 +121,7 @@ export default function Footer(lastepisode) {
           </span>
           <br />
           <span className="text-gray-300 text-lg font-medium">
-            Our Colleagues
+            SaghiOMey Colleagues
             <div className="flex justify-center gap-3 mt-4">
                 <Link href='https://www.linkedin.com/in/maryamkarimii/'>
                 <Image src={Maryam} className="h-16 w-16 bg-white" />

@@ -6,7 +6,8 @@ import episodes from "../pages/api/episodes"
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import { Fragment, useCallback } from "react";
-import logo from "../assests/saghiomey.png";
+// import logo from "../assests/saghiomey.png";
+import logo from "../assests/SM.svg";
 import profile from "../assests/saghimey.png";
 import Image from 'next/image'
 import Link from "next/link";
@@ -181,12 +182,12 @@ export default function index(props) {
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
                     <Image
-                      className="block h-16 mb-20 w-auto lg:hidden"
+                      className="block h-20 mb-20 w-auto lg:hidden"
                       src={logo}
                       alt="SaghiOMey"
                     />
                     <Image
-                      className="hidden h-16 w-auto lg:block"
+                      className="hidden h-28 w-auto lg:block"
                       src={logo}
                       alt="SaghiOMey"
                     />
