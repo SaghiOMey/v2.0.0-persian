@@ -9,8 +9,8 @@ import Reviews from './api/reviews'
 import Script from 'next/script'
 import { Fragment, useCallback } from "react";
 // import logo from "../assests/saghiomey.png";
-import logo from "../assests/SM.svg";
-import profile from "../assests/saghimey.png";
+import logo from "../assests/SOM.svg";
+import profile from "../assests/Logo.jpg";
 import Image from 'next/image'
 import Link from "next/link";
 // eslint-disable-next-line no-unused-vars

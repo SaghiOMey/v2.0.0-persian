@@ -74,10 +74,10 @@ export default function Footer(lastepisode) {
             SaghiOMey Colleagues
             <div className="flex justify-center gap-3 mt-4">
                 <Link href='https://www.linkedin.com/in/maryamkarimii/'>
-                <Image src={Maryam} className="h-16 w-16 bg-white" />
+                <Image src={Maryam} className="h-16 w-16 bg-white rounded" />
                 </Link>
                 <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
-                <Image src={Sahar} className="h-16 w-16 bg-white" />
+                <Image src={Sahar} className="h-16 w-16 bg-white rounded" />
                 </Link>
             </div>
             <div className="flex justify-center gap-3 mt-4">
@@ -124,10 +124,10 @@ export default function Footer(lastepisode) {
             SaghiOMey Colleagues
             <div className="flex justify-center gap-3 mt-4">
                 <Link href='https://www.linkedin.com/in/maryamkarimii/'>
-                <Image src={Maryam} className="h-16 w-16 bg-white" />
+                <Image src={Maryam} className="h-16 w-16 bg-white rounded" />
                 </Link>
                 <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
-                <Image src={Sahar} className="h-16 w-16 bg-white" />
+                <Image src={Sahar} className="h-16 w-16 bg-white rounded" />
                 </Link>
             </div>
             <div className="flex justify-center gap-3 mt-4">

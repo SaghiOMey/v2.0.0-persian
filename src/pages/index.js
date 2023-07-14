@@ -7,8 +7,8 @@ import episodes from "../pages/api/episodes"
 /* eslint-disable no-unused-vars */
 import { Fragment, useCallback } from "react";
 // import logo from "../assests/saghiomey.png";
-import logo from "../assests/SM.svg";
-import profile from "../assests/saghimey.png";
+import logo from "../assests/SOM.svg";
+import profile from "../assests/Logo.jpg";
 import Image from 'next/image'
 import Link from "next/link";
 import Head from "next/head";
