@@ -40,7 +40,8 @@ provider.setCustomParameters({ prompt: "select_account" });
 export default function Guest(props) {
   const form1 = useRef();
   const lastepisode = props.episodes.slice(-5).reverse();
-  const [open, setOpen] = useState(false);
+  const [trigger, setTrigger] = useState(false);
+  const [ttrigger, setTtrigger] = useState(false);
   const [policy, setPolicy] = useState(true);
   const [form, setForm] = useState({
     name: "",
@@ -78,6 +79,7 @@ export default function Guest(props) {
   const onSubmitForm = (e) => {
     e.preventDefault();
     // console.log('start of upload')
+    setTtrigger(true)
     if(imageAsFile === '' ) {
       console.error(`not an image, the image file is a ${typeof(imageAsFile)}`)
     }
@@ -97,30 +99,11 @@ export default function Guest(props) {
        })
     });
     }
-    const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
-    if (!isValid) return;
-    alert(JSON.stringify(form, null, 2));
-    emailjs
-      .sendForm(
-        "service_042vorh",
-        "template_w340yso",
-        form1.current,
-        "ZmTSurbMfBR4GpUVC"
-      )
-      .then(
-        (result) => {
-          setOpen(true);
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
   };
 
   function settimeout() {
     setTimeout(() => {
-      setOpen(false);
+      setTrigger(false) && setTtrigger(false);
     }, 3000);
   }
   function setptimeout() {
@@ -141,6 +124,26 @@ export default function Guest(props) {
           message: form.message,
           img: `/Images/${imageAsFile.name}(${props.user.displayName})`
     });
+    const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
+    if (!isValid) return;
+    alert(JSON.stringify(form, null, 2));
+    console.log(form);
+    emailjs
+      .sendForm(
+        "service_042vorh",
+        "template_w340yso",
+        form1.current,
+        "ZmTSurbMfBR4GpUVC"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    setTrigger(true)
   }
 
   return (
@@ -170,9 +173,8 @@ export default function Guest(props) {
                     Please fill in the form below Dear {props.user.displayName},
                     then we review & let you know
                   </span>
-                  {open ? (
+                  {trigger === true && ttrigger === true ? (
                     <div
-                      show={open}
                       class="flex w-72 mt-5 md:w-96 shadow-lg rounded-lg"
                     >
                       <div class="bg-green-600 py-4 px-6 rounded-l-lg flex items-center">
@@ -191,9 +193,9 @@ export default function Guest(props) {
                       </div>
                       <div class="px-4 py-6 bg-white rounded-r-lg flex justify-between items-center w-full border border-l-transparent border-gray-200">
                         <div className="text-lg md:text-xl font-bold text-black">
-                          Submitted successfully
+                          Submitted successfully, Please waite until youre image appears
                         </div>
-                        <button onClick={() => setOpen(false) || settimeout()}>
+                        <button onClick={() => setTrigger(false) || setTtrigger(false) || settimeout()}>
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             class="fill-current text-gray-700"

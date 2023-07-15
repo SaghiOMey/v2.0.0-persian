@@ -19,7 +19,7 @@ function classNames(...classes) {
 export default function NFT(props) {
   const reviews = props.reviews.slice(-6).reverse();
   const lastepisode = props.episodes.slice(-5).reverse();
-  console.log(reviews);
+  // console.log(reviews);
   return (
     <>
       <Index />
