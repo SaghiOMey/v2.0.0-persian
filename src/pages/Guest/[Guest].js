@@ -45,16 +45,15 @@ export default function Guest(props) {
   const [policy, setPolicy] = useState(true);
   const [form, setForm] = useState({
     name: "",
+    email: "",
     subject: "",
     message: "",
   });
-
   const { errors, validateForm, onBlurField } = useFormContact(form);
   const router = useRouter();
   // const allInputs = {imgUrl: ''}
   const [imageAsFile, setImageAsFile] = useState('')
   const [imgUrl, setimgUrl] = useState('')
-  // console.log(imgUrl)
 
   const onUpdateField = (e) => {
     const field = e.target.name;
@@ -78,6 +77,24 @@ export default function Guest(props) {
 
   const onSubmitForm = (e) => {
     e.preventDefault();
+    const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
+    if (!isValid) return;
+    // alert(JSON.stringify(form, null, 2));
+    emailjs
+      .sendForm(
+        "service_042vorh",
+        "template_w340yso",
+        form1.current,
+        "ZmTSurbMfBR4GpUVC"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
     // console.log('start of upload')
     setTtrigger(true)
     if(imageAsFile === '' ) {
@@ -124,25 +141,6 @@ export default function Guest(props) {
           message: form.message,
           img: `/Images/${imageAsFile.name}(${props.user.displayName})`
     });
-    const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
-    if (!isValid) return;
-    alert(JSON.stringify(form, null, 2));
-    console.log(form);
-    emailjs
-      .sendForm(
-        "service_042vorh",
-        "template_w340yso",
-        form1.current,
-        "ZmTSurbMfBR4GpUVC"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
     setTrigger(true)
   }
 
@@ -325,6 +323,24 @@ export default function Guest(props) {
                       ) : null}
                     </div>
                     <div className="mt-4">
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  value={form.email}
+                  onChange={onUpdateField}
+                  autoComplete="email"
+                  placeholder=" Your Email"
+                  onBlur={onBlurField}
+                  className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
+                />
+                {errors.email.dirty && errors.email.error ? (
+                  <p className={styles.formFieldErrorMessage}>
+                    {errors.email.message}
+                  </p>
+                ) : null}
+              </div>
+                    <div className="mt-4">
                       <input
                         type="text"
                         name="subject"
@@ -415,6 +431,53 @@ export default function Guest(props) {
                         </p>
                       ) : null}
                     </div>
+                    <div className="flex justify-center mt-5">
+                      <button
+                        type="submit"
+                        onClick={() => guests()} 
+                        className="bg-yellow-500 text-white w-32 h-16 rounded-full hover:bg-white hover:text-black"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                  <form ref={form1} className="hidden">
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        value={errors.name.dirty && errors.name.error ? null : form.name}
+                        autoComplete="family-name"
+                        placeholder=" Your FullName(FirstName & LastName)"
+                        className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
+                      />
+                <input
+                  type="text"
+                  name="email"
+                  id="email"
+                  value={errors.email.dirty && errors.email.error ? null : form.email}
+                  autoComplete="email"
+                  placeholder=" Your Email"
+                  className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
+                />
+                      <input
+                        type="text"
+                        name="subject"
+                        id="subject"
+                        value={errors.subject.dirty && errors.subject.error ? null : form.subject}
+                        autoComplete="subject"
+                        placeholder=" Your Subject(Title)"
+                        className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
+                      />
+                      <textarea
+                        type="text"
+                        name="message"
+                        id="message"
+                        value={errors.message.dirty && errors.message.error ? null : form.message}
+                        autoComplete="message"
+                        placeholder=" Your summary of subject"
+                        className="mt-1 h-32 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
+                      />
                     <div className="flex justify-center mt-5">
                       <button
                         type="submit"

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { nameValidator, emailValidator, messageValidator, subjectValidator, imageValidator } from "./validators";
+import { nameValidator, emailValidator, messageValidator, subjectValidator } from "./validators";
 
 const touchErrors = (errors) => {
   return Object.entries(errors).reduce((acc, [field, fieldError]) => {

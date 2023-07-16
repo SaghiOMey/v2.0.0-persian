@@ -3,7 +3,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import nightsky from "../assests/nightsky.jpg";
 import Index from "./index";
-import Image from 'next/image'
+import Image from "next/image";
 import Footer from "../components/Footer";
 import styles from "../components/Contact.module.css";
 import { useState, useRef } from "react";
@@ -59,16 +59,16 @@ export default function Contact(props) {
         }
       );
   };
-  function settimeout(){
+  function settimeout() {
     setTimeout(() => {
-      setOpen(false)
-    },3000)
+      setOpen(false);
+    }, 3000);
   }
 
   return (
     <>
-    <Index />
-    <Head>
+      <Index />
+      <Head>
         <title>Contact</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
       </Head>
@@ -168,6 +168,24 @@ export default function Contact(props) {
                 {errors.email.dirty && errors.email.error ? (
                   <p className={styles.formFieldErrorMessage}>
                     {errors.email.message}
+                  </p>
+                ) : null}
+              </div>
+              <div className="mt-4">
+                <input
+                  type="text"
+                  name="subject"
+                  id="subject"
+                  value={form.subject}
+                  onChange={onUpdateField}
+                  autoComplete="subject"
+                  placeholder=" Your Subject"
+                  onBlur={onBlurField}
+                  className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
+                />
+                {errors.subject.dirty && errors.subject.error ? (
+                  <p className={styles.formFieldErrorMessage}>
+                    {errors.subject.message}
                   </p>
                 ) : null}
               </div>
