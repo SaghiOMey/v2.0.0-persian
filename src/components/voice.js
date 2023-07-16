@@ -167,7 +167,7 @@ export default function Voice() {
                         </h3>
                         <div className="mt-2">
                           <p className="text-sm text-gray-500">
-                          To access the Interviews, Please Signin in the NavBar section
+                            To send Voice, Please Signin in the NavBar section
                           </p>
                         </div>
                       </div>

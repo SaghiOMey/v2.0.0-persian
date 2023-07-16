@@ -181,16 +181,20 @@ export default function index(props) {
                 </div>
                 <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                   <div className="flex flex-shrink-0 items-center">
+                  <Link href="/">
                     <Image
                       className="block h-20 mb-20 w-auto lg:hidden"
                       src={logo}
                       alt="SaghiOMey"
                     />
+                  </Link>
+                  <Link href="/"> 
                     <Image
                       className="hidden h-28 w-auto lg:block"
                       src={logo}
                       alt="SaghiOMey"
                     />
+                  </Link>   
                   </div>
                   <div className="hidden pt-4 sm:ml-6 sm:block">
                     <div>
