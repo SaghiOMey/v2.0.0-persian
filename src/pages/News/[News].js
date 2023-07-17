@@ -86,6 +86,17 @@ export default function IMG(props) {
             </div>
             <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">
               <div className="mx-auto text-center md:text-justify max-w-2xl py-4 px-6 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
+              {result.video ? 
+              <iframe
+              className="w-full h-36 md:h-60 lg:h-72"
+              src={result.video}
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+              ></iframe>
+              : null
+              }
                 <br />
                 <br />
                 <span className="font-normal font-sans text-white lg:text-2xl">
@@ -94,10 +105,10 @@ export default function IMG(props) {
                 <br />
                 <br />
                 <a
-                  href="https://www.instagram.com/milad_podcast/"
+                  href="https://open.spotify.com/show/6ObUzf2m0OtJNyVvNvwIVp"
                   className="font-normal font-sans text-yellow-500 lg:text-2xl"
                 >
-                  Instagram
+                  Spotify
                 </a>
                 <br />
                 <br />

@@ -253,10 +253,10 @@ export default function Video(props) {
                 <br />
                 {/* <a href="#" className="font-normal font-sans text-yellow-500 lg:text-2xl">Twitter</a><br /><br /> */}
                 <a
-                  href="https://www.instagram.com/milad_podcast/"
+                  href="https://open.spotify.com/show/6ObUzf2m0OtJNyVvNvwIVp"
                   className="font-normal font-sans text-yellow-500 lg:text-2xl"
                 >
-                  Instagram
+                  Spotify
                 </a>
                 <br />
                 <br />
