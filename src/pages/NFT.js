@@ -49,7 +49,7 @@ export default function NFT(props) {
       //   describtion:
       //    "The Audio of #ep61, also 10% of sales goes to charity",
       //   price: "0.0123 ETH, $22.80",
-      //   creator: "Milad",
+      //   creator: "SaghiOMey(SM)",
       //   img: "https://i.seadn.io/gcs/files/3e83fe2a43a75496bc263080d4adc95a.png?auto=format&w=1000",
       //   expire: "July 5 , 2023",
       //   link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560939952430645249",
@@ -59,9 +59,9 @@ export default function NFT(props) {
       {
         id: 1,
         name: "The Video of #ep61",
-        describtion: "The Video of #ep61, also 10% of sales goes to charity",
+        describtion: "The Video of #ep61, whole of sales goes to charity",
         price: "0.0125 ETH, $23.13",
-        creator: "Milad",
+        creator: "SaghiOMey(SM)",
         img: "https://i.seadn.io/gcs/files/2fc411b8a86daac6d5de611a04987a46.jpg?auto=format&dpr=1&w=1920",
         expire: "July 5 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560941051942273025",

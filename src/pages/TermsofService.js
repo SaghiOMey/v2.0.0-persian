@@ -18,7 +18,7 @@ export default function About(props) {
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
         <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">Terms</span>
-          <span className="text-sm md:text-xl font-sans font-bold">Last Updated: June 27, 2023</span>
+          <span className="text-sm md:text-xl font-sans font-bold">Last Updated: July 17, 2023</span>
         </div>
         <div className="absolute text-center -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">
           <div className="lg:mb-56 mt-12 lg:ml-20 leading-8 text-gray-200">
@@ -185,17 +185,17 @@ export default function About(props) {
             <span className="text-xl md:text-2xl font-sans font-bold text-white">SITE MANAGEMENT</span><br/>
             We reserve the right, but not the obligation, to:<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(1) </span>
-            monitor the Site for violations of these Terms and Conditions;<br/><br/><br/>
+            Monitor the Site for violations of these Terms and Conditions;<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(2) </span>
-            take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms and Conditions, including without limitation, reporting such user to law enforcement authorities;<br/><br/><br/>
+            Take appropriate legal action against anyone who, in our sole discretion, violates the law or these Terms and Conditions, including without limitation, reporting such user to law enforcement authorities;<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(3) </span>
-            in our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof;<br/><br/><br/>
+            In our sole discretion and without limitation, refuse, restrict access to, limit the availability of, or disable (to the extent technologically feasible) any of your Contributions or any portion thereof;<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(4) </span>
-            in our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems;<br/><br/><br/>
+            In our sole discretion and without limitation, notice, or liability, to remove from the Site or otherwise disable all files and content that are excessive in size or are in any way burdensome to our systems;<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(5) </span>
-            otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.<br/><br/><br/>
+            Otherwise manage the Site in a manner designed to protect our rights and property and to facilitate the proper functioning of the Site.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(6) </span>
-            All users on Home page & Voice section & Audio Interviews must sign in, Because the comments section is stored in the database Then it will be reviewed and published in the comments section also all of comments must be english language.<br/><br/><br/>
+            All users on Like section & Voice section & Dislike section & Comment section must sign in, Also the comments section is stored in the database Then it will be reviewed and published in the comments section also all of comments must be english language.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(7) </span>
             All episodes( Audio Interviews & Videos Interviews) before #ep61 are persian episodes.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(8) </span>
@@ -204,6 +204,12 @@ export default function About(props) {
             When each NFT is sold, 10% of its proceeds will be donated to the needy by <Link href="https://www.linkedin.com/search/results/all/?fetchDeterministicClustersOnly=true&heroEntityKey=urn%3Ali%3Afsd_profile%3AACoAABKNYaYBlggeHvBWekKdyS8LMdLsx8p3tec&keywords=maral%20jarolahi&origin=RICH_QUERY_SUGGESTION&position=0&searchId=36755f5c-edf9-446c-ba3f-4af9143e0617&sid=LrC" className="text-blue-900">Maral Jarolahi</Link> she is an Executive coach after that 90% will be donated to the creators, we will do it only at the end of each year, also we do not pay any amount in advance to the creators, and we wont be responsible for that NFT after purchasing the NFT.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(10) </span>
             In order to fight money laundering, the sale of NFTs will be deposited into the Milad(MohammadReza Khorrami) account in an exchange authorized by the government.<br/><br/><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">(11) </span>
+            All of guests must authenticated by their image, So these images convert to cover their episode by maryam karimi, Also these covers show up on site & put on for sale section Image in NFT, It means that the covers are not misused, but it means supporting the creator.<br/><br/><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">(12) </span>
+            On Audios are worked from side SaghiOMey(SM) so it has difference from videos So, these audios put on section audio in NFT from side SaghiOMey(SM) It means that the audios are not misused, but it means supporting the creator.<br/><br/><br/>
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">(13) </span>
+            Whole of videos from Saghi O Mey(SM) put on section video in NFT and whole of sales goes to charity So, these videos put on section video in NFT from side SaghiOMey(SM) It means that the audios are not misused, but it means supporting the creator.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">PRIVACY POLICY</span><br/>
             We care about data privacy and security. Please review our Privacy Policy <Link href="https://saghiomey.netlify.app/PrivacyPolicy" className="text-blue-900">CLICK HERE</Link> By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms and Conditions. Please be advised the Site is hosted in the United States.<br/><br/><br/>
             If you access the Site from the European Union, Asia, or any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Site, you are transferring your data to the United States, and you expressly consent to have your data transferred to and processed in the United States.<br/><br/><br/>
