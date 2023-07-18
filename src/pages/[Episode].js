@@ -118,8 +118,8 @@ export default function Episode(props) {
         // console.log("No such document!");
       }
     }
-    fetchData();
-  }, []);
+     fetchData();
+  }, [props.user]);
 
   async function flike() {
     const db = getFirestore();

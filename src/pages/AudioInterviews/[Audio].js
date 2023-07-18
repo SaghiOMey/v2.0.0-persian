@@ -106,7 +106,7 @@ export default function Persian(props) {
     }
   }
     fetchData();
-}, []);
+}, [props.user]);
 
 async function flike(){
   const db = getFirestore();
