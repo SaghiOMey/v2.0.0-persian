@@ -198,7 +198,7 @@ export default function App({ Component, pageProps }) {
         />
         </div>
       <Head>
-        <title>saghiomey</title>
+        <title>SaghiOMey</title>
         <link rel="shortcut icon" href="/SM.ico" />
         <link href="https://saghiomey.netlify.app/feed.xml" rel="alternate" type="application/rss+xml"/>
         <meta name="author" content="Milad" />

@@ -13,6 +13,7 @@ import { Dialog } from "@headlessui/react";
 import { Transition } from "@headlessui/react";
 import Head from "next/head";
 import Image from 'next/image'
+import Link from "next/link";
 // import apple from "../apple.svg";
 import youtube from "../../assests/youtube.svg";
 import spotify from "../../assests/spotify.svg";
@@ -712,31 +713,39 @@ function settimeout(){
             <div className="fixed inset-0 z-10 overflow-y-auto">
               <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                 <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div className="sm:flex sm:items-start">
-                      <div className="mt-3 text-center sm:mt-0 sm:ml-4">
-                        <h3
-                          className="text-lg font-medium leading-6 text-gray-900"
-                          id="modal-title"
-                        >
-                          Please First Signin
-                        </h3>
-                        <div className="mt-2">
-                          <p className="text-sm text-gray-500">
-                          To access the Like, Comment, Dislike Please Signin in the NavBar section
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8">
+                          <div className="text-center">
+                            <h1 className="mt-4 text-3xl font-bold tracking-tight text-gray-900 sm:text-5xl">
+                              Please First Signin
+                            </h1>
+                            <p className="mt-6 text-base leading-7 text-gray-600">
+                              Sorry, To access the Like, Comment, Dislike Please
+                              Signin.
+                            </p>
+                            <div className="mt-10 flex items-center justify-center gap-x-6">
+                              <button
+                                onClick={props.signIn}
+                                className="rounded-md bg-yellow-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-yellow-500"
+                              >
+                                Go to Signin
+                              </button>
+                              <Link
+                                href="/Contact"
+                                className="text-sm font-semibold text-gray-900"
+                              >
+                                Contact support{" "}
+                                <span aria-hidden="true">&rarr;</span>
+                              </Link>
+                            </div>
+                          </div>
+                        </main>
                   <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button
-                      onClick={() => setopen(false)}
-                      type="button"
-                      className="inline-flex w-full justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
-                    >
-                      OK
-                    </button>
+                    <button type="button" onClick={() => setopen(false)} class="absolute right-4 top-4 text-gray-400 hover:text-gray-500 sm:right-6 sm:top-8 md:right-6 md:top-6 lg:right-8 lg:top-8">
+            <span class="sr-only">Close</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
                   </div>
                 </div>
               </div>
