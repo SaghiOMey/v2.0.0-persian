@@ -14,6 +14,10 @@
     "@headlessui/react": "^1.7.12",
     "@heroicons/react": "^2.0.17",
     "@moralisweb3/next": "^2.16.1",
+    "@react-email/container": "0.0.8",
+    "@react-email/html": "0.0.4",
+    "@react-email/section": "0.0.9",
+    "@react-email/text": "0.0.5",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "date-fns": "^2.30.0",
     "dynamic": "^4.2.2",
@@ -28,11 +32,13 @@
     "net": "^1.0.2",
     "next": "13.2.1",
     "next-auth": "^4.20.1",
+    "nodemailer": "^6.9.3",
     "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-audio-player": "^0.17.0",
     "react-audio-voice-recorder": "^1.0.4",
     "react-dom": "18.2.0",
+    "react-email": "1.9.4",
     "react-h5-audio-player": "^3.8.6",
     "react-helmet": "^6.1.0",
     "react-modern-audio-player": "^1.4.0-rc.2",
@@ -43,6 +49,7 @@
     "sharp": "^0.31.3"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.8",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.1"
