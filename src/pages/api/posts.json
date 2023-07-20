@@ -1,14 +1,6 @@
 [
   {
     "id": 1,
-    "url": "https://saghiomey.netlify.app/",
-    "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg",
-    "title": "Podcast SaghiOMey",
-    "describtion": "Join Host Milad as he talks to various guests each week where ”Everyone Has A Story” from the world",
-    "date": "Apr 21, 2022"
-  },
-  {
-    "id": 2,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Mental-errors-Anoosheh",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded_episode400/22745765/22745765-1679126531142-9528db558dc76.jpg",
     "title": "Mental errors - Anoosheh",
@@ -16,7 +8,7 @@
     "date": "Mar 19, 2023"
   },
   {
-    "id": 3,
+    "id": 2,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Ballet-dance-Shadi",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg",
     "title": "Ballet dance - Shadi",
@@ -24,7 +16,7 @@
     "date": "Apr 20, 2023"
   },
   {
-    "id": 4,
+    "id": 3,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Entrepreneurship-Bahar-Sadeghi",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1682835189662-41f377b810b1.jpg",
     "title": "Entrepreneurship - Bahar Sadeghi",
@@ -32,7 +24,7 @@
     "date": "Apr 30, 2023"
   },
   {
-    "id": 5,
+    "id": 4,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Game-industry-Dani-PartI",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1682933277967-6b6f0dfee5b86.jpg",
     "title": "Game industry - Dani Part I",
@@ -40,7 +32,7 @@
     "date": "May 04, 2023"
   },
   {
-    "id": 6,
+    "id": 5,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Pure-Chemistry-Pardis-Panahi",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1683474036354-70773a91234c8.jpg",
     "title": "Pure Chemistry - Pardis Panahi",
@@ -48,7 +40,7 @@
     "date": "May 07, 2023"
   },
   {
-    "id": 7,
+    "id": 6,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Dorsa-Ashineh-Blockchain",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1683913534551-34326cbf32b4c.jpg",
     "title": "Dorsa Ashineh - Blockchain",
@@ -56,7 +48,7 @@
     "date": "May 12, 2023"
   },
   {
-    "id": 8,
+    "id": 7,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Game-industry-Dani-PartII",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1684413668831-c5ebbad6ebbcc.jpg",
     "title": "Game industry - Dani Part II",
@@ -64,7 +56,7 @@
     "date": "May 20, 2023"
   },
   {
-    "id": 9,
+    "id": 8,
     "url": "https://saghiomey.netlify.app/VideoInterviews/mahsa-ahmadi-&-sheida-hashemi-Gene's-free-travel",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1685164617469-39915f973a491.jpg",
     "title": "Gene's free travel - mahsa ahmadi & sheida hashemi",
@@ -72,7 +64,7 @@
     "date": "May 27, 2023"
   },
   {
-    "id": 10,
+    "id": 9,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Motion-graphic-Niloofar-alimohammadi",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1685967794557-a5c24cd1c8036.jpg",
     "title": "Motion graphic - Niloofar alimohammadi",
@@ -80,7 +72,7 @@
     "date": "June 05, 2023"
   },
   {
-    "id": 11,
+    "id": 10,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Society-of-Dentists-Dr.Mina-Nowrouzi",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1686460744819-10c550aca0d2d.jpg",
     "title": "Society of Dentists - Dr.Mina Nowrouzi",
@@ -88,7 +80,7 @@
     "date": "June 10, 2023"
   },
   {
-    "id": 12,
+    "id": 11,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Editorial-Styling-Yekta-Noorollahi",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1686917959463-d3ec54ffd0ea3.jpg",
     "title": "Editorial Styling - Yekta Noorollahi",
@@ -96,7 +88,7 @@
     "date": "June 16, 2023"
   },
   {
-    "id": 13,
+    "id": 12,
     "url": "https://saghiomey.netlify.app/VideoInterviews/Dr.Sonia-Dadseresht(Last-persian-episode)",
     "img": "https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1687953156158-f85cb10aa5584.jpg",
     "title": "Classification Of Brain Needs - Dr.Sonia Dadseresht(Last persian episode)",
