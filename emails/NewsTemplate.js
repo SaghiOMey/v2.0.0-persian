@@ -5,19 +5,19 @@ import { Section } from "@react-email/section";
 import { Container } from "@react-email/container";
 import { Link } from '@react-email/link';
 
-export default function WelcomeEmail() {
+export default function NewsEmail() {
   return (
     <Html>
       <Section style={main}>
         <Container style={container}>
           <Text style={heading}>Hi Dear Milad!</Text>
           <Text style={paragraph}>
-            Sorry, you're subject isn't appropriate for program SaghiOMey,
+             You're episode will be publishing as soon as🎉
           </Text>
           <Text style={paragraph}>
-            Please review subjects, it can help you make decision better🙏.
+             So, you can see it on below link.
           </Text>
-          <Link href="https://saghiomey.netlify.app/">Samples</Link>
+          <Link href="/">News</Link>
         </Container>
       </Section>
     </Html>

@@ -3,21 +3,39 @@ import { Html } from "@react-email/html";
 import { Text } from "@react-email/text";
 import { Section } from "@react-email/section";
 import { Container } from "@react-email/container";
-import { Link } from '@react-email/link';
+import { Button } from "@react-email/button";
+import { Tailwind } from "@react-email/tailwind";
 
-export default function WelcomeEmail() {
+export default function NewsEmail() {
   return (
     <Html>
       <Section style={main}>
         <Container style={container}>
           <Text style={heading}>Hi Dear Milad!</Text>
           <Text style={paragraph}>
-            Sorry, you're subject isn't appropriate for program SaghiOMey,
+             Congrats to you you're episode published🎉
           </Text>
           <Text style={paragraph}>
-            Please review subjects, it can help you make decision better🙏.
+             So, you can see it on below Button.
           </Text>
-          <Link href="https://saghiomey.netlify.app/">Samples</Link>
+          <Tailwind
+            config={{
+              theme: {
+                extend: {
+                  colors: {
+                    brand: "#009191",
+                  },
+                },
+              },
+            }}
+          >
+            <Button
+              href="https://example.com"
+              className="bg-brand px-3 py-2 font-medium leading-4 text-white"
+            >
+              Click me
+            </Button>
+          </Tailwind>
         </Container>
       </Section>
     </Html>
