@@ -30,17 +30,17 @@ export default function NFT(props) {
         expire: "Aug 07 , 2023",
         link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560919061709717505",
       },
-      {
-        id: 1,
-        ln: "img",
-        name: "The cover of #ep61",
-        describtion: "The cover of #ep61, also 10% of sales goes to charity",
-        price: "0.0125  WETH, $23.29",
-        creator: "Maryam Karimi",
-        img: "https://i.seadn.io/gcs/files/769e530f1c833dd09171c1e1fec732e0.jpg?auto=format&dpr=1&w=1000",
-        expire: "July 5 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560942151453900801",
-      },
+      // {
+      //   id: 1,
+      //   ln: "img",
+      //   name: "The cover of #ep61",
+      //   describtion: "The cover of #ep61, also 10% of sales goes to charity",
+      //   price: "0.0125  WETH, $23.29",
+      //   creator: "Maryam Karimi",
+      //   img: "https://i.seadn.io/gcs/files/769e530f1c833dd09171c1e1fec732e0.jpg?auto=format&dpr=1&w=1000",
+      //   expire: "July 5 , 2023",
+      //   link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560942151453900801",
+      // },
     ],
     Audio: [
       // {
@@ -56,20 +56,20 @@ export default function NFT(props) {
       // },
     ],
     Video: [
-      {
-        id: 1,
-        name: "The Video of #ep61",
-        describtion: "The Video of #ep61, whole of sales goes to charity",
-        price: "0.0125 ETH, $23.13",
-        creator: "SaghiOMey(SM)",
-        img: "https://i.seadn.io/gcs/files/2fc411b8a86daac6d5de611a04987a46.jpg?auto=format&dpr=1&w=1920",
-        expire: "July 5 , 2023",
-        link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560941051942273025",
-      },
+      // {
+      //   id: 1,
+      //   name: "The Video of #ep61",
+      //   describtion: "The Video of #ep61, whole of sales goes to charity",
+      //   price: "0.0125 ETH, $23.13",
+      //   creator: "SaghiOMey(SM)",
+      //   img: "https://i.seadn.io/gcs/files/2fc411b8a86daac6d5de611a04987a46.jpg?auto=format&dpr=1&w=1920",
+      //   expire: "July 5 , 2023",
+      //   link: "https://opensea.io/assets/ethereum/0x495f947276749ce646f68ac8c248420045cb7b5e/34451397322601742123712235644046916536807054080760084198907560941051942273025",
+      // },
     ],
   });
   const lastepisode = props.episodes.slice(-5).reverse();
-  // console.log(new Date("May 28, 2023").getMonth() > new Date().getMonth() ? "y" : "May 28 , 2023".slice(5,7) <= new Date().toString().slice(8, 10) ? "n" : "y" );
+  // console.log(new Date("July 5, 2023").getMonth() > new Date().getMonth() ? "y" : "July 5 , 2023".slice(5,7) <= new Date().toString().slice(8, 10) ? "n" : "y" );
   return (
     <>
     <Index />

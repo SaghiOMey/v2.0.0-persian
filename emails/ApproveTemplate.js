@@ -15,7 +15,7 @@ export default function WelcomeEmail() {
             Congrats to you, you are eligible for interview by SaghiOMey🎉
           </Text>
           <Text style={paragraph}>
-            Please first sign in the site then fill form by click below button.
+            Please first sign in the site then fill form by click below button(After 5 days have passed, please ignore this email).
           </Text>
           <Tailwind
             config={{
