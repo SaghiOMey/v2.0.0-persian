@@ -257,7 +257,29 @@ export default function Guest(props) {
                                       you cannot retain(Saadi Shirazi).
                                     </h3>
                                     <div class="mt-2">
-                                      <p class="text-sm text-gray-500">....</p>
+                                      <p class="text-base font-bold text-gray-800">Prohibitions</p>
+                                      <p class="text-sm font-semibold text-gray-600">1. You must not choose subject or any talk about politics.</p>
+                                      <p class="text-sm font-semibold text-gray-600">2. You must not choose subject or any talk about religion.</p>
+                                      <p class="text-sm font-semibold text-gray-600">3. You must not choose subject or any talk about racism.</p>
+                                      <p class="text-sm font-semibold text-gray-600">4. You must not choose subject or any talk about sexist.</p>
+                                      <p class="text-sm font-semibold text-gray-600">5. You must not choose subject or any talk about ethnicity.</p>
+                                      <p class="text-sm font-semibold text-gray-600">6. You must not choose subject or any talk about specific groups(terrorists, mafia etc).</p>
+                                      <p class="text-sm font-semibold text-gray-600">7. You must not choose the subject or any talk about violence or incitement to violence.</p>
+                                      <p class="text-sm font-semibold text-gray-600">8. You must not choose the subject or any talk about war or incitement to war.</p>
+                                      <p class="text-sm font-semibold text-gray-600">9. You must not choose the subject or any talk about drug or incitement to drug.</p>
+                                      <p class="text-sm font-semibold text-gray-600">10. You must not choose the subject or any talk about medicine or incitement to medicine.</p>
+                                      <p class="text-sm font-semibold text-gray-600">11. You must not choose the subject or any talk about your neighbour country or other countries.</p>
+                                      <p class="text-sm font-semibold text-gray-600">12. You must not choose a topic or talk about disclosing sensitive information about countries.</p>
+                                      <h2 class="text-base font-semibold text-red-500">If you violate any of the above, your episode will be deleted at any time.</h2>
+                                      <p class="text-base mt-2 font-bold text-gray-800">Recommendations</p>
+                                      <p class="text-sm font-semibold text-gray-600">1. SaghiOMey(SM) won't ask money from anyone for any interviews, So won't pay any money to anyone for any interviews as well as won't ask phone number and won't accept any phone number (please first consider humanity).</p>
+                                      <p class="text-sm font-semibold text-gray-600">2. You should state your full name, as well as your age (under 18 will not be interviewed).</p>
+                                      <p class="text-sm font-semibold text-gray-600">3. Whole of time interview is 20 minutes, you have to have words in this duration.</p>
+                                      <p class="text-sm font-semibold text-gray-600">4. A few minutes at the beginning interview will be interviewed about yourself(3 or 5 minutes), after that you can talk about your subject.</p>
+                                      <p class="text-sm font-semibold text-gray-600">5. At the end of interview I ask you a question about your truth & reality just consider this sample of answer to this question, reality is like I'm eating every day (it can't change) but my truth is I eat food with my hand(it is out of you're mind) it is example I hope find best answer of yourself(answer to this question is not necessary).</p>
+                                      <p class="text-sm font-semibold text-gray-600">6. You have to choose your best image of yourself for cover episode then upload to site, it can help you separate your episode from others, also your cover & audio & video will put on NFT from side SaghiOMey.</p>
+                                      <p class="text-sm font-semibold text-gray-600">7. After publishing episode your name will tag in the linkedin(where were invited), also earlier you will get an email from  SaghiOMey(SM).</p>
+                                      <h2 class="text-base font-semibold text-red-500">If you do not agree on any of the above, ignore the invitation from the SaghiOMey(SM), also you have to fill form & accept policy for 5 days otherwise ignore the invitation.</h2>
                                     </div>
                                   </div>
                                 </div>
