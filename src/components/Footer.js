@@ -51,6 +51,7 @@ export default function Footer(lastepisode) {
       pathname === "/AudioInterviews/[Audio]" ||
       pathname === "/Contact" ||
       pathname === "/News" ||
+      pathname === "/News/[News]" ||
       pathname === "/Ads" ||
       pathname === "/TermsofService" ||
       pathname === "/PrivacyPolicy" ||

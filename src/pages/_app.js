@@ -77,12 +77,12 @@ const signOut = () => auth.signOut();
 generateRSS();
 NFTRSS();
 
-// const TopProgressBar = dynamic(
-//   () => {
-//     return import("@/components/TopProgressBar");
-//   },
-//   { ssr: false },
-// );
+const TopProgressBar = dynamic(
+  () => {
+    return import("@/components/TopProgressBar");
+  },
+  { ssr: false },
+);
 
 export default function App({ Component, pageProps }) {
   const form1 = useRef();
@@ -458,7 +458,7 @@ export default function App({ Component, pageProps }) {
         )}
       </Disclosure>
       }
-  {/* <TopProgressBar />     */}
+  <TopProgressBar />    
   <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={Reviews} episodes={filterNames} />
   <Voice />
     </>
