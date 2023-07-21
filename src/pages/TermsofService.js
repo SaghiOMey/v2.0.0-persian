@@ -18,7 +18,7 @@ export default function About(props) {
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
         <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">Terms</span>
-          <span className="text-sm md:text-xl font-sans font-bold">Last Updated: July 17, 2023</span>
+          <span className="text-sm md:text-xl font-sans font-bold">Last Updated: July 21, 2023</span>
         </div>
         <div className="absolute text-center -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">
           <div className="lg:mb-56 mt-12 lg:ml-20 leading-8 text-gray-200">
