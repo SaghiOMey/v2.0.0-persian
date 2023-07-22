@@ -23,7 +23,8 @@ const firebaseConfig = {
     const notificationTitle = payload.notification.title;
     const notificationOptions = {
       body: payload.notification.body,
-      icon: payload.notification.image
+      icon: payload.notification.image,
+      click_action: "https://saghiomey.netlify.app/Dr.Sonia-Dadseresht(Last-persian-episode)"
     };
   
     self.registration.showNotification(notificationTitle,
