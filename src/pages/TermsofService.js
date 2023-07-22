@@ -18,7 +18,7 @@ export default function About(props) {
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
         <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">Terms</span>
-          <span className="text-sm md:text-xl font-sans font-bold">Last Updated: July 21, 2023</span>
+          <span className="text-sm md:text-xl font-sans font-bold">Last Updated: July 22, 2023</span>
         </div>
         <div className="absolute text-center -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">
           <div className="lg:mb-56 mt-12 lg:ml-20 leading-8 text-gray-200">
@@ -211,7 +211,7 @@ export default function About(props) {
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(13) </span>
             Whole of videos from SaghiOMey(SM) put on section video in NFT and whole of sales goes to charity So, these videos put on section video in NFT from side SaghiOMey(SM) It means that the audios are not misused, but it means supporting the charity.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">(14) </span>
-            Whole of guests must agreed to <a href="../SM(Plicy).pdf" className="text-blue-900" download>SaghiOMey Policy</a>.<br/><br/><br/>
+            Whole of guests must agreed to <a href="../SM(Policy).pdf" className="text-blue-900" download>SaghiOMey Policy</a>.<br/><br/><br/>
             <span className="text-xl md:text-2xl font-sans font-bold text-white">PRIVACY POLICY</span><br/>
             We care about data privacy and security. Please review our Privacy Policy <Link href="https://saghiomey.netlify.app/PrivacyPolicy" className="text-blue-900">CLICK HERE</Link> By using the Site, you agree to be bound by our Privacy Policy, which is incorporated into these Terms and Conditions. Please be advised the Site is hosted in the United States.<br/><br/><br/>
             If you access the Site from the European Union, Asia, or any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Site, you are transferring your data to the United States, and you expressly consent to have your data transferred to and processed in the United States.<br/><br/><br/>
