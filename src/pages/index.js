@@ -46,7 +46,7 @@ import Voice from '@/components/voice';
 import OneSignal from "react-onesignal";
 import generateRSS from "../lib/generateRssFeed";
 import { parse } from 'date-fns';
-import "../../firebase-messaging-sw";
+import "../../serviceworker";
 
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
