@@ -18,7 +18,7 @@ export default function About(props) {
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
         <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">Privacy</span>
-          <span className="text-sm md:text-xl md:mt-1 font-sans font-bold">Last Updated: June 27, 2023</span>
+          <span className="text-sm md:text-xl md:mt-1 font-sans font-bold">Last Updated: July 22, 2023</span>
         </div>
         <div className="absolute text-center -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">
           <div className="lg:mb-56 mt-12 lg:ml-20 leading-8 text-gray-200">
@@ -65,6 +65,7 @@ export default function About(props) {
             <span className="text-xl md:text-2xl font-sans font-bold text-white">Personal Information Provided by You. </span>The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use. The personal information we collect may include the following:<br /><br /><br />
             <span className="text-xl md:text-2xl font-sans font-bold text-white">1.</span>Email<br />
             <span className="text-xl md:text-2xl font-sans font-bold text-white">2.</span>Recorded Voice<br /><br /><br />
+            <span className="text-xl md:text-2xl font-sans font-bold text-white">3.</span>Photo Cover(just request from guests)<br /><br /><br />
             <span className="text-xl md:text-2xl font-sans font-bold text-white">Sensitive Information. </span>We do not process sensitive information.<br /><br /><br />
             <span className="text-xl md:text-2xl font-sans font-bold text-white">Social Media Login Data. </span>We may provide you with the option to register with us using your existing social media account details, like your Facebook, Twitter, or other social media account. If you choose to register in this way, we will collect the information described in the section called “HOW DO WE HANDLE YOUR SOCIAL LOGINS?” below.<br /><br /><br />
             <span className="text-xl md:text-2xl font-sans font-bold text-white">1.</span>Geolocation Information. We may request access or permission to track location-based information from your mobile device, either continuously or while you are using our mobile application(s), to provide certain location-based services. If you wish to change our access or permissions, you may do so in your device’s settings.<br />
