@@ -57,6 +57,7 @@ import {
 } from "firebase/firestore";
 import person from "../assests/person.svg";
 import calendar from "../assests/calendar.svg";
+import "../../serviceworker";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
