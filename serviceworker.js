@@ -20,7 +20,7 @@ const firebaseConfig = {
               const messaging = firebase.messaging();
               messaging.getToken({ vapidKey: 'BOFSkNmEJDk2q0rkWBkcHgDOS0XimJBlS_C7zvscTkUWltOCdtvM7i5-U7SYuu4cB3ySIJusnm4aG0nqUktkpKs' }).then((currentToken) => {
                 if (currentToken) {
-                  console.log('currectToken: ', currentToken);
+                  // console.log('currectToken: ', currentToken);
                 } else {
                   // Show permission request UI
                   console.log('No registration token available. Request permission to generate one.');
