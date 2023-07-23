@@ -18,14 +18,15 @@ const firebaseConfig = {
   const messaging = firebase.messaging();
   
   messaging.onBackgroundMessage(function(payload) {
-    console.log('Received background message ', payload);
+    // console.log('Received background message ', payload);
    // Customize notification here
     const notificationTitle = payload.notification.title;
     const notificationOptions = {
       body: payload.notification.body,
-      icon: payload.notification.image
+      icon: payload.notification.image,
+      link: "https://saghiomey.netlify.app/Dr.Sonia-Dadseresht(Last-persian-episode)"
     };
-  
+    console.log('Received background message ', notificationOptions);
     self.registration.showNotification(notificationTitle,
       notificationOptions);
   });
