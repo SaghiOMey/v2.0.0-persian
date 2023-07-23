@@ -26,7 +26,6 @@ const firebaseConfig = {
       icon: payload.notification.image,
       click_action: "https://saghiomey.netlify.app/Dr.Sonia-Dadseresht(Last-persian-episode)"
     };
-    console.log('Received ', notificationOptions);
     self.registration.showNotification(notificationTitle,
       notificationOptions);
   });
