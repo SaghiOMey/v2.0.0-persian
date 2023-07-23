@@ -283,13 +283,13 @@ export default function App({ Component, pageProps }) {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 pt-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  <button
+                  {/* <button
                     onClick={Sub}
                     type="button"
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>&nbsp;
+                  </button>&nbsp; */}
                   {Search ? (
                     <input
                       type="search"

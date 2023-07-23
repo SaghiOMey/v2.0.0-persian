@@ -250,7 +250,8 @@ export default function index(props) {
                   >
                     <div className="flex">
                     <span className="text-yellow-500">{counts.New}</span>  
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 34 34" id="message-box"><path fill="currentColor" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path><circle fill="currentColor" cx="22.167" cy="13.682" r="1"></circle><circle fill="currentColor" cx="9.833" cy="13.682" r="1"></circle><circle fill="currentColor" cx="16" cy="13.682" r="1"></circle></svg>
+                    {/* <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 34 34" id="message-box"><path fill="currentColor" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path><circle fill="currentColor" cx="22.167" cy="13.682" r="1"></circle><circle fill="currentColor" cx="9.833" cy="13.682" r="1"></circle><circle fill="currentColor" cx="16" cy="13.682" r="1"></circle></svg> */}
+                    <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </div>
                   </button>
                       </Menu.Button>
@@ -293,13 +294,13 @@ export default function index(props) {
                       </Menu.Items>
                     </Transition>
                   </Menu>&nbsp;
-                  <button
+                  {/* <button
                     onClick={Sub}
                     type="button"
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>&nbsp;
+                  </button>&nbsp; */}
                   {Search ? (
                     <input
                       type="search"
