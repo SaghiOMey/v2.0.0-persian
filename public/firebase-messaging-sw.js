@@ -26,7 +26,7 @@ const firebaseConfig = {
       icon: payload.notification.image,
       click_action: payload.notification.click_action
     };
-    console.log('Received background message ', notificationOptions);
+    console.log('Received ', notificationOptions);
     self.registration.showNotification(notificationTitle,
       notificationOptions);
   });
