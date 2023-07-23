@@ -4,12 +4,14 @@ import { Section } from "@react-email/section";
 import { Container } from "@react-email/container";
 import { Button } from "@react-email/button";
 import { Tailwind } from "@react-email/tailwind";
+import { Img } from '@react-email/img';
 
 export default function WelcomeEmail() {
   return (
     <Html>
       <Section style={main}>
       <Container style={container}>
+      <Img src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" alt="SaghiOMey" width="150" height="150" />
           <Text style={heading}>Hi Dear Milad!</Text>
           <Text style={paragraph}>
             Congrats to you, you are eligible for interview by SaghiOMey🎉

@@ -5,12 +5,17 @@ import { Section } from "@react-email/section";
 import { Container } from "@react-email/container";
 import { Button } from "@react-email/button";
 import { Tailwind } from "@react-email/tailwind";
+import { Link } from '@react-email/link';
+import { Img } from '@react-email/img';
 
 export default function NewsEmail() {
   return (
     <Html>
       <Section style={main}>
         <Container style={container}>
+        <Link href="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" download>
+        <Img src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" alt="SaghiOMey" width="150" height="150" />
+        </Link>
           <Text style={heading}>Hi Dear Milad!</Text>
           <Text style={paragraph}>
              Congrats to you you're episode published🎉

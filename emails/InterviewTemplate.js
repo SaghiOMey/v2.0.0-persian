@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Html } from "@react-email/html";
 import { Text } from "@react-email/text";
 import { Section } from "@react-email/section";
@@ -6,22 +5,20 @@ import { Container } from "@react-email/container";
 import { Link } from '@react-email/link';
 import { Img } from '@react-email/img';
 
-export default function NewsEmail() {
+export default function RejectEmail() {
   return (
     <Html>
       <Section style={main}>
         <Container style={container}>
-        <Link href="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" download>
         <Img src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" alt="SaghiOMey" width="150" height="150" />
-        </Link>
           <Text style={heading}>Hi Dear Milad!</Text>
           <Text style={paragraph}>
-             You're episode will be publishing as soon as🎉
+              Congrats to you, you are approved for interview by SaghiOMey🎉
           </Text>
           <Text style={paragraph}>
-             So, you can see it on below link.
+              Please joining at skype, then for accurate time interview please send a message at skype by click below link🙏.
           </Text>
-          <Link href="/">News</Link>
+          <Link href="https://join.skype.com/invite/ChQsOGIvbEpf">Skype</Link>
         </Container>
       </Section>
     </Html>
