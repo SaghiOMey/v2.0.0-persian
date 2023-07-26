@@ -4,9 +4,9 @@
         <description><![CDATA[Podcast SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 26 Jul 2023 09:28:29 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 26 Jul 2023 16:00:58 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 26 Jul 2023 09:28:29 GMT</pubDate>
+        <pubDate>Wed, 26 Jul 2023 16:00:58 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
@@ -15,7 +15,7 @@
             <link>https://saghiomey.netlify.app/Dr.Sonia-Dadseresht(Last-persian-episode)</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/Dr.Sonia-Dadseresht(Last-persian-episode)</guid>
             <pubDate>Tue, 27 Jun 2023 19:30:00 GMT</pubDate>
-            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1687953156158-f85cb10aa5584.jpg" length="0" type="image/jpeg"/>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1690386711743-12c4dc09bba1.jpg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[Editorial Styling - Yekta Noorollahi]]></title>
@@ -31,7 +31,7 @@
             <link>https://saghiomey.netlify.app/Society-of-Dentists-Dr.Mina-Nowrouzi</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/Society-of-Dentists-Dr.Mina-Nowrouzi</guid>
             <pubDate>Fri, 09 Jun 2023 19:30:00 GMT</pubDate>
-            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1686460744819-10c550aca0d2d.jpg" length="0" type="image/jpeg"/>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1690383401783-cee8c0f93ae4c.jpg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[Motion graphic - Niloofar alimohammadi]]></title>

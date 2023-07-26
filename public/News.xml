@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title><![CDATA[NFT SaghiOMey]]></title>
-        <description><![CDATA[NFT SaghiOMey Hosted By Milad]]></description>
+        <title><![CDATA[TopNews SaghiOMey]]></title>
+        <description><![CDATA[TopNews SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Tue, 20 Jun 2023 08:49:20 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 26 Jul 2023 16:01:09 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app//News.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Tue, 20 Jun 2023 08:49:20 GMT</pubDate>
+        <pubDate>Wed, 26 Jul 2023 16:01:09 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
@@ -15,7 +15,7 @@
             <link>https://saghiomey.netlify.app/News/ep61</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/News/ep61</guid>
             <pubDate>Mon, 19 Jun 2023 19:30:00 GMT</pubDate>
-            <enclosure url="https://images.unsplash.com/photo-1686133550621-6cabc07df71f?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=580&amp;q=80" length="0" type="image/jpeg"/>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1690387159831-e21106688ba6f.jpg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[#ep60]]></title>
@@ -31,15 +31,7 @@
             <link>https://saghiomey.netlify.app/News/ep59</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/News/ep59</guid>
             <pubDate>Tue, 06 Jun 2023 19:30:00 GMT</pubDate>
-            <enclosure url="https://images.unsplash.com/photo-1686133550621-6cabc07df71f?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=580&amp;q=80" length="0" type="image/jpeg"/>
-        </item>
-        <item>
-            <title><![CDATA[Identity]]></title>
-            <description><![CDATA[Preservation of historical and national identity]]></description>
-            <link>https://saghiomey.netlify.app/News/Identify-Sahar-Kooshkestani</link>
-            <guid isPermaLink="true">https://saghiomey.netlify.app/News/Identify-Sahar-Kooshkestani</guid>
-            <pubDate>Mon, 05 Jun 2023 19:30:00 GMT</pubDate>
-            <enclosure url="https://i.seadn.io/gcs/files/0aaf44be62aaca411dc0b6b0c930baf0.jpg?auto=format&amp;w=1000" length="0" type="image/jpeg"/>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1690384666675-c61f1c36a23dc.jpg" length="0" type="image/jpeg"/>
         </item>
     </channel>
 </rss>
