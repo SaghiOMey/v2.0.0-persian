@@ -15,7 +15,6 @@ import calendar from "../../assests/calendar.svg";
 import { getFirestore } from "firebase/firestore";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { doc, getDoc } from "firebase/firestore";
-import Script from "next/script";
 import Head from "next/head";
 import {
   TwitterShareButton,
@@ -55,23 +54,6 @@ export default function Video(props) {
   console.log(result);
   return (
     <>
-      <Script
-        async
-        type="application/javascript"
-        src="https://news.google.com/swg/js/v1/swg-basic.js"
-      ></Script>
-      <Script id="google-news">
-        {`
-      (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
-        basicSubscriptions.init({
-        type: "NewsArticle",
-        isPartOfType: ["Product"],
-        isPartOfProductId: "CAowqe_OCw:openaccess",
-        clientOptions: { theme: "light", lang: "en" },
-        });
-      });
-      `}
-      </Script>
       {router.isReady ? (
         <>
           <Head>

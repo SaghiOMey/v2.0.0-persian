@@ -21,6 +21,7 @@ import googlepodcast from "../assests/googlepodcast.svg";
 import share from "../assests/share.svg";
 import copy from "../assests/copy.svg";
 import done from "../assests/done.svg";
+import Script from "next/script";
 import Link from "next/link";
 import {
   TwitterShareButton,
@@ -272,6 +273,23 @@ export default function Episode(props) {
   // console.log(fe);
   return (
     <>
+      <Script
+        async
+        type="application/javascript"
+        src="https://news.google.com/swg/js/v1/swg-basic.js"
+      ></Script>
+      <Script id="google-news">
+        {`
+      (self.SWG_BASIC = self.SWG_BASIC || []).push( basicSubscriptions => {
+        basicSubscriptions.init({
+        type: "NewsArticle",
+        isPartOfType: ["Product"],
+        isPartOfProductId: "CAowqe_OCw:openaccess",
+        clientOptions: { theme: "light", lang: "en" },
+        });
+      });
+      `}
+      </Script>
       <Index />
       {router.isReady ? (
         <>
