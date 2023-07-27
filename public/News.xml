@@ -4,9 +4,9 @@
         <description><![CDATA[TopNews SaghiOMey Hosted By Milad]]></description>
         <link>https://saghiomey.netlify.app/</link>
         <generator>RSS for Node</generator>
-        <lastBuildDate>Wed, 26 Jul 2023 16:01:09 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 27 Jul 2023 09:58:26 GMT</lastBuildDate>
         <atom:link href="https://saghiomey.netlify.app//News.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Wed, 26 Jul 2023 16:01:09 GMT</pubDate>
+        <pubDate>Thu, 27 Jul 2023 09:58:26 GMT</pubDate>
         <copyright><![CDATA[All rights reserved 2023, Podcast SaghiOMey]]></copyright>
         <language><![CDATA[en]]></language>
         <item>
@@ -23,7 +23,7 @@
             <link>https://saghiomey.netlify.app/News/ep60</link>
             <guid isPermaLink="true">https://saghiomey.netlify.app/News/ep60</guid>
             <pubDate>Tue, 13 Jun 2023 19:30:00 GMT</pubDate>
-            <enclosure url="https://images.unsplash.com/photo-1686133550621-6cabc07df71f?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=580&amp;q=80" length="0" type="image/jpeg"/>
+            <enclosure url="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/staging/podcast_uploaded_episode400/22745765/22745765-1690450803381-eb20748be36d8.jpg" length="0" type="image/jpeg"/>
         </item>
         <item>
             <title><![CDATA[#ep59]]></title>
