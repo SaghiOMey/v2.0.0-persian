@@ -41,7 +41,7 @@ export default function Reviews(props) {
     }
   }
     fetchData();
-}, []);
+}, [props.user]);
 // console.log(ep);
   return (
     <>
@@ -78,7 +78,7 @@ export default function Reviews(props) {
                     >
                       <div className="h-20 aspect-w-1 w-full overflow-hidden rounded-md bg-zinc-900 lg:aspect-none lg:h-90">
                         <span className="absolute flex w-full justify-center font-medium text-sm text-gray-400">
-                          SaghiOMey
+                          SaghiOMey(SM)
                         </span>
                         <div className="flex items-center">
                               {[0, 1, 2, 3, 4].map((rating) => (
@@ -143,7 +143,7 @@ export default function Reviews(props) {
                     >
                       <div className="h-20 aspect-w-1 w-full overflow-hidden rounded-md bg-zinc-900 lg:aspect-none lg:h-90">
                         <span className="absolute flex w-full justify-center font-medium text-sm text-gray-400">
-                          SaghiOMey
+                          SaghiOMey(SM)
                         </span>
                         <div className="flex items-center">
                               {[0, 1, 2, 3, 4].map((rating) => (

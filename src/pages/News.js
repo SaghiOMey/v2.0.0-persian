@@ -20,7 +20,7 @@ export default function NFT(props) {
   const reviews = props.reviews.reverse();
   const [ep, setEp] = useState(reviews.slice(0, 9));
   const lastepisode = props.episodes.slice(-5).reverse();
-  console.log(reviews);
+  // console.log(reviews);
   return (
     <>
       <Index />
@@ -62,7 +62,7 @@ export default function NFT(props) {
             <Tab.Panels>
               <Tab.Panel>
                 <ul className="md:mx-2 grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
-                  {ep.reverse().map((post) => (
+                  {ep.map((post) => (
                     <>
                       <Link
                         href={`/News/${post.href}`}
