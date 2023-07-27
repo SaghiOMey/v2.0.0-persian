@@ -17,9 +17,10 @@ function classNames(...classes) {
 }
 
 export default function NFT(props) {
-  const reviews = props.reviews.slice(-6).reverse();
+  const reviews = props.reviews.reverse();
+  const [ep, setEp] = useState(reviews.slice(0, 9));
   const lastepisode = props.episodes.slice(-5).reverse();
-  // console.log(reviews);
+  console.log(reviews);
   return (
     <>
       <Index />
@@ -60,8 +61,8 @@ export default function NFT(props) {
             <Tab.List className="flex space-x-1 rounded-xl bg-black p-4"></Tab.List>
             <Tab.Panels>
               <Tab.Panel>
-                <ul className="grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
-                  {reviews.reverse().map((post) => (
+                <ul className="md:mx-2 grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
+                  {ep.reverse().map((post) => (
                     <>
                       <Link
                         href={`/News/${post.href}`}
@@ -96,6 +97,20 @@ export default function NFT(props) {
               </Tab.Panel>
             </Tab.Panels>
           </Tab.Group>
+          {props.reviews.length > 0 ? (
+            <div className="flex justify-center mt-16 md:mr-80">
+            <button
+              onClick={() => setEp(reviews.slice(0, ep.length + 9))}
+              class="bg-yellow-500 text-white h-12 w-28 lg:w-32 lg:h-16 lg:ml-80 md:ml-60 rounded-full hover:bg-white hover:text-black"
+            >
+              Load More
+            </button>
+          </div>
+          ) : (
+            <span className="flex text-gray-200 justify-center text-xl font-semibold">
+              Your search returned no results, please try again
+            </span>
+          )}
           <Footer lastepisode={lastepisode} />
         </div>
       </div>

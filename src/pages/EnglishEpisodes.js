@@ -18,7 +18,7 @@ export default function EnglishEpisodes(props) {
         <title>EnglishEpisodes</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
       </Head>
-      <div className="relative">
+      {/* <div className="relative">
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
         <div className="absolute grid justify-items-center top-8 md:top-28 w-full text-white">
           <span className="text-lg md:text-5xl font-sans font-bold">
@@ -39,7 +39,7 @@ export default function EnglishEpisodes(props) {
             <Footer lastepisode={lastepisode} />
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
