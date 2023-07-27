@@ -18,7 +18,7 @@ function classNames(...classes) {
 
 export default function NFT(props) {
   const reviews = props.review.reverse();
-  const review = [...props.review];
+  const review = [...props.review].reverse();
   const [ep, setEp] = useState(review.slice(0, 9));
   const lastepisode = props.episodes.slice(-5).reverse();
   // console.log(review);
