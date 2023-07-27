@@ -17,10 +17,11 @@ function classNames(...classes) {
 }
 
 export default function NFT(props) {
-  const reviews = props.reviews.reverse();
-  const [ep, setEp] = useState(reviews.slice(0, 9));
+  const reviews = props.review.reverse();
+  const review = [...props.review];
+  const [ep, setEp] = useState(review.slice(0, 9));
   const lastepisode = props.episodes.slice(-5).reverse();
-  // console.log(reviews);
+  // console.log(review);
   return (
     <>
       <Index />
@@ -62,6 +63,42 @@ export default function NFT(props) {
             <Tab.Panels>
               <Tab.Panel>
                 <ul className="md:mx-2 grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
+                  {ep > review ?
+                  <>
+                  {review.map((post) => (
+                    <>
+                      <Link
+                        href={`/News/${post.href}`}
+                        key={post.id}
+                        className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
+                      >
+                        <div className="min-h-80 aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-md bg-zinc-900 group-hover:opacity-75 lg:aspect-none lg:h-90">
+                          <img
+                            src={post.img}
+                            className="h-full w-full object-cover object-center lg:h-full lg:w-full rounded"
+                          />
+                        </div>
+
+                        <ul className="mt-1 flex justify-between text-xs font-normal leading-4 text-gray-200">
+                          <li>
+                            <span className="font-semibold text-gray-500">
+                              Title:
+                            </span>
+                            &nbsp;{post.name}
+                          </li>
+                          <li>
+                            <span className="font-semibold text-gray-500">
+                              Publish date:
+                            </span>
+                            &nbsp;{post.date}
+                          </li>
+                        </ul>
+                      </Link>
+                    </>
+                  ))}
+                  </>
+                  :
+                  <>
                   {ep.map((post) => (
                     <>
                       <Link
@@ -93,6 +130,8 @@ export default function NFT(props) {
                       </Link>
                     </>
                   ))}
+                  </>
+                  }
                 </ul>
               </Tab.Panel>
             </Tab.Panels>
