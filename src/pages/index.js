@@ -36,7 +36,7 @@ import castbox from "../assests/castbox.svg";
 // import AudioPersianInterviews from "../Routes/AudioPersianInterviews";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { db, doc, deleteDoc, getDocs, collection } from "firebase/firestore";
+import { db, doc, getDoc, deleteDoc, getDocs, collection } from "firebase/firestore";
 import { getStorage, ref, deleteObject } from "firebase/storage";
 import { getFirestore } from "firebase/firestore";
 import Voice from '@/components/voice';
@@ -63,6 +63,7 @@ export default function index(props) {
   const [Search, setSearch] = useState(false);
   const [Reviews, setReviews] = useState(null);
   const [Img, setImg] = useState(null);
+  const [ep, setEp] = useState([]);
   let [Name, setName] = useState("");
 
   const handleChange = (e) => {
@@ -144,6 +145,19 @@ export default function index(props) {
       });
     }
 
+    useEffect(() => {
+      async function fetchData() {
+      const db = getFirestore();
+      const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
+      if (Snap.exists()) {
+        setEp(Snap.data())
+      } else {
+        // console.log("No such document!");
+      }
+    }
+      fetchData();
+  }, [props.user]);
+
   const date = episodes.slice(-5).reverse().map((item) => (new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "New" : item.date))
   const counts = {}
   date.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; })
@@ -152,6 +166,8 @@ export default function index(props) {
   const time = props.user ? new Date(props.user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === new Date().getMonth() || new Date(props.user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === parseInt(new Date().getMonth() + 1) ? (parseInt(props.user.multiFactor.user.metadata.creationTime.slice(5,8)) + 5).toString() <= new Date().toString().slice(8, 10) ? null : "confirm" : null : null;
   // const found = guests.find(element => element !== null && element === user && time === "confirm");
   const found = guests.find(element => element !== null && element === user);
+  const messages = props.user && ep.Message ? ep.Message.filter(element => element.name === props.user.displayName) : null;
+  const message = props.user && ep.Message ? ep.Message.find(element => element.name === props.user.displayName) : null;
   // console.log(Img, Reviews);
   return (
     <div>
@@ -411,7 +427,7 @@ export default function index(props) {
                                 "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
                               )}
                             >
-                              Reviews
+                              Reviews {messages && message && message.status === 1 ? <span className='font-medium text-base text-yellow-500'>{messages.length}</span> : null}
                             </Link>
                           )}
                         </Menu.Item>

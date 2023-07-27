@@ -42,6 +42,8 @@ import * as gtag from "../lib/gtag"
 // import NFT from "../Routes/NFT";
 import OneSignal from "react-onesignal";
 import firebase from "firebase/compat/app";
+import { getFirestore } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import "firebase/compat/auth";
 import "firebase/compat/performance";
 import generateRSS from "../lib/generateRssFeed";
@@ -90,13 +92,15 @@ export default function App({ Component, pageProps }) {
   const { pathname } = useRouter();
   const [Search, setSearch] = useState(false);
   const [user, setUser] = useState(null);
+  const [ep, setEp] = useState([]);
   // const [audio, setAudio] = useState("");
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       setUser(user);
     });
   }, []);
-    useEffect(() => {
+
+   useEffect(() => {
         const handleRouteChange = (url) => {
           gtag.pageview(url);
         };
@@ -107,6 +111,19 @@ export default function App({ Component, pageProps }) {
           router.events.off("routeChangeComplete", handleRouteChange);
         };
       }, [router.events]);
+    useEffect(() => {
+      async function fetchData() {
+      const db = getFirestore();
+      const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
+      if (Snap.exists()) {
+        setEp(Snap.data())
+      } else {
+        // console.log("No such document!");
+      }
+    }
+      fetchData();
+  }, [user]);
+
   let [Name, setName] = useState("");
   const handleChange = (e) => {
     setName(e.target.value);
@@ -166,6 +183,8 @@ export default function App({ Component, pageProps }) {
   const time = user ? new Date(user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === new Date().getMonth() || new Date(user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === parseInt(new Date().getMonth() + 1) ? (parseInt(user.multiFactor.user.metadata.creationTime.slice(5,8)) + 5).toString() <= new Date().toString().slice(8, 10) ? null : "confirm" : null : null;
   // const found = guests.find(element => element !== null && element === email && time === "confirm");
   const found = guests.find(element => element !== null && element === email);
+  const messages = user && ep.Message ? ep.Message.filter(element => element.name === user.displayName) : null;
+  const message = user && ep.Message ? ep.Message.find(element => element.name === user.displayName) : null;
   // console.log(time);
   return (
     <>
@@ -401,7 +420,7 @@ export default function App({ Component, pageProps }) {
                                 "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
                               )}
                             >
-                              Reviews
+                              Reviews {messages && message && message.status === 1 ? <span className='font-medium text-base text-yellow-500'>{messages.length}</span> : null}
                             </Link>
                           )}
                         </Menu.Item>
