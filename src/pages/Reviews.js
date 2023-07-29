@@ -24,10 +24,11 @@ function classNames(...classes) {
 }
 
 export default function Reviews(props) {
+  const comment = [...props.comments].reverse();
   const [messages, setMessages] = useState(false);
   const reviews = messages !== false ? messages.Message : [] ; 
   const [ep, setEp] = useState([]);
-  const lastepisode = props.episodes.slice(-5).reverse();
+  const lastepisode = props.episode.slice(-5).reverse();
 
   useEffect(() => {
     async function fetchData() {
@@ -42,7 +43,7 @@ export default function Reviews(props) {
   }
     fetchData();
 }, [props.user]);
-// console.log(ep);
+// console.log(comment);
   return (
     <>
     <Index />
@@ -134,6 +135,73 @@ export default function Reviews(props) {
                 </>
               ) : (
                 <>
+                {ep > comment ?
+                <>
+                  {comment.map((review)  => (
+                    <>
+                    {review.status === 1 ? (
+                      <div
+                      key={review.ep}
+                      className="group relative rounded-md bg-zinc-900 border-8 border-zinc-900"
+                    >
+                      <div className="h-20 aspect-w-1 w-full overflow-hidden rounded-md bg-zinc-900 lg:aspect-none lg:h-90">
+                        <span className="absolute flex w-full justify-center font-medium text-sm text-gray-400">
+                          SaghiOMey(SM)
+                        </span>
+                        <div className="flex items-center">
+                              {[0, 1, 2, 3, 4].map((rating) => (
+                                <StarIcon
+                                  key={rating}
+                                  className={classNames(
+                                    review.rating > rating ? 'text-yellow-400' : 'text-gray-200',
+                                    'h-5 w-5 flex-shrink-0'
+                                  )}
+                                  aria-hidden="true"
+                                />
+                              ))}
+                            </div>
+                      </div>
+                      <div className="mt-4">
+                          <Link href={`/${review.ep}`} className="lg:mt-6 ml-4 mr-1 font-bold text-base text-white hover:text-yellow-500">
+                            {review.nameep}
+                          </Link>
+                        <p className="text-lg lg:text-2xl mt-4 ml-4 mr-1 font-medium text-gray-200">
+                          {review.message}
+                        </p>
+                      </div>
+                      <div className="flex place-content-between items-end">
+                        <span className="flex ml-4 font-semibold text-xs lg:text-base">
+                          <Image className="text-white" src={person} />
+                          <span style={{ color: "#5b5454" }}>
+                            {review.name}
+                          </span>
+                        </span>
+                        <span className="flex mr-4 font-semibold text-xs lg:text-base">
+                          <Image className="text-white mr-1" src={calendar} />
+                          <span style={{ color: "#5b5454" }}>
+                            {review.Date}
+                          </span>
+                        </span>
+                      </div>
+                      <div className="flex place-content-between items-end">
+                        <div className="flex ml-4 font-semibold text-base">
+                          <TwitterShareButton url="https://saghiomey.netlify.app/#/Reviews">
+                            <TwitterIcon size={40} round={true} />
+                          </TwitterShareButton>
+                        </div>
+                        <div className="flex mr-4 font-semibold text-base">
+                          <FacebookShareButton url="https://saghiomey.netlify.app/#/Reviews">
+                            <FacebookIcon size={40} round={true} />
+                          </FacebookShareButton>
+                        </div>
+                      </div>
+                    </div>
+                    ) : null}
+                    </>
+                  ))}
+                </>
+                : 
+                <>
                   {ep.map((review)  => (
                     <>
                     {review.status === 1 ? (
@@ -196,6 +264,8 @@ export default function Reviews(props) {
                     ) : null}
                     </>
                   ))}
+                </>
+                }
                 </>
               )}
             </div>

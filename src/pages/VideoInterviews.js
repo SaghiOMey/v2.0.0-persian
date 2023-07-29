@@ -27,6 +27,14 @@ export default function VideoInterviews(props) {
           </span>
         </div>
         <div className="absolute -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">
+        {episodes.length > 0 ? (
+            <span className="text-xs ml-4 md:ml-20 lg:ml-28 md:text-lg lg:text-2xl xl:ml-40 xl:text-4xl font-sans font-bold text-gray-200">
+              Looking for more videos? Check all of our videos right here
+              below!
+            </span>
+          ) : (
+            ""
+          )}
           <div className="mx-auto text-center max-w-2xl py-16 px-4 sm:py-8 sm:px-6 lg:max-w-7xl lg:px-8">
             <Card episodes={episodes} />
             <Footer lastepisode={lastepisode} />

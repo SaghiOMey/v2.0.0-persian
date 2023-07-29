@@ -134,6 +134,9 @@ export default function App({ Component, pageProps }) {
   const filterReviews = Reviews.filter((reviews) =>
     reviews.epname.toLowerCase().includes(Name.toLowerCase())
   );
+  const filterComments = ep.length !== 0 ? ep.Message.filter((comments) =>
+    comments.ep.toLowerCase().includes(Name.toLowerCase())
+  ) : []
   const cancelButtonRef = useRef(null);
 
   let navigation = [
@@ -323,7 +326,7 @@ export default function App({ Component, pageProps }) {
                   <button
                     onClick={() => setSearch(!Search)}
                     type="button"
-                    className={pathname === "/" || pathname === "/VideoInterviews" || pathname === "/AudioInterviews" || pathname === "/News" ? "rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800" : "hidden"}
+                    className={pathname === "/" || pathname === "/VideoInterviews" || pathname === "/AudioInterviews" || pathname === "/News" || pathname === "/Reviews" ? "rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800" : "hidden"}
                   >
                     <span className="sr-only">View notifications</span>
                     <svg
@@ -478,7 +481,7 @@ export default function App({ Component, pageProps }) {
       </Disclosure>
       }
   <TopProgressBar />    
-  <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={Reviews} episodes={filterNames} review={filterReviews} />
+  <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={Reviews} episodes={filterNames} review={filterReviews} comments={filterComments} />
   <Voice />
     </>
   )
