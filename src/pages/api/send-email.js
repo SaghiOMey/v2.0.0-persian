@@ -10,7 +10,7 @@ import { sendEmail } from "../../lib/email";
 
 export default async function handler(req, res) {
   await sendEmail({
-    to: "mohammadreza.khorrami21@gmail.com",
+    to: "anakarimi12345@gmail.com",
     // subject: "Approve SaghiOMey",
     // subject: "Reject SaghiOMey",
     // subject: "Interview SaghiOMey",
