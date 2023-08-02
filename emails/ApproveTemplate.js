@@ -12,12 +12,12 @@ export default function WelcomeEmail() {
       <Section style={main}>
       <Container style={container}>
       <Img src="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" alt="SaghiOMey" width="150" height="150" />
-          <Text style={heading}>Hi Dear Milad!</Text>
+          <Text style={heading}>Hi Dear Ana!</Text>
           <Text style={paragraph}>
             Congrats to you, you are eligible for interview by SaghiOMey🎉
           </Text>
           <Text style={paragraph}>
-            Please first sign in the site then fill form by click below button(After 5 days have passed, please ignore this email).
+             Please first sign in the site then fill form by click below button(After 5 days have passed, please ignore this email).
           </Text>
           <Tailwind
             config={{
@@ -31,7 +31,7 @@ export default function WelcomeEmail() {
             }}
           >
             <Button
-              href="https://example.com"
+              href="https://saghiomey.netlify.app/Guest/..."
               className="bg-brand px-3 py-2 font-medium leading-4 text-white"
             >
               Click me
