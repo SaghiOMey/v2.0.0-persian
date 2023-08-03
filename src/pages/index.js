@@ -427,7 +427,7 @@ export default function index(props) {
                                 "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
                               )}
                             >
-                              Reviews {messages && message && message.status === 1 ? <span className='font-medium text-base text-yellow-500'>{messages.length}</span> : null}
+                              Reviews {messages && message && message.status === 1 ? <span className='font-medium bg-black rounded-full text-base text-yellow-500'><span className='px-2'>{messages.length}</span></span> : null}
                             </Link>
                           )}
                         </Menu.Item>
