@@ -916,7 +916,7 @@ export default function Episode(props) {
                                 <div className="mt-8">
                                   <div className="flex justify-center mt-5">
                                     <button
-                                      onClick={() =>
+                                      onClick={form.message === "" ? null : () =>
                                         (message() && setopenreview(false)) ||
                                         setSubmit(true) ||
                                         settimeout()

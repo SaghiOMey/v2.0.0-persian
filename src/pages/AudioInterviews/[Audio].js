@@ -686,7 +686,7 @@ function settimeout(){
                                     <div className="mt-8">
                                     <div className="flex justify-center mt-5">
                                    <button
-                                      onClick={() => message() && setopenreview(false) || setSubmit(true) || settimeout()}
+                                      onClick={form.message === "" ? null : () => message() && setopenreview(false) || setSubmit(true) || settimeout()}
                                       type="submit"
                                       className="bg-yellow-500 text-white w-32 h-16 rounded-full hover:bg-white hover:text-black"
                                   >
