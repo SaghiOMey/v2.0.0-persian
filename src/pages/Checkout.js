@@ -52,15 +52,15 @@ export default function Checkout(props) {
       //   setProduct(docId)
       // }
       //   fetchData();
-      
+        if(props.user){
           getDoc(doc(getFirestore(), "checkouts", props.user.displayName)).then(docSnap => {
             if (docSnap.exists()) {
               setCheckouts(docSnap.data())
             } else {
               // console.log("No such document!");
             }
-            });
-        }, []);
+            })}
+        }, [props.user]);
 
         function STClass() {
           setexclass("p-4 mt-1 h-32 border border-gray-300 block w-full shadow-sm sm:text-sm rounded-md")
@@ -116,6 +116,13 @@ export default function Checkout(props) {
                   }
               )
             }, { merge: true });
+            getDoc(doc(getFirestore(), "checkouts", props.user.displayName)).then(docSnap => {
+              if (docSnap.exists()) {
+                setCheckouts(docSnap.data())
+              } else {
+                // console.log("No such document!");
+              }
+              })
           }
 
           async function updatecheckout(name, price, quantity, category, color, size, imageAlt, catimageSrc, num){
@@ -153,6 +160,13 @@ export default function Checkout(props) {
                   }
               )
             }, { merge: true });
+            getDoc(doc(getFirestore(), "checkouts", props.user.displayName)).then(docSnap => {
+              if (docSnap.exists()) {
+                setCheckouts(docSnap.data())
+              } else {
+                // console.log("No such document!");
+              }
+              })
           }
 
     // console.log(quantity);
@@ -188,13 +202,13 @@ export default function Checkout(props) {
                   autoComplete="email"
                   required
                   value={props.user.email}
-                  className="block w-full mt-1 bg-gray-200 border-gray-300 rounded-md shadow-sm cursor-not-allowed sm:text-sm"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 cursor-not-allowed shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 <hr className="mt-10" />
                 <h2 className="mt-10 text-xl font-extrabold text-gray-800">Shipping information</h2>
                 <div className="grid grid-cols-6 gap-6 mt-6">
                   <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="first-name" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
                       Name
                     </label>
                     <input
@@ -205,12 +219,12 @@ export default function Checkout(props) {
                       autoComplete="given-name"
                       required
                       value={props.user.displayName}
-                      className="block w-full mt-1 bg-gray-200 border-gray-300 rounded-md shadow-sm cursor-not-allowed sm:text-sm"
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 cursor-not-allowed shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
 
                 </div>
-                <label htmlFor="apartment" className="block mt-6 text-sm font-medium text-gray-700">
+                <label htmlFor="apartment" className="block mt-6 text-sm font-medium leading-6 text-gray-900">
                   Apartment, suite, etc.
                 </label>
                 <input
@@ -219,11 +233,11 @@ export default function Checkout(props) {
                   id="apartment"
                   autoComplete="apartment"
                 //   onChange={this.handleChange}
-                //   className={this.state.errorMessage.apartment || this.state.errorMessage.apartment ? "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-red-400 rounded-md" : "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
                 <div className="grid grid-cols-6 gap-6 mt-6">
                   <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="city" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
                       City
                     </label>
                     <input
@@ -232,27 +246,31 @@ export default function Checkout(props) {
                       id="city"
                       autoComplete="city"
                     //   onChange={this.handleChange}
-                    //   className={this.state.errorMessage.city || this.state.errorMessage.city ? "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-red-400 rounded-md" : "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"}
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="country" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="country" className="block text-sm font-medium leading-6 text-gray-900">
                       Country
                     </label>
-                    <input
-                      type="text"
-                      name="country"
-                      id="country"
-                      autoComplete="country"
-                    //   onChange={this.handleChange}
-                    //   className={this.state.errorMessage.country || this.state.errorMessage.country ? "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-red-400 rounded-md" : "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"}
-                    />
+                    <div className="mt-2">
+                <select
+                  id="country"
+                  name="country"
+                  autoComplete="country-name"
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                >
+                  <option>United States</option>
+                  <option>Canada</option>
+                  <option>Mexico</option>
+                </select>
+              </div>
                   </div>
                 </div>
                 <div className="grid grid-cols-6 gap-6 mt-6">
                   <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="province" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="province" className="block text-sm font-medium leading-6 text-gray-900">
                       State / Province
                     </label>
                     <input
@@ -261,12 +279,12 @@ export default function Checkout(props) {
                       id="province"
                       autoComplete="province"
                     //   onChange={this.handleChange}
-                    //   className={this.state.errorMessage.province || this.state.errorMessage.province ? "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-red-400 rounded-md" : "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"}
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     />
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
-                    <label htmlFor="postalcode" className="block text-sm font-medium text-gray-700">
+                    <label htmlFor="postalcode" className="block text-sm font-medium leading-6 text-gray-900">
                       Postal code
                     </label>
                     <input
@@ -275,11 +293,11 @@ export default function Checkout(props) {
                       id="postalcode"
                       autoComplete="postalcode"
                     //   onChange={this.handleChange}
-                    //   className={this.state.errorMessage.postalcode || this.state.errorMessage.postalcode ? "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-red-400 rounded-md" : "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"}
+                      className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     />
                   </div>
                 </div>
-                <label htmlFor="phone" className="block mt-6 text-sm font-medium text-gray-700">
+                <label htmlFor="phone" className="block mt-6 text-sm font-medium leading-6 text-gray-900">
                   Phone
                 </label>
                 <input
@@ -288,7 +306,7 @@ export default function Checkout(props) {
                   id="phone"
                   autoComplete="phone"
                 //   onChange={this.handleChange}
-                //   className={this.state.errorMessage.phone || this.state.errorMessage.phone ? "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-red-400 rounded-md" : "mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 />
                 <hr className="mt-10" />
                 <h2 className="mt-10 text-xl font-extrabold text-gray-800">Delivery method</h2>
