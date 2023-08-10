@@ -6,7 +6,7 @@
 import youtube from "../assests/youtube.svg";
 import spotify from "../assests/spotify.svg";
 import Maryam from "../assests/Maryam.svg";
-import Sahar from "../assests/Sahar.svg";
+// import Sahar from "../assests/Sahar.svg";
 import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -78,9 +78,9 @@ export default function Footer(lastepisode) {
                 <Link href='https://www.linkedin.com/in/maryamkarimii/'>
                 <Image src={Maryam} className="h-16 w-16 bg-white rounded" />
                 </Link>
-                <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
+                {/* <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
                 <Image src={Sahar} className="h-16 w-16 bg-white rounded" />
-                </Link>
+                </Link> */}
             </div>
             <div className="flex justify-center gap-3 mt-4">
             <Link className="text-gray-300 text-lg font-medium hover:text-white" href='/TermsofService'>Terms</Link>
@@ -128,9 +128,9 @@ export default function Footer(lastepisode) {
                 <Link href='https://www.linkedin.com/in/maryamkarimii/'>
                 <Image src={Maryam} className="h-16 w-16 bg-white rounded" />
                 </Link>
-                <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
+                {/* <Link href='https://www.linkedin.com/in/sahar-kooshkestani-894661240/'>
                 <Image src={Sahar} className="h-16 w-16 bg-white rounded" />
-                </Link>
+                </Link> */}
             </div>
             <div className="flex justify-center gap-3 mt-4">
             <Link className="text-gray-300 text-lg font-medium hover:text-white" href='/TermsofService'>Terms</Link>
