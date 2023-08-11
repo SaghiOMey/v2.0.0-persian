@@ -6,9 +6,11 @@ import { useRouter } from 'next/router';
 import { getFirestore } from "firebase/firestore";
 import Navigation from "@/components/Navigation";
 import { collection, getDocs, setDoc, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
-import { useState, Fragment, useEffect } from "react";
+import { useState, Fragment, useEffect, useRef } from "react";
 import { Dialog, RadioGroup, Transition, Menu } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import { useFormCheckout } from "../components/useFromCheckout";
+import styles from "../components/Contact.module.css";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
 import Link from "next/link";
@@ -25,14 +27,25 @@ export default function Checkout(props) {
     const [exfill, setexfill] = useState("gray");
     const [shipping, setshipping] = useState(5);
     const [quantity, setQuantity] = useState(0);
+    const form1 = useRef();
+    const [form, setForm] = useState({
+      apartment: "",
+      city: "",
+      province: "",
+      postalcode: "",
+      phone: "",
+      country: ""
+    });
+    const { errors, validateForm, onBlurField } = useFormCheckout(form);
     const date = new Date((new Date()).toJSON()).toDateString().slice(4, 10).concat(',').concat(new Date((new Date()).toJSON()).toDateString().slice(10, 15))
     // const shipping = 5;
     const taxes = 5.25;
     let subtotal = 0;
     const reducer = (accumulator, curr) => accumulator + curr;
     const Sum = checkouts !== null ? checkouts.Products.map((checkout) => checkout.price * checkout.quantity) : null
-    subtotal = Sum !== null ? Sum.reduce(reducer) : null
-    const totalamount = subtotal + shipping + taxes;
+    subtotal = Sum !== null && checkouts.Products.length !== 0 ? Sum.reduce(reducer) : null
+    const totalamount = subtotal !== null ? subtotal + shipping + taxes : 0
+
     const fib = (n) => {
       let options = [];
       for (var i = 1; i <= n; i++) {
@@ -86,6 +99,26 @@ export default function Checkout(props) {
 
           const onSubmitForm = (e) => {
             e.preventDefault();
+            const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
+            if (!isValid) return;
+            const db = getFirestore();
+            const orders = doc(db, "orders", props.user.displayName)
+             updateDoc(orders, {
+              "Orders" : arrayUnion(
+                {
+                  username: props.user.displayName,
+                  useremail: props.user.email,
+                  apartment: form.apartment,
+                  city: form.city,
+                  country: form.country,
+                  province: form.province,
+                  postalcode: form.postalcode,
+                  phone: form.phone,
+                  totalamount: totalamount
+                  }
+              )
+            }, { merge: true });
+            location.href = 'http://localhost:3000/Shop';
           };
 
           const onUpdateField = (e) => {
@@ -95,6 +128,12 @@ export default function Checkout(props) {
               [field]: e.target.value,
             };
             setForm(nextFormState);
+            if (errors[field].dirty)
+            validateForm({
+              form: nextFormState,
+              errors,
+              field,
+            });
           };
         
           async function deletecheckout(name, price, quantity, category, color, size, imageAlt, catimageSrc){
@@ -168,8 +207,7 @@ export default function Checkout(props) {
               }
               })
           }
-
-    // console.log(quantity);
+    // console.log(isValid);
     return (
         <>
         {checkouts && props.user ? 
@@ -186,7 +224,7 @@ export default function Checkout(props) {
             </div>
           </div>
         </>
-        <form className="max-w-2xl mx-auto py-9 sm:py-16 lg:mt-50 lg:max-w-none">
+        <form ref={form1} onSubmit={onSubmitForm} className="max-w-2xl mx-auto py-9 sm:py-16 lg:mt-50 lg:max-w-none">
           <div class="mt-16 rounded-lg grid grid-cols-1 gap-16 md:grid-cols-2">
             <div className="relative md:row-span-3">
               <h2 className="text-xl font-extrabold text-gray-800">Contact information</h2>
@@ -232,9 +270,16 @@ export default function Checkout(props) {
                   name="apartment"
                   id="apartment"
                   autoComplete="apartment"
-                //   onChange={this.handleChange}
+                  onBlur={onBlurField}
+                  onChange={onUpdateField}
+                  value={form.apartment}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
+                  {errors.apartment.dirty && errors.apartment.error ? (
+                  <p className={styles.formFieldErrorMessage}>
+                    {errors.apartment.message}
+                  </p>
+                  ) : null}
                 <div className="grid grid-cols-6 gap-6 mt-6">
                   <div className="col-span-6 sm:col-span-3">
                     <label htmlFor="city" className="block text-sm font-medium leading-6 text-gray-900">
@@ -245,9 +290,16 @@ export default function Checkout(props) {
                       name="city"
                       id="city"
                       autoComplete="city"
-                    //   onChange={this.handleChange}
+                      onBlur={onBlurField}
+                      onChange={onUpdateField}
+                      value={form.city}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
+                  {errors.city.dirty && errors.city.error ? (
+                  <p className={styles.formFieldErrorMessage}>
+                    {errors.city.message}
+                  </p>
+                  ) : null}
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
@@ -259,12 +311,21 @@ export default function Checkout(props) {
                   id="country"
                   name="country"
                   autoComplete="country-name"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  onBlur={onBlurField}
+                  onChange={onUpdateField}
+                  value={form.country}
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 >
+                  <option value="">Choose a country</option>
                   <option>United States</option>
                   <option>Canada</option>
                   <option>Mexico</option>
                 </select>
+                {errors.country.dirty && errors.country.error ? (
+                  <p className={styles.formFieldErrorMessage}>
+                    {errors.country.message}
+                  </p>
+                  ) : null}
               </div>
                   </div>
                 </div>
@@ -278,9 +339,16 @@ export default function Checkout(props) {
                       name="province"
                       id="province"
                       autoComplete="province"
-                    //   onChange={this.handleChange}
+                      onBlur={onBlurField}
+                      onChange={onUpdateField}
+                      value={form.province}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     />
+                  {errors.province.dirty && errors.province.error ? (
+                  <p className={styles.formFieldErrorMessage}>
+                    {errors.province.message}
+                  </p>
+                  ) : null}
                   </div>
 
                   <div className="col-span-6 sm:col-span-3">
@@ -292,9 +360,16 @@ export default function Checkout(props) {
                       name="postalcode"
                       id="postalcode"
                       autoComplete="postalcode"
-                    //   onChange={this.handleChange}
+                      onBlur={onBlurField}
+                      onChange={onUpdateField}
+                      value={form.postalcode}
                       className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                     />
+                  {errors.postalcode.dirty && errors.postalcode.error ? (
+                  <p className={styles.formFieldErrorMessage}>
+                    {errors.postalcode.message}
+                  </p>
+                  ) : null}
                   </div>
                 </div>
                 <label htmlFor="phone" className="block mt-6 text-sm font-medium leading-6 text-gray-900">
@@ -305,9 +380,16 @@ export default function Checkout(props) {
                   name="phone"
                   id="phone"
                   autoComplete="phone"
-                //   onChange={this.handleChange}
+                  onBlur={onBlurField}
+                  onChange={onUpdateField}
+                  value={form.phone}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 />
+                  {errors.phone.dirty && errors.phone.error ? (
+                  <p className={styles.formFieldErrorMessage}>
+                    {errors.phone.message}
+                  </p>
+                  ) : null}
                 <hr className="mt-10" />
                 <h2 className="mt-10 text-xl font-extrabold text-gray-800">Delivery method</h2>
                 <div className="flex grid grid-cols-6 gap-6 mt-6">
@@ -333,20 +415,28 @@ export default function Checkout(props) {
                   </div>
                 </div>
                 <h2 className="mt-10 text-xl font-extrabold text-gray-800">Payment</h2>
-                {checkouts ?
+                {checkouts && checkouts.Products.length !== 0 ?
                   <div className="mt-6">
-                    {/* <Link to="/order"> */}
+                    {/* <Link href="/Shop"> */}
                     <button
-                      // onClick={() => order(this.props.user.currentUser.currentUser.id, this.state.shipping, this.props.user.currentUser.currentUser.email, this.props.user.currentUser.currentUser.name.slice(0, 5), this.props.user.currentUser.currentUser.name.slice(6, 14), this.state.apartment, this.state.city, this.state.country, this.state.province, this.state.postalcode, this.state.phone, this.state.cardnumber, this.state.namecard, this.state.expiredate, this.state.cvc) && this.minusSubmit(id, this.state.quantity ? this.state.quantity : quantity)}
+                      // onClick={() => onSubmitForm() ? <Link href="/Shop" /> : ""}
                       className="flex items-center justify-center w-full px-6 py-3 mt-12 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
                     >
                       {`${'Pay $' + totalamount}`}
                     </button>
                     {/* </Link> */}
                   </div>
-                  : ''}
+                  : 
+                    <button
+                      disabled
+                      className="flex items-center cursor-not-allowed justify-center w-full px-6 py-3 mt-12 text-base font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700"
+                    >
+                      {`${'Pay $' + totalamount}`}
+                    </button>
+                  }
               </div>
             </div>
+            {checkouts.Products.length !== 0 ?
             <div className="relative md:row-span-1">
               <h2 className="text-xl font-extrabold text-gray-800">Order summary</h2>
               {checkouts ?
@@ -452,6 +542,11 @@ export default function Checkout(props) {
                 </Link>
               }
             </div>
+            : 
+            <Link className="text-lg font-extrabold text-indigo-500" href="/Shop">
+              Please add the product to your card
+            </Link>
+            }
           </div>
         </form>
       </div>
