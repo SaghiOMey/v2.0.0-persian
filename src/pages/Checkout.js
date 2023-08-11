@@ -114,11 +114,14 @@ export default function Checkout(props) {
                   province: form.province,
                   postalcode: form.postalcode,
                   phone: form.phone,
+                  taxes: taxes,
+                  subtotal: subtotal,
+                  shipping: shipping,
                   totalamount: totalamount
                   }
               )
             }, { merge: true });
-            location.href = 'http://localhost:3000/Shop';
+            // location.href = 'http://localhost:3000/Order';
           };
 
           const onUpdateField = (e) => {
