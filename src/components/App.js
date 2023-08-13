@@ -112,7 +112,7 @@ export default function App(props) {
                 </a>
                 <a
                   className="text-yellow-500 ml-4 md:ml-8 lg:ml-8 hover:text-white fill-current"
-                  href="https://www.linkedin.com/in/mohammadreza-khorrami-238302215/"
+                  href="https://www.linkedin.com/company/saghiomey/"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
