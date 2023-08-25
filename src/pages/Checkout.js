@@ -15,6 +15,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
 import Link from "next/link";
 
+
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
