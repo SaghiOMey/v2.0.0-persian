@@ -37,7 +37,9 @@ export default function About(props) {
             <br />
             <br />
             <span className="text-xl md:text-2xl text-gray-400 font-sans font-bold">
-              Join Host Milad as he talks to various guests each week where
+              {/* Join Host Milad as he talks to various guests each week where
+              ”Everyone Has A Story” from the world. */}
+              Join Host Milad as he talks to various guests where
               ”Everyone Has A Story” from the world.
             </span>
           </div>

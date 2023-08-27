@@ -41,7 +41,9 @@ export default function App(props) {
           />
           <div className="mt-16 -ml-20 h-72 lg:h-auto md:h-44 md:m-0 md:flex md:flex-1 md:items-start md:justify-center bg-black">
             <div className="font-mono font-bold ml-6 text-xs lg:text-xs xl:text-lg text-gray-100">
-              Join Host Milad as he talks to various guests each week where
+              {/* Join Host Milad as he talks to various guests each week where
+              ”Everyone Has A Story” from the world. */}
+              Join Host Milad as he talks to various guests where
               ”Everyone Has A Story” from the world.
               <br />
               <br />

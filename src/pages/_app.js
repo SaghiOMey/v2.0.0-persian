@@ -226,7 +226,7 @@ export default function App({ Component, pageProps }) {
         <meta name="author" content="Milad" />
         <meta name="google-site-verification" content="QpBWZ37FwTOQtW_1NPVKstxLBeO_7Y__NPqCx9vZla4" />
         <meta name="keywords"
-        content="Milad, Milad Podcast, SaghiOMey, saghiomey, Saghiomey, SaghiOMey Podcast, Cultural and social podcast, پادکست, پادکست میلاد, ساقی و می, پادکست میلاد, پادکست فرهنگی و اجتماعی" />
+        content="Milad, Milad Podcast, SaghiOMey, saghiomey, Saghiomey, SaghiOMey Podcast, Cultural and social podcast" />
       </Head>
       {pathname === "/" ? null :
       <Disclosure as="nav" style={{ backgroundColor: "#1f2022" }}>
