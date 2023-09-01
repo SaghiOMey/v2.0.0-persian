@@ -181,11 +181,11 @@ export default function App({ Component, pageProps }) {
       appId: "62e0bd67-f20e-4491-b24f-a27b58d7cdfc",
     });
   }, []);
-  const guests = ['mohammadreza.khorrami21@gmail.com','anakarimi12345@gmail.com'];
+  const guests = ['mohammadreza.khorrami21@gmail.com'];
   const email = user ? user.email : null;
   const time = user ? new Date(user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === new Date().getMonth() || new Date(user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === parseInt(new Date().getMonth() + 1) ? (parseInt(user.multiFactor.user.metadata.creationTime.slice(5,8)) + 5).toString() <= new Date().toString().slice(8, 10) ? null : "confirm" : null : null;
-  const found = guests.find(element => element !== null && element === email && time === "confirm");
-  // const found = guests.find(element => element !== null && element === email);
+  // const found = guests.find(element => element !== null && element === email && time === "confirm");
+  const found = guests.find(element => element !== null && element === email);
   const messages = user && ep.Message ? ep.Message.filter(element => element.name === user.displayName) : null;
   const message = user && ep.Message ? ep.Message.find(element => element.name === user.displayName) : null;
   // console.log(time);
