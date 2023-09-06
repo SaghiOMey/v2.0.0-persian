@@ -139,7 +139,7 @@ export default function Checkout(props) {
               field,
             });
           };
-        
+         
           async function deletecheckout(name, price, quantity, category, color, size, imageAlt, catimageSrc){
             const db = getFirestore();
             const checkouts = doc(db, "checkouts", props.user.displayName)
