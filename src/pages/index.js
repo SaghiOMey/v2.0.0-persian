@@ -158,7 +158,7 @@ export default function index(props) {
       fetchData();
   }, [props.user]);
 
-  const date = episodes.slice(-5).reverse().map((item) => (new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "New" : item.date))
+  const date = episodes.slice(-5).reverse().map((item) => (new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? item.date : item.date))
   const counts = {}
   date.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; })
   const guests = ['mohammadreza.khorrami21@gmail.com'];
@@ -297,7 +297,7 @@ export default function index(props) {
                                 src={profile}
                                 alt="profile"
                                 />
-                                <div className="p-2 text-gray-200 hover:text-yellow-500 hover:cursor-pointer">Recommended: {item.name}<br /><span className={new Date(item.date).getMonth() < new Date().getMonth() ? null : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "text-yellow-500" : null}>{new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? "New" : item.date}</span></div>
+                                <div className="p-2 text-gray-200 hover:text-yellow-500 hover:cursor-pointer">Recommended: {item.name}<br /><span className={new Date(item.date).getMonth() < new Date().getMonth() ? null : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? null : null}>{new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? item.date : item.date}</span></div>
                                 <img
                                 className="h-12 w-12 rounded"
                                 src={item.img} />
