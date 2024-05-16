@@ -133,17 +133,6 @@ export default function index(props) {
     }
       fetchData();
     }, []);
-    async function deleteData(){
-      const db = getFirestore();
-      const storage = getStorage();
-      const desertRef = ref(storage, Img);
-      await deleteDoc(doc(db, "guests", Reviews));
-      deleteObject(desertRef).then(() => {
-        // console.log("deleted");
-      }).catch((error) => {
-        // Uh-oh, an error occurred!
-      });
-    }
 
     useEffect(() => {
       async function fetchData() {
@@ -161,11 +150,6 @@ export default function index(props) {
   const date = episodes.slice(-5).reverse().map((item) => (new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? item.date : item.date))
   const counts = {}
   date.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; })
-  const guests = ['mohammadreza.khorrami21@gmail.com'];
-  const user = props.user ? props.user.email : null;
-  const time = props.user ? new Date(props.user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === new Date().getMonth() || new Date(props.user.multiFactor.user.metadata.creationTime.slice(5,12)).getMonth() === parseInt(new Date().getMonth() + 1) ? (parseInt(props.user.multiFactor.user.metadata.creationTime.slice(5,8)) + 5).toString() <= new Date().toString().slice(8, 10) ? null : "confirm" : null : null;
-  // const found = guests.find(element => element !== null && element === user && time === "confirm");
-  const found = guests.find(element => element !== null && element === user);
   const messages = props.user && ep.Message ? ep.Message.filter(element => element.name === props.user.displayName) : null;
   const message = props.user && ep.Message ? ep.Message.find(element => element.name === props.user.displayName) : null;
   // console.log(Img, Reviews);
@@ -259,17 +243,13 @@ export default function index(props) {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm">
                         <span className="sr-only">Open user menu</span>
-                        <button
-                        onClick={deleteData}
-                    type="button"
-                    className= "rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white"
-                  >
-                    <div className="flex">
+
+                    <div className="flex rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white">
                     <span className="text-yellow-500">{counts.New}</span>  
                     {/* <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 34 34" id="message-box"><path fill="currentColor" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path><circle fill="currentColor" cx="22.167" cy="13.682" r="1"></circle><circle fill="currentColor" cx="9.833" cy="13.682" r="1"></circle><circle fill="currentColor" cx="16" cy="13.682" r="1"></circle></svg> */}
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </div>
-                  </button>
+
                       </Menu.Button>
                     </div>
                     <Transition
@@ -387,7 +367,7 @@ export default function index(props) {
                             <>
                             {props.user ?
                             // props.user.displayName
-                            found ? <Link href={`/Guest/${props.user.uid}`} className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500")}>{props.user.displayName}</Link> : <span className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700")}>{props.user.displayName}</span>
+                            <span className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700")}>{props.user.displayName}</span>
                             :
                             // <Link
                             //   href="Profile"
