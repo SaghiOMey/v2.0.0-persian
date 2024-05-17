@@ -524,8 +524,8 @@ function settimeout(){
           <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-18 lg:ml-64 md:-mt-24 md:ml-72">
             {props.user ?
             <button
-              onClick={() => flike() && setLike(!like) || setCountlike(like === false ? countlike + 1 : countlike - 1)}
-              className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
+              disabled
+              className="flex cursor-not-allowed bg-white h-12 w-32 rounded hover:bg-opacity-0"
             >
               <svg className={like === false ? "text-yellow-500 animate-ping" : "text-red-700 animate-ping"} xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" version="1" id="heart"><path fill="currentColor" d="M2.2 9.4c0 1.3.2 3.3 2 5.1 1.6 1.6 6.9 5.2 7.1 5.4.2.1.4.2.6.2s.4-.1.6-.2c.2-.2 5.5-3.7 7.1-5.4 1.8-1.8 2-3.8 2-5.1 0-3-2.4-5.4-5.4-5.4-1.6 0-3.2.9-4.2 2.3C11 4.9 9.4 4 7.6 4 4.7 4 2.2 6.4 2.2 9.4z"></path></svg>
               
@@ -563,8 +563,8 @@ function settimeout(){
             }
             {props.user ? 
             <button
-              onClick={() => setopenreview(true) || setForm({rating: 0, name: props.user.displayName, nameep: result.name, message: form.message, status: 0, Date: Date().slice(4,10)+','+Date().slice(10,15), ep: result.href})}
-              className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
+              disabled
+              className="flex cursor-not-allowed bg-white h-12 w-32 rounded hover:bg-opacity-0"
             >
               <svg className="ml-2 mt-1 text-yellow-500 animate-ping" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 36 36" id="comment"><path fill="currentColor" d="M5.078 24.482A19.813 19.813 0 0 1 1.812 30c3.198 0 7.312-.42 10.482-2.364A19.52 19.52 0 0 0 16 28c8.836 0 16-5.82 16-13S24.836 2 16 2 0 7.82 0 15c0 3.744 1.96 7.11 5.078 9.482z"></path></svg>
               <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
@@ -589,119 +589,6 @@ function settimeout(){
               </span>
             </button>
             }
-            <Transition.Root show={openreview} as={Fragment}>
-                      <Dialog as="div" className="fixed inset-0 z-10 overflow-y-auto" onClose={setopenreview}>
-                        <div className="flex min-h-screen text-center md:block md:px-2 lg:px-4" style={{ fontSize: 0 }}>
-                          <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0"
-                            enterTo="opacity-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100"
-                            leaveTo="opacity-0"
-                          >
-                            <Dialog.Overlay className="fixed inset-0 hidden transition-opacity bg-gray-500 bg-opacity-75 md:block" />
-                          </Transition.Child>
-
-                          {/* This element is to trick the browser into centering the modal contents. */}
-                          <span className="hidden md:inline-block md:align-middle md:h-screen" aria-hidden="true">
-                            &#8203;
-                          </span>
-                          <Transition.Child
-                            as={Fragment}
-                            enter="ease-out duration-300"
-                            enterFrom="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-                            enterTo="opacity-100 translate-y-0 md:scale-100"
-                            leave="ease-in duration-200"
-                            leaveFrom="opacity-100 translate-y-0 md:scale-100"
-                            leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-                          >
-                            <div className="flex w-full text-base text-left transition transform md:inline-block md:max-w-2xl md:px-4 md:my-8 md:align-middle lg:max-w-4xl">
-                              <div className="relative bg-black flex items-center w-full px-4 pb-8 overflow-hidden shadow-2xl pt-14 sm:px-6 sm:pt-8 md:p-6 lg:p-8">
-                                <button
-                                  type="button"
-                                  className="absolute text-gray-400 top-4 right-4 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
-                                  onClick={() => setopenreview(false)}
-                                >
-                                  <span className="sr-only">Close</span>
-                                  <XMarkIcon className="w-6 h-6" aria-hidden="true" />
-                                </button>
-
-                                <div className="grid items-start w-full grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
-                                  <form className="sm:col-span-full lg:col-span-full" onSubmit={onSubmitForm}>
-                                    {/* <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{result.name}</h2> */}
-                                    <Dialog.Title
-                                as="h3"
-                                className="text-lg flex font-semibold leading-6 text-gray-200"
-                              >
-                                <img
-                                  src={result.img}
-                                  alt="logo"
-                                  className="w-1/4 rounded"
-                                />
-                                <span className="ml-4">{result.name}</span>
-                              </Dialog.Title>
-                                    <div className="mt-2 pl-0.5 cursor-pointer flex items-center">
-                                      {[0, 1, 2, 3, 4].map((rating) => (
-                                        <StarIcon
-                                          key={rating}
-                                          className={classNames(
-                                            form.rating > rating ? 'text-yellow-400' : 'text-gray-200',
-                                            'h-5 w-5 flex-shrink-0'
-                                          )}
-                                          aria-hidden="true"
-                                          name="rating"
-                                          onClick={() => setForm({rating: rating + 1, name: props.user.displayName, nameep: result.name, message: form.message, status: 0, Date: Date().slice(4,10)+','+Date().slice(10,15), ep: result.href})}
-                                        />
-                                      ))}
-                                    </div>
-                                    <label htmlFor="street-address" className="block mt-4 text-sm font-medium text-gray-300">
-                                      Name
-                                    </label>
-                                    <input
-                                      type="text"
-                                      name="name"
-                                      id="name"
-                                      disabled ="disabled"
-                                      value={form.name}
-                                      autoComplete="name"
-                                      className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border shadow-sm text-gray-300 border-yellow-500 sm:text-medium cursor-not-allowed"
-                                      required
-                                    />
-                                    <label htmlFor="message" className="block mt-4 text-sm font-medium text-gray-300">
-                                      Message
-                                    </label>
-                                    {/* {this.state.errorMessage.message ? <p className="text-red-500">{this.state.errorMessage.message[0]}</p> : <p className="text-red-500">{this.state.errorMessage.data}</p>} */}
-                                    <textarea
-                                      type="text"
-                                      name="message"
-                                      id="message"
-                                      value={form.message}
-                                      autoComplete="address-level2"
-                                      className="mt-1 h-32 w-72 md:w-96 bg-black block text-gray-300 rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
-                                      onChange={onUpdateField}
-                                      required
-                                    />
-                                    <div className="mt-8">
-                                    <div className="flex justify-center mt-5">
-                                   <button
-                                      onClick={form.message === "" ? null : () => message() && setopenreview(false) || setSubmit(true) || settimeout()}
-                                      type="submit"
-                                      className="bg-yellow-500 text-white w-32 h-16 rounded-full hover:bg-white hover:text-black"
-                                  >
-                                    Submit
-                                  </button>
-                                  </div>
-                                    </div>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                          </Transition.Child>
-                        </div>
-                      </Dialog>
-            </Transition.Root>
             <div
             className={`relative z-10 ${open === true ? "block" : "hidden"}`}
             aria-labelledby="modal-title"
@@ -753,8 +640,8 @@ function settimeout(){
             </div>
             {props.user ? 
             <button
-              onClick={() => fdislike() && setDislike(!dislike) || setCountdislike(dislike === false ? countdislike + 1 : countdislike - 1)}
-              className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
+              disabled
+              className="flex cursor-not-allowed bg-white h-12 w-32 rounded hover:bg-opacity-0"
             >
               <svg className={dislike === false ? "text-yellow-500 animate-ping" : "text-red-700 animate-ping"} xmlns="http://www.w3.org/2000/svg" id="dislike" version="1" width="40" height="40" viewBox="0 0 27 27"><path fill="currentColor" d="M11.377.937h2v25.456h-2z" transform="rotate(-45.001 12.377 13.665)"></path><path d="m21.439 18.483 2.633-2.633.354-.354a6.5 6.5 0 0 0-9.192-9.192l-.354.354-.354-.354a6.495 6.495 0 0 0-6.784-1.518l13.697 13.697zM3.663 9.193a6.494 6.494 0 0 0 1.671 6.304l.354.354 9.192 9.192 2.317-2.317L3.663 9.193z"></path></svg>
               

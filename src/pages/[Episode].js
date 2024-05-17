@@ -67,14 +67,11 @@ function classNames(...classes) {
 export default function Episode(props) {
   const [Open, setOpen] = useState(false);
   const [open, setopen] = useState(false);
-  const [openreview, setopenreview] = useState(false);
   const [submit, setSubmit] = useState(false);
   const [like, setLike] = useState(false);
-  const [countlike, setCountlike] = useState(0);
   const [dislike, setDislike] = useState(false);
   const [comments, setComments] = useState(false);
   const [messages, setMessages] = useState(false);
-  const [countdislike, setCountdislike] = useState(0);
   const [isCopied, setIsCopied] = useState();
   const cancelButtonRef = useRef(null);
   const router = useRouter();
@@ -83,15 +80,7 @@ export default function Episode(props) {
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/", "")
   );
-  const [form, setForm] = useState({
-    rating: 0,
-    name: "",
-    message: "",
-    status: 0,
-    Date: Date().slice(4, 10) + "," + Date().slice(10, 15),
-    nameep: "",
-    ep: "",
-  });
+
   const re = comments
     ? comments.Comments.find((comment) => comment.name === result.href)
     : false;
@@ -123,154 +112,18 @@ export default function Episode(props) {
      fetchData();
   }, [props.user]);
 
-  async function flike() {
-    const db = getFirestore();
-    const com = doc(db, "comments", "w44wc6XwYePlrsl3f3Ll");
-
-    const c =
-      re !== undefined
-        ? !like === true
-          ? re.like + 1
-          : re.like === 0
-          ? re.like
-          : re.like - 1
-        : 1;
-
-    await updateDoc(
-      com,
-      {
-        Comments: arrayUnion({
-          like: c,
-          dislike: re !== undefined ? re.dislike : 0,
-          name: result.href,
-        }),
-      },
-      { merge: true }
-    );
-    await updateDoc(
-      com,
-      {
-        Comments: arrayRemove({
-          like: re !== undefined ? re.like : 0,
-          dislike: re !== undefined ? re.dislike : 0,
-          name: result.href,
-        }),
-      },
-      { merge: true }
-    );
-    getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(
-      (docSnap) => {
-        if (docSnap.exists()) {
-          setComments(docSnap.data());
-        } else {
-          // console.log("No such document!");
-        }
-      }
-    );
-  }
-
-  async function fdislike() {
-    const db = getFirestore();
-    const com = doc(db, "comments", "w44wc6XwYePlrsl3f3Ll");
-
-    const d =
-      re !== undefined
-        ? !dislike === true
-          ? re.dislike + 1
-          : re.dislike === 0
-          ? re.dislike
-          : re.dislike - 1
-        : 1;
-
-    await updateDoc(
-      com,
-      {
-        Comments: arrayUnion({
-          like: re !== undefined ? re.like : 0,
-          dislike: d,
-          name: result.href,
-        }),
-      },
-      { merge: true }
-    );
-    await updateDoc(
-      com,
-      {
-        Comments: arrayRemove({
-          like: re !== undefined ? re.like : 0,
-          dislike: re !== undefined ? re.dislike : 0,
-          name: result.href,
-        }),
-      },
-      { merge: true }
-    );
-    getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(
-      (docSnap) => {
-        if (docSnap.exists()) {
-          setComments(docSnap.data());
-        } else {
-          // console.log("No such document!");
-        }
-      }
-    );
-  }
-
   function setttimeout() {
     setTimeout(() => {
       setopen(false);
     }, 3000);
   }
 
-  const onSubmitForm = (e) => {
-    e.preventDefault();
-  };
-
-  const onUpdateField = (e) => {
-    const field = e.target.name;
-    const nextFormState = {
-      ...form,
-      [field]: e.target.value,
-    };
-    setForm(nextFormState);
-  };
-
-  async function message() {
-    const db = getFirestore();
-    const com = doc(db, "comments", "CmH4vduV6PMnqShozQJU");
-
-    await updateDoc(
-      com,
-      {
-        Message: arrayUnion({
-          rating: form.rating,
-          name: form.name,
-          message: form.message,
-          status: form.status,
-          Date: form.Date,
-          ep: form.ep,
-          nameep: form.nameep,
-        }),
-      },
-      { merge: true }
-    );
-    getDoc(doc(getFirestore(), "comments", "CmH4vduV6PMnqShozQJU")).then(
-      (docSnap) => {
-        if (docSnap.exists()) {
-          setMessages(docSnap.data());
-        } else {
-          // console.log("No such document!");
-        }
-      }
-    );
-  }
   function settimeout() {
     setTimeout(() => {
       setSubmit(false);
     }, 3000);
   }
 
-  // const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/", ""))
-  // console.log(fe);
   return (
     <>
       <Script
@@ -594,13 +447,8 @@ export default function Episode(props) {
               <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-18 lg:ml-64 md:-mt-24 md:ml-72">
                 {props.user ? (
                   <button
-                    onClick={() =>
-                      (flike() && setLike(!like)) ||
-                      setCountlike(
-                        like === false ? countlike + 1 : countlike - 1
-                      )
-                    }
-                    className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
+                    disabled
+                    className="flex bg-white h-12 w-32 cursor-not-allowed rounded hover:bg-opacity-0"
                   >
                     <svg
                       className={
@@ -720,19 +568,8 @@ export default function Episode(props) {
                 )}
                 {props.user ? (
                   <button
-                    onClick={() =>
-                      setopenreview(true) ||
-                      setForm({
-                        rating: 0,
-                        name: props.user.displayName,
-                        nameep: result.name,
-                        message: form.message,
-                        status: 0,
-                        Date: Date().slice(4, 10) + "," + Date().slice(10, 15),
-                        ep: result.href,
-                      })
-                    }
-                    className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
+                    disabled
+                    className="flex bg-white cursor-not-allowed h-12 w-32 rounded hover:bg-opacity-0"
                   >
                     <svg
                       className="ml-2 mt-1 text-yellow-500 animate-ping"
@@ -782,160 +619,6 @@ export default function Episode(props) {
                     </span>
                   </button>
                 )}
-                <Transition.Root show={openreview} as={Fragment}>
-                  <Dialog
-                    as="div"
-                    className="fixed inset-0 z-10 overflow-y-auto"
-                    onClose={setopenreview}
-                  >
-                    <div
-                      className="flex min-h-screen text-center md:block md:px-2 lg:px-4"
-                      style={{ fontSize: 0 }}
-                    >
-                      <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                      >
-                        <Dialog.Overlay className="fixed inset-0 hidden transition-opacity bg-gray-500 bg-opacity-75 md:block" />
-                      </Transition.Child>
-
-                      {/* This element is to trick the browser into centering the modal contents. */}
-                      <span
-                        className="hidden md:inline-block md:align-middle md:h-screen"
-                        aria-hidden="true"
-                      >
-                        &#8203;
-                      </span>
-                      <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-                        enterTo="opacity-100 translate-y-0 md:scale-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100 translate-y-0 md:scale-100"
-                        leaveTo="opacity-0 translate-y-4 md:translate-y-0 md:scale-95"
-                      >
-                        <div className="flex w-full text-base text-left transition transform md:inline-block md:max-w-2xl md:px-4 md:my-8 md:align-middle lg:max-w-4xl">
-                          <div className="relative bg-black flex items-center w-full px-4 pb-8 overflow-hidden shadow-2xl pt-14 sm:px-6 sm:pt-8 md:p-6 lg:p-8">
-                            <button
-                              type="button"
-                              className="absolute text-gray-400 top-4 right-4 hover:text-gray-500 sm:top-8 sm:right-6 md:top-6 md:right-6 lg:top-8 lg:right-8"
-                              onClick={() => setopenreview(false)}
-                            >
-                              <span className="sr-only">Close</span>
-                              <XMarkIcon
-                                className="w-6 h-6"
-                                aria-hidden="true"
-                              />
-                            </button>
-
-                            <div className="grid items-start w-full grid-cols-1 gap-y-8 gap-x-6 sm:grid-cols-12 lg:gap-x-8">
-                              <form
-                                className="sm:col-span-full lg:col-span-full"
-                                onSubmit={onSubmitForm}
-                              >
-                                {/* <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{result.name}</h2> */}
-                                <Dialog.Title
-                                  as="h3"
-                                  className="text-lg flex font-semibold leading-6 text-gray-200"
-                                >
-                                  <img
-                                    src={result.img}
-                                    alt="logo"
-                                    className="w-1/4 rounded"
-                                  />
-                                  <span className="ml-4">{result.name}</span>
-                                </Dialog.Title>
-                                <div className="mt-2 pl-0.5 cursor-pointer flex items-center">
-                                  {[0, 1, 2, 3, 4].map((rating) => (
-                                    <StarIcon
-                                      key={rating}
-                                      className={classNames(
-                                        form.rating > rating
-                                          ? "text-yellow-400"
-                                          : "text-gray-200",
-                                        "h-5 w-5 flex-shrink-0"
-                                      )}
-                                      aria-hidden="true"
-                                      name="rating"
-                                      onClick={() =>
-                                        setForm({
-                                          rating: rating + 1,
-                                          name: props.user.displayName,
-                                          nameep: result.name,
-                                          message: form.message,
-                                          status: 0,
-                                          Date:
-                                            Date().slice(4, 10) +
-                                            "," +
-                                            Date().slice(10, 15),
-                                          ep: result.href,
-                                        })
-                                      }
-                                    />
-                                  ))}
-                                </div>
-                                <label
-                                  htmlFor="street-address"
-                                  className="block mt-4 text-sm font-medium text-gray-300"
-                                >
-                                  Name
-                                </label>
-                                <input
-                                  type="text"
-                                  name="name"
-                                  id="name"
-                                  disabled="disabled"
-                                  value={form.name}
-                                  autoComplete="name"
-                                  className="mt-1 h-12 w-72 md:w-96 bg-black block rounded-md border shadow-sm text-gray-300 border-yellow-500 sm:text-medium cursor-not-allowed"
-                                  required
-                                />
-                                <label
-                                  htmlFor="message"
-                                  className="block mt-4 text-sm font-medium text-gray-300"
-                                >
-                                  Message
-                                </label>
-                                {/* {this.state.errorMessage.message ? <p className="text-red-500">{this.state.errorMessage.message[0]}</p> : <p className="text-red-500">{this.state.errorMessage.data}</p>} */}
-                                <textarea
-                                  type="text"
-                                  name="message"
-                                  id="message"
-                                  value={form.message}
-                                  autoComplete="address-level2"
-                                  className="mt-1 h-32 w-72 md:w-96 bg-black block text-gray-300 rounded-md border border-white shadow-sm focus:outline-none focus:border-yellow-500 sm:text-medium"
-                                  onChange={onUpdateField}
-                                  required
-                                />
-                                <div className="mt-8">
-                                  <div className="flex justify-center mt-5">
-                                    <button
-                                      onClick={form.message === "" ? null : () =>
-                                        (message() && setopenreview(false)) ||
-                                        setSubmit(true) ||
-                                        settimeout()
-                                      }
-                                      type="submit"
-                                      className="bg-yellow-500 text-white w-32 h-16 rounded-full hover:bg-white hover:text-black"
-                                    >
-                                      Submit
-                                    </button>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </Transition.Child>
-                    </div>
-                  </Dialog>
-                </Transition.Root>
                 <div
                   className={`relative z-10 ${
                     open === true ? "block" : "hidden"
@@ -987,13 +670,8 @@ export default function Episode(props) {
                 </div>
                 {props.user ? (
                   <button
-                    onClick={() =>
-                      (fdislike() && setDislike(!dislike)) ||
-                      setCountdislike(
-                        dislike === false ? countdislike + 1 : countdislike - 1
-                      )
-                    }
-                    className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
+                    disabled
+                    className="flex cursor-not-allowed bg-white h-12 w-32 rounded hover:bg-opacity-0"
                   >
                     <svg
                       className={

@@ -2,10 +2,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import { useRef, useState, useEffect } from "react";
-import emailjs from "@emailjs/browser";
 import { AudioRecorder, useAudioRecorder } from "react-audio-voice-recorder";
-// import axios from "axios";
-import { getStorage, ref, uploadBytes } from "firebase/storage";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import Link from "next/link";
@@ -47,39 +44,6 @@ export default function Voice() {
     setAudio(url);
   };
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-    emailjs
-      .sendForm(
-        "service_75ytjo7",
-        "template_7ek1l64",
-        form1.current,
-        "Lp5sE4yuq_l5oKBod"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-      async function createFile(){
-        let response = await fetch(audio);
-        let data = await response.blob();
-        let metadata = {
-          type: 'audio/mpeg'
-        };
-        let rand = (Math.random() + 1).toString(36).substring(7);
-        let file = new File([data], `file${rand}.mp3`, metadata);
-            const storage = getStorage();
-            const storageRef = ref(storage, `Voice/file${rand}.mp3`);
-            uploadBytes(storageRef, file, metadata).then((snapshot) => {
-            // console.log(rand);
-            });
-      }
-      createFile()
-  };
   return (
     <div className="flex justify-end fixed top-3/4 mt-24 right-4">
       <AudioRecorder
@@ -88,7 +52,7 @@ export default function Voice() {
         recorderControls={recorderControls}
       />
       {audio.length ? (
-        <form ref={form1} onSubmit={sendEmail}>
+        <form ref={form1}>
           {user ?
           <input className="hidden" name="audio" value={user.email} />
           : null }
@@ -131,8 +95,9 @@ export default function Voice() {
                     <button
                       onClick={() => setOpen(false)}
                       type="submit"
+                      disabled
                       value="Send"
-                      className="inline-flex w-full justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
+                      className="inline-flex w-full justify-center cursor-not-allowed rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
                     >
                       Send voice message
                     </button>
@@ -156,38 +121,6 @@ export default function Voice() {
           >
             <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
-            {/* <div className="fixed inset-0 z-10 overflow-y-auto">
-              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
-                <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
-                  <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                    <div className="sm:flex sm:items-start">
-                      <div className="mt-3 text-center sm:mt-0 sm:ml-4">
-                        <h3
-                          className="text-lg font-medium leading-6 text-gray-900"
-                          id="modal-title"
-                        >
-                          Please First Signin
-                        </h3>
-                        <div className="mt-2">
-                          <p className="text-sm text-gray-500">
-                            To send Voice, Please Signin in the NavBar section
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                    <button
-                      onClick={() => setOpen(false)}
-                      type="button"
-                      className="inline-flex w-full justify-center rounded-md border border-transparent bg-green-600 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 sm:ml-3 sm:w-auto sm:text-sm"
-                    >
-                      OK
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div> */}
             <div className="fixed inset-0 z-10 overflow-y-auto">
                     <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
                       <div className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
