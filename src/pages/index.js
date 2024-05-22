@@ -44,7 +44,6 @@ import Voice from '@/components/voice';
 // import Reviews from "../Routes/Reviews";
 // import NFT from "../Routes/NFT";
 import OneSignal from "react-onesignal";
-import generateRSS from "../lib/generateRssFeed";
 import { parse } from 'date-fns';
 import "../../serviceworker";
 
@@ -55,7 +54,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-generateRSS();
+// generateRSS();
 export default function index(props) {
   const form1 = useRef();
   const { pathname } = useRouter();

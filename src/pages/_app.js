@@ -48,8 +48,6 @@ import { getFirestore } from "firebase/firestore";
 import { doc, getDoc } from "firebase/firestore";
 import "firebase/compat/auth";
 import "firebase/compat/performance";
-import generateRSS from "../lib/generateRssFeed";
-import NFTRSS from "../lib/NFTRssFeed";
 import 'nprogress/nprogress.css'
 // import Contact from "../Routes/Contact";
 // import Voice from "./voice";
@@ -78,8 +76,8 @@ provider.setCustomParameters({ prompt: "select_account" });
 // Sign in and sign out functins
 const signIn = () => auth.signInWithPopup(provider);
 const signOut = () => auth.signOut();
-generateRSS();
-NFTRSS();
+// generateRSS();
+// NFTRSS();
 
 const TopProgressBar = dynamic(
   () => {
