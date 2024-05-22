@@ -6,9 +6,7 @@ import nightsky from "../assests/nightsky.jpg";
 import Image from 'next/image'
 import person from "../assests/person.svg";
 import calendar from "../assests/calendar.svg";
-import { getFirestore } from "firebase/firestore";
 import { StarIcon } from '@heroicons/react/20/solid'
-import { doc, getDoc } from "firebase/firestore";
 import Head from "next/head";
 import {
   TwitterShareButton,
@@ -16,7 +14,7 @@ import {
   FacebookShareButton,
   FacebookIcon,
 } from "react-share";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 
 function classNames(...classes) {
@@ -25,25 +23,11 @@ function classNames(...classes) {
 
 export default function Reviews(props) {
   const comment = [...props.comments].reverse();
-  const [messages, setMessages] = useState(false);
-  const reviews = messages !== false ? messages.Message : [] ; 
-  const [ep, setEp] = useState([]);
+  const messages = props.message
+  const reviews = messages !== false ? messages : [] ; 
+  const [ep, setEp] = useState(props.message.reverse().slice(0, 9));
   const lastepisode = props.episode.slice(-5).reverse();
 
-  useEffect(() => {
-    async function fetchData() {
-    const db = getFirestore();
-    const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
-    if (Snap.exists()) {
-      setMessages(Snap.data())
-      setEp(Snap.data().Message.reverse().slice(0, 9))
-    } else {
-      // console.log("No such document!");
-    }
-  }
-    fetchData();
-}, [props.user]);
-// console.log(comment);
   return (
     <>
     <Index />
@@ -273,7 +257,7 @@ export default function Reviews(props) {
               <div className="mt-16 md:mr-80">
                 <button
                   onClick={() =>
-                    setEp(messages.Message.reverse().slice(0, ep.length + 9))
+                    setEp(messages.reverse().slice(0, ep.length + 9))
                   }
                   class="bg-yellow-500 text-white h-12 w-28 lg:w-1/6 lg:h-16 lg:ml-80 md:ml-60 rounded-full hover:bg-white hover:text-black"
                 >
