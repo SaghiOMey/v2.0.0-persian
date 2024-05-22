@@ -40,17 +40,6 @@ import browse from "../assests/browsePodcast.svg";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import Footer from "../components/Footer";
-import { getFirestore } from "firebase/firestore";
-import {
-  collection,
-  getDocs,
-  setDoc,
-  doc,
-  getDoc,
-  updateDoc,
-  arrayUnion,
-  arrayRemove,
-} from "firebase/firestore";
 import person from "../assests/person.svg";
 import calendar from "../assests/calendar.svg";
 
