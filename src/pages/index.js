@@ -6,7 +6,6 @@ import episodes from "../pages/api/episodes"
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable no-unused-vars */
 import { Fragment, useCallback } from "react";
-// import logo from "../assests/saghiomey.png";
 import logo from "../assests/SOM.svg";
 import profile from "../assests/Logo.jpg";
 import Image from 'next/image'
@@ -14,49 +13,20 @@ import Link from "next/link";
 import Head from "next/head";
 import Script from 'next/script'
 // eslint-disable-next-line no-unused-vars
-// import { Routes, Route } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
-// import { NavLink, useLocation } from "react-router-dom";
 import { useRouter } from 'next/router';
-// import About from "../Routes/About";
-// import Home from "../Routes/Home";
-// import Episode from "../Routes/Episode";
-// import Persian from "../Routes/Persian";
-// import Video from "../Routes/Video";
-// import English from "../Routes/English";
-// import VideoInterviews from "../Routes/VideoInterviews";
 import { useRef, useState, useEffect } from "react";
-import { Dialog } from "@headlessui/react";
-// import apple from "../apple.svg";
-import youtube from "../assests/youtube.svg";
-import spotify from "../assests/spotify.svg";
-import googlepodcast from "../assests/googlepodcast.svg";
-import castbox from "../assests/castbox.svg";
-// import AudioEnglishInterviews from "../Routes/AudioEnglishInterviews";
-// import AudioPersianInterviews from "../Routes/AudioPersianInterviews";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { db, doc, getDoc, deleteDoc, getDocs, collection } from "firebase/firestore";
-import { getStorage, ref, deleteObject } from "firebase/storage";
+import { getDocs, collection } from "firebase/firestore";
 import { getFirestore } from "firebase/firestore";
-import Voice from '@/components/voice';
-// import Profile from "../Routes/Profile";
-// import Reviews from "../Routes/Reviews";
-// import NFT from "../Routes/NFT";
-import OneSignal from "react-onesignal";
-import { parse } from 'date-fns';
 import "../../serviceworker";
-
-// import Contact from "../Routes/Contact";
-// import Voice from "./voice";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-// generateRSS();
 export default function index(props) {
-  const form1 = useRef();
   const { pathname } = useRouter();
   const [Open, setOpen] = useState(false);
   const [Search, setSearch] = useState(false);
@@ -71,25 +41,10 @@ export default function index(props) {
   const filterNames = episodes.filter((episodes) =>
     episodes.name.toLowerCase().includes(Name.toLowerCase())
   );
-  // const filterReviews = props.reviews.filter((reviews) =>
-  //   reviews.epname.toLowerCase().includes(Name.toLowerCase())
-  // );
-  const cancelButtonRef = useRef(null);
-  let rand = (Math.random() + 1).toString(36);
 
   let navigation = [
     { name: "Home", href: "/", current: false },
     { name: "Video Interviews", href: "VideoInterviews", current: false },
-    // {
-    //   name: "Audio English Interviews",
-    //   href: "/EnglishEpisodes",
-    //   current: false,
-    // },
-    // {
-    //   name: "Audio Persian Interviews",
-    //   href: "/PersianEpisodes",
-    //   current: false,
-    // },
     {
       name: "Audio Interviews",
       href: "/AudioInterviews",
@@ -114,11 +69,6 @@ export default function index(props) {
       nav.href === result.href ? result : nav
     ));
   }
-  const Sub = useCallback(() => {
-    OneSignal.init({
-      appId: "62e0bd67-f20e-4491-b24f-a27b58d7cdfc",
-    });
-  }, []);
   useEffect(() => {
     async function fetchData() {
       const db = getFirestore();
@@ -133,7 +83,6 @@ export default function index(props) {
       fetchData();
     }, []);
 
-  // console.log(Img, Reviews);
   return (
     <div>
       <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9848331502386282"
@@ -195,12 +144,6 @@ export default function index(props) {
                         </Link>
                         </>
                       ))}
-                      {/* <button
-                        onClick={() => setOpen(true)}
-                        className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                      >
-                        Subscribe
-                      </button> */}
                       {props.user ? 
                       <button
                       onClick={props.signOut}
@@ -226,7 +169,6 @@ export default function index(props) {
                         <span className="sr-only">Open user menu</span>
 
                     <div className="flex rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white">
-                    {/* <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 34 34" id="message-box"><path fill="currentColor" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path><circle fill="currentColor" cx="22.167" cy="13.682" r="1"></circle><circle fill="currentColor" cx="9.833" cy="13.682" r="1"></circle><circle fill="currentColor" cx="16" cy="13.682" r="1"></circle></svg> */}
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </div>
 
@@ -270,13 +212,6 @@ export default function index(props) {
                       </Menu.Items>
                     </Transition>
                   </Menu>&nbsp;
-                  {/* <button
-                    onClick={Sub}
-                    type="button"
-                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>&nbsp; */}
                   {Search ? (
                     <input
                       type="search"
@@ -294,7 +229,6 @@ export default function index(props) {
                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">View notifications</span>
-                    {/* <BellIcon className="h-6 w-6" aria-hidden="true" /> */}
                     <svg
                       aria-hidden="true"
                       focusable="false"
@@ -346,18 +280,8 @@ export default function index(props) {
                             // eslint-disable-next-line jsx-a11y/anchor-is-valid
                             <>
                             {props.user ?
-                            // props.user.displayName
                             <span className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700")}>{props.user.displayName}</span>
                             :
-                            // <Link
-                            //   href="Profile"
-                            //   className={classNames(
-                            //     active ? "bg-gray-100" : "",
-                            //     "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
-                            //   )}
-                            // >
-                            //   Profile
-                            // </Link>
                             null
                             }
                             </>
@@ -417,12 +341,6 @@ export default function index(props) {
                     {item.name}
                   </Disclosure.Button>
                 ))}
-                {/* <button
-                  onClick={() => setOpen(true)}
-                  className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Subscribe
-                </button><br /> */}
                 {props.user ? 
                       <button
                       onClick={props.signOut}

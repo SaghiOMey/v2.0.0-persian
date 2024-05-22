@@ -209,44 +209,6 @@ export default function Video(props) {
                 </div>
                 <br />
                 <br />
-                <span className="font-normal font-sans text-white lg:text-2xl">
-                  Follow us on Social Media for the latest show updates
-                </span>
-                <br />
-                <br />
-                {/* <a href="#" className="font-normal font-sans text-yellow-500 lg:text-2xl">Twitter</a><br /><br /> */}
-                <a
-                  href="https://open.spotify.com/show/6ObUzf2m0OtJNyVvNvwIVp"
-                  className="font-normal font-sans text-yellow-500 lg:text-2xl"
-                >
-                  Spotify
-                </a>
-                <br />
-                <br />
-                <a
-                  href="https://www.facebook.com/profile.php?id=100089930657614"
-                  className="font-normal font-sans text-yellow-500 lg:text-2xl"
-                >
-                  Facebook
-                </a>
-                <br />
-                <br />
-                <a
-                  href="https://news.google.com/s/CBIw6YXAwrEB?sceid=US:en&sceid=US:en&r=0&oc=1"
-                  className="font-normal font-sans text-yellow-500 lg:text-2xl"
-                >
-                  GoogleNews
-                </a>
-                <br />
-                <br />
-                <a
-                  href="https://www.youtube.com/channel/UCCsIc3DO4eWMO2TlyRxxQSQ"
-                  className="font-normal font-sans text-yellow-500 lg:text-2xl"
-                >
-                  YouTube
-                </a>
-                <br />
-                <br />
                 <Footer lastepisode={lastepisode} />
               </div>
             </div>

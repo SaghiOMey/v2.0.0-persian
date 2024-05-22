@@ -6,23 +6,17 @@ import nightsky from "../assests/nightsky.jpg";
 import Index from "./index";
 import { Tab } from "@headlessui/react";
 import { useState } from "react";
-// import logo from "../saghimey.jpg";
 import Footer from "../components/Footer";
 import logo from "../assests/SOM.svg";
 import Image from "next/image";
 import Head from "next/head";
 import Link from "next/link";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export default function NFT(props) {
   const reviews = props.review.reverse();
   const review = [...props.review].reverse();
   const [ep, setEp] = useState(review.slice(0, 9));
   const lastepisode = props.episodes.slice(-5).reverse();
-  // console.log(review);
   return (
     <>
       <Index />

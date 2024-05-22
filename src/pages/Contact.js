@@ -41,7 +41,6 @@ export default function Contact(props) {
     e.preventDefault();
     const { isValid } = validateForm({ form, errors, forceTouchErrors: true });
     if (!isValid) return;
-    // alert(JSON.stringify(form, null, 2));
     emailjs
       .sendForm(
         "service_042vorh",

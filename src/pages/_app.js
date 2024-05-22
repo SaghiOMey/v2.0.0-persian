@@ -8,48 +8,22 @@ import episodes from './api/episodes'
 import Reviews from './api/reviews'
 import Message from './api/message'
 import Comment from './api/comments'
-import Script from 'next/script'
 import { Fragment, useCallback } from "react";
-// import logo from "../assests/saghiomey.png";
 import logo from "../assests/SOM.svg";
 import profile from "../assests/Logo.jpg";
 import Image from 'next/image'
 import Link from "next/link";
 // eslint-disable-next-line no-unused-vars
-// import { Routes, Route } from "react-router-dom";
 // eslint-disable-next-line no-unused-vars
-// import { NavLink, useLocation } from "react-router-dom";
 import { useRouter } from 'next/router';
-// import About from "../Routes/About";
-// import Home from "../Routes/Home";
-// import Episode from "../Routes/Episode";
-// import Persian from "../Routes/Persian";
-// import Video from "../Routes/Video";
-// import English from "../Routes/English";
-// import VideoInterviews from "../Routes/VideoInterviews";
 import { useRef, useState, useEffect } from "react";
-import { Dialog } from "@headlessui/react";
-// import apple from "../apple.svg";
-import youtube from "../assests/youtube.svg";
-import spotify from "../assests/spotify.svg";
-import googlepodcast from "../assests/googlepodcast.svg";
-import castbox from "../assests/castbox.svg";
-// import AudioEnglishInterviews from "../Routes/AudioEnglishInterviews";
-// import AudioPersianInterviews from "../Routes/AudioPersianInterviews";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-// import Profile from "../Routes/Profile";
-// import Reviews from "../Routes/Reviews";
-// import NFT from "../Routes/NFT";
 import OneSignal from "react-onesignal";
 import firebase from "firebase/compat/app";
-import { getFirestore } from "firebase/firestore";
-import { doc, getDoc } from "firebase/firestore";
 import "firebase/compat/auth";
 import "firebase/compat/performance";
 import 'nprogress/nprogress.css'
-// import Contact from "../Routes/Contact";
-// import Voice from "./voice";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -75,8 +49,6 @@ provider.setCustomParameters({ prompt: "select_account" });
 // Sign in and sign out functins
 const signIn = () => auth.signInWithPopup(provider);
 const signOut = () => auth.signOut();
-// generateRSS();
-// NFTRSS();
 
 const TopProgressBar = dynamic(
   () => {
@@ -92,24 +64,11 @@ export default function App({ Component, pageProps }) {
   const [Search, setSearch] = useState(false);
   const [user, setUser] = useState(null);
   const [ep, setEp] = useState(Message);
-  // const [audio, setAudio] = useState("");
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       setUser(user);
     });
   }, []);
-
-   useEffect(() => {
-        const handleRouteChange = (url) => {
-          gtag.pageview(url);
-        };
-     
-        router.events.on("routeChangeComplete", handleRouteChange);
-     
-        return () => {
-          router.events.off("routeChangeComplete", handleRouteChange);
-        };
-      }, [router.events]);
 
   let [Name, setName] = useState("");
   const handleChange = (e) => {
@@ -124,21 +83,10 @@ export default function App({ Component, pageProps }) {
   const filterComments = ep.length !== 0 ? Message.filter((comments) =>
     comments.ep.toLowerCase().includes(Name.toLowerCase())
   ) : []
-  const cancelButtonRef = useRef(null);
 
   let navigation = [
     { name: "Home", href: "/", current: false },
     { name: "Video Interviews", href: "/VideoInterviews", current: false },
-    // {
-    //   name: "Audio English Interviews",
-    //   href: "/EnglishEpisodes",
-    //   current: false,
-    // },
-    // {
-    //   name: "Audio Persian Interviews",
-    //   href: "/PersianEpisodes",
-    //   current: false,
-    // },
     {
       name: "Audio Interviews",
       href: "/AudioInterviews",
@@ -163,42 +111,10 @@ export default function App({ Component, pageProps }) {
       nav.href === result.href ? result : nav
     ));
   }
-  const Sub = useCallback(() => {
-    OneSignal.init({
-      appId: "62e0bd67-f20e-4491-b24f-a27b58d7cdfc",
-    });
-  }, []);
 
-  // console.log(time);
   return (
     <>
         <div style={{ height: "0px" }}>
-        <Script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9848331502386282"
-          crossorigin="anonymous"></Script>
-        <Script id="google-tag-manager" strategy="afterInteractive">
-      {`
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-M7DBDR7');
-      `}
-      </Script>
-        <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-YN69BQP0B0"/>
-          <Script
-          id='google-analytics'
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-          __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-YN69BQP0B0', {
-          page_path: window.location.pathname,
-          });
-        `,
-        }}
-        />
         </div>
       <Head>
         <title>SaghiOMey</title>
@@ -261,12 +177,6 @@ export default function App({ Component, pageProps }) {
                         </Link>
                         </>
                       ))}
-                      {/* <button
-                        onClick={() => setOpen(true)}
-                        className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                      >
-                        Subscribe
-                      </button> */}
                       {user ? 
                       <button
                       onClick={signOut}
@@ -286,13 +196,6 @@ export default function App({ Component, pageProps }) {
                   </div>
                 </div>
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 pt-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                  {/* <button
-                    onClick={Sub}
-                    type="button"
-                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>&nbsp; */}
                   {Search ? (
                     <input
                       type="search"
@@ -362,19 +265,9 @@ export default function App({ Component, pageProps }) {
                             <>
                             {user ?
                             <>
-                            {/* {user.displayName} */}
                            <span className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700")}>{user.displayName}</span>
                             </>
                             :
-                            // <Link
-                            //   href="Profile"
-                            //   className={classNames(
-                            //     active ? "bg-gray-100" : "",
-                            //     "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
-                            //   )}
-                            // >
-                            //   Profile
-                            // </Link>
                             null
                             }
                             </>
@@ -434,12 +327,6 @@ export default function App({ Component, pageProps }) {
                     {item.name}
                   </Disclosure.Button>
                 ))}
-                {/* <button
-                  onClick={() => setOpen(true)}
-                  className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Subscribe
-                </button><br /> */}
                 {user ? 
                       <button
                       onClick={signOut}

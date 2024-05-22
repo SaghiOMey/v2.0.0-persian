@@ -7,10 +7,6 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-      {/* <script
-          async
-          src="https://cdn.onesignal.com/sdks/OneSignalSDK.js"
-      ></script> */}
       <script
       dangerouslySetInnerHTML={{
       __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

@@ -6,18 +6,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import { Fragment, useState, useRef, useEffect } from "react";
-import { Dialog, RadioGroup, Transition } from "@headlessui/react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { Dialog, Transition } from "@headlessui/react";
 import { StarIcon } from "@heroicons/react/20/solid";
 import { useRouter } from "next/router";
 import sky from "../assests/sky.jpg";
 import Image from "next/image";
 import Index from "./index";
 import Head from "next/head";
-// import apple from "../apple.svg";
-import youtube from "../assests/youtube.svg";
-import spotify from "../assests/spotify.svg";
-import googlepodcast from "../assests/googlepodcast.svg";
 import share from "../assests/share.svg";
 import copy from "../assests/copy.svg";
 import done from "../assests/done.svg";
@@ -70,8 +65,8 @@ export default function Episode(props) {
   const [submit, setSubmit] = useState(false);
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
-  const [comments, setComments] = useState(false);
-  const [messages, setMessages] = useState(false);
+  const messages = props.message
+  const comments = props.comment
   const [isCopied, setIsCopied] = useState();
   const cancelButtonRef = useRef(null);
   const router = useRouter();
@@ -81,36 +76,14 @@ export default function Episode(props) {
     (episode) => episode.href === router.asPath.replace("/", "")
   );
 
-  const re = comments
-    ? comments.Comments.find((comment) => comment.name === result.href)
+  const re = comments && result
+    ? comments.find((comment) => comment.name === result.href)
     : false;
-  const fe = messages
-    ? messages.Message.filter(
+  const fe = messages && result
+    ? messages.filter(
         (review) => review.ep === result.href && review.status === 1
       ).length
     : false;
-  // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
-
-  useEffect(() => {
-    async function fetchData() {
-      const db = getFirestore();
-      const docSnap = await getDoc(doc(db, "comments", "w44wc6XwYePlrsl3f3Ll"));
-      const Snap = await getDoc(doc(db, "comments", "CmH4vduV6PMnqShozQJU"));
-      if (docSnap.exists()) {
-        // console.log("Document data:", docSnap.data());
-        setComments(docSnap.data());
-      } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-      }
-      if (Snap.exists()) {
-        setMessages(Snap.data());
-      } else {
-        // console.log("No such document!");
-      }
-    }
-     fetchData();
-  }, [props.user]);
 
   function setttimeout() {
     setTimeout(() => {
@@ -816,8 +789,8 @@ export default function Episode(props) {
                 <div className="mx-auto text-center max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
                   <div className="mt-6 grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
                     <>
-                      {messages.Message ? (
-                        messages.Message.map((review) => (
+                      {messages ? (
+                        messages.map((review) => (
                           <>
                             {review.ep === result.href &&
                             review.status === 1 ? (
@@ -918,44 +891,6 @@ export default function Episode(props) {
                     </>
                   </div>
                 </div>
-                <br />
-                <br />
-                <span className="font-normal font-sans text-white lg:text-2xl">
-                  Follow us on Social Media for the latest show updates
-                </span>
-                <br />
-                <br />
-                {/* <a href="#" className="font-normal font-sans text-yellow-500 lg:text-2xl">Twitter</a><br /><br /> */}
-                <a
-                  href="https://open.spotify.com/show/6ObUzf2m0OtJNyVvNvwIVp"
-                  className="font-normal font-sans text-yellow-500 lg:text-2xl"
-                >
-                  Spotify
-                </a>
-                <br />
-                <br />
-                <a
-                  href="https://www.facebook.com/profile.php?id=100089930657614"
-                  className="font-normal font-sans text-yellow-500 lg:text-2xl"
-                >
-                  Facebook
-                </a>
-                <br />
-                <br />
-                <a
-                  href="https://news.google.com/s/CBIw6YXAwrEB?sceid=US:en&sceid=US:en&r=0&oc=1"
-                  className="font-normal font-sans text-yellow-500 lg:text-2xl"
-                >
-                  GoogleNews
-                </a>
-                <br />
-                <br />
-                <a
-                  href="https://www.youtube.com/channel/UCCsIc3DO4eWMO2TlyRxxQSQ"
-                  className="font-normal font-sans text-yellow-500 lg:text-2xl"
-                >
-                  YouTube
-                </a>
                 <br />
                 <br />
                 <Footer lastepisode={lastepisode} />
