@@ -19,7 +19,6 @@ import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import OneSignal from "react-onesignal";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/performance";
