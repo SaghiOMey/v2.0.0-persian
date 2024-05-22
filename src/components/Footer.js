@@ -31,17 +31,12 @@ export default function Footer(lastepisode) {
   return (
     <>
       {pathname === "/About" ||
-      pathname === "/Profile" ||
       pathname === "/[Episode]" ||
       pathname === "/VideoInterviews/[Video]" ||
       pathname === "/AudioInterviews/[Audio]" ||
       pathname === "/Contact" ||
       pathname === "/News" ||
       pathname === "/News/[News]" ||
-      pathname === "/Ads" ||
-      pathname === "/TermsofService" ||
-      pathname === "/PrivacyPolicy" ||
-      pathname === "/Guest/[Guest]" ||
       pathname === "/NFT" ? (
         <div className="md:flex mt-36 md:justify-between mx-auto text-center max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <span className="text-gray-300 text-lg font-medium">

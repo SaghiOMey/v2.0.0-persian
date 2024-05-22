@@ -38,7 +38,6 @@ import castbox from "../assests/castbox.svg";
 // import AudioPersianInterviews from "../Routes/AudioPersianInterviews";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import * as gtag from "../lib/gtag"
 // import Profile from "../Routes/Profile";
 // import Reviews from "../Routes/Reviews";
 // import NFT from "../Routes/NFT";

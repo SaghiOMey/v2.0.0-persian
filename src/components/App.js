@@ -1,12 +1,6 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { Dialog, Transition } from "@headlessui/react";
-import { Fragment, useRef, useState } from "react";
 import Desert from "../assests/Desert.jpg";
-import youtube from "../assests/youtube.svg";
-import spotify from "../assests/spotify.svg";
-import googlepodcast from "../assests/googlepodcast.svg";
-import logo from "../assests/saghimey.png";
 import Link from "next/link";
 import Image from "next/image";
 import Card from "./Card";
@@ -14,9 +8,7 @@ import Footer from "./Footer";
 
 export default function App(props) {
   const episodes = [...props.episodes].reverse();
-  const [open, setOpen] = useState(false);
   const lastepisode = props.episodes.slice(-5).reverse();
-  const cancelButtonRef = useRef(null);
   return (
     <>
       <div className="relative">
@@ -41,8 +33,6 @@ export default function App(props) {
           />
           <div className="mt-16 -ml-20 h-72 lg:h-auto md:h-44 md:m-0 md:flex md:flex-1 md:items-start md:justify-center bg-black">
             <div className="font-mono font-bold ml-6 text-xs lg:text-xs xl:text-lg text-gray-100">
-              {/* Join Host Milad as he talks to various guests each week where
-              ”Everyone Has A Story” from the world. */}
               Join Host Milad as he talks to various guests where
               ”Everyone Has A Story” from the world.
               <br />
