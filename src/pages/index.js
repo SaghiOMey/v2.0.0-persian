@@ -63,7 +63,7 @@ export default function index(props) {
   const [Search, setSearch] = useState(false);
   const [Reviews, setReviews] = useState(null);
   const [Img, setImg] = useState(null);
-  const [ep, setEp] = useState([]);
+  const [ep, setEp] = useState(props.message);
   let [Name, setName] = useState("");
 
   const handleChange = (e) => {
@@ -134,24 +134,6 @@ export default function index(props) {
       fetchData();
     }, []);
 
-    useEffect(() => {
-      async function fetchData() {
-      const db = getFirestore();
-      const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
-      if (Snap.exists()) {
-        setEp(Snap.data())
-      } else {
-        // console.log("No such document!");
-      }
-    }
-      fetchData();
-  }, [props.user]);
-
-  const date = episodes.slice(-5).reverse().map((item) => (new Date(item.date).getMonth() < new Date().getMonth() ? item.date : item.date.slice(4,6) <= new Date().toString().slice(8, 10) ? item.date : item.date))
-  const counts = {}
-  date.forEach(function (x) { counts[x] = (counts[x] || 0) + 1; })
-  const messages = props.user && ep.Message ? ep.Message.filter(element => element.name === props.user.displayName) : null;
-  const message = props.user && ep.Message ? ep.Message.find(element => element.name === props.user.displayName) : null;
   // console.log(Img, Reviews);
   return (
     <div>
@@ -245,7 +227,6 @@ export default function index(props) {
                         <span className="sr-only">Open user menu</span>
 
                     <div className="flex rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white">
-                    <span className="text-yellow-500">{counts.New}</span>  
                     {/* <svg xmlns="http://www.w3.org/2000/svg" class="w-6" viewBox="0 0 34 34" id="message-box"><path fill="currentColor" d="M8.449 30.002a2.06 2.06 0 0 1-.83-.176 2.02 2.02 0 0 1-1.225-1.874v-2.513H4.35A4.355 4.355 0 0 1 0 21.09V6.351A4.356 4.356 0 0 1 4.35 2h23.3A4.356 4.356 0 0 1 32 6.35v14.74a4.355 4.355 0 0 1-4.35 4.35H14.177l-4.35 4.016c-.39.359-.88.546-1.38.546zM4.35 4A2.354 2.354 0 0 0 2 6.35v14.74a2.353 2.353 0 0 0 2.35 2.35h3.044a1 1 0 0 1 1 1v3.512l4.715-4.247a1 1 0 0 1 .678-.266H27.65A2.353 2.353 0 0 0 30 21.09V6.351A2.354 2.354 0 0 0 27.65 4H4.35z"></path><circle fill="currentColor" cx="22.167" cy="13.682" r="1"></circle><circle fill="currentColor" cx="9.833" cy="13.682" r="1"></circle><circle fill="currentColor" cx="16" cy="13.682" r="1"></circle></svg> */}
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                     </div>
@@ -407,7 +388,7 @@ export default function index(props) {
                                 "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
                               )}
                             >
-                              Reviews {messages && message && message.status === 1 ? <span className='font-medium bg-black rounded-full text-base text-yellow-500 hover:bg-yellow-500 hover:text-black'><span className='px-2'>{messages.length}</span></span> : <span className='font-medium bg-black rounded-full text-base text-yellow-500 hover:bg-yellow-500 hover:text-black'><span className='px-2'>0</span></span>}
+                              Reviews <span className='px-2'>0</span>
                             </Link>
                           )}
                         </Menu.Item>

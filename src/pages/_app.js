@@ -94,7 +94,7 @@ export default function App({ Component, pageProps }) {
   const { pathname } = useRouter();
   const [Search, setSearch] = useState(false);
   const [user, setUser] = useState(null);
-  const [ep, setEp] = useState([]);
+  const [ep, setEp] = useState(Message);
   // const [audio, setAudio] = useState("");
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
@@ -113,18 +113,6 @@ export default function App({ Component, pageProps }) {
           router.events.off("routeChangeComplete", handleRouteChange);
         };
       }, [router.events]);
-    useEffect(() => {
-      async function fetchData() {
-      const db = getFirestore();
-      const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
-      if (Snap.exists()) {
-        setEp(Snap.data())
-      } else {
-        // console.log("No such document!");
-      }
-    }
-      fetchData();
-  }, [user]);
 
   let [Name, setName] = useState("");
   const handleChange = (e) => {
@@ -136,7 +124,7 @@ export default function App({ Component, pageProps }) {
   const filterReviews = Reviews.filter((reviews) =>
     reviews.epname.toLowerCase().includes(Name.toLowerCase())
   );
-  const filterComments = ep.length !== 0 ? ep.Message.filter((comments) =>
+  const filterComments = ep.length !== 0 ? Message.filter((comments) =>
     comments.ep.toLowerCase().includes(Name.toLowerCase())
   ) : []
   const cancelButtonRef = useRef(null);
@@ -184,8 +172,6 @@ export default function App({ Component, pageProps }) {
     });
   }, []);
 
-  const messages = user && ep.Message ? ep.Message.filter(element => element.name === user.displayName) : null;
-  const message = user && ep.Message ? ep.Message.find(element => element.name === user.displayName) : null;
   // console.log(time);
   return (
     <>
@@ -421,7 +407,7 @@ export default function App({ Component, pageProps }) {
                                 "block px-4 py-2 text-sm text-gray-700 hover:text-yellow-500"
                               )}
                             >
-                              Reviews {messages && message && message.status === 1 ? <span className='font-medium bg-black rounded-full text-base text-yellow-500 hover:bg-yellow-500 hover:text-black'><span className='px-2'>{messages.length}</span></span> : <span className='font-medium bg-black rounded-full text-base text-yellow-500 hover:bg-yellow-500 hover:text-black'><span className='px-2'>0</span></span>}
+                              Reviews <span className='px-2'>0</span>
                             </Link>
                           )}
                         </Menu.Item>
