@@ -5,7 +5,7 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import { Fragment, useState, useRef, useEffect } from "react";
+import { Fragment, useState, useRef } from "react";
 import { useRouter } from 'next/router';
 import Index from "../index";
 import sky from "../../assests/sky.jpg";
@@ -14,11 +14,6 @@ import { Transition } from "@headlessui/react";
 import Head from "next/head";
 import Image from 'next/image'
 import Link from "next/link";
-// import apple from "../apple.svg";
-import youtube from "../../assests/youtube.svg";
-import spotify from "../../assests/spotify.svg";
-import googlepodcast from "../../assests/googlepodcast.svg";
-import { XMarkIcon } from '@heroicons/react/24/outline'
 import { StarIcon } from '@heroicons/react/20/solid'
 import share from "../../assests/share.svg";
 import copy from "../../assests/copy.svg";
@@ -45,8 +40,6 @@ import browse from "../../assests/browsePodcast.svg";
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import Footer from "../../components/Footer";
-import { getFirestore } from "firebase/firestore";
-import { collection, getDocs, setDoc, doc, getDoc, updateDoc, arrayUnion, arrayRemove } from "firebase/firestore";
 import person from "../../assests/person.svg";
 import calendar from "../../assests/calendar.svg";
 
@@ -57,14 +50,11 @@ function classNames(...classes) {
 export default function Persian(props) {
   const [Open, setOpen] = useState(false);
   const [open, setopen] = useState(false);
-  const [openreview, setopenreview] = useState(false);
   const [submit, setSubmit] = useState(false);
-  const [like, setLike] = useState(false);
-  const [countlike, setCountlike] = useState(0);
-  const [dislike, setDislike] = useState(false);
-  const [comments, setComments] = useState(false);
-  const [messages, setMessages] = useState(false);
-  const [countdislike, setCountdislike] = useState(0);
+  const [like] = useState(false);
+  const [dislike] = useState(false);
+  const messages = props.message
+  const comments = props.comment
   const [isCopied, setIsCopied] = useState();
   const cancelButtonRef = useRef(null);
   const router = useRouter();
@@ -74,109 +64,8 @@ export default function Persian(props) {
     (episode) => episode.href === router.asPath.replace("/AudioInterviews/", "")
   );
 
-  const [form, setForm] = useState({
-    rating: 0,
-    name: "",
-    message: "",
-    status: 0,
-    Date: Date().slice(4,10)+','+Date().slice(10,15),
-    nameep: "",
-    ep: ""
-  });
-  const re = comments ? comments.Comments.find((comment) => comment.name === result.href) : false
-  const fe = messages ? messages.Message.filter((review) => review.ep === result.href && review.status === 1 ).length : false
-  // const me = comments ? comments.Comments.find((comment) => comment.ep === result.href) : false
-
-  useEffect(() => {
-    async function fetchData() {
-    const db = getFirestore();
-    const docSnap = await getDoc(doc(db ,"comments", "w44wc6XwYePlrsl3f3Ll"));
-    const Snap = await getDoc(doc(db ,"comments", "CmH4vduV6PMnqShozQJU"));
-    if (docSnap.exists()) {
-      // console.log("Document data:", docSnap.data());
-      setComments(docSnap.data())
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
-    }
-    if (Snap.exists()) {
-      setMessages(Snap.data())
-    } else {
-      // console.log("No such document!");
-    }
-  }
-    fetchData();
-}, [props.user]);
-
-async function flike(){
-  const db = getFirestore();
-  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
-
-  const c = re !== undefined ? !like === true ? re.like + 1 : re.like === 0 ? re.like : re.like - 1 : 1
-
-  await updateDoc(com, 
-    {
-      "Comments" : arrayUnion(
-        {
-          like: c,
-          dislike: re !== undefined ? re.dislike : 0,
-          name: result.href
-        }
-      )
-    }, { merge: true });
-    await updateDoc(com, 
-      {
-        "Comments" : arrayRemove(
-          {
-            like: re !== undefined ? re.like : 0,
-            dislike: re !== undefined ? re.dislike : 0,
-            name: result.href
-          }
-        )
-      }, { merge: true });
-      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
-        if (docSnap.exists()) {
-          setComments(docSnap.data())
-        } else {
-          // console.log("No such document!");
-        }
-        });    
-}
-
-async function fdislike(){
-  const db = getFirestore();
-  const com = doc(db,"comments", "w44wc6XwYePlrsl3f3Ll")
-
-  const d = re !== undefined ? !dislike === true ? re.dislike + 1 : re.dislike === 0 ? re.dislike : re.dislike - 1 : 1
-
-  await updateDoc(com, 
-    {
-      "Comments" : arrayUnion(
-        {
-          like: re !== undefined ? re.like : 0,
-          dislike: d,
-          name: result.href
-        }
-      )
-    }, { merge: true });
-    await updateDoc(com, 
-      {
-        "Comments" : arrayRemove(
-          {
-            like: re !== undefined ? re.like : 0,
-            dislike: re !== undefined ? re.dislike : 0,
-            name: result.href
-          }
-        )
-      }, { merge: true });
-      getDoc(doc(getFirestore(), "comments", "w44wc6XwYePlrsl3f3Ll")).then(docSnap => {
-        if (docSnap.exists()) {
-          setComments(docSnap.data())
-        } else {
-          // console.log("No such document!");
-        }
-        });    
-}
+  const re = comments && result ? comments.find((comment) => comment.name === result.href) : false
+  const fe = messages && result ? messages.filter((review) => review.ep === result.href && review.status === 1 ).length : false
 
 function setttimeout(){
   setTimeout(() => {
@@ -184,52 +73,12 @@ function setttimeout(){
   },3000)
 }
 
-const onSubmitForm = (e) => {
-  e.preventDefault();
-};
-
-const onUpdateField = (e) => {
-  const field = e.target.name;
-  const nextFormState = {
-    ...form,
-    [field]: e.target.value,
-  };
-  setForm(nextFormState);
-};
-
-async function message(){
-  const db = getFirestore();
-  const com = doc(db,"comments", "CmH4vduV6PMnqShozQJU")
-
-  await updateDoc(com, 
-    {
-      "Message" : arrayUnion(
-        {
-            rating: form.rating,
-            name: form.name,
-            message: form.message,
-            status: form.status,
-            Date: form.Date,
-            ep: form.ep,
-            nameep: form.nameep
-        }
-      )
-    }, { merge: true });
-      getDoc(doc(getFirestore(), "comments", "CmH4vduV6PMnqShozQJU")).then(docSnap => {
-        if (docSnap.exists()) {
-          setMessages(docSnap.data())
-        } else {
-          // console.log("No such document!");
-        }
-        });    
-}
 function settimeout(){
   setTimeout(() => {
     setSubmit(false)
   },3000)
 }
-  // const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/AudioInterviews/", ""))
-  // console.log(props.user.displayName);
+
   return (
     <>
      <Index />
@@ -690,7 +539,7 @@ function settimeout(){
             <div className="mx-auto text-center max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div className="mt-6 grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
                 <>
-                  {messages.Message ? messages.Message.map((review) => (
+                  {messages ? messages.map((review) => (
                     <>
                     {review.ep === result.href && review.status === 1 ? (
                       <div

@@ -6,15 +6,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
 import sky from "../../assests/sky.jpg";
 import Footer from "../../components/Footer";
 import Image from "next/image";
 import person from "../../assests/person.svg";
 import calendar from "../../assests/calendar.svg";
-import { getFirestore } from "firebase/firestore";
 import { StarIcon } from "@heroicons/react/20/solid";
-import { doc, getDoc } from "firebase/firestore";
 import Head from "next/head";
 import {
   TwitterShareButton,
@@ -22,7 +19,6 @@ import {
   FacebookShareButton,
   FacebookIcon,
 } from "react-share";
-import Link from "next/link";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -30,28 +26,13 @@ function classNames(...classes) {
 
 export default function Video(props) {
   const router = useRouter();
-  const [messages, setMessages] = useState(false);
+  const messages = props.message
   const episodes = [...props.episodes].reverse();
-  const [ep, setEp] = useState([]);
   const lastepisode = props.episodes.slice(-5).reverse();
   const result = episodes.find(
     (episode) => episode.href === router.asPath.replace("/VideoInterviews/", "")
   );
-  useEffect(() => {
-    async function fetchData() {
-      const db = getFirestore();
-      const Snap = await getDoc(doc(db, "comments", "CmH4vduV6PMnqShozQJU"));
-      if (Snap.exists()) {
-        setMessages(Snap.data());
-        setEp(Snap.data().Message.reverse().slice(0, 9));
-      } else {
-        // console.log("No such document!");
-      }
-    }
-    fetchData();
-  }, []);
-  // const show = props.episodes.slice(-4).reverse().find((episode) => episode.href === router.asPath.replace("/VideoInterviews/", ""))
-  console.log(result);
+
   return (
     <>
       {router.isReady ? (
@@ -124,8 +105,8 @@ export default function Video(props) {
                 <div className="mx-auto text-center max-w-2xl py-16 px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
                   <div className="mt-6 grid grid-cols-1 gap-y-4 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-4">
                     <>
-                      {messages.Message ? (
-                        messages.Message.map((review) => (
+                      {messages ? (
+                        messages.map((review) => (
                           <>
                             {review.ep === result.href &&
                             review.status === 1 ? (

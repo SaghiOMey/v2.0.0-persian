@@ -7,6 +7,7 @@ import Head from "next/head";
 import episodes from './api/episodes'
 import Reviews from './api/reviews'
 import Message from './api/message'
+import Comment from './api/comments'
 import Script from 'next/script'
 import { Fragment, useCallback } from "react";
 // import logo from "../assests/saghiomey.png";
@@ -478,7 +479,7 @@ export default function App({ Component, pageProps }) {
       </Disclosure>
       }
   <TopProgressBar />    
-  <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={Reviews} message={Message} episodes={filterNames} review={filterReviews} comments={filterComments} />
+  <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={Reviews} message={Message} episodes={filterNames} comment={Comment} review={filterReviews} comments={filterComments} />
   <Voice />
     </>
   )
