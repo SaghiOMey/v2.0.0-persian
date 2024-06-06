@@ -31,7 +31,6 @@ export default function NFT(props) {
     <Head>
         <title>NFT</title>
         <link rel="shortcut icon" href="/saghiomey.ico" />
-        <link href="https://saghiomey.netlify.app//NFT.xml" rel="alternate" type="application/rss+xml"/>
       </Head>
       <div className="relative">
         <Image className="bg-cover xl:w-full" src={nightsky} alt="nightsky" />
@@ -42,7 +41,7 @@ export default function NFT(props) {
               Available On:
             </span>
             <a
-              href="https://opensea.io/milad21"
+              href="/"
               className="text-yellow-500 lg:mt-8 md:mt-0 hover:text-white fill-current"
             >
               <Image
