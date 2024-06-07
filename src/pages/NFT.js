@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import nightsky from "../assests/nightsky.jpg";
 import Index from "./index";
+import Link from "next/link";
 import { Tab } from "@headlessui/react";
 import { useState } from "react";
 import Footer from "../components/Footer";
@@ -40,7 +41,7 @@ export default function NFT(props) {
             <span className="lg:mt-8 md:mt-0 text-xs md:text-base font-sans font-medium">
               Available On:
             </span>
-            <a
+            <Link
               href="/"
               className="text-yellow-500 lg:mt-8 md:mt-0 hover:text-white fill-current"
             >
@@ -49,7 +50,7 @@ export default function NFT(props) {
               src={logo}
               alt="SaghiOMey"
             />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="absolute -top-12 md:top-16 lg:top-2/4 mt-32 w-full min-h-max bg-black">
