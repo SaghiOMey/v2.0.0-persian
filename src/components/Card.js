@@ -6,35 +6,12 @@
 import { useRouter } from 'next/router';
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
 
-//firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyCX0QCbi91uyfR-FFoq6B6Ld955eknirfo",
-  authDomain: "saghiomey-f6203.firebaseapp.com",
-  projectId: "saghiomey-f6203",
-  storageBucket: "saghiomey-f6203.appspot.com",
-  messagingSenderId: "838247378490",
-  appId: "1:838247378490:web:a8bc732e73e69f42b14f03",
-  measurementId: "G-B3DNY6FW6W"
-};
-// Initialize firebase and google 
-firebase.initializeApp(firebaseConfig);
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
-// Sign in and sign out functins
 
 
 export default function Card(episodes) {
   const { pathname } = useRouter();
   const [ep, setEp] = useState(episodes.episodes.slice(0, 9));
-  const [user, setUser] = useState(null);
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(async (user) => {
-      setUser(user);
-    });
-  }, []);
 
   return (
     <>

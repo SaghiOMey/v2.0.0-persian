@@ -69,19 +69,6 @@ export default function index(props) {
       nav.href === result.href ? result : nav
     ));
   }
-  useEffect(() => {
-    async function fetchData() {
-      const db = getFirestore();
-      const last = episodes.slice(-5).reverse().map((item) => item.name)
-      const querySnapshot = await getDocs(collection(db, "guests"));
-      querySnapshot.forEach((doc) => {
-      last.find(element => element.includes(doc.id)) ? 
-      setReviews(doc.id) || setImg(doc.data().img)
-      : ""
-      });
-    }
-      fetchData();
-    }, []);
 
   return (
     <div>
@@ -89,7 +76,7 @@ export default function index(props) {
           crossorigin="anonymous"></Script>
       <Head>
       <meta property="og:title" key="og:title" content="Podcast SaghiOMey Hosted By Milad" />
-      <meta property="og:image" key="og:image" content="https://s3-us-west-2.amazonaws.com/anchor-generated-image-bank/production/podcast_uploaded/22745765/22745765-1673944612760-1d57f610e6e73.jpg" />
+      <meta property="og:image" key="og:image" content="https://firebasestorage.googleapis.com/v0/b/saghiomey-f6203.appspot.com/o/EPI%2Ffinal-01.jpg?alt=media&token=855f48a5-4913-41b0-9f38-5c221ba57713" />
       </Head>
       {pathname === "/" ? 
       <>
@@ -144,21 +131,6 @@ export default function index(props) {
                         </Link>
                         </>
                       ))}
-                      {props.user ? 
-                      <button
-                      onClick={props.signOut}
-                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      SignOut
-                    </button>
-                     :
-                     <button
-                      onClick={props.signIn}
-                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      SignIn
-                    </button>
-                     }
                     </div>
                   </div>
                 </div>
@@ -250,19 +222,11 @@ export default function index(props) {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
-                        {props.user ?
-                        <img
-                          className="h-16 w-16 rounded-full"
-                          src={props.user.photoURL}
-                          alt="profile"
-                        />
-                        :
                         <Image
                           className="h-16 w-16 rounded-full"
                           src={profile}
                           alt="profile"
                         />
-                        }
                       </Menu.Button>
                     </div>
                     <Transition
@@ -275,18 +239,6 @@ export default function index(props) {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          {({ active }) => (
-                            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                            <>
-                            {props.user ?
-                            <span className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700")}>{props.user.displayName}</span>
-                            :
-                            null
-                            }
-                            </>
-                          )}
-                        </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             // eslint-disable-next-line jsx-a11y/anchor-is-valid
@@ -341,21 +293,6 @@ export default function index(props) {
                     {item.name}
                   </Disclosure.Button>
                 ))}
-                {props.user ? 
-                      <button
-                      onClick={props.signOut}
-                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      SignOut
-                    </button>
-                     :
-                     <button
-                      onClick={props.signIn}
-                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      SignIn
-                    </button>
-                     }
               </div>
             </Disclosure.Panel>
           </>

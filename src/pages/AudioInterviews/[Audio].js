@@ -371,26 +371,6 @@ function settimeout(){
             Milad
           </span>
           <div className="flex md:justify-self-center w-80 md:w-auto gap-0.5 md:gap-3 -mt-20 xl:-mt-32 xl:ml-12 lg:-mt-18 lg:ml-64 md:-mt-24 md:ml-72">
-            {props.user ?
-            <button
-              disabled
-              className="flex cursor-not-allowed bg-white h-12 w-32 rounded hover:bg-opacity-0"
-            >
-              <svg className={like === false ? "text-yellow-500 animate-ping" : "text-red-700 animate-ping"} xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" version="1" id="heart"><path fill="currentColor" d="M2.2 9.4c0 1.3.2 3.3 2 5.1 1.6 1.6 6.9 5.2 7.1 5.4.2.1.4.2.6.2s.4-.1.6-.2c.2-.2 5.5-3.7 7.1-5.4 1.8-1.8 2-3.8 2-5.1 0-3-2.4-5.4-5.4-5.4-1.6 0-3.2.9-4.2 2.3C11 4.9 9.4 4 7.6 4 4.7 4 2.2 6.4 2.2 9.4z"></path></svg>
-              
-              <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
-                Like
-              </span>&nbsp;
-              <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
-              {re !== undefined ? re.name === result.href ? re.like : 
-                (<div role="status" className="absolute -mt-8 xl:-mt-24 lg:-mt-14 md:-mt-14 -ml-16 xl:-ml-20 lg:ml-7 md:ml-12 -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
-                <svg aria-hidden="true" className="w-6 h-6 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-yellow-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
-                <span className="sr-only">Loading...</span>
-                </div>)
-                 : 0}
-              </span>
-            </button>
-            : 
             <button
             onClick={() => setopen(true) || setttimeout()}
               className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
@@ -409,22 +389,6 @@ function settimeout(){
                  : 0}
               </span>
             </button>
-            }
-            {props.user ? 
-            <button
-              disabled
-              className="flex cursor-not-allowed bg-white h-12 w-32 rounded hover:bg-opacity-0"
-            >
-              <svg className="ml-2 mt-1 text-yellow-500 animate-ping" xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 36 36" id="comment"><path fill="currentColor" d="M5.078 24.482A19.813 19.813 0 0 1 1.812 30c3.198 0 7.312-.42 10.482-2.364A19.52 19.52 0 0 0 16 28c8.836 0 16-5.82 16-13S24.836 2 16 2 0 7.82 0 15c0 3.744 1.96 7.11 5.078 9.482z"></path></svg>
-              <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
-                Comment
-              </span>&nbsp;
-              <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
-              {fe}
-              </span>
-            
-            </button>
-            :
             <button
               className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
               onClick={() => setopen(true) || setttimeout()}
@@ -437,7 +401,6 @@ function settimeout(){
               {fe}
               </span>
             </button>
-            }
             <div
             className={`relative z-10 ${open === true ? "block" : "hidden"}`}
             aria-labelledby="modal-title"
@@ -487,26 +450,6 @@ function settimeout(){
               </div>
             </div>
             </div>
-            {props.user ? 
-            <button
-              disabled
-              className="flex cursor-not-allowed bg-white h-12 w-32 rounded hover:bg-opacity-0"
-            >
-              <svg className={dislike === false ? "text-yellow-500 animate-ping" : "text-red-700 animate-ping"} xmlns="http://www.w3.org/2000/svg" id="dislike" version="1" width="40" height="40" viewBox="0 0 27 27"><path fill="currentColor" d="M11.377.937h2v25.456h-2z" transform="rotate(-45.001 12.377 13.665)"></path><path d="m21.439 18.483 2.633-2.633.354-.354a6.5 6.5 0 0 0-9.192-9.192l-.354.354-.354-.354a6.495 6.495 0 0 0-6.784-1.518l13.697 13.697zM3.663 9.193a6.494 6.494 0 0 0 1.671 6.304l.354.354 9.192 9.192 2.317-2.317L3.663 9.193z"></path></svg>
-              
-              <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
-                Dislike
-              </span>&nbsp;
-              <span className="text-black font-bold text-xs md:text-base mt-3 hover:text-white">
-              {re !== undefined ? re.name === result.href ? re.dislike : 
-                (<div role="status" className="absolute -mt-8 xl:-mt-24 lg:-mt-14 md:-mt-14 ml-36 xl:ml-52 lg:ml-80 md:ml-80 -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
-                <svg aria-hidden="true" className="w-6 h-6 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-yellow-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
-                <span className="sr-only">Loading...</span>
-                </div>)
-                : 0}
-              </span>
-            </button>
-            :
             <button
               className="flex bg-white h-12 w-32 rounded hover:bg-opacity-0"
               onClick={() => setopen(true) || setttimeout()}
@@ -525,7 +468,6 @@ function settimeout(){
                 : 0}
               </span>
             </button>
-            }
           </div>
         </div>
         <div className="absolute mt-auto xl:mt-32 lg:mt-24 md:mt-24 md:top-2/3 lg:top-3/4 w-full min-h-max bg-black">

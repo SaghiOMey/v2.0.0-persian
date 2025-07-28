@@ -19,35 +19,12 @@ import { useRouter } from 'next/router';
 import { useRef, useState, useEffect } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import firebase from "firebase/compat/app";
-import "firebase/compat/auth";
-import "firebase/compat/performance";
 import 'nprogress/nprogress.css'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-//firebase config
-const firebaseConfig = {
-  apiKey: "AIzaSyCX0QCbi91uyfR-FFoq6B6Ld955eknirfo",
-  authDomain: "saghiomey-f6203.firebaseapp.com",
-  projectId: "saghiomey-f6203",
-  storageBucket: "saghiomey-f6203.appspot.com",
-  messagingSenderId: "838247378490",
-  appId: "1:838247378490:web:a8bc732e73e69f42b14f03",
-  measurementId: "G-B3DNY6FW6W"
-};
-
-// Initialize firebase and google 
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-// const perf = firebase.performance();
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
-// Sign in and sign out functins
-const signIn = () => auth.signInWithPopup(provider);
-const signOut = () => auth.signOut();
 
 const TopProgressBar = dynamic(
   () => {
@@ -61,13 +38,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const { pathname } = useRouter();
   const [Search, setSearch] = useState(false);
-  const [user, setUser] = useState(null);
   const [ep, setEp] = useState(Message);
-  useEffect(() => {
-    firebase.auth().onAuthStateChanged(async (user) => {
-      setUser(user);
-    });
-  }, []);
 
   let [Name, setName] = useState("");
   const handleChange = (e) => {
@@ -118,9 +89,7 @@ export default function App({ Component, pageProps }) {
       <Head>
         <title>SaghiOMey</title>
         <link rel="shortcut icon" href="/SM.ico" />
-        <link href="https://saghiomey.netlify.app/feed.xml" rel="alternate" type="application/rss+xml"/>
         <meta name="author" content="Milad" />
-        <meta name="google-site-verification" content="QpBWZ37FwTOQtW_1NPVKstxLBeO_7Y__NPqCx9vZla4" />
         <meta name="keywords"
         content="Milad, Milad Podcast, SaghiOMey, saghiomey, Saghiomey, SaghiOMey Podcast, Cultural and social podcast" />
       </Head>
@@ -176,21 +145,6 @@ export default function App({ Component, pageProps }) {
                         </Link>
                         </>
                       ))}
-                      {user ? 
-                      <button
-                      onClick={signOut}
-                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      SignOut
-                    </button>
-                     :
-                     <button
-                      onClick={signIn}
-                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      SignIn
-                    </button>
-                     }
                     </div>
                   </div>
                 </div>
@@ -233,19 +187,11 @@ export default function App({ Component, pageProps }) {
                     <div>
                       <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
-                        {user ?
-                        <img
-                          className="h-16 w-16 rounded-full"
-                          src={user.photoURL}
-                          alt="profile"
-                        />
-                        :
                         <Image
                           className="h-16 w-16 rounded-full"
                           src={profile}
                           alt="profile"
                         />
-                        }
                       </Menu.Button>
                     </div>
                     <Transition
@@ -258,20 +204,6 @@ export default function App({ Component, pageProps }) {
                       leaveTo="transform opacity-0 scale-95"
                     >
                       <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <Menu.Item>
-                          {({ active }) => (
-                            // eslint-disable-next-line jsx-a11y/anchor-is-valid
-                            <>
-                            {user ?
-                            <>
-                           <span className={classNames(active ? "bg-gray-100" : "","block px-4 py-2 text-sm text-gray-700")}>{user.displayName}</span>
-                            </>
-                            :
-                            null
-                            }
-                            </>
-                          )}
-                        </Menu.Item>
                         <Menu.Item>
                           {({ active }) => (
                             // eslint-disable-next-line jsx-a11y/anchor-is-valid
@@ -326,21 +258,6 @@ export default function App({ Component, pageProps }) {
                     {item.name}
                   </Disclosure.Button>
                 ))}
-                {user ? 
-                      <button
-                      onClick={signOut}
-                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      SignOut
-                    </button>
-                     :
-                     <button
-                      onClick={signIn}
-                      className="text-gray-300 hover:bg-gray-700 pointer hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium"
-                    >
-                      SignIn
-                    </button>
-                     }
               </div>
             </Disclosure.Panel>
           </>
@@ -348,7 +265,7 @@ export default function App({ Component, pageProps }) {
       </Disclosure>
       }
   <TopProgressBar />    
-  <Component {...pageProps} user={user} signIn={signIn} signOut={signOut} episode = {episodes} reviews={Reviews} message={Message} episodes={filterNames} comment={Comment} review={filterReviews} comments={filterComments} />
+  <Component {...pageProps} episode = {episodes} reviews={Reviews} message={Message} episodes={filterNames} comment={Comment} review={filterReviews} comments={filterComments} />
   <Voice />
     </>
   )
